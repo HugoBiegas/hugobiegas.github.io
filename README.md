@@ -98,7 +98,7 @@ Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
 
 Pour toute question ou suggestion concernant ce portfolio, n'hésitez pas à me contacter :
 
-- Email : contact@hugobiegas.com
+- Email : Contact.Hugo.Biegas@gmail.com
 - LinkedIn : [linkedin.com/in/hugo-biegas](https://linkedin.com/in/hugo-biegas)
 - GitHub : [github.com/HugoBiegas](https://github.com/HugoBiegas)
 

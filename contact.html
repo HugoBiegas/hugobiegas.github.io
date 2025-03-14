@@ -26,6 +26,49 @@
     <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="assets/css/dark-mode.css">
     
+    <!-- Firebase SDK -->
+    <script type="module">
+      // Import des SDK Firebase nécessaires
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js";
+      import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
+      
+      // Configuration Firebase
+      const firebaseConfig = {
+        apiKey: "AIzaSyDrchkO_FsAHbCyt3BxTh732n1e9kZbhm4",
+        authDomain: "portfolio-abb77.firebaseapp.com",
+        projectId: "portfolio-abb77",
+        storageBucket: "portfolio-abb77.firebasestorage.app",
+        messagingSenderId: "810930108",
+        appId: "1:810930108:web:6ed83764ebb7c1b3c3e5b9",
+        measurementId: "G-LQP4GFF917"
+      };
+      
+      // Initialisation de Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+      const db = getFirestore(app);
+      
+      // Exposer les fonctions Firestore dont nous avons besoin
+      window.saveContactForm = async function(formData) {
+        try {
+          const docRef = await addDoc(collection(db, "contact_messages"), {
+            name: formData.name,
+            email: formData.email,
+            subject: formData.subject,
+            message: formData.message,
+            timestamp: serverTimestamp()
+          });
+          
+          console.log("Document written with ID: ", docRef.id);
+          return { success: true, id: docRef.id };
+        } catch (error) {
+          console.error("Error adding document: ", error);
+          return { success: false, error: error.message };
+        }
+      };
+    </script>
+    
     <style>
         /* Styles spécifiques à la page de contact */
         .contact-banner {
@@ -385,18 +428,7 @@
                         </div>
                         <div class="contact-details">
                             <h3>Email</h3>
-                            <p><a href="mailto:contact@hugobiegas.com">contact@hugobiegas.com</a></p>
-                        </div>
-                    </div>
-                    
-                    <!-- Téléphone -->
-                    <div class="contact-method">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone-alt"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>Téléphone</h3>
-                            <p><a href="tel:+33600000000">+33 6 00 00 00 00</a></p>
+                            <p><a href="mailto:Contact.Hugo.Biegas@gmail.com">Contact.Hugo.Biegas@gmail.com</a></p>
                         </div>
                     </div>
                     
@@ -407,7 +439,7 @@
                         </div>
                         <div class="contact-details">
                             <h3>Localisation</h3>
-                            <p>France, disponible en télétravail et pour des missions sur site</p>
+                            <p>France, Saint-Ouen disponible en télétravail et pour des missions sur site</p>
                         </div>
                     </div>
                     
@@ -420,12 +452,6 @@
                             </a>
                             <a href="https://linkedin.com/in/hugo-biegas" target="_blank" rel="noopener noreferrer" class="social-item">
                                 <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a href="https://twitter.com/hugobiegas" target="_blank" rel="noopener noreferrer" class="social-item">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="https://dev.to/hugobiegas" target="_blank" rel="noopener noreferrer" class="social-item">
-                                <i class="fab fa-dev"></i>
                             </a>
                         </div>
                     </div>
@@ -471,7 +497,7 @@
                 <h2 class="availability-heading">Disponibilité actuelle</h2>
                 <p class="availability-text">Je suis actuellement disponible pour des missions freelance en développement web, mobile et des audits de sécurité. Si vous cherchez un développeur passionné qui accorde une importance particulière à la qualité et à la sécurité du code, n'hésitez pas à me contacter.</p>
                 <div class="availability-cta">
-                    <a href="mailto:contact@hugobiegas.com" class="btn primary-btn">Discutons de votre projet</a>
+                    <a href="mailto:Contact.Hugo.Biegas@gmail.com" class="btn primary-btn">Discutons de votre projet</a>
                 </div>
             </div>
         </div>
@@ -505,7 +531,7 @@
                             <a href="https://linkedin.com/in/hugo-biegas" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                                 <i class="fab fa-linkedin-in"></i>
                             </a>
-                            <a href="mailto:contact@hugobiegas.com" aria-label="Email">
+                            <a href="mailto:Contact.Hugo.Biegas@gmail.com" aria-label="Email">
                                 <i class="fas fa-envelope"></i>
                             </a>
                         </div>
@@ -528,21 +554,22 @@
             const formMessage = document.getElementById('form-message');
             
             if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
+                contactForm.addEventListener('submit', async function(e) {
                     e.preventDefault();
                     
-                    // Simulation d'envoi de formulaire
-                    // Dans un cas réel, vous utiliseriez fetch ou axios pour envoyer les données à un backend
-                    const formData = new FormData(contactForm);
-                    const formValues = Object.fromEntries(formData.entries());
+                    // Récupération des données du formulaire
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const subject = document.getElementById('subject').value;
+                    const message = document.getElementById('message').value;
                     
                     // Vérification des champs
-                    if (!formValues.name || !formValues.email || !formValues.subject || !formValues.message) {
+                    if (!name || !email || !subject || !message) {
                         showFormMessage('Veuillez remplir tous les champs du formulaire.', false);
                         return;
                     }
                     
-                    // Simulation de délai d'envoi
+                    // Affichage du message de chargement
                     formMessage.textContent = 'Envoi en cours...';
                     formMessage.className = 'form-message';
                     formMessage.style.display = 'block';
@@ -550,11 +577,25 @@
                     formMessage.style.color = '#084298';
                     formMessage.style.borderColor = '#b6d4fe';
                     
-                    setTimeout(() => {
-                        // Simulation de succès
-                        showFormMessage('Message envoyé avec succès! Je vous répondrai dans les plus brefs délais.', true);
-                        contactForm.reset();
-                    }, 1500);
+                    try {
+                        // Appel de la fonction exposée par le module Firebase
+                        const result = await window.saveContactForm({
+                            name,
+                            email,
+                            subject,
+                            message
+                        });
+                        
+                        if (result.success) {
+                            showFormMessage('Message envoyé avec succès ! Je vous répondrai dans les plus brefs délais.', true);
+                            contactForm.reset();
+                        } else {
+                            throw new Error(result.error || "Erreur lors de l'envoi du message");
+                        }
+                    } catch (error) {
+                        console.error("Erreur lors de l'envoi du message:", error);
+                        showFormMessage("Une erreur s'est produite lors de l'envoi du message. Veuillez réessayer.", false);
+                    }
                 });
             }
             
