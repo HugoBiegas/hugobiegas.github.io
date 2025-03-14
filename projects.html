@@ -65,7 +65,7 @@
         <div class="container">
             <div class="projects-banner-content">
                 <h1>Mes Projets</h1>
-                <p>Découvrez mon portfolio de projets en développement web, mobile et cybersécurité.</p>
+                <p>Découvrez mon portfolio de projets en développement web, mobile et cybersécurité, avec un focus particulier sur les principes SOLID et la sécurité des applications.</p>
             </div>
         </div>
     </section>
@@ -81,7 +81,7 @@
                     <button class="filter-btn" data-filter="mobile">Mobile</button>
                     <button class="filter-btn" data-filter="security">Sécurité</button>
                     <button class="filter-btn" data-filter="api">API</button>
-                    <button class="filter-btn" data-filter="other">Autres</button>
+                    <button class="filter-btn" data-filter="sncf">SNCF</button>
                 </div>
             </div>
         </div>
@@ -91,312 +91,263 @@
     <section class="projects-grid-section">
         <div class="container">
             <div class="projects-grid" id="projects-container">
-                <!-- Projet 1: SecuScanPro -->
-                <div class="project-card" data-category="security" id="secuscan">
+                <!-- Projet 1: Migration SNCF -->
+                <div class="project-card" data-category="sncf" id="sncf-app">
                     <div class="project-image">
-                        <img src="assets/img/projects/secuscan.jpg" alt="SecuScanPro">
+                        <img src="assets/img/projects/sncf-app.jpg" alt="Migration SNCF">
                     </div>
                     <div class="project-content">
-                        <h3>SecuScanPro</h3>
-                        <p>Application de scan de vulnérabilités pour sites web avec rapports détaillés et recommandations de sécurité.</p>
+                        <h3>Migration d'Applications SNCF</h3>
+                        <p>Refactorisation et modernisation des applications métier du Technicentre Sud-Est Européen.</p>
                         <div class="project-tags">
-                            <span>Java</span>
-                            <span>Cybersécurité</span>
-                            <span>OWASP</span>
+                            <span>Angular 19</span>
+                            <span>Spring Boot</span>
+                            <span>PHP 8</span>
                         </div>
                         <div class="project-description">
-                            <p>SecuScanPro est un outil de sécurité développé en Java qui permet de scanner les vulnérabilités web courantes selon les normes OWASP. L'application utilise des techniques avancées pour détecter les failles XSS, injections SQL, CSRF et autres vulnérabilités critiques.</p>
-                            <p>Caractéristiques principales :</p>
+                            <p>Dans le cadre de mon alternance à la SNCF, j'ai activement participé à la modernisation complète des applications métier du Technicentre Sud-Est Européen (TSEE).</p>
+                            <p>Ce projet d'envergure comprenait :</p>
                             <ul>
-                                <li>Scanner automatisé de vulnérabilités web</li>
-                                <li>Rapports détaillés avec niveau de criticité</li>
-                                <li>Recommandations de correction spécifiques</li>
-                                <li>Interface graphique intuitive</li>
+                                <li>Migration du code PHP vers la version 8 pour bénéficier des améliorations de performances et de sécurité</li>
+                                <li>Refactorisation complète de l'existant en appliquant rigoureusement les principes SOLID</li>
+                                <li>Mise en place d'une architecture front-end moderne avec Angular 19</li>
+                                <li>Développement d'un back-end robuste avec Spring Boot</li>
+                                <li>Optimisation des performances et de la sécurité des applications</li>
+                                <li>Mise en place de tests automatisés et d'intégration continue</li>
                             </ul>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/HugoBiegas/SecuScanPro" target="_blank" rel="noopener noreferrer" class="project-link">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
+                            <p>Ce projet a permis d'améliorer significativement la maintenabilité, les performances et la sécurité des applications métier essentielles au fonctionnement du Technicentre.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Projet 2: Angular-Galut -->
-                <div class="project-card" data-category="web" id="angular-galut">
+                <!-- Projet 2: Docker GitLab -->
+                <div class="project-card" data-category="sncf" id="gitlab-docker">
                     <div class="project-image">
-                        <img src="assets/img/projects/angular-galut.jpg" alt="Angular-Galut">
+                        <img src="assets/img/projects/docker-sncf.jpg" alt="Docker GitLab SNCF">
                     </div>
                     <div class="project-content">
-                        <h3>Angular-Galut</h3>
-                        <p>Application web progressive développée avec Angular pour la gestion et visualisation de données complexes.</p>
-                        <div class="project-tags">
-                            <span>Angular</span>
-                            <span>TypeScript</span>
-                            <span>Material</span>
-                        </div>
-                        <div class="project-description">
-                            <p>Angular-Galut est une application web moderne développée avec Angular qui offre une interface utilisateur intuitive pour la gestion et la visualisation de données complexes. Le projet utilise Angular Material pour l'interface et implémente les meilleures pratiques de développement.</p>
-                            <p>Fonctionnalités clés :</p>
-                            <ul>
-                                <li>Architecture modulaire suivant les principes SOLID</li>
-                                <li>Visualisation de données avec graphiques interactifs</li>
-                                <li>Gestion avancée des états avec NgRx</li>
-                                <li>Optimisation des performances</li>
-                            </ul>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/HugoBiegas/Angular-Galut" target="_blank" rel="noopener noreferrer" class="project-link">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Projet 3: NFC Mobile -->
-                <div class="project-card" data-category="mobile" id="nfc-mobile">
-                    <div class="project-image">
-                        <img src="assets/img/projects/nfc-mobile.jpg" alt="NFC Mobile">
-                    </div>
-                    <div class="project-content">
-                        <h3>NFC Mobile</h3>
-                        <p>Application mobile utilisant la technologie NFC pour l'authentification sécurisée et le transfert de données.</p>
-                        <div class="project-tags">
-                            <span>Java</span>
-                            <span>NFC</span>
-                            <span>Mobile</span>
-                        </div>
-                        <div class="project-description">
-                            <p>NFC Mobile est une application Android qui utilise la technologie Near Field Communication (NFC) pour permettre des échanges de données sécurisés et une authentification rapide. Ce projet a été développé dans le cadre d'un hackathon.</p>
-                            <p>Caractéristiques principales :</p>
-                            <ul>
-                                <li>Authentification par tag NFC</li>
-                                <li>Transfert de données cryptées</li>
-                                <li>Interface utilisateur intuitive</li>
-                                <li>Haute performance même sur appareils limités</li>
-                            </ul>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/HugoBiegas/nfc-mobile-code-hackaton" target="_blank" rel="noopener noreferrer" class="project-link">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Projet 4: QuizApi -->
-                <div class="project-card" data-category="api">
-                    <div class="project-image">
-                        <img src="assets/img/projects/quizapi.jpg" alt="QuizApi">
-                    </div>
-                    <div class="project-content">
-                        <h3>QuizApi</h3>
-                        <p>API RESTful pour la gestion de quiz et questionnaires interactifs avec système d'authentification sécurisé.</p>
-                        <div class="project-tags">
-                            <span>PHP</span>
-                            <span>API</span>
-                            <span>JWT</span>
-                        </div>
-                        <div class="project-description">
-                            <p>QuizApi est une API RESTful développée en PHP qui permet la création et la gestion de quiz interactifs. L'API utilise JWT pour l'authentification et suit les principes de conception REST.</p>
-                            <p>Fonctionnalités :</p>
-                            <ul>
-                                <li>Authentification JWT sécurisée</li>
-                                <li>CRUD complet pour les quiz et questions</li>
-                                <li>Système de notation et classements</li>
-                                <li>Documentation OpenAPI</li>
-                            </ul>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/HugoBiegas/QuizApi" target="_blank" rel="noopener noreferrer" class="project-link">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Projet 5: Docker-SNCF -->
-                <div class="project-card" data-category="other">
-                    <div class="project-image">
-                        <img src="assets/img/projects/docker-sncf.jpg" alt="Docker-SNCF">
-                    </div>
-                    <div class="project-content">
-                        <h3>Docker-SNCF</h3>
-                        <p>Infrastructure Docker pour le déploiement d'applications de transport avec haute disponibilité et scalabilité.</p>
+                        <h3>Déploiement GitLab Dockerisé</h3>
+                        <p>Mise en place d'une infrastructure GitLab containerisée pour la gestion de versions et l'intégration continue.</p>
                         <div class="project-tags">
                             <span>Docker</span>
+                            <span>GitLab</span>
                             <span>CI/CD</span>
-                            <span>DevOps</span>
                         </div>
                         <div class="project-description">
-                            <p>Docker-SNCF est un projet d'infrastructure qui utilise Docker pour simplifier le déploiement et la gestion d'applications de transport. La configuration est optimisée pour la scalabilité et la haute disponibilité.</p>
-                            <p>Caractéristiques :</p>
+                            <p>En collaboration avec un autre alternant, j'ai conçu et déployé une instance GitLab entièrement dockerisée pour le Technicentre Sud-Est Européen de la SNCF.</p>
+                            <p>Les principales réalisations incluent :</p>
                             <ul>
-                                <li>Conteneurisation complète des services</li>
-                                <li>Pipeline CI/CD avec GitLab</li>
-                                <li>Surveillance et journalisation intégrées</li>
-                                <li>Configuration pour environnements de développement et production</li>
+                                <li>Configuration des conteneurs Docker pour GitLab, PostgreSQL, Redis et autres services associés</li>
+                                <li>Mise en place de volumes persistants pour les données critiques</li>
+                                <li>Configuration d'un reverse proxy pour sécuriser les accès</li>
+                                <li>Configuration des pipelines CI/CD pour l'automatisation des tests et déploiements</li>
+                                <li>Mise en place de la sauvegarde automatisée des données</li>
+                                <li>Documentation complète du processus de déploiement et de maintenance</li>
                             </ul>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/nabassi0/docker-sncf" target="_blank" rel="noopener noreferrer" class="project-link">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
+                            <p>Ce projet a considérablement amélioré la gestion de versions et la collaboration au sein des équipes de développement en fournissant un environnement stable et sécurisé pour l'intégration continue.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Projet 6: InstantLike -->
+                <!-- Projet 3: Architecture Serveur SNCF -->
+                <div class="project-card" data-category="sncf">
+                    <div class="project-image">
+                        <img src="assets/img/projects/server-architecture.jpg" alt="Architecture Serveur SNCF">
+                    </div>
+                    <div class="project-content">
+                        <h3>Reconstruction Architecture Serveur</h3>
+                        <p>Refonte complète de l'architecture serveur selon les normes SNCF avec mise en place d'un reverse proxy.</p>
+                        <div class="project-tags">
+                            <span>Docker</span>
+                            <span>Nginx</span>
+                            <span>Sécurité</span>
+                        </div>
+                        <div class="project-description">
+                            <p>Pour répondre aux normes de sécurité et de performance de la SNCF, j'ai participé à la reconstruction complète de l'architecture serveur des applications métier du Technicentre Sud-Est Européen.</p>
+                            <p>Le projet comprenait :</p>
+                            <ul>
+                                <li>Analyse de l'architecture existante et identification des points d'amélioration</li>
+                                <li>Conception d'une nouvelle architecture conforme aux normes SNCF</li>
+                                <li>Mise en place d'un reverse proxy Nginx pour le filtrage et la redirection des requêtes</li>
+                                <li>Configuration de la sécurité réseau et des certificats SSL</li>
+                                <li>Optimisation des performances et de la scalabilité</li>
+                                <li>Mise en place de la surveillance et des alertes</li>
+                            </ul>
+                            <p>Cette refonte a permis d'augmenter la sécurité, la fiabilité et les performances des applications tout en facilitant leur maintenance et leur scalabilité.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 4: DGEFP Java Application -->
+                <div class="project-card" data-category="api" id="dgefp-app">
+                    <div class="project-image">
+                        <img src="assets/img/projects/dgefp-java.jpg" alt="DGEFP Java Application">
+                    </div>
+                    <div class="project-content">
+                        <h3>Application Java pour la DGEFP</h3>
+                        <p>Développement d'une application Java pour récupérer et traiter les données d'une démarche administrative urgente.</p>
+                        <div class="project-tags">
+                            <span>Java</span>
+                            <span>API</span>
+                            <span>Administration</span>
+                        </div>
+                        <div class="project-description">
+                            <p>Lors de mon alternance à la Délégation Générale à l'Emploi et à la Formation Professionnelle (DGEFP), j'ai développé une application Java pour récupérer et traiter les données d'une démarche créée en urgence sur la plateforme Démarche Simplifiée.</p>
+                            <p>Les principales caractéristiques du projet :</p>
+                            <ul>
+                                <li>Intégration avec l'API de Démarche Simplifiée pour la récupération des données</li>
+                                <li>Traitement et transformation des données selon les besoins métier</li>
+                                <li>Mise en place d'un système de reporting automatisé</li>
+                                <li>Développement d'une interface utilisateur intuitive</li>
+                                <li>Mise en œuvre des concepts de gestion de projet (WBS, OBS, SWAT, RACI)</li>
+                            </ul>
+                            <p>Cette application a permis de répondre efficacement à une situation d'urgence en automatisant la récupération et le traitement des données administratives, réduisant ainsi considérablement le temps de traitement manuel.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 5: Outil de facturation -->
                 <div class="project-card" data-category="web">
                     <div class="project-image">
-                        <img src="assets/img/projects/instantlike.jpg" alt="InstantLike">
+                        <img src="assets/img/projects/invoice-tool.jpg" alt="Outil de facturation">
                     </div>
                     <div class="project-content">
-                        <h3>InstantLike</h3>
-                        <p>Plateforme sociale avec partage de photos et système de likes et commentaires en temps réel.</p>
+                        <h3>Outil de Facturation</h3>
+                        <p>Conception d'un outil de facturation pour le service comptabilité de Gesta Partners avec interface CLI et WinForm.</p>
                         <div class="project-tags">
-                            <span>JavaScript</span>
-                            <span>Firebase</span>
-                            <span>Web</span>
+                            <span>C#</span>
+                            <span>WinForm</span>
+                            <span>SQL</span>
                         </div>
                         <div class="project-description">
-                            <p>InstantLike est une plateforme sociale moderne qui permet aux utilisateurs de partager des photos et d'interagir en temps réel via des likes et des commentaires. L'application utilise Firebase pour la base de données et l'authentification.</p>
-                            <p>Fonctionnalités :</p>
+                            <p>Dans le cadre de mon stage chez Gesta Partners, j'ai développé un outil complet de facturation pour optimiser les processus du service comptabilité.</p>
+                            <p>Le projet comprenait :</p>
                             <ul>
-                                <li>Partage de photos avec filtres</li>
-                                <li>Système de likes et commentaires en temps réel</li>
-                                <li>Profils personnalisables</li>
-                                <li>Authentification multiple (email, Google, Facebook)</li>
+                                <li>Analyse des besoins spécifiques du service comptabilité</li>
+                                <li>Conception d'une interface en ligne de commande (CLI) pour les opérations automatisées</li>
+                                <li>Développement d'une interface graphique WinForm pour une utilisation conviviale</li>
+                                <li>Implémentation de mesures de sécurité contre les injections SQL et les vulnérabilités XSS</li>
+                                <li>Intégration avec le système comptable existant</li>
+                                <li>Documentation complète et formation des utilisateurs</li>
                             </ul>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/HugoBiegas/InstantLike" target="_blank" rel="noopener noreferrer" class="project-link">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
+                            <p>Cet outil a permis de réduire significativement le temps de traitement des factures et d'améliorer la précision des données comptables tout en garantissant un niveau élevé de sécurité.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Projet 7: Projet_CapChat -->
+                <!-- Projet 6: E-commerce WooCommerce -->
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="assets/img/projects/ecommerce.jpg" alt="E-commerce">
+                    </div>
+                    <div class="project-content">
+                        <h3>Boutique E-commerce</h3>
+                        <p>Mise en place d'une boutique en ligne complète avec WooCommerce pour un client de nivo-web.</p>
+                        <div class="project-tags">
+                            <span>WordPress</span>
+                            <span>WooCommerce</span>
+                            <span>HTML/CSS</span>
+                        </div>
+                        <div class="project-description">
+                            <p>Lors de mon expérience chez nivo-web, j'ai participé à la création complète d'une boutique e-commerce utilisant WordPress et WooCommerce.</p>
+                            <p>Le projet comprenait :</p>
+                            <ul>
+                                <li>Configuration et personnalisation de WordPress selon les besoins du client</li>
+                                <li>Installation et paramétrage de WooCommerce pour la gestion des produits et commandes</li>
+                                <li>Personnalisation du thème et de l'interface utilisateur</li>
+                                <li>Intégration des passerelles de paiement sécurisées</li>
+                                <li>Optimisation des performances et du référencement</li>
+                                <li>Formation du client à l'utilisation de la plateforme</li>
+                            </ul>
+                            <p>Cette boutique en ligne a permis au client de diversifier ses canaux de vente et d'accroître significativement son chiffre d'affaires grâce à une présence en ligne professionnelle et fonctionnelle.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 7: Sécurisation Applications Web -->
                 <div class="project-card" data-category="security">
                     <div class="project-image">
-                        <img src="assets/img/projects/capchat.jpg" alt="Projet CapChat">
+                        <img src="assets/img/projects/web-security.jpg" alt="Sécurisation Web">
                     </div>
                     <div class="project-content">
-                        <h3>Projet CapChat</h3>
-                        <p>Alternative innovante aux CAPTCHA traditionnels, basée sur la reconnaissance d'images et de concepts.</p>
+                        <h3>Sécurisation Applications Web</h3>
+                        <p>Audit et implémentation de mesures de sécurité pour des applications web contre les vulnérabilités OWASP Top 10.</p>
                         <div class="project-tags">
-                            <span>JavaScript</span>
-                            <span>Sécurité</span>
-                            <span>UI/UX</span>
+                            <span>Cybersécurité</span>
+                            <span>OWASP</span>
+                            <span>PHP</span>
                         </div>
                         <div class="project-description">
-                            <p>Projet CapChat est une alternative innovante aux CAPTCHA traditionnels qui utilise la reconnaissance d'images et de concepts pour différencier les humains des robots. Cette approche améliore l'expérience utilisateur tout en maintenant un niveau de sécurité élevé.</p>
-                            <p>Caractéristiques :</p>
+                            <p>Projet personnel de recherche et d'application des meilleures pratiques de sécurité pour les applications web, en se basant sur les recommandations OWASP Top 10.</p>
+                            <p>Les aspects clés comprennent :</p>
                             <ul>
-                                <li>Tests basés sur la reconnaissance d'images</li>
-                                <li>Algorithmes anti-bots avancés</li>
-                                <li>Accessibilité améliorée</li>
-                                <li>Intégration facile sur tout site web</li>
+                                <li>Audit des vulnérabilités courantes (XSS, CSRF, injection SQL, etc.)</li>
+                                <li>Mise en place de mécanismes de protection contre les attaques par injection</li>
+                                <li>Implémentation d'une gestion sécurisée des authentifications et sessions</li>
+                                <li>Configuration de l'en-tête Content Security Policy (CSP)</li>
+                                <li>Validation et filtrage des entrées utilisateur</li>
+                                <li>Développement d'une bibliothèque de fonctions sécurisées réutilisables</li>
                             </ul>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/HugoBiegas/Projet_CapChat" target="_blank" rel="noopener noreferrer" class="project-link">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
+                            <p>Ce projet m'a permis d'approfondir mes connaissances en cybersécurité et de développer une méthodologie rigoureuse pour la sécurisation des applications web, que j'applique désormais systématiquement dans tous mes projets de développement.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Projet 8: Portfolio -->
+                <!-- Projet 8: Application NFC -->
+                <div class="project-card" data-category="mobile">
+                    <div class="project-image">
+                        <img src="assets/img/projects/nfc-mobile.jpg" alt="Application NFC">
+                    </div>
+                    <div class="project-content">
+                        <h3>Authentification NFC Mobile</h3>
+                        <p>Application mobile Android utilisant la technologie NFC pour l'authentification sécurisée et le transfert de données.</p>
+                        <div class="project-tags">
+                            <span>Java</span>
+                            <span>Android</span>
+                            <span>NFC</span>
+                        </div>
+                        <div class="project-description">
+                            <p>Développement d'une application mobile Android exploitant la technologie Near Field Communication (NFC) pour fournir un système d'authentification sécurisé et un transfert de données efficace.</p>
+                            <p>Fonctionnalités principales :</p>
+                            <ul>
+                                <li>Lecture et écriture de tags NFC pour l'authentification</li>
+                                <li>Chiffrement des données transmises pour garantir la confidentialité</li>
+                                <li>Communication peer-to-peer entre appareils compatibles NFC</li>
+                                <li>Interface utilisateur intuitive et responsive</li>
+                                <li>Mécanismes de sécurité avancés (anti-clonage, anti-replay)</li>
+                                <li>Compatibilité avec différents types de tags NFC</li>
+                            </ul>
+                            <p>Cette application offre une solution d'authentification pratique et sécurisée, particulièrement adaptée aux environnements nécessitant un contrôle d'accès physique ou des transactions sécurisées.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 9: Portfolio personnel -->
                 <div class="project-card" data-category="web">
                     <div class="project-image">
                         <img src="assets/img/projects/portfolio.jpg" alt="Portfolio">
                     </div>
                     <div class="project-content">
                         <h3>Portfolio Professionnel</h3>
-                        <p>Site web personnel présentant mes compétences, projets et expériences professionnelles.</p>
+                        <p>Conception et développement de ce portfolio personnel avec HTML, CSS et JavaScript en appliquant les meilleures pratiques de développement web.</p>
                         <div class="project-tags">
-                            <span>HTML</span>
-                            <span>CSS</span>
+                            <span>HTML5</span>
+                            <span>CSS3</span>
                             <span>JavaScript</span>
                         </div>
                         <div class="project-description">
-                            <p>Ce portfolio professionnel est développé en HTML, CSS et JavaScript pur, sans framework. Il présente mes compétences, projets et expériences dans un design moderne et réactif.</p>
-                            <p>Caractéristiques :</p>
+                            <p>Développement de mon portfolio professionnel personnel en utilisant des technologies web modernes sans dépendre de frameworks externes.</p>
+                            <p>Caractéristiques techniques :</p>
                             <ul>
-                                <li>Design responsive pour tous les appareils</li>
-                                <li>Animations et transitions fluides</li>
-                                <li>Mode sombre/clair</li>
-                                <li>Optimisation des performances</li>
+                                <li>Architecture HTML5 sémantique pour une meilleure accessibilité et référencement</li>
+                                <li>Utilisation avancée de CSS3 (Flexbox, Grid, variables CSS, animations)</li>
+                                <li>JavaScript vanilla pour les interactions et animations</li>
+                                <li>Design responsive s'adaptant à tous les types d'appareils</li>
+                                <li>Mode sombre/clair avec persistance des préférences utilisateur</li>
+                                <li>Optimisation des performances (chargement différé, minification)</li>
+                                <li>Mise en œuvre des meilleures pratiques d'accessibilité web</li>
                             </ul>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/HugoBiegas/portfolio" target="_blank" rel="noopener noreferrer" class="project-link">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Projet 9: devsecopsgitlab-java-vulnerable-application -->
-                <div class="project-card" data-category="security">
-                    <div class="project-image">
-                        <img src="assets/img/projects/devsecops.jpg" alt="DevSecOps Application">
-                    </div>
-                    <div class="project-content">
-                        <h3>DevSecOps Vulnerable App</h3>
-                        <p>Application Java volontairement vulnérable pour la formation et les tests en DevSecOps.</p>
-                        <div class="project-tags">
-                            <span>Java</span>
-                            <span>DevSecOps</span>
-                            <span>GitLab</span>
-                        </div>
-                        <div class="project-description">
-                            <p>Cette application Java est intentionnellement vulnérable pour servir d'outil de formation et de test en DevSecOps. Elle permet de mettre en pratique les techniques de détection et de correction des vulnérabilités dans un pipeline CI/CD GitLab.</p>
-                            <p>Caractéristiques :</p>
-                            <ul>
-                                <li>Vulnérabilités courantes (XSS, SQLI, etc.)</li>
-                                <li>Pipeline GitLab CI/CD</li>
-                                <li>Intégration d'outils d'analyse statique et dynamique</li>
-                                <li>Documentation des vulnérabilités et solutions</li>
-                            </ul>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/HugoBiegas/devsecops-gitlab-java-vulnerable-application" target="_blank" rel="noopener noreferrer" class="project-link">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Projet 10: EchecMultiApp -->
-                <div class="project-card" data-category="other">
-                    <div class="project-image">
-                        <img src="assets/img/projects/echec-multi.jpg" alt="EchecMultiApp">
-                    </div>
-                    <div class="project-content">
-                        <h3>EchecMultiApp</h3>
-                        <p>Application de jeu d'échecs multijoueur avec IA et analyses de partie.</p>
-                        <div class="project-tags">
-                            <span>Java</span>
-                            <span>IA</span>
-                            <span>Jeu</span>
-                        </div>
-                        <div class="project-description">
-                            <p>EchecMultiApp est une application de jeu d'échecs complète avec fonctionnalités multijoueur, IA de différents niveaux et outils d'analyse. L'application est développée en Java avec une architecture modulaire.</p>
-                            <p>Fonctionnalités :</p>
-                            <ul>
-                                <li>Mode multijoueur en ligne</li>
-                                <li>IA avec plusieurs niveaux de difficulté</li>
-                                <li>Analyses post-partie</li>
-                                <li>Tutoriels d'apprentissage</li>
-                            </ul>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/HugoBiegas/EchecMultiApp" target="_blank" rel="noopener noreferrer" class="project-link">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
+                            <p>Ce projet m'a permis de mettre en pratique mes compétences en développement front-end tout en créant une vitrine professionnelle pour présenter mon parcours et mes réalisations.</p>
                         </div>
                     </div>
                 </div>
