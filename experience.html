@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Expérience professionnelle de Hugo Biegas - Développeur Web, Mobile & Cybersécurité">
+    <meta name="keywords" content="expérience, parcours, développement, web, mobile, cybersécurité, PHP, Java, Angular">
+    <meta name="author" content="Hugo Biegas">
+    
+    <title>Expérience | Hugo Biegas</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+    
+    <!-- Polices -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS personnalisé -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/dark-mode.css">
+    
+    <style>
+        /* Styles spécifiques à la page d'expérience */
+        .experience-banner {
+            padding: 120px 0 60px;
+            background-color: var(--light);
+            text-align: center;
+        }
+        
+        .experience-banner h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .experience-banner p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--gray-1);
+        }
+        
+        .timeline-section {
+            padding: 80px 0;
+            position: relative;
+        }
+        
+        .timeline-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--primary-light);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0.3;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 60px;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+        
+        .timeline-content {
+            position: relative;
+            width: 45%;
+            padding: 30px;
+            border-radius: var(--border-radius-lg);
+            background-color: var(--white);
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content {
+            float: left;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            float: right;
+        }
+        
+        .timeline-content::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            background-color: var(--white);
+            transform: rotate(45deg);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            right: -10px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content::after {
+            left: -10px;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            left: 50%;
+            top: 20px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+            box-shadow: 0 0 0 4px rgba(74, 108, 247, 0.2);
+        }
+        
+        .timeline-date {
+            position: absolute;
+            top: 20px;
+            width: 120px;
+            padding: 3px 0;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: var(--border-radius-md);
+            font-size: 0.8rem;
+            text-align: center;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-date {
+            right: 55%;
+            margin-right: 20px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-date {
+            left: 55%;
+            margin-left: 20px;
+        }
+        
+        .timeline-title {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            color: var(--dark);
+        }
+        
+        .timeline-subtitle {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+        
+        .timeline-text {
+            margin-bottom: 15px;
+            color: var(--gray-1);
+        }
+        
+        .timeline-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        
+        .timeline-tag {
+            background-color: var(--light);
+            padding: 5px 10px;
+            border-radius: var(--border-radius-full);
+            font-size: 0.8rem;
+            color: var(--dark-light);
+        }
+        
+        .education-section {
+            background-color: var(--light);
+            padding: 60px 0;
+        }
+        
+        .education-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-sm);
+            padding: 30px;
+            margin-bottom: 25px;
+            transition: var(--transition);
+            display: flex;
+            gap: 20px;
+        }
+        
+        .education-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .education-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            min-width: 60px;
+            text-align: center;
+        }
+        
+        .education-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+        
+        .education-content h4 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+        
+        .education-content p {
+            color: var(--gray-1);
+            margin-bottom: 10px;
+        }
+        
+        .education-date {
+            font-size: 0.9rem;
+            color: var(--gray-1);
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        
+        /* Styles responsifs */
+        @media screen and (max-width: 1024px) {
+            .experience-banner h1 {
+                font-size: 2.4rem;
+            }
+        }
+        
+        @media screen and (max-width: 768px) {
+            .timeline-container::after {
+                left: 40px;
+            }
+            
+            .timeline-content {
+                width: calc(100% - 80px);
+                float: right;
+                margin-left: 80px;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-content::after,
+            .timeline-item:nth-child(even) .timeline-content::after {
+                left: -10px;
+            }
+            
+            .timeline-dot {
+                left: 40px;
+            }
+            
+            .timeline-date {
+                width: auto;
+                position: relative;
+                top: 0;
+                left: 0;
+                right: auto;
+                margin: 0 0 10px 80px;
+                display: inline-block;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-date,
+            .timeline-item:nth-child(even) .timeline-date {
+                right: auto;
+                left: auto;
+                margin: 0 0 10px 80px;
+            }
+            
+            .education-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .education-icon {
+                margin: 0 auto 15px;
+            }
+        }
+        
+        @media screen and (max-width: 576px) {
+            .timeline-content {
+                padding: 20px;
+            }
+            
+            .timeline-title {
+                font-size: 1.2rem;
+            }
+            
+            .timeline-subtitle {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Bouton de mode sombre -->
+    <div class="theme-toggle">
+        <button id="theme-toggle-btn" aria-label="Changer de thème">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+        </button>
+    </div>
+
+    <!-- En-tête -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <a href="index.html">
+                        <span class="logo-text">HB</span>
+                    </a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="projects.html">Projets</a></li>
+                    <li><a href="skills.html">Compétences</a></li>
+                    <li><a href="experience.html" class="active">Expérience</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Bannière d'expérience -->
+    <section class="experience-banner">
+        <div class="container">
+            <h1>Mon Parcours Professionnel</h1>
+            <p>Découvrez mon parcours et mon expérience dans le développement web, mobile et la cybersécurité.</p>
+        </div>
+    </section>
+
+    <!-- Section Chronologie -->
+    <section class="timeline-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Expérience Professionnelle</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="timeline-container">
+                <!-- Expérience 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2023 - Présent</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Développeur Full Stack & Cybersécurité</h3>
+                        <h4 class="timeline-subtitle">Tech Innovate Solutions</h4>
+                        <p class="timeline-text">Conception et développement d'applications web et mobiles sécurisées pour divers clients du secteur financier et industriel. Responsable de l'implémentation des meilleures pratiques de sécurité et de l'audit des applications existantes.</p>
+                        <p class="timeline-text">Principales réalisations :</p>
+                        <ul>
+                            <li>Développement d'une application bancaire avec authentification forte et protection des données sensibles</li>
+                            <li>Mise en place d'une pipeline DevSecOps pour l'intégration continue des tests de sécurité</li>
+                            <li>Formation des équipes aux bonnes pratiques de développement sécurisé</li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span class="timeline-tag">Angular</span>
+                            <span class="timeline-tag">PHP</span>
+                            <span class="timeline-tag">Java</span>
+                            <span class="timeline-tag">Cybersécurité</span>
+                            <span class="timeline-tag">DevSecOps</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Expérience 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2021 - 2023</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Développeur Web & Mobile</h3>
+                        <h4 class="timeline-subtitle">Digital Solutions Company</h4>
+                        <p class="timeline-text">Développement d'applications web responsives et d'applications mobiles natives pour Android. Collaboration étroite avec les designers UX/UI et les équipes de qualité pour assurer des produits de haute qualité.</p>
+                        <p class="timeline-text">Principales réalisations :</p>
+                        <ul>
+                            <li>Refonte complète d'une plateforme e-commerce avec Laravel et Vue.js</li>
+                            <li>Développement d'une application Android utilisant la technologie NFC pour l'authentification sécurisée</li>
+                            <li>Optimisation des performances d'applications existantes et réduction des temps de chargement de 40%</li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span class="timeline-tag">Laravel</span>
+                            <span class="timeline-tag">Vue.js</span>
+                            <span class="timeline-tag">Android</span>
+                            <span class="timeline-tag">NFC</span>
+                            <span class="timeline-tag">MySQL</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Expérience 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2019 - 2021</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Développeur Frontend</h3>
+                        <h4 class="timeline-subtitle">WebCreative Agency</h4>
+                        <p class="timeline-text">Conception et développement d'interfaces utilisateur pour sites web et applications web. Travail en étroite collaboration avec les designers et les développeurs backend pour créer des expériences utilisateur fluides et intuitives.</p>
+                        <p class="timeline-text">Principales réalisations :</p>
+                        <ul>
+                            <li>Création de composants réutilisables avec Angular pour accélérer le développement</li>
+                            <li>Implémentation de designs responsive avec des animations fluides</li>
+                            <li>Optimisation SEO et accessibilité sur plusieurs sites clients</li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span class="timeline-tag">HTML5</span>
+                            <span class="timeline-tag">CSS3</span>
+                            <span class="timeline-tag">JavaScript</span>
+                            <span class="timeline-tag">Angular</span>
+                            <span class="timeline-tag">SASS</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Expérience 4 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2018 - 2019</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Stagiaire Développeur</h3>
+                        <h4 class="timeline-subtitle">TechStart Innovations</h4>
+                        <p class="timeline-text">Stage de fin d'études en développement web. Participation au développement de diverses applications web et apprentissage des méthodologies de développement professionnel en équipe.</p>
+                        <p class="timeline-text">Principales réalisations :</p>
+                        <ul>
+                            <li>Développement de fonctionnalités pour une application de gestion de projet interne</li>
+                            <li>Correction de bugs et optimisation de code existant</li>
+                            <li>Participation à l'intégration continue et aux revues de code</li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span class="timeline-tag">PHP</span>
+                            <span class="timeline-tag">JavaScript</span>
+                            <span class="timeline-tag">Git</span>
+                            <span class="timeline-tag">MySQL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Formation -->
+    <section class="education-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Formation</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="education-list">
+                <!-- Formation 1 -->
+                <div class="education-card">
+                    <div class="education-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="education-content">
+                        <h3>Master en Informatique - Spécialité Cybersécurité</h3>
+                        <h4>Université de Technologie</h4>
+                        <div class="education-date">2016 - 2018</div>
+                        <p>Spécialisation en sécurité des systèmes d'information et développement sécurisé. Projet de fin d'études sur la détection d'intrusions dans les applications web via l'apprentissage automatique.</p>
+                        <div class="timeline-tags">
+                            <span class="timeline-tag">Cybersécurité</span>
+                            <span class="timeline-tag">Développement Sécurisé</span>
+                            <span class="timeline-tag">Audit de Sécurité</span>
+                            <span class="timeline-tag">Machine Learning</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Formation 2 -->
+                <div class="education-card">
+                    <div class="education-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="education-content">
+                        <h3>Licence en Informatique</h3>
+                        <h4>Université de Sciences</h4>
+                        <div class="education-date">2013 - 2016</div>
+                        <p>Formation généraliste en informatique couvrant les fondamentaux du développement logiciel, des bases de données, des réseaux et des systèmes d'exploitation. Projet de fin d'études sur le développement d'une application web de gestion d'événements.</p>
+                        <div class="timeline-tags">
+                            <span class="timeline-tag">Programmation</span>
+                            <span class="timeline-tag">Algorithmique</span>
+                            <span class="timeline-tag">Bases de Données</span>
+                            <span class="timeline-tag">Réseaux</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pied de page -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-text">HB</span>
+                    <p>Développeur Full Stack & Cybersécurité</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-nav">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="index.html">Accueil</a></li>
+                            <li><a href="projects.html">Projets</a></li>
+                            <li><a href="skills.html">Compétences</a></li>
+                            <li><a href="experience.html">Expérience</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-social">
+                        <h4>Réseaux sociaux</h4>
+                        <div class="social-links">
+                            <a href="https://github.com/HugoBiegas" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/hugo-biegas" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="mailto:contact@hugobiegas.com" aria-label="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Hugo Biegas. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/dark-mode.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animation des éléments de la chronologie
+            function animateTimeline() {
+                const timelineItems = document.querySelectorAll('.timeline-item');
+                
+                timelineItems.forEach((item, index) => {
+                    item.style.opacity = '0';
+                    item.style.transform = 'translateY(30px)';
+                    item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    item.style.transitionDelay = (index * 0.2) + 's';
+                    
+                    // Vérifier si l'élément est visible
+                    const isVisible = function(element) {
+                        const rect = element.getBoundingClientRect();
+                        return (
+                            rect.top >= 0 &&
+                            rect.left >= 0 &&
+                            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) + 100
+                        );
+                    };
+                    
+                    const animateIfVisible = function() {
+                        if (isVisible(item)) {
+                            item.style.opacity = '1';
+                            item.style.transform = 'translateY(0)';
+                            window.removeEventListener('scroll', animateIfVisible);
+                        }
+                    };
+                    
+                    // Animer si visible au chargement ou au défilement
+                    animateIfVisible();
+                    window.addEventListener('scroll', animateIfVisible);
+                });
+            }
+            
+            // Animation des cartes de formation
+            function animateEducation() {
+                const educationCards = document.querySelectorAll('.education-card');
+                
+                educationCards.forEach((card, index) => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(30px)';
+                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    card.style.transitionDelay = (index * 0.2) + 's';
+                    
+                    // Vérifier si la carte est visible
+                    const isVisible = function(element) {
+                        const rect = element.getBoundingClientRect();
+                        return (
+                            rect.top >= 0 &&
+                            rect.left >= 0 &&
+                            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) + 100
+                        );
+                    };
+                    
+                    const animateIfVisible = function() {
+                        if (isVisible(card)) {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                            window.removeEventListener('scroll', animateIfVisible);
+                        }
+                    };
+                    
+                    // Animer si visible au chargement ou au défilement
+                    animateIfVisible();
+                    window.addEventListener('scroll', animateIfVisible);
+                });
+            }
+            
+            // Initialiser les animations
+            animateTimeline();
+            animateEducation();
+        });
+    </script>
+</body>
+</html>

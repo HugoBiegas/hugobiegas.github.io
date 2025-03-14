@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio de Hugo Biegas - Développeur Web, Mobile & Cybersécurité">
+    <meta name="keywords" content="développeur, web, mobile, cybersécurité, PHP, HTML, CSS, JavaScript, Java, Angular">
+    <meta name="author" content="Hugo Biegas">
+    
+    <title>Hugo Biegas | Développeur Full Stack & Cybersécurité</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+    
+    <!-- Polices -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS personnalisé -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/dark-mode.css">
+</head>
+<body>
+    <!-- Bouton de mode sombre -->
+    <div class="theme-toggle">
+        <button id="theme-toggle-btn" aria-label="Changer de thème">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+        </button>
+    </div>
+
+    <!-- En-tête -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <a href="index.html">
+                        <span class="logo-text">HB</span>
+                    </a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Accueil</a></li>
+                    <li><a href="projects.html">Projets</a></li>
+                    <li><a href="skills.html">Compétences</a></li>
+                    <li><a href="experience.html">Expérience</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Section Héro -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Hugo Biegas</h1>
+                    <h2>Développeur <span class="accent-text" id="typing-text">Full Stack</span></h2>
+                    <p>Spécialisé en développement web, mobile, applications métier et cybersécurité.</p>
+                    <div class="hero-buttons">
+                        <a href="projects.html" class="btn primary-btn">Voir mes projets</a>
+                        <a href="contact.html" class="btn secondary-btn">Me contacter</a>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://github.com/HugoBiegas" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/hugo-biegas" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="mailto:contact@hugobiegas.com" aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="profile-container">
+                        <img src="assets/img/profile.jpg" alt="Hugo Biegas" class="profile-image">
+                        <div class="code-bracket code-bracket-top">&lt;</div>
+                        <div class="code-bracket code-bracket-bottom">/&gt;</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section À propos -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>À propos</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Passionné par le développement et la cybersécurité, je m'engage à produire un code d'une qualité irréprochable en appliquant rigoureusement les principes SOLID tout en garantissant un haut niveau de sécurité dans toutes mes applications.</p>
+                    <p>Mon approche méthodique et ma passion pour les technologies innovantes me permettent de relever efficacement les défis techniques complexes dans divers domaines du développement.</p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <span class="stat-count">40+</span>
+                            <span class="stat-label">Projets réalisés</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-count">5+</span>
+                            <span class="stat-label">Années d'expérience</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-count">10+</span>
+                            <span class="stat-label">Technologies maîtrisées</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-technologies">
+                    <h3>Technologies favorites</h3>
+                    <div class="tech-grid">
+                        <div class="tech-item">
+                            <i class="fab fa-php"></i>
+                            <span>PHP</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fab fa-js"></i>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fab fa-angular"></i>
+                            <span>Angular</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fab fa-java"></i>
+                            <span>Java</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fab fa-html5"></i>
+                            <span>HTML5</span>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fab fa-css3-alt"></i>
+                            <span>CSS3</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Projets en vedette -->
+    <section class="featured-projects">
+        <div class="container">
+            <div class="section-header">
+                <h2>Projets en vedette</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="projects-grid">
+                <!-- Projet 1 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/img/projects/secuscan.jpg" alt="SecuScanPro">
+                    </div>
+                    <div class="project-content">
+                        <h3>SecuScanPro</h3>
+                        <p>Application de scan de vulnérabilités pour sites web avec rapports détaillés et recommandations de sécurité.</p>
+                        <div class="project-tags">
+                            <span>Java</span>
+                            <span>Cybersécurité</span>
+                            <span>OWASP</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/HugoBiegas/SecuScanPro" target="_blank" rel="noopener noreferrer" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                            <a href="projects.html#secuscan" class="project-link">
+                                <i class="fas fa-info-circle"></i> Détails
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Projet 2 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/img/projects/angular-galut.jpg" alt="Angular-Galut">
+                    </div>
+                    <div class="project-content">
+                        <h3>Angular-Galut</h3>
+                        <p>Application web progressive développée avec Angular pour la gestion et visualisation de données complexes.</p>
+                        <div class="project-tags">
+                            <span>Angular</span>
+                            <span>TypeScript</span>
+                            <span>Material</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/HugoBiegas/Angular-Galut" target="_blank" rel="noopener noreferrer" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                            <a href="projects.html#angular-galut" class="project-link">
+                                <i class="fas fa-info-circle"></i> Détails
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Projet 3 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="assets/img/projects/nfc-mobile.jpg" alt="NFC Mobile">
+                    </div>
+                    <div class="project-content">
+                        <h3>NFC Mobile</h3>
+                        <p>Application mobile utilisant la technologie NFC pour l'authentification sécurisée et le transfert de données.</p>
+                        <div class="project-tags">
+                            <span>Java</span>
+                            <span>NFC</span>
+                            <span>Mobile</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/HugoBiegas/nfc-mobile-code-hackaton" target="_blank" rel="noopener noreferrer" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                            <a href="projects.html#nfc-mobile" class="project-link">
+                                <i class="fas fa-info-circle"></i> Détails
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="center-btn">
+                <a href="projects.html" class="btn primary-btn">Voir tous les projets</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Compétences -->
+    <section class="skills-preview">
+        <div class="container">
+            <div class="section-header">
+                <h2>Mes compétences</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="skills-content">
+                <div class="skills-categories">
+                    <div class="skill-category">
+                        <div class="category-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Développement Web</h3>
+                        <p>HTML, CSS, JavaScript, PHP, Angular, Laravel, RESTful APIs</p>
+                    </div>
+                    <div class="skill-category">
+                        <div class="category-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Développement Mobile</h3>
+                        <p>Java Android, NFC, Applications progressives</p>
+                    </div>
+                    <div class="skill-category">
+                        <div class="category-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Cybersécurité</h3>
+                        <p>Analyse de vulnérabilités, OWASP, Sécurisation d'applications</p>
+                    </div>
+                    <div class="skill-category">
+                        <div class="category-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3>Bases de données</h3>
+                        <p>MySQL, PostgreSQL, MongoDB, Modélisation</p>
+                    </div>
+                </div>
+                <div class="skills-cta">
+                    <a href="skills.html" class="btn secondary-btn">Voir toutes mes compétences</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pied de page -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-text">HB</span>
+                    <p>Développeur Full Stack & Cybersécurité</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-nav">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="index.html">Accueil</a></li>
+                            <li><a href="projects.html">Projets</a></li>
+                            <li><a href="skills.html">Compétences</a></li>
+                            <li><a href="experience.html">Expérience</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-social">
+                        <h4>Réseaux sociaux</h4>
+                        <div class="social-links">
+                            <a href="https://github.com/HugoBiegas" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/hugo-biegas" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="mailto:contact@hugobiegas.com" aria-label="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Hugo Biegas. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/dark-mode.js"></script>
+</body>
+</html>

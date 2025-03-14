@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Projets de développement de Hugo Biegas - Web, Mobile & Cybersécurité">
+    <meta name="keywords" content="projets, développement, web, mobile, cybersécurité, PHP, HTML, CSS, JavaScript, Java, Angular">
+    <meta name="author" content="Hugo Biegas">
+    
+    <title>Projets | Hugo Biegas</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+    
+    <!-- Polices -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS personnalisé -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/dark-mode.css">
+</head>
+<body>
+    <!-- Bouton de mode sombre -->
+    <div class="theme-toggle">
+        <button id="theme-toggle-btn" aria-label="Changer de thème">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+        </button>
+    </div>
+
+    <!-- En-tête -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <a href="index.html">
+                        <span class="logo-text">HB</span>
+                    </a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="projects.html" class="active">Projets</a></li>
+                    <li><a href="skills.html">Compétences</a></li>
+                    <li><a href="experience.html">Expérience</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Section de bannière des projets -->
+    <section class="projects-banner">
+        <div class="container">
+            <div class="projects-banner-content">
+                <h1>Mes Projets</h1>
+                <p>Découvrez mon portfolio de projets en développement web, mobile et cybersécurité.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section de filtrage des projets -->
+    <section class="projects-filter">
+        <div class="container">
+            <div class="filter-container">
+                <p>Filtrer par catégorie:</p>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">Tous</button>
+                    <button class="filter-btn" data-filter="web">Web</button>
+                    <button class="filter-btn" data-filter="mobile">Mobile</button>
+                    <button class="filter-btn" data-filter="security">Sécurité</button>
+                    <button class="filter-btn" data-filter="api">API</button>
+                    <button class="filter-btn" data-filter="other">Autres</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section principale des projets -->
+    <section class="projects-grid-section">
+        <div class="container">
+            <div class="projects-grid" id="projects-container">
+                <!-- Projet 1: SecuScanPro -->
+                <div class="project-card" data-category="security" id="secuscan">
+                    <div class="project-image">
+                        <img src="assets/img/projects/secuscan.jpg" alt="SecuScanPro">
+                    </div>
+                    <div class="project-content">
+                        <h3>SecuScanPro</h3>
+                        <p>Application de scan de vulnérabilités pour sites web avec rapports détaillés et recommandations de sécurité.</p>
+                        <div class="project-tags">
+                            <span>Java</span>
+                            <span>Cybersécurité</span>
+                            <span>OWASP</span>
+                        </div>
+                        <div class="project-description">
+                            <p>SecuScanPro est un outil de sécurité développé en Java qui permet de scanner les vulnérabilités web courantes selon les normes OWASP. L'application utilise des techniques avancées pour détecter les failles XSS, injections SQL, CSRF et autres vulnérabilités critiques.</p>
+                            <p>Caractéristiques principales :</p>
+                            <ul>
+                                <li>Scanner automatisé de vulnérabilités web</li>
+                                <li>Rapports détaillés avec niveau de criticité</li>
+                                <li>Recommandations de correction spécifiques</li>
+                                <li>Interface graphique intuitive</li>
+                            </ul>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/HugoBiegas/SecuScanPro" target="_blank" rel="noopener noreferrer" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 2: Angular-Galut -->
+                <div class="project-card" data-category="web" id="angular-galut">
+                    <div class="project-image">
+                        <img src="assets/img/projects/angular-galut.jpg" alt="Angular-Galut">
+                    </div>
+                    <div class="project-content">
+                        <h3>Angular-Galut</h3>
+                        <p>Application web progressive développée avec Angular pour la gestion et visualisation de données complexes.</p>
+                        <div class="project-tags">
+                            <span>Angular</span>
+                            <span>TypeScript</span>
+                            <span>Material</span>
+                        </div>
+                        <div class="project-description">
+                            <p>Angular-Galut est une application web moderne développée avec Angular qui offre une interface utilisateur intuitive pour la gestion et la visualisation de données complexes. Le projet utilise Angular Material pour l'interface et implémente les meilleures pratiques de développement.</p>
+                            <p>Fonctionnalités clés :</p>
+                            <ul>
+                                <li>Architecture modulaire suivant les principes SOLID</li>
+                                <li>Visualisation de données avec graphiques interactifs</li>
+                                <li>Gestion avancée des états avec NgRx</li>
+                                <li>Optimisation des performances</li>
+                            </ul>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/HugoBiegas/Angular-Galut" target="_blank" rel="noopener noreferrer" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 3: NFC Mobile -->
+                <div class="project-card" data-category="mobile" id="nfc-mobile">
+                    <div class="project-image">
+                        <img src="assets/img/projects/nfc-mobile.jpg" alt="NFC Mobile">
+                    </div>
+                    <div class="project-content">
+                        <h3>NFC Mobile</h3>
+                        <p>Application mobile utilisant la technologie NFC pour l'authentification sécurisée et le transfert de données.</p>
+                        <div class="project-tags">
+                            <span>Java</span>
+                            <span>NFC</span>
+                            <span>Mobile</span>
+                        </div>
+                        <div class="project-description">
+                            <p>NFC Mobile est une application Android qui utilise la technologie Near Field Communication (NFC) pour permettre des échanges de données sécurisés et une authentification rapide. Ce projet a été développé dans le cadre d'un hackathon.</p>
+                            <p>Caractéristiques principales :</p>
+                            <ul>
+                                <li>Authentification par tag NFC</li>
+                                <li>Transfert de données cryptées</li>
+                                <li>Interface utilisateur intuitive</li>
+                                <li>Haute performance même sur appareils limités</li>
+                            </ul>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/HugoBiegas/nfc-mobile-code-hackaton" target="_blank" rel="noopener noreferrer" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 4: QuizApi -->
+                <div class="project-card" data-category="api">
+                    <div class="project-image">
+                        <img src="assets/img/projects/quizapi.jpg" alt="QuizApi">
+                    </div>
+                    <div class="project-content">
+                        <h3>QuizApi</h3>
+                        <p>API RESTful pour la gestion de quiz et questionnaires interactifs avec système d'authentification sécurisé.</p>
+                        <div class="project-tags">
+                            <span>PHP</span>
+                            <span>API</span>
+                            <span>JWT</span>
+                        </div>
+                        <div class="project-description">
+                            <p>QuizApi est une API RESTful développée en PHP qui permet la création et la gestion de quiz interactifs. L'API utilise JWT pour l'authentification et suit les principes de conception REST.</p>
+                            <p>Fonctionnalités :</p>
+                            <ul>
+                                <li>Authentification JWT sécurisée</li>
+                                <li>CRUD complet pour les quiz et questions</li>
+                                <li>Système de notation et classements</li>
+                                <li>Documentation OpenAPI</li>
+                            </ul>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/HugoBiegas/QuizApi" target="_blank" rel="noopener noreferrer" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 5: Docker-SNCF -->
+                <div class="project-card" data-category="other">
+                    <div class="project-image">
+                        <img src="assets/img/projects/docker-sncf.jpg" alt="Docker-SNCF">
+                    </div>
+                    <div class="project-content">
+                        <h3>Docker-SNCF</h3>
+                        <p>Infrastructure Docker pour le déploiement d'applications de transport avec haute disponibilité et scalabilité.</p>
+                        <div class="project-tags">
+                            <span>Docker</span>
+                            <span>CI/CD</span>
+                            <span>DevOps</span>
+                        </div>
+                        <div class="project-description">
+                            <p>Docker-SNCF est un projet d'infrastructure qui utilise Docker pour simplifier le déploiement et la gestion d'applications de transport. La configuration est optimisée pour la scalabilité et la haute disponibilité.</p>
+                            <p>Caractéristiques :</p>
+                            <ul>
+                                <li>Conteneurisation complète des services</li>
+                                <li>Pipeline CI/CD avec GitLab</li>
+                                <li>Surveillance et journalisation intégrées</li>
+                                <li>Configuration pour environnements de développement et production</li>
+                            </ul>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/nabassi0/docker-sncf" target="_blank" rel="noopener noreferrer" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 6: InstantLike -->
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="assets/img/projects/instantlike.jpg" alt="InstantLike">
+                    </div>
+                    <div class="project-content">
+                        <h3>InstantLike</h3>
+                        <p>Plateforme sociale avec partage de photos et système de likes et commentaires en temps réel.</p>
+                        <div class="project-tags">
+                            <span>JavaScript</span>
+                            <span>Firebase</span>
+                            <span>Web</span>
+                        </div>
+                        <div class="project-description">
+                            <p>InstantLike est une plateforme sociale moderne qui permet aux utilisateurs de partager des photos et d'interagir en temps réel via des likes et des commentaires. L'application utilise Firebase pour la base de données et l'authentification.</p>
+                            <p>Fonctionnalités :</p>
+                            <ul>
+                                <li>Partage de photos avec filtres</li>
+                                <li>Système de likes et commentaires en temps réel</li>
+                                <li>Profils personnalisables</li>
+                                <li>Authentification multiple (email, Google, Facebook)</li>
+                            </ul>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/HugoBiegas/InstantLike" target="_blank" rel="noopener noreferrer" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 7: Projet_CapChat -->
+                <div class="project-card" data-category="security">
+                    <div class="project-image">
+                        <img src="assets/img/projects/capchat.jpg" alt="Projet CapChat">
+                    </div>
+                    <div class="project-content">
+                        <h3>Projet CapChat</h3>
+                        <p>Alternative innovante aux CAPTCHA traditionnels, basée sur la reconnaissance d'images et de concepts.</p>
+                        <div class="project-tags">
+                            <span>JavaScript</span>
+                            <span>Sécurité</span>
+                            <span>UI/UX</span>
+                        </div>
+                        <div class="project-description">
+                            <p>Projet CapChat est une alternative innovante aux CAPTCHA traditionnels qui utilise la reconnaissance d'images et de concepts pour différencier les humains des robots. Cette approche améliore l'expérience utilisateur tout en maintenant un niveau de sécurité élevé.</p>
+                            <p>Caractéristiques :</p>
+                            <ul>
+                                <li>Tests basés sur la reconnaissance d'images</li>
+                                <li>Algorithmes anti-bots avancés</li>
+                                <li>Accessibilité améliorée</li>
+                                <li>Intégration facile sur tout site web</li>
+                            </ul>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/HugoBiegas/Projet_CapChat" target="_blank" rel="noopener noreferrer" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 8: Portfolio -->
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="assets/img/projects/portfolio.jpg" alt="Portfolio">
+                    </div>
+                    <div class="project-content">
+                        <h3>Portfolio Professionnel</h3>
+                        <p>Site web personnel présentant mes compétences, projets et expériences professionnelles.</p>
+                        <div class="project-tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="project-description">
+                            <p>Ce portfolio professionnel est développé en HTML, CSS et JavaScript pur, sans framework. Il présente mes compétences, projets et expériences dans un design moderne et réactif.</p>
+                            <p>Caractéristiques :</p>
+                            <ul>
+                                <li>Design responsive pour tous les appareils</li>
+                                <li>Animations et transitions fluides</li>
+                                <li>Mode sombre/clair</li>
+                                <li>Optimisation des performances</li>
+                            </ul>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/HugoBiegas/portfolio" target="_blank" rel="noopener noreferrer" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 9: devsecopsgitlab-java-vulnerable-application -->
+                <div class="project-card" data-category="security">
+                    <div class="project-image">
+                        <img src="assets/img/projects/devsecops.jpg" alt="DevSecOps Application">
+                    </div>
+                    <div class="project-content">
+                        <h3>DevSecOps Vulnerable App</h3>
+                        <p>Application Java volontairement vulnérable pour la formation et les tests en DevSecOps.</p>
+                        <div class="project-tags">
+                            <span>Java</span>
+                            <span>DevSecOps</span>
+                            <span>GitLab</span>
+                        </div>
+                        <div class="project-description">
+                            <p>Cette application Java est intentionnellement vulnérable pour servir d'outil de formation et de test en DevSecOps. Elle permet de mettre en pratique les techniques de détection et de correction des vulnérabilités dans un pipeline CI/CD GitLab.</p>
+                            <p>Caractéristiques :</p>
+                            <ul>
+                                <li>Vulnérabilités courantes (XSS, SQLI, etc.)</li>
+                                <li>Pipeline GitLab CI/CD</li>
+                                <li>Intégration d'outils d'analyse statique et dynamique</li>
+                                <li>Documentation des vulnérabilités et solutions</li>
+                            </ul>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/HugoBiegas/devsecops-gitlab-java-vulnerable-application" target="_blank" rel="noopener noreferrer" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 10: EchecMultiApp -->
+                <div class="project-card" data-category="other">
+                    <div class="project-image">
+                        <img src="assets/img/projects/echec-multi.jpg" alt="EchecMultiApp">
+                    </div>
+                    <div class="project-content">
+                        <h3>EchecMultiApp</h3>
+                        <p>Application de jeu d'échecs multijoueur avec IA et analyses de partie.</p>
+                        <div class="project-tags">
+                            <span>Java</span>
+                            <span>IA</span>
+                            <span>Jeu</span>
+                        </div>
+                        <div class="project-description">
+                            <p>EchecMultiApp est une application de jeu d'échecs complète avec fonctionnalités multijoueur, IA de différents niveaux et outils d'analyse. L'application est développée en Java avec une architecture modulaire.</p>
+                            <p>Fonctionnalités :</p>
+                            <ul>
+                                <li>Mode multijoueur en ligne</li>
+                                <li>IA avec plusieurs niveaux de difficulté</li>
+                                <li>Analyses post-partie</li>
+                                <li>Tutoriels d'apprentissage</li>
+                            </ul>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/HugoBiegas/EchecMultiApp" target="_blank" rel="noopener noreferrer" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pied de page -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-text">HB</span>
+                    <p>Développeur Full Stack & Cybersécurité</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-nav">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="index.html">Accueil</a></li>
+                            <li><a href="projects.html">Projets</a></li>
+                            <li><a href="skills.html">Compétences</a></li>
+                            <li><a href="experience.html">Expérience</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-social">
+                        <h4>Réseaux sociaux</h4>
+                        <div class="social-links">
+                            <a href="https://github.com/HugoBiegas" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/hugo-biegas" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="mailto:contact@hugobiegas.com" aria-label="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Hugo Biegas. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/projects.js"></script>
+    <script src="assets/js/dark-mode.js"></script>
+</body>
+</html>

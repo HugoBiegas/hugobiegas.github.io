@@ -1,0 +1,105 @@
+/* Variables pour le mode sombre */
+.dark-mode {
+    /* Couleurs neutres inversées */
+    --dark: #f4f5f8;
+    --dark-light: #e1e2e9;
+    --gray-1: #a0a5bb;
+    --gray-2: #717590;
+    --light: #1e2133;
+    --white: #121421;
+    
+    /* Couleurs principales ajustées */
+    --primary-color: #5a79ff;
+    --primary-dark: #4a6cf7;
+    --primary-light: #8a9dff;
+    
+    /* Modifie les ombres */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+/* Ajustements spécifiques au mode sombre */
+.dark-mode header {
+    background-color: rgba(18, 20, 33, 0.97);
+}
+
+.dark-mode header.scrolled {
+    background-color: rgba(18, 20, 33, 0.85);
+}
+
+.dark-mode .burger div {
+    background-color: var(--dark);
+}
+
+.dark-mode .hero::before {
+    background: linear-gradient(to bottom right, rgba(90, 121, 255, 0.05), rgba(90, 121, 255, 0.08));
+}
+
+.dark-mode .social-links a {
+    background-color: var(--light);
+    color: var(--dark);
+}
+
+.dark-mode .social-links a:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.dark-mode .project-card {
+    background-color: var(--light);
+}
+
+.dark-mode .project-tags span {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--gray-1);
+}
+
+.dark-mode .tech-item {
+    background-color: var(--light);
+}
+
+.dark-mode .skill-category {
+    background-color: var(--light);
+}
+
+.dark-mode footer {
+    background-color: #0a0c17;
+}
+
+/* Bouton de basculement du thème */
+.dark-mode #theme-toggle-btn .fa-moon {
+    display: none;
+}
+
+.dark-mode #theme-toggle-btn .fa-sun {
+    display: block;
+}
+
+.dark-mode .nav-links {
+    background-color: var(--white);
+}
+
+/* Transitions douces lors du changement de thème */
+body, header, .project-card, .skill-category, .tech-item, 
+.social-links a, footer, .hero::before, .burger div,
+.nav-links, .project-tags span, .btn, a, .logo-text, 
+.section-divider, .stat-count, #theme-toggle-btn,
+.category-icon, .about, .skills-preview {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Styles pour les images en mode sombre */
+.dark-mode img {
+    filter: brightness(0.9) contrast(1.1);
+}
+
+/* Styles pour le profil et les logos en mode sombre */
+.dark-mode .profile-image {
+    box-shadow: 0 0 25px rgba(90, 121, 255, 0.15);
+}
+
+/* Style pour les code brackets en mode sombre */
+.dark-mode .code-bracket {
+    text-shadow: 0 0 10px rgba(90, 121, 255, 0.5);
+}

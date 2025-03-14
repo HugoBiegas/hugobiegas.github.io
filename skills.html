@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Compétences techniques de Hugo Biegas - Développeur Web, Mobile & Cybersécurité">
+    <meta name="keywords" content="compétences, développement, web, mobile, cybersécurité, PHP, HTML, CSS, JavaScript, Java, Angular">
+    <meta name="author" content="Hugo Biegas">
+    
+    <title>Compétences | Hugo Biegas</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+    
+    <!-- Polices -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS personnalisé -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/dark-mode.css">
+    
+    <style>
+        /* Styles spécifiques à la page des compétences */
+        .skills-banner {
+            padding: 120px 0 60px;
+            background-color: var(--light);
+            text-align: center;
+        }
+        
+        .skills-banner h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .skills-banner p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--gray-1);
+        }
+        
+        .skill-group {
+            margin-bottom: 60px;
+        }
+        
+        .skill-group-header {
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .skill-group-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: var(--border-radius-full);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+        }
+        
+        .skill-group-title {
+            font-size: 1.8rem;
+            margin: 0;
+        }
+        
+        .skills-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        
+        .skill-item {
+            background-color: var(--white);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-sm);
+            padding: 25px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .skill-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .skill-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .skill-icon {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+        }
+        
+        .skill-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .skill-level {
+            height: 6px;
+            background-color: var(--light);
+            border-radius: var(--border-radius-full);
+            margin-bottom: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background-color: var(--primary-color);
+            border-radius: var(--border-radius-full);
+            width: 0;
+            transition: width 1.5s ease;
+        }
+        
+        .skill-details {
+            font-size: 0.9rem;
+            color: var(--gray-1);
+        }
+        
+        .certifications-section {
+            background-color: var(--light);
+            padding: 60px 0;
+        }
+        
+        .certification-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-sm);
+            padding: 25px;
+            margin-bottom: 25px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            transition: var(--transition);
+        }
+        
+        .certification-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .certification-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            min-width: 60px;
+            text-align: center;
+        }
+        
+        .certification-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        
+        .certification-content p {
+            color: var(--gray-1);
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+        
+        .certification-date {
+            font-size: 0.8rem;
+            color: var(--gray-1);
+        }
+        
+        /* Styles responsifs */
+        @media screen and (max-width: 1024px) {
+            .skills-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media screen and (max-width: 768px) {
+            .skills-banner h1 {
+                font-size: 2.4rem;
+            }
+            
+            .skill-group-title {
+                font-size: 1.6rem;
+            }
+        }
+        
+        @media screen and (max-width: 576px) {
+            .skills-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .certification-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .certification-icon {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Bouton de mode sombre -->
+    <div class="theme-toggle">
+        <button id="theme-toggle-btn" aria-label="Changer de thème">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+        </button>
+    </div>
+
+    <!-- En-tête -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <a href="index.html">
+                        <span class="logo-text">HB</span>
+                    </a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="projects.html">Projets</a></li>
+                    <li><a href="skills.html" class="active">Compétences</a></li>
+                    <li><a href="experience.html">Expérience</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Bannière des compétences -->
+    <section class="skills-banner">
+        <div class="container">
+            <h1>Mes Compétences Techniques</h1>
+            <p>L'ensemble des technologies et méthodologies que je maîtrise pour concevoir et développer des applications performantes, sécurisées et évolutives.</p>
+        </div>
+    </section>
+
+    <!-- Compétences en développement web -->
+    <section class="skills-section">
+        <div class="container">
+            <div class="skill-group">
+                <div class="skill-group-header">
+                    <div class="skill-group-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h2 class="skill-group-title">Développement Web</h2>
+                </div>
+                <div class="skills-list">
+                    <!-- HTML -->
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <i class="fab fa-html5 skill-icon"></i>
+                            <span class="skill-name">HTML5</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-progress" data-level="95"></div>
+                        </div>
+                        <div class="skill-details">
+                            <p>Structure sémantique, accessibilité, SEO, intégration multimédia, formulaires avancés.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- CSS -->
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <i class="fab fa-css3-alt skill-icon"></i>
+                            <span class="skill-name">CSS3</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-progress" data-level="90"></div>
+                        </div>
+                        <div class="skill-details">
+                            <p>Layouts flexibles, Grid, animations, variables CSS, media queries, responsive design.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- JavaScript -->
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <i class="fab fa-js skill-icon"></i>
+                            <span class="skill-name">JavaScript</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-progress" data-level="85"></div>
+                        </div>
+                        <div class="skill-details">
+                            <p>ES6+, DOM manipulation, Fetch API, Promises, Async/Await, modules, Web APIs.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- PHP -->
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <i class="fab fa-php skill-icon"></i>
+                            <span class="skill-name">PHP</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-progress" data-level="85"></div>
+                        </div>
+                        <div class="skill-details">
+                            <p>PHP 8, OOP, namespaces, Composer, sécurité, PDO, applications MVC.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Angular -->
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <i class="fab fa-angular skill-icon"></i>
+                            <span class="skill-name">Angular</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-progress" data-level="80"></div>
+                        </div>
+                        <div class="skill-details">
+                            <p>Angular 19, TypeScript, RxJS, services, modules, components, directives, forms.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Laravel -->
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <i class="fab fa-laravel skill-icon"></i>
+                            <span class="skill-name">Laravel</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-progress" data-level="75"></div>
+                        </div>
+                        <div class="skill-details">
+                            <p>MVC, Eloquent ORM, Blade, Middleware, API REST, authentification, autorisations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Compétences en développement mobile -->
+            <div class="skill-group">
+                <div class="skill-group-header">
+                    <div class="skill-group-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h2 class="skill-group-title">Développement Mobile</h2>
+                </div>
+                <div class="skills-list">
+                    <!-- Java Android -->
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <i class="fab fa-android skill-icon"></i>
+                            <span class="skill-name">Java Android</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-progress" data-level="80"></div>
+                        </div>
+                        <div class="skill-details">
+                            <p>Activities, Fragments, Services, SQLite, Material Design, UI/UX mobile.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- NFC -->
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <i class="fas fa-wifi skill-icon"></i>
+                            <span class="skill-name">NFC</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-progress" data-level="85"></div>
+                        </div>
+                        <div class="skill-details">
+                            <p>Programmation NFC, tags, communication peer-to-peer, authentification, paiement.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- PWA -->
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <i class="fas fa-globe skill-icon"></i>
+                            <span class="skill-name">Progressive Web Apps</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-progress" data-level="75"></div>
+                        </div>
+                        <div class="skill-details">
+                            <p>Service Workers, manifeste, offline capabilities, notifications push.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Compétences en cybersécurité -->
+            <div class="skill-group">
+                <div class="skill-group-header">
+                    <div class="skill-group-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h2 class="skill-group-title">Cybersécurité</h2>
+                </div>
+                <div class="skills-list">
+                    <!-- Sécurité Web -->
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <i class="fas fa-lock skill-icon"></i>
+                            <span class="skill-name">Sécurité Web</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-progress" data-level="90"></div>
+                        </div>
+                        <div class="skill-details">
+                            <p>OWASP Top 10, XSS, CSRF, injections SQL, authentification sécurisée, HTTPS/TLS.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Audit de sécurité -->
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <i class="fas fa-search skill-icon"></i>
+                            <span class="skill-name">Audit de sécurité</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-progress" data-level="85"></div>
+                        </div>
+                        <div class="skill-details">
+                            <p>Analyse de vulnérabilités, pentesting, review de code sécuritaire, outils d'audit.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- DevSecOps -->
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <i class="fas fa-shield-virus skill-icon"></i>
+                            <span class="skill-name">DevSecOps</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-progress" data-level="80"></div>
+                        </div>
+                        <div class="skill-details">
+                            <p>Intégration de la sécurité dans CI/CD, SAST, DAST, analyse de dépendances.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bases de données -->
+            <div class="skill-group">
+                <div class="skill-group-header">
+                    <div class="skill-group-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h2 class="skill-group-title">Bases de données</h2>
+                </div>
+                <div class="skills-list">
+                    <!-- MySQL -->
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <i class="fas fa-database skill-icon"></i>
+                            <span class="skill-name">MySQL</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-progress" data-level="90"></div>
+                        </div>
+                        <div class="skill-details">
+                            <p>Conception de schémas, optimisation, transactions, procédures stockées, indexation.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- PostgreSQL -->
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <i class="fas fa-server skill-icon"></i>
+                            <span class="skill-name">PostgreSQL</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-progress" data-level="75"></div>
+                        </div>
+                        <div class="skill-details">
+                            <p>Types personnalisés, JSON, partitionnement, fonctions, déclencheurs.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- MongoDB -->
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <i class="fas fa-leaf skill-icon"></i>
+                            <span class="skill-name">MongoDB</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-progress" data-level="70"></div>
+                        </div>
+                        <div class="skill-details">
+                            <p>Schémas flexibles, agregation, indexation, réplication, performances.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Outils et méthodologies -->
+            <div class="skill-group">
+                <div class="skill-group-header">
+                    <div class="skill-group-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h2 class="skill-group-title">Outils et méthodologies</h2>
+                </div>
+                <div class="skills-list">
+                    <!-- Git -->
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <i class="fab fa-git-alt skill-icon"></i>
+                            <span class="skill-name">Git</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-progress" data-level="90"></div>
+                        </div>
+                        <div class="skill-details">
+                            <p>Gestion de versions, workflows, branches, pull requests, résolution de conflits.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Docker -->
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <i class="fab fa-docker skill-icon"></i>
+                            <span class="skill-name">Docker</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-progress" data-level="80"></div>
+                        </div>
+                        <div class="skill-details">
+                            <p>Conteneurisation, Docker Compose, orchestration, CI/CD avec Docker.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Agile/Scrum -->
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <i class="fas fa-sync-alt skill-icon"></i>
+                            <span class="skill-name">Agile/Scrum</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-progress" data-level="85"></div>
+                        </div>
+                        <div class="skill-details">
+                            <p>Méthodologies agiles, sprints, user stories, planning poker, rétrospectives.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Principes SOLID -->
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <i class="fas fa-cubes skill-icon"></i>
+                            <span class="skill-name">Principes SOLID</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-progress" data-level="95"></div>
+                        </div>
+                        <div class="skill-details">
+                            <p>Conception orientée objet, Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, Dependency Inversion.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Certifications -->
+    <section class="certifications-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Certifications</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="certifications-list">
+                <!-- Certification 1 -->
+                <div class="certification-card">
+                    <div class="certification-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="certification-content">
+                        <h3>Certified Ethical Hacker (CEH)</h3>
+                        <p>Certification reconnue dans le domaine de la sécurité informatique et du test d'intrusion éthique.</p>
+                        <div class="certification-date">Obtenue en 2023</div>
+                    </div>
+                </div>
+                
+                <!-- Certification 2 -->
+                <div class="certification-card">
+                    <div class="certification-icon">
+                        <i class="fab fa-angular"></i>
+                    </div>
+                    <div class="certification-content">
+                        <h3>Angular Developer Professional</h3>
+                        <p>Certification attestant d'une maîtrise avancée du framework Angular et des meilleures pratiques de développement.</p>
+                        <div class="certification-date">Obtenue en 2022</div>
+                    </div>
+                </div>
+                
+                <!-- Certification 3 -->
+                <div class="certification-card">
+                    <div class="certification-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <div class="certification-content">
+                        <h3>AWS Certified Developer Associate</h3>
+                        <p>Certification validant les compétences pour développer, déployer et déboguer des applications cloud-natives sur AWS.</p>
+                        <div class="certification-date">Obtenue en 2021</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pied de page -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-text">HB</span>
+                    <p>Développeur Full Stack & Cybersécurité</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-nav">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="index.html">Accueil</a></li>
+                            <li><a href="projects.html">Projets</a></li>
+                            <li><a href="skills.html">Compétences</a></li>
+                            <li><a href="experience.html">Expérience</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-social">
+                        <h4>Réseaux sociaux</h4>
+                        <div class="social-links">
+                            <a href="https://github.com/HugoBiegas" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/hugo-biegas" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="mailto:contact@hugobiegas.com" aria-label="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Hugo Biegas. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript pour l'animation des barres de progression -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/dark-mode.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animation des barres de progression
+            function animateSkillBars() {
+                const skillBars = document.querySelectorAll('.skill-progress');
+                
+                skillBars.forEach(bar => {
+                    const level = bar.getAttribute('data-level');
+                    bar.style.width = '0%';
+                    
+                    // Vérifier si la barre est visible
+                    const isVisible = function(element) {
+                        const rect = element.getBoundingClientRect();
+                        return (
+                            rect.top >= 0 &&
+                            rect.left >= 0 &&
+                            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                        );
+                    };
+                    
+                    const animateIfVisible = function() {
+                        if (isVisible(bar)) {
+                            setTimeout(() => {
+                                bar.style.width = level + '%';
+                            }, 200);
+                            window.removeEventListener('scroll', animateIfVisible);
+                        }
+                    };
+                    
+                    // Animer si visible au chargement ou au défilement
+                    animateIfVisible();
+                    window.addEventListener('scroll', animateIfVisible);
+                });
+            }
+            
+            // Initialiser l'animation des barres de compétences
+            animateSkillBars();
+        });
+    </script>
+</body>
+</html>
