@@ -146,16 +146,6 @@
             z-index: 1;
         }
         
-        .timeline-item:nth-child(odd) .timeline-date {
-            right: 55%;
-            margin-right: 20px;
-        }
-        
-        .timeline-item:nth-child(even) .timeline-date {
-            left: 55%;
-            margin-left: 20px;
-        }
-        
         .timeline-title {
             margin-bottom: 15px;
             font-size: 1.4rem;
@@ -242,6 +232,56 @@
             margin-bottom: 15px;
         }
         
+        /* Nouvelles styles pour les modifications demandées */
+        /* Ajustement de l'animation au scroll - plus lente */
+        .timeline-item, .education-card {
+            transition: opacity 0.8s ease, transform 0.8s ease !important;
+        }
+        
+        /* Style pour les images des lieux de travail */
+        .company-image {
+            width: 100%;
+            height: 120px;
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            margin-bottom: 15px;
+            background-color: white; /* Fond blanc pour les images */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--gray-2);
+        }
+        
+        .company-image img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain; /* Garantit que l'image s'adapte sans déformation */
+        }
+        
+        /* Ajustement du positionnement des dates */
+        .timeline-date {
+            position: absolute;
+            top: 20px;
+            width: 120px;
+            padding: 3px 0;
+        }
+        
+        /* Pour les éléments impairs, la date va à droite */
+        .timeline-item:nth-child(odd) .timeline-date {
+            left: 55% !important;
+            right: auto !important;
+            margin-left: 20px !important;
+            margin-right: 0 !important;
+        }
+        
+        /* Pour les éléments pairs, la date va à gauche */
+        .timeline-item:nth-child(even) .timeline-date {
+            right: 55% !important;
+            left: auto !important;
+            margin-right: 20px !important;
+            margin-left: 0 !important;
+        }
+        
         /* Styles responsifs */
         @media screen and (max-width: 1024px) {
             .experience-banner h1 {
@@ -281,9 +321,13 @@
             
             .timeline-item:nth-child(odd) .timeline-date,
             .timeline-item:nth-child(even) .timeline-date {
-                right: auto;
-                left: auto;
-                margin: 0 0 10px 80px;
+                position: relative;
+                left: auto !important;
+                right: auto !important;
+                margin: 0 0 10px 80px !important;
+                top: 0;
+                width: auto;
+                display: inline-block;
             }
             
             .education-card {
@@ -367,6 +411,9 @@
                     <div class="timeline-dot"></div>
                     <div class="timeline-date">2023 - Présent</div>
                     <div class="timeline-content">
+                        <div class="company-image">
+                            <img src="assets/img/companies/sncf.jpg" alt="SNCF - Technicentre Sud-Est Européen">
+                        </div>
                         <h3 class="timeline-title">Alternant Développeur Full Stack</h3>
                         <h4 class="timeline-subtitle">SNCF - Technicentre Sud-Est Européen (TSEE)</h4>
                         <p class="timeline-text">Alternance dans le cadre de mon Master Informatique à Le Rebours. Collaboration sur des projets d'envergure pour la maintenance et la modernisation des applications métier de la SNCF.</p>
@@ -395,6 +442,9 @@
                     <div class="timeline-dot"></div>
                     <div class="timeline-date">2022 - 2023</div>
                     <div class="timeline-content">
+                        <div class="company-image">
+                            <img src="assets/img/companies/dgefp.jpg" alt="DGEFP - Délégation Générale à l'Emploi et à la Formation Professionnelle">
+                        </div>
                         <h3 class="timeline-title">Alternant Chargé de Projet Informatique</h3>
                         <h4 class="timeline-subtitle">DGEFP - Délégation Générale à l'Emploi et à la Formation Professionnelle</h4>
                         <p class="timeline-text">Alternance dans le cadre de ma Licence Informatique. Conception et suivi de projets informatiques pour la DGEFP.</p>
@@ -419,6 +469,9 @@
                     <div class="timeline-dot"></div>
                     <div class="timeline-date">Janv - Fév 2022</div>
                     <div class="timeline-content">
+                        <div class="company-image">
+                            <img src="assets/img/companies/gesta-partners.jpg" alt="Gesta Partners">
+                        </div>
                         <h3 class="timeline-title">Développeur d'Applications Métier</h3>
                         <h4 class="timeline-subtitle">Gesta Partners</h4>
                         <p class="timeline-text">Stage dans le cadre du BTS SIO. Conception d'outils métier pour le service comptabilité.</p>
@@ -443,6 +496,9 @@
                     <div class="timeline-dot"></div>
                     <div class="timeline-date">Mai - Juin 2021</div>
                     <div class="timeline-content">
+                        <div class="company-image">
+                            <img src="assets/img/companies/nivo-web.jpg" alt="nivo-web">
+                        </div>
                         <h3 class="timeline-title">Développeur Web</h3>
                         <h4 class="timeline-subtitle">nivo-web</h4>
                         <p class="timeline-text">Première expérience professionnelle dans le domaine du développement web. Découverte du monde professionnel et des relations clients.</p>
@@ -599,15 +655,15 @@
     <script src="assets/js/dark-mode.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Animation des éléments de la chronologie
+            // Animation des éléments de la chronologie avec délai plus long
             function animateTimeline() {
                 const timelineItems = document.querySelectorAll('.timeline-item');
                 
                 timelineItems.forEach((item, index) => {
                     item.style.opacity = '0';
                     item.style.transform = 'translateY(30px)';
-                    item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                    item.style.transitionDelay = (index * 0.2) + 's';
+                    item.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                    item.style.transitionDelay = (index * 0.3) + 's'; // Délai plus long entre les animations
                     
                     // Vérifier si l'élément est visible
                     const isVisible = function(element) {
@@ -628,20 +684,22 @@
                     };
                     
                     // Animer si visible au chargement ou au défilement
-                    animateIfVisible();
-                    window.addEventListener('scroll', animateIfVisible);
+                    setTimeout(() => {
+                        animateIfVisible();
+                        window.addEventListener('scroll', animateIfVisible);
+                    }, 500); // Délai initial avant de commencer à vérifier
                 });
             }
             
-            // Animation des cartes de formation
+            // Animation des cartes de formation avec délai plus long
             function animateEducation() {
                 const educationCards = document.querySelectorAll('.education-card');
                 
                 educationCards.forEach((card, index) => {
                     card.style.opacity = '0';
                     card.style.transform = 'translateY(30px)';
-                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                    card.style.transitionDelay = (index * 0.2) + 's';
+                    card.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                    card.style.transitionDelay = (index * 0.3) + 's';
                     
                     // Vérifier si la carte est visible
                     const isVisible = function(element) {
@@ -662,8 +720,10 @@
                     };
                     
                     // Animer si visible au chargement ou au défilement
-                    animateIfVisible();
-                    window.addEventListener('scroll', animateIfVisible);
+                    setTimeout(() => {
+                        animateIfVisible();
+                        window.addEventListener('scroll', animateIfVisible);
+                    }, 500);
                 });
             }
             
