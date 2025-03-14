@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Fond circulaire avec dégradé -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4a6cf7" />
+      <stop offset="100%" stop-color="#5a79ff" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Cercle de fond -->
+  <circle cx="100" cy="100" r="90" fill="url(#bgGradient)" />
+  
+  <!-- Élément décoratif - accolade gauche stylisée -->
+  <path d="M60 50 Q40 100 60 150" stroke="white" stroke-width="8" fill="none" stroke-linecap="round" />
+  
+  <!-- Élément décoratif - accolade droite stylisée -->
+  <path d="M140 50 Q160 100 140 150" stroke="white" stroke-width="8" fill="none" stroke-linecap="round" />
+  
+  <!-- H stylisé -->
+  <path d="M70 65 L70 135 M70 100 L100 100 M100 65 L100 135" stroke="white" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- B stylisé -->
+  <path d="M130 65 L130 135 M130 65 C150 65 150 100 130 100 M130 100 C155 100 155 135 130 135" stroke="white" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- Effet de brillance -->
+  <circle cx="70" cy="70" r="4" fill="white" opacity="0.7" />
+</svg>
