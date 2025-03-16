@@ -1,0 +1,185 @@
+        /* Styles spécifiques à la page des compétences */
+        .skills-banner {
+            padding: 120px 0 60px;
+            background-color: var(--light);
+            text-align: center;
+        }
+        
+        .skills-banner h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .skills-banner p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--gray-1);
+        }
+        
+        .skill-group {
+            margin-bottom: 60px;
+        }
+        
+        .skill-group-header {
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .skill-group-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: var(--border-radius-full);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+        }
+        
+        .skill-group-title {
+            font-size: 1.8rem;
+            margin: 0;
+        }
+        
+        .skills-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        
+        .skill-item {
+            background-color: var(--white);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-sm);
+            padding: 25px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .skill-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .skill-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .skill-icon {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+        }
+        
+        .skill-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .skill-level {
+            height: 6px;
+            background-color: var(--light);
+            border-radius: var(--border-radius-full);
+            margin-bottom: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background-color: var(--primary-color);
+            border-radius: var(--border-radius-full);
+            width: 0;
+            transition: width 1.5s ease;
+        }
+        
+        .skill-details {
+            font-size: 0.9rem;
+            color: var(--gray-1);
+        }
+        
+        .certifications-section {
+            background-color: var(--light);
+            padding: 60px 0;
+        }
+        
+        .certification-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-sm);
+            padding: 25px;
+            margin-bottom: 25px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            transition: var(--transition);
+        }
+        
+        .certification-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .certification-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            min-width: 60px;
+            text-align: center;
+        }
+        
+        .certification-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        
+        .certification-content p {
+            color: var(--gray-1);
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+        
+        .certification-date {
+            font-size: 0.8rem;
+            color: var(--gray-1);
+        }
+        
+        /* Styles responsifs */
+        @media screen and (max-width: 1024px) {
+            .skills-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media screen and (max-width: 768px) {
+            .skills-banner h1 {
+                font-size: 2.4rem;
+            }
+            
+            .skill-group-title {
+                font-size: 1.6rem;
+            }
+        }
+        
+        @media screen and (max-width: 576px) {
+            .skills-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .certification-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .certification-icon {
+                margin-bottom: 10px;
+            }
+        }

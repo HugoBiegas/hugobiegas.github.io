@@ -1,0 +1,47 @@
+/* Style spécifique pour les cartes de projets avec logos */
+.project-card .project-image {
+    height: 200px;
+    background-color: white; /* Fond blanc pour les logos */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    overflow: hidden;
+  }
+  
+  .project-card .project-image img {
+    max-width: 85%;
+    max-height: 85%; 
+    width: auto;
+    height: auto;
+    object-fit: contain; /* Conserve les proportions */
+    transition: transform 0.5s ease;
+  }
+  
+  /* Assure que le survol fonctionne correctement */
+  .project-card:hover .project-image img {
+    transform: scale(1.05); /* Effet de zoom légèrement réduit pour les logos */
+  }
+  
+  /* Styles spécifiques pour certaines catégories d'organismes */
+  .project-card[data-category="sncf"] .project-image,
+  .project-card[data-category="dgefp"] .project-image,
+  .project-card[data-category="gesta"] .project-image,
+  .project-card[data-category="nivo"] .project-image,
+  .project-card[data-category="api"] .project-image {
+    background-color: white;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Mode sombre compatible */
+  .dark-mode .project-card .project-image {
+    background-color: #ffffff; /* Toujours blanc même en mode sombre */
+  }
+  
+  .dark-mode .project-card[data-category="sncf"] .project-image,
+  .dark-mode .project-card[data-category="dgefp"] .project-image,
+  .dark-mode .project-card[data-category="gesta"] .project-image,
+  .dark-mode .project-card[data-category="nivo"] .project-image,
+  .dark-mode .project-card[data-category="api"] .project-image {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }

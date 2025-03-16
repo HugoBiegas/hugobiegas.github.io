@@ -25,6 +25,8 @@
     <link rel="stylesheet" href="assets/css/animations.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="assets/css/dark-mode.css">
+    <link rel="stylesheet" href="assets/css/projects.css">
+
 </head>
 <body>
     <!-- Bouton de mode sombre -->
@@ -65,12 +67,11 @@
         <div class="container">
             <div class="projects-banner-content">
                 <h1>Mes Projets</h1>
-                <p>Découvrez mon portfolio de projets en développement web, mobile et cybersécurité, avec un focus particulier sur les principes SOLID et la sécurité des applications.</p>
+                <p>Découvrez mon portfolio de projets en développement web, mobile et cybersécurité, avec un focus particulier sur la sécurité des applications.</p>
             </div>
         </div>
     </section>
-
-    <!-- Section de filtrage des projets -->
+    <!-- À remplacer dans la section projects-filter -->
     <section class="projects-filter">
         <div class="container">
             <div class="filter-container">
@@ -87,270 +88,11 @@
         </div>
     </section>
 
-    <!-- Section principale des projets -->
+    <!-- À remplacer dans la section projects-grid-section -->
     <section class="projects-grid-section">
         <div class="container">
             <div class="projects-grid" id="projects-container">
-                <!-- Projet 1: Migration SNCF -->
-                <div class="project-card" data-category="sncf" id="sncf-app">
-                    <div class="project-image">
-                        <img src="assets/img/projects/sncf-app.jpg" alt="Migration SNCF">
-                    </div>
-                    <div class="project-content">
-                        <h3>Migration d'Applications SNCF</h3>
-                        <p>Refactorisation et modernisation des applications métier du Technicentre Sud-Est Européen.</p>
-                        <div class="project-tags">
-                            <span>Angular 19</span>
-                            <span>Spring Boot</span>
-                            <span>PHP 8</span>
-                        </div>
-                        <div class="project-description">
-                            <p>Dans le cadre de mon alternance à la SNCF, j'ai activement participé à la modernisation complète des applications métier du Technicentre Sud-Est Européen (TSEE).</p>
-                            <p>Ce projet d'envergure comprenait :</p>
-                            <ul>
-                                <li>Migration du code PHP vers la version 8 pour bénéficier des améliorations de performances et de sécurité</li>
-                                <li>Refactorisation complète de l'existant en appliquant rigoureusement les principes SOLID</li>
-                                <li>Mise en place d'une architecture front-end moderne avec Angular 19</li>
-                                <li>Développement d'un back-end robuste avec Spring Boot</li>
-                                <li>Optimisation des performances et de la sécurité des applications</li>
-                                <li>Mise en place de tests automatisés et d'intégration continue</li>
-                            </ul>
-                            <p>Ce projet a permis d'améliorer significativement la maintenabilité, les performances et la sécurité des applications métier essentielles au fonctionnement du Technicentre.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Projet 2: Docker GitLab -->
-                <div class="project-card" data-category="sncf" id="gitlab-docker">
-                    <div class="project-image">
-                        <img src="assets/img/projects/docker-sncf.jpg" alt="Docker GitLab SNCF">
-                    </div>
-                    <div class="project-content">
-                        <h3>Déploiement GitLab Dockerisé</h3>
-                        <p>Mise en place d'une infrastructure GitLab containerisée pour la gestion de versions et l'intégration continue.</p>
-                        <div class="project-tags">
-                            <span>Docker</span>
-                            <span>GitLab</span>
-                            <span>CI/CD</span>
-                        </div>
-                        <div class="project-description">
-                            <p>En collaboration avec un autre alternant, j'ai conçu et déployé une instance GitLab entièrement dockerisée pour le Technicentre Sud-Est Européen de la SNCF.</p>
-                            <p>Les principales réalisations incluent :</p>
-                            <ul>
-                                <li>Configuration des conteneurs Docker pour GitLab, PostgreSQL, Redis et autres services associés</li>
-                                <li>Mise en place de volumes persistants pour les données critiques</li>
-                                <li>Configuration d'un reverse proxy pour sécuriser les accès</li>
-                                <li>Configuration des pipelines CI/CD pour l'automatisation des tests et déploiements</li>
-                                <li>Mise en place de la sauvegarde automatisée des données</li>
-                                <li>Documentation complète du processus de déploiement et de maintenance</li>
-                            </ul>
-                            <p>Ce projet a considérablement amélioré la gestion de versions et la collaboration au sein des équipes de développement en fournissant un environnement stable et sécurisé pour l'intégration continue.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Projet 3: Architecture Serveur SNCF -->
-                <div class="project-card" data-category="sncf">
-                    <div class="project-image">
-                        <img src="assets/img/projects/server-architecture.jpg" alt="Architecture Serveur SNCF">
-                    </div>
-                    <div class="project-content">
-                        <h3>Reconstruction Architecture Serveur</h3>
-                        <p>Refonte complète de l'architecture serveur selon les normes SNCF avec mise en place d'un reverse proxy.</p>
-                        <div class="project-tags">
-                            <span>Docker</span>
-                            <span>Nginx</span>
-                            <span>Sécurité</span>
-                        </div>
-                        <div class="project-description">
-                            <p>Pour répondre aux normes de sécurité et de performance de la SNCF, j'ai participé à la reconstruction complète de l'architecture serveur des applications métier du Technicentre Sud-Est Européen.</p>
-                            <p>Le projet comprenait :</p>
-                            <ul>
-                                <li>Analyse de l'architecture existante et identification des points d'amélioration</li>
-                                <li>Conception d'une nouvelle architecture conforme aux normes SNCF</li>
-                                <li>Mise en place d'un reverse proxy Nginx pour le filtrage et la redirection des requêtes</li>
-                                <li>Configuration de la sécurité réseau et des certificats SSL</li>
-                                <li>Optimisation des performances et de la scalabilité</li>
-                                <li>Mise en place de la surveillance et des alertes</li>
-                            </ul>
-                            <p>Cette refonte a permis d'augmenter la sécurité, la fiabilité et les performances des applications tout en facilitant leur maintenance et leur scalabilité.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Projet 4: DGEFP Java Application -->
-                <div class="project-card" data-category="api" id="dgefp-app">
-                    <div class="project-image">
-                        <img src="assets/img/projects/dgefp-java.jpg" alt="DGEFP Java Application">
-                    </div>
-                    <div class="project-content">
-                        <h3>Application Java pour la DGEFP</h3>
-                        <p>Développement d'une application Java pour récupérer et traiter les données d'une démarche administrative urgente.</p>
-                        <div class="project-tags">
-                            <span>Java</span>
-                            <span>API</span>
-                            <span>Administration</span>
-                        </div>
-                        <div class="project-description">
-                            <p>Lors de mon alternance à la Délégation Générale à l'Emploi et à la Formation Professionnelle (DGEFP), j'ai développé une application Java pour récupérer et traiter les données d'une démarche créée en urgence sur la plateforme Démarche Simplifiée.</p>
-                            <p>Les principales caractéristiques du projet :</p>
-                            <ul>
-                                <li>Intégration avec l'API de Démarche Simplifiée pour la récupération des données</li>
-                                <li>Traitement et transformation des données selon les besoins métier</li>
-                                <li>Mise en place d'un système de reporting automatisé</li>
-                                <li>Développement d'une interface utilisateur intuitive</li>
-                                <li>Mise en œuvre des concepts de gestion de projet (WBS, OBS, SWAT, RACI)</li>
-                            </ul>
-                            <p>Cette application a permis de répondre efficacement à une situation d'urgence en automatisant la récupération et le traitement des données administratives, réduisant ainsi considérablement le temps de traitement manuel.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Projet 5: Outil de facturation -->
-                <div class="project-card" data-category="web">
-                    <div class="project-image">
-                        <img src="assets/img/projects/invoice-tool.jpg" alt="Outil de facturation">
-                    </div>
-                    <div class="project-content">
-                        <h3>Outil de Facturation</h3>
-                        <p>Conception d'un outil de facturation pour le service comptabilité de Gesta Partners avec interface CLI et WinForm.</p>
-                        <div class="project-tags">
-                            <span>C#</span>
-                            <span>WinForm</span>
-                            <span>SQL</span>
-                        </div>
-                        <div class="project-description">
-                            <p>Dans le cadre de mon stage chez Gesta Partners, j'ai développé un outil complet de facturation pour optimiser les processus du service comptabilité.</p>
-                            <p>Le projet comprenait :</p>
-                            <ul>
-                                <li>Analyse des besoins spécifiques du service comptabilité</li>
-                                <li>Conception d'une interface en ligne de commande (CLI) pour les opérations automatisées</li>
-                                <li>Développement d'une interface graphique WinForm pour une utilisation conviviale</li>
-                                <li>Implémentation de mesures de sécurité contre les injections SQL et les vulnérabilités XSS</li>
-                                <li>Intégration avec le système comptable existant</li>
-                                <li>Documentation complète et formation des utilisateurs</li>
-                            </ul>
-                            <p>Cet outil a permis de réduire significativement le temps de traitement des factures et d'améliorer la précision des données comptables tout en garantissant un niveau élevé de sécurité.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Projet 6: E-commerce WooCommerce -->
-                <div class="project-card" data-category="web">
-                    <div class="project-image">
-                        <img src="assets/img/projects/ecommerce.jpg" alt="E-commerce">
-                    </div>
-                    <div class="project-content">
-                        <h3>Boutique E-commerce</h3>
-                        <p>Mise en place d'une boutique en ligne complète avec WooCommerce pour un client de nivo-web.</p>
-                        <div class="project-tags">
-                            <span>WordPress</span>
-                            <span>WooCommerce</span>
-                            <span>HTML/CSS</span>
-                        </div>
-                        <div class="project-description">
-                            <p>Lors de mon expérience chez nivo-web, j'ai participé à la création complète d'une boutique e-commerce utilisant WordPress et WooCommerce.</p>
-                            <p>Le projet comprenait :</p>
-                            <ul>
-                                <li>Configuration et personnalisation de WordPress selon les besoins du client</li>
-                                <li>Installation et paramétrage de WooCommerce pour la gestion des produits et commandes</li>
-                                <li>Personnalisation du thème et de l'interface utilisateur</li>
-                                <li>Intégration des passerelles de paiement sécurisées</li>
-                                <li>Optimisation des performances et du référencement</li>
-                                <li>Formation du client à l'utilisation de la plateforme</li>
-                            </ul>
-                            <p>Cette boutique en ligne a permis au client de diversifier ses canaux de vente et d'accroître significativement son chiffre d'affaires grâce à une présence en ligne professionnelle et fonctionnelle.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Projet 7: Sécurisation Applications Web -->
-                <div class="project-card" data-category="security">
-                    <div class="project-image">
-                        <img src="assets/img/projects/web-security.jpg" alt="Sécurisation Web">
-                    </div>
-                    <div class="project-content">
-                        <h3>Sécurisation Applications Web</h3>
-                        <p>Audit et implémentation de mesures de sécurité pour des applications web contre les vulnérabilités OWASP Top 10.</p>
-                        <div class="project-tags">
-                            <span>Cybersécurité</span>
-                            <span>OWASP</span>
-                            <span>PHP</span>
-                        </div>
-                        <div class="project-description">
-                            <p>Projet personnel de recherche et d'application des meilleures pratiques de sécurité pour les applications web, en se basant sur les recommandations OWASP Top 10.</p>
-                            <p>Les aspects clés comprennent :</p>
-                            <ul>
-                                <li>Audit des vulnérabilités courantes (XSS, CSRF, injection SQL, etc.)</li>
-                                <li>Mise en place de mécanismes de protection contre les attaques par injection</li>
-                                <li>Implémentation d'une gestion sécurisée des authentifications et sessions</li>
-                                <li>Configuration de l'en-tête Content Security Policy (CSP)</li>
-                                <li>Validation et filtrage des entrées utilisateur</li>
-                                <li>Développement d'une bibliothèque de fonctions sécurisées réutilisables</li>
-                            </ul>
-                            <p>Ce projet m'a permis d'approfondir mes connaissances en cybersécurité et de développer une méthodologie rigoureuse pour la sécurisation des applications web, que j'applique désormais systématiquement dans tous mes projets de développement.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Projet 8: Application NFC -->
-                <div class="project-card" data-category="mobile">
-                    <div class="project-image">
-                        <img src="assets/img/projects/nfc-mobile.jpg" alt="Application NFC">
-                    </div>
-                    <div class="project-content">
-                        <h3>Authentification NFC Mobile</h3>
-                        <p>Application mobile Android utilisant la technologie NFC pour l'authentification sécurisée et le transfert de données.</p>
-                        <div class="project-tags">
-                            <span>Java</span>
-                            <span>Android</span>
-                            <span>NFC</span>
-                        </div>
-                        <div class="project-description">
-                            <p>Développement d'une application mobile Android exploitant la technologie Near Field Communication (NFC) pour fournir un système d'authentification sécurisé et un transfert de données efficace.</p>
-                            <p>Fonctionnalités principales :</p>
-                            <ul>
-                                <li>Lecture et écriture de tags NFC pour l'authentification</li>
-                                <li>Chiffrement des données transmises pour garantir la confidentialité</li>
-                                <li>Communication peer-to-peer entre appareils compatibles NFC</li>
-                                <li>Interface utilisateur intuitive et responsive</li>
-                                <li>Mécanismes de sécurité avancés (anti-clonage, anti-replay)</li>
-                                <li>Compatibilité avec différents types de tags NFC</li>
-                            </ul>
-                            <p>Cette application offre une solution d'authentification pratique et sécurisée, particulièrement adaptée aux environnements nécessitant un contrôle d'accès physique ou des transactions sécurisées.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Projet 9: Portfolio personnel -->
-                <div class="project-card" data-category="web">
-                    <div class="project-image">
-                        <img src="assets/img/projects/portfolio.jpg" alt="Portfolio">
-                    </div>
-                    <div class="project-content">
-                        <h3>Portfolio Professionnel</h3>
-                        <p>Conception et développement de ce portfolio personnel avec HTML, CSS et JavaScript en appliquant les meilleures pratiques de développement web.</p>
-                        <div class="project-tags">
-                            <span>HTML5</span>
-                            <span>CSS3</span>
-                            <span>JavaScript</span>
-                        </div>
-                        <div class="project-description">
-                            <p>Développement de mon portfolio professionnel personnel en utilisant des technologies web modernes sans dépendre de frameworks externes.</p>
-                            <p>Caractéristiques techniques :</p>
-                            <ul>
-                                <li>Architecture HTML5 sémantique pour une meilleure accessibilité et référencement</li>
-                                <li>Utilisation avancée de CSS3 (Flexbox, Grid, variables CSS, animations)</li>
-                                <li>JavaScript vanilla pour les interactions et animations</li>
-                                <li>Design responsive s'adaptant à tous les types d'appareils</li>
-                                <li>Mode sombre/clair avec persistance des préférences utilisateur</li>
-                                <li>Optimisation des performances (chargement différé, minification)</li>
-                                <li>Mise en œuvre des meilleures pratiques d'accessibilité web</li>
-                            </ul>
-                            <p>Ce projet m'a permis de mettre en pratique mes compétences en développement front-end tout en créant une vitrine professionnelle pour présenter mon parcours et mes réalisations.</p>
-                        </div>
-                    </div>
-                </div>
+                <!-- Le contenu sera généré dynamiquement par JavaScript -->
             </div>
         </div>
     </section>
@@ -398,6 +140,7 @@
 
     <!-- JavaScript -->
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/projects-data.js"></script>
     <script src="assets/js/projects.js"></script>
     <script src="assets/js/dark-mode.js"></script>
 </body>
