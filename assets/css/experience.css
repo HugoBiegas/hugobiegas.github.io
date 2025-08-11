@@ -1,4 +1,8 @@
-/* Styles spécifiques à la page d'expérience */
+/* Styles spécifiques à la page d'expérience - Version optimisée complète */
+
+/* ===============================================
+   BANNIÈRE D'EXPÉRIENCE
+   =============================================== */
 .experience-banner {
     padding: 120px 0 60px;
     background-color: var(--light);
@@ -16,6 +20,9 @@
     color: var(--gray-1);
 }
 
+/* ===============================================
+   SECTION CHRONOLOGIE
+   =============================================== */
 .timeline-section {
     padding: 80px 0;
     position: relative;
@@ -27,6 +34,7 @@
     margin: 0 auto;
 }
 
+/* Ligne centrale de la chronologie */
 .timeline-container::after {
     content: '';
     position: absolute;
@@ -39,6 +47,9 @@
     opacity: 0.3;
 }
 
+/* ===============================================
+   ÉLÉMENTS DE CHRONOLOGIE
+   =============================================== */
 .timeline-item {
     position: relative;
     margin-bottom: 60px;
@@ -52,6 +63,7 @@
     clear: both;
 }
 
+/* Contenu principal de chaque expérience */
 .timeline-content {
     position: relative;
     width: 45%;
@@ -69,6 +81,7 @@
     box-shadow: var(--shadow-lg);
 }
 
+/* Positionnement alternatif gauche/droite */
 .timeline-item:nth-child(odd) .timeline-content {
     float: left;
 }
@@ -77,6 +90,7 @@
     float: right;
 }
 
+/* Flèches pointant vers la ligne centrale */
 .timeline-content::after {
     content: '';
     position: absolute;
@@ -96,6 +110,7 @@
     left: -10px;
 }
 
+/* Points sur la ligne centrale */
 .timeline-dot {
     position: absolute;
     width: 24px;
@@ -117,6 +132,7 @@
     box-shadow: 0 0 0 6px rgba(74, 108, 247, 0.3);
 }
 
+/* Dates des expériences */
 .timeline-date {
     position: absolute;
     top: 20px;
@@ -133,6 +149,9 @@
     box-shadow: 0 2px 8px rgba(74, 108, 247, 0.3);
 }
 
+/* ===============================================
+   CONTENU DES EXPÉRIENCES
+   =============================================== */
 .timeline-title {
     margin-bottom: 15px;
     font-size: 1.4rem;
@@ -153,6 +172,9 @@
     line-height: 1.6;
 }
 
+/* ===============================================
+   TAGS DES COMPÉTENCES - STYLE COHÉRENT
+   =============================================== */
 .timeline-tags {
     display: flex;
     flex-wrap: wrap;
@@ -161,21 +183,28 @@
 }
 
 .timeline-tag {
-    background: linear-gradient(135deg, var(--light), #e8ebf0);
-    padding: 6px 12px;
+    /* Style identique à celui de la page d'accueil */
+    background-color: var(--light);
+    padding: 5px 10px;
     border-radius: var(--border-radius-full);
     font-size: 0.8rem;
     color: var(--dark-light);
-    border: 1px solid rgba(74, 108, 247, 0.1);
+    /* Ajout d'une transition pour les effets au hover */
     transition: all 0.3s ease;
+    /* Bordure subtile pour plus de définition */
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .timeline-tag:hover {
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    background-color: var(--primary-color);
     color: var(--white);
     transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(74, 108, 247, 0.3);
 }
 
+/* ===============================================
+   SECTION FORMATION
+   =============================================== */
 .education-section {
     background-color: var(--light);
     padding: 60px 0;
@@ -236,7 +265,9 @@
     margin-bottom: 15px;
 }
 
-/* Style pour les images des entreprises */
+/* ===============================================
+   IMAGES DES ENTREPRISES
+   =============================================== */
 .company-image {
     width: 100%;
     height: 120px;
@@ -263,7 +294,9 @@
     transform: scale(1.05);
 }
 
-/* Positionnement des dates */
+/* ===============================================
+   POSITIONNEMENT DES DATES
+   =============================================== */
 .timeline-item:nth-child(odd) .timeline-date {
     left: 55%;
     margin-left: 20px;
@@ -274,7 +307,9 @@
     margin-right: 20px;
 }
 
-/* États d'animation */
+/* ===============================================
+   ÉTATS D'ANIMATION
+   =============================================== */
 .timeline-item.animated {
     opacity: 1 !important;
     transform: translateY(0) !important;
@@ -296,7 +331,42 @@
     will-change: auto;
 }
 
-/* Styles responsifs améliorés */
+/* ===============================================
+   MODE SOMBRE
+   =============================================== */
+.dark-mode .timeline-content {
+    background-color: var(--light);
+}
+
+.dark-mode .timeline-content::after {
+    background-color: var(--light);
+}
+
+.dark-mode .education-card {
+    background-color: var(--light);
+}
+
+.dark-mode .company-image {
+    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+}
+
+/* Tags en mode sombre - cohérence avec la page d'accueil */
+.dark-mode .timeline-tag {
+    background-color: var(--light);
+    color: var(--dark-light);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .timeline-tag:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+/* ===============================================
+   RESPONSIVE DESIGN
+   =============================================== */
+
+/* Tablettes (1024px et moins) */
 @media screen and (max-width: 1024px) {
     .experience-banner h1 {
         font-size: 2.4rem;
@@ -305,8 +375,13 @@
     .timeline-content {
         width: 42%;
     }
+    
+    .timeline-title {
+        font-size: 1.3rem;
+    }
 }
 
+/* Tablettes en mode portrait et mobiles (768px et moins) */
 @media screen and (max-width: 768px) {
     .timeline-container::after {
         left: 40px;
@@ -346,8 +421,13 @@
         margin: 0 auto 15px;
         justify-content: center;
     }
+    
+    .experience-banner h1 {
+        font-size: 2.2rem;
+    }
 }
 
+/* Petits mobiles (576px et moins) */
 @media screen and (max-width: 576px) {
     .timeline-content {
         padding: 20px;
@@ -365,21 +445,21 @@
         font-size: 0.8rem;
         padding: 6px 10px;
     }
-}
-
-/* Mode sombre */
-.dark-mode .timeline-content {
-    background-color: var(--light);
-}
-
-.dark-mode .timeline-content::after {
-    background-color: var(--light);
-}
-
-.dark-mode .education-card {
-    background-color: var(--light);
-}
-
-.dark-mode .company-image {
-    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+    
+    .timeline-tags {
+        gap: 6px;
+    }
+    
+    .timeline-tag {
+        font-size: 0.75rem;
+        padding: 4px 8px;
+    }
+    
+    .experience-banner h1 {
+        font-size: 2rem;
+    }
+    
+    .experience-banner {
+        padding: 100px 0 50px;
+    }
 }
