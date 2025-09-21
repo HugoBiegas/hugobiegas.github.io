@@ -25,9 +25,23 @@
     <link rel="stylesheet" href="assets/css/animations.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="assets/css/dark-mode.css">
+    <link rel="stylesheet" href="assets/css/language-selector.css">
     <link rel="stylesheet" href="assets/css/index.css">
+    
+    <!-- Métadonnées i18n -->
+    <meta name="i18n-title" content="page.title.home">
 </head>
 <body>
+    <!-- Sélecteur de langue -->
+    <div class="language-selector" id="language-selector">
+        <button class="language-btn" data-lang="fr" aria-label="Français">
+            <span class="language-tooltip">Français</span>
+        </button>
+        <button class="language-btn" data-lang="en" aria-label="English">
+            <span class="language-tooltip">English</span>
+        </button>
+    </div>
+
     <!-- Bouton de mode sombre -->
     <div class="theme-toggle">
         <button id="theme-toggle-btn" aria-label="Changer de thème">
@@ -46,11 +60,11 @@
                     </a>
                 </div>
                 <ul class="nav-links">
-                    <li><a href="index.html" class="active">Accueil</a></li>
-                    <li><a href="projects.html">Projets</a></li>
-                    <li><a href="skills.html">Compétences</a></li>
-                    <li><a href="experience.html">Expérience</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="index.html" class="active" data-i18n="nav.home">Accueil</a></li>
+                    <li><a href="projects.html" data-i18n="nav.projects">Projets</a></li>
+                    <li><a href="skills.html" data-i18n="nav.skills">Compétences</a></li>
+                    <li><a href="experience.html" data-i18n="nav.experience">Expérience</a></li>
+                    <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
                 </ul>
                 <div class="burger">
                     <div class="line1"></div>
@@ -67,13 +81,13 @@
             <div class="hero-content">
                 <div class="hero-text">
                     <h1>Hugo Biegas</h1>
-                    <h2>Développeur <span class="accent-text" id="typing-text">Full Stack</span></h2>
-                    <p>Spécialisé en développement web, mobile, applications métier et cybersécurité.</p>
-                    <p> Diplômé d'un Master informatique à Le Rebours avec une solide expérience acquise lors de mon alternance à la SNCF. </p>
-                    <p> disponible pour de nouveaux défis professionnels.</p>
+                    <h2><span data-i18n="home.title">Développeur</span> <span class="accent-text" id="typing-text">Full Stack</span></h2>
+                    <p data-i18n="home.subtitle">Spécialisé en développement web, mobile, applications métier et cybersécurité.</p>
+                    <p data-i18n="home.description">Diplômé d'un Master informatique à Le Rebours avec une solide expérience acquise lors de mon alternance à la SNCF.</p>
+                    <p data-i18n="home.availability">Disponible pour de nouveaux défis professionnels.</p>
                     <div class="hero-buttons">
-                        <a href="projects.html" class="btn primary-btn">Voir mes projets</a>
-                        <a href="contact.html" class="btn secondary-btn">Me contacter</a>
+                        <a href="projects.html" class="btn primary-btn" data-i18n="home.cta.projects">Voir mes projets</a>
+                        <a href="contact.html" class="btn secondary-btn" data-i18n="home.cta.contact">Me contacter</a>
                     </div>
                     <div class="social-links">
                         <a href="https://github.com/HugoBiegas" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
@@ -102,31 +116,31 @@
     <section class="about" id="about">
         <div class="container">
             <div class="section-header">
-                <h2>À propos</h2>
+                <h2 data-i18n="about.title">À propos</h2>
                 <div class="section-divider"></div>
             </div>
             <div class="about-content">
                 <div class="about-text">
-                    <p>Intéressé par le développement et la cybersécurité, je m'attache à produire un code de qualité en appliquant les principes SOLID et en intégrant les bonnes pratiques de sécurité dans mes applications.</p>
-                    <p>Originaire de Paris, j'ai 22 ans et je viens de terminer mon alternance à la SNCF (Technicentre Sud-Est Européen) où j'ai participé à la refactorisation et la modernisation d'applications métier, notamment lors de migrations vers Angular 20 et Spring Boot.</p>
-                    <p> Cette expérience m'a permis de développer mes compétences techniques et je suis maintenant à la recherche de nouvelles opportunités professionnelles.</p>
+                    <p data-i18n="about.intro">Intéressé par le développement et la cybersécurité, je m'attache à produire un code de qualité en appliquant les principes SOLID et en intégrant les bonnes pratiques de sécurité dans mes applications.</p>
+                    <p data-i18n="about.background">Originaire de Paris, j'ai 22 ans et je viens de terminer mon alternance à la SNCF (Technicentre Sud-Est Européen) où j'ai participé à la refactorisation et la modernisation d'applications métier, notamment lors de migrations vers Angular 20 et Spring Boot.</p>
+                    <p data-i18n="about.goals">Cette expérience m'a permis de développer mes compétences techniques et je suis maintenant à la recherche de nouvelles opportunités professionnelles.</p>
                     <div class="about-stats">
                         <div class="stat">
                             <span class="stat-count">4+</span>
-                            <span class="stat-label">Expériences professionnelles</span>
+                            <span class="stat-label" data-i18n="about.stats.experiences">Expériences professionnelles</span>
                         </div>
                         <div class="stat">
                             <span class="stat-count">3+</span>
-                            <span class="stat-label">Années d'expérience</span>
+                            <span class="stat-label" data-i18n="about.stats.years">Années d'expérience</span>
                         </div>
                         <div class="stat">
                             <span class="stat-count">10+</span>
-                            <span class="stat-label">Technologies maîtrisées</span>
+                            <span class="stat-label" data-i18n="about.stats.technologies">Technologies maîtrisées</span>
                         </div>
                     </div>
                 </div>
                 <div class="about-technologies">
-                    <h3>Technologies favorites</h3>
+                    <h3 data-i18n="about.technologies.title">Technologies favorites</h3>
                     <div class="tech-grid">
                         <div class="tech-item">
                             <i class="fab fa-php"></i>
@@ -162,7 +176,7 @@
     <section class="featured-projects">
         <div class="container">
             <div class="section-header">
-                <h2>Projets en vedette</h2>
+                <h2 data-i18n="featured.title">Projets en vedette</h2>
                 <div class="section-divider"></div>
             </div>
             <div class="projects-grid">
@@ -172,8 +186,8 @@
                         <img src="assets/img/projects/sncf.jpg" alt="Migration SNCF">
                     </div>
                     <div class="project-content">
-                        <h3>Migration d'Applications SNCF</h3>
-                        <p>Refactorisation et modernisation des applications métier du Technicentre Sud-Est Européen avec migration vers Angular 20 et Spring Boot.</p>
+                        <h3 data-i18n="featured.sncf.title">Migration d'Applications SNCF</h3>
+                        <p data-i18n="featured.sncf.description">Refactorisation et modernisation des applications métier du Technicentre Sud-Est Européen avec migration vers Angular 20 et Spring Boot.</p>
                         <div class="project-tags">
                             <span>Angular</span>
                             <span>Spring Boot</span>
@@ -181,7 +195,7 @@
                         </div>
                         <div class="project-links">
                             <a href="projects.html#sncf-app" class="project-link">
-                                <i class="fas fa-info-circle"></i> Détails
+                                <i class="fas fa-info-circle"></i> <span data-i18n="featured.project.details">Détails</span>
                             </a>
                         </div>
                     </div>
@@ -193,8 +207,8 @@
                         <img src="assets/img/projects/dgefp.jpg" alt="DGEFP Java Project">
                     </div>
                     <div class="project-content">
-                        <h3>Application Java pour la DGEFP</h3>
-                        <p>Développement d'une application Java pour récupérer les données d'une démarche créée en urgence sur Démarche Simplifiée dans le cadre de mon alternance.</p>
+                        <h3 data-i18n="featured.dgefp.title">Application Java pour la DGEFP</h3>
+                        <p data-i18n="featured.dgefp.description">Développement d'une application Java pour récupérer les données d'une démarche créée en urgence sur Démarche Simplifiée dans le cadre de mon alternance.</p>
                         <div class="project-tags">
                             <span>Java</span>
                             <span>Gestion de Projet</span>
@@ -202,7 +216,7 @@
                         </div>
                         <div class="project-links">
                             <a href="projects.html#dgefp-app" class="project-link">
-                                <i class="fas fa-info-circle"></i> Détails
+                                <i class="fas fa-info-circle"></i> <span data-i18n="featured.project.details">Détails</span>
                             </a>
                         </div>
                     </div>
@@ -214,8 +228,8 @@
                         <img src="assets/img/projects/sncf.jpg" alt="Docker GitLab SNCF">
                     </div>
                     <div class="project-content">
-                        <h3>Déploiement GitLab Dockerisé</h3>
-                        <p>Configuration et déploiement d'une instance GitLab dockerisée pour la gestion de versions et l'intégration continue des applications SNCF.</p>
+                        <h3 data-i18n="featured.gitlab.title">Déploiement GitLab Dockerisé</h3>
+                        <p data-i18n="featured.gitlab.description">Configuration et déploiement d'une instance GitLab dockerisée pour la gestion de versions et l'intégration continue des applications SNCF.</p>
                         <div class="project-tags">
                             <span>Docker</span>
                             <span>GitLab</span>
@@ -223,14 +237,14 @@
                         </div>
                         <div class="project-links">
                             <a href="projects.html#gitlab-docker" class="project-link">
-                                <i class="fas fa-info-circle"></i> Détails
+                                <i class="fas fa-info-circle"></i> <span data-i18n="featured.project.details">Détails</span>
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="center-btn">
-                <a href="projects.html" class="btn primary-btn">Voir tous les projets</a>
+                <a href="projects.html" class="btn primary-btn" data-i18n="featured.view_all">Voir tous les projets</a>
             </div>
         </div>
     </section>
@@ -238,7 +252,7 @@
     <section class="skills-preview">
         <div class="container">
             <div class="section-header">
-                <h2>Mes compétences</h2>
+                <h2 data-i18n="skills.preview.title">Mes compétences</h2>
                 <div class="section-divider"></div>
             </div>
             <div class="skills-content">
@@ -247,33 +261,33 @@
                         <div class="category-icon">
                             <i class="fas fa-code"></i>
                         </div>
-                        <h3>Développement Web</h3>
-                        <p>PHP 8, HTML, CSS, JavaScript, Angular, Laravel, Bootstrap, WordPress</p>
+                        <h3 data-i18n="skills.preview.web.title">Développement Web</h3>
+                        <p data-i18n="skills.preview.web.desc">PHP 8, HTML, CSS, JavaScript, Angular, Laravel, Bootstrap, WordPress</p>
                     </div>
                     <div class="skill-category">
                         <div class="category-icon">
                             <i class="fas fa-mobile-alt"></i>
                         </div>
-                        <h3>Développement Mobile</h3>
-                        <p>Java Android, React Native, Applications progressives</p>
+                        <h3 data-i18n="skills.preview.mobile.title">Développement Mobile</h3>
+                        <p data-i18n="skills.preview.mobile.desc">Java Android, React Native, Applications progressives</p>
                     </div>
                     <div class="skill-category">
                         <div class="category-icon">
                             <i class="fas fa-shield-alt"></i>
                         </div>
-                        <h3>Cybersécurité</h3>
-                        <p>Injections SQL, Cross-Site Scripting, Authentification sécurisée, Audits</p>
+                        <h3 data-i18n="skills.preview.security.title">Cybersécurité</h3>
+                        <p data-i18n="skills.preview.security.desc">Injections SQL, Cross-Site Scripting, Authentification sécurisée, Audits</p>
                     </div>
                     <div class="skill-category">
                         <div class="category-icon">
                             <i class="fas fa-server"></i>
                         </div>
-                        <h3>DevOps</h3>
-                        <p>Docker, GitLab CI/CD, Architecture serveur, Reverse proxy</p>
+                        <h3 data-i18n="skills.preview.devops.title">DevOps</h3>
+                        <p data-i18n="skills.preview.devops.desc">Docker, GitLab CI/CD, Architecture serveur, Reverse proxy</p>
                     </div>
                 </div>
                 <div class="skills-cta">
-                    <a href="skills.html" class="btn secondary-btn">Voir toutes mes compétences</a>
+                    <a href="skills.html" class="btn secondary-btn" data-i18n="skills.preview.cta">Voir toutes mes compétences</a>
                 </div>
             </div>
         </div>
@@ -285,21 +299,21 @@
             <div class="footer-content">
                 <div class="footer-logo">
                     <span class="logo-text">HB</span>
-                    <p>Développeur Full Stack & Cybersécurité</p>
+                    <p data-i18n="footer.description">Développeur Full Stack & Cybersécurité</p>
                 </div>
                 <div class="footer-links">
                     <div class="footer-nav">
-                        <h4>Navigation</h4>
+                        <h4 data-i18n="footer.nav.title">Navigation</h4>
                         <ul>
-                            <li><a href="index.html">Accueil</a></li>
-                            <li><a href="projects.html">Projets</a></li>
-                            <li><a href="skills.html">Compétences</a></li>
-                            <li><a href="experience.html">Expérience</a></li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+                            <li><a href="projects.html" data-i18n="nav.projects">Projets</a></li>
+                            <li><a href="skills.html" data-i18n="nav.skills">Compétences</a></li>
+                            <li><a href="experience.html" data-i18n="nav.experience">Expérience</a></li>
+                            <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
                         </ul>
                     </div>
                     <div class="footer-social">
-                        <h4>Réseaux sociaux</h4>
+                        <h4 data-i18n="footer.social.title">Réseaux sociaux</h4>
                         <div class="social-links">
                             <a href="https://github.com/HugoBiegas" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                                 <i class="fab fa-github"></i>
@@ -315,12 +329,15 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Hugo Biegas. Tous droits réservés.</p>
+                <p data-i18n="footer.copyright">&copy; 2025 Hugo Biegas. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
 
     <!-- JavaScript -->
+    <script src="assets/js/i18n/fr.js"></script>
+    <script src="assets/js/i18n/en.js"></script>
+    <script src="assets/js/i18n/translations.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/dark-mode.js"></script>
 </body>

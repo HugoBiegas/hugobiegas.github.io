@@ -38,15 +38,24 @@ function generateProjects() {
         projectCard.className = 'project-card';
         projectCard.dataset.category = project.category;
         projectCard.dataset.index = index;
+        projectCard.dataset.projectId = project.id; // Ajouter l'ID pour la traduction
         projectCard.id = project.id;
+        
+        // Obtenir la langue actuelle
+        const currentLang = window.getCurrentLanguage ? window.getCurrentLanguage() : 'fr';
+        
+        // Utiliser les traductions appropriées
+        const title = project.title[currentLang] || project.title.fr;
+        const shortDescription = project.shortDescription[currentLang] || project.shortDescription.fr;
+        const detailedDescription = project.detailedDescription[currentLang] || project.detailedDescription.fr;
         
         projectCard.innerHTML = `
             <div class="project-image">
-                <img src="${project.image}" alt="${project.title}" loading="lazy">
+                <img src="${project.image}" alt="${title}" loading="lazy">
             </div>
             <div class="project-content">
-                <h3>${project.title}</h3>
-                <p>${project.shortDescription}</p>
+                <h3>${title}</h3>
+                <p>${shortDescription}</p>
                 <div class="project-tags">
                     ${project.tags.map(tag => `<span>${tag}</span>`).join('')}
                 </div>
@@ -57,11 +66,11 @@ function generateProjects() {
                     </a>` : ''}
                 </div>
                 <div class="project-description">
-                    ${project.detailedDescription}
+                    ${detailedDescription}
                 </div>
                 <div class="project-hover-indicator">
                     <i class="fas fa-chevron-down"></i>
-                    <span>Survolez pour en savoir plus</span>
+                    <span data-i18n="projects.hover_indicator">Survolez pour en savoir plus</span>
                 </div>
             </div>
         `;
@@ -71,6 +80,11 @@ function generateProjects() {
     
     // Initialiser les comportements des cartes
     initProjectCards();
+    
+    // Appliquer les traductions après génération du contenu
+    if (typeof applyTranslations === 'function') {
+        applyTranslations();
+    }
 }
 
 /**

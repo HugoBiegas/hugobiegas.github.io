@@ -25,10 +25,23 @@
     <link rel="stylesheet" href="assets/css/animations.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="assets/css/dark-mode.css">
+    <link rel="stylesheet" href="assets/css/language-selector.css">
     <link rel="stylesheet" href="assets/css/projects.css">
 
+    <!-- Métadonnées i18n -->
+    <meta name="i18n-title" content="page.title.projects">
 </head>
 <body>
+    <!-- Sélecteur de langue -->
+    <div class="language-selector" id="language-selector">
+        <button class="language-btn" data-lang="fr" aria-label="Français">
+            <span class="language-tooltip">Français</span>
+        </button>
+        <button class="language-btn" data-lang="en" aria-label="English">
+            <span class="language-tooltip">English</span>
+        </button>
+    </div>
+
     <!-- Bouton de mode sombre -->
     <div class="theme-toggle">
         <button id="theme-toggle-btn" aria-label="Changer de thème">
@@ -47,11 +60,11 @@
                     </a>
                 </div>
                 <ul class="nav-links">
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="projects.html" class="active">Projets</a></li>
-                    <li><a href="skills.html">Compétences</a></li>
-                    <li><a href="experience.html">Expérience</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+                    <li><a href="projects.html" class="active" data-i18n="nav.projects">Projets</a></li>
+                    <li><a href="skills.html" data-i18n="nav.skills">Compétences</a></li>
+                    <li><a href="experience.html" data-i18n="nav.experience">Expérience</a></li>
+                    <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
                 </ul>
                 <div class="burger">
                     <div class="line1"></div>
@@ -66,8 +79,8 @@
     <section class="projects-banner">
         <div class="container">
             <div class="projects-banner-content">
-                <h1>Mes Projets</h1>
-                <p>Découvrez mon portfolio de projets en développement web, mobile et cybersécurité, avec un focus particulier sur la sécurité des applications.</p>
+                <h1 data-i18n="projects.title">Mes Projets</h1>
+                <p data-i18n="projects.subtitle">Découvrez mon portfolio de projets en développement web, mobile et cybersécurité, avec un focus particulier sur la sécurité des applications.</p>
             </div>
             
             <!-- Timeline des expériences professionnelles -->
@@ -83,7 +96,7 @@
                         </div>
                         <div class="timeline-info">
                             <h3>SNCF</h3>
-                            <span class="timeline-role">Alternance</span>
+                            <span class="timeline-role" data-i18n="projects.timeline.apprenticeship">Alternance</span>
                             <span class="timeline-date">2023-2025</span>
                         </div>
                     </div>
@@ -98,7 +111,7 @@
                         </div>
                         <div class="timeline-info">
                             <h3>DGEFP</h3>
-                            <span class="timeline-role">Alternance</span>
+                            <span class="timeline-role" data-i18n="projects.timeline.apprenticeship">Alternance</span>
                             <span class="timeline-date">2022-2023</span>
                         </div>
                     </div>
@@ -113,7 +126,7 @@
                         </div>
                         <div class="timeline-info">
                             <h3>Gesta Partners</h3>
-                            <span class="timeline-role">Stage</span>
+                            <span class="timeline-role" data-i18n="projects.timeline.internship">Stage</span>
                             <span class="timeline-date">Jan-Fév 2022</span>
                         </div>
                     </div>
@@ -128,7 +141,7 @@
                         </div>
                         <div class="timeline-info">
                             <h3>nivo-web</h3>
-                            <span class="timeline-role">Stage</span>
+                            <span class="timeline-role" data-i18n="projects.timeline.internship">Stage</span>
                             <span class="timeline-date">Mai-Juin 2021</span>
                         </div>
                     </div>
@@ -141,13 +154,13 @@
     <section class="projects-filter">
         <div class="container">
             <div class="filter-container">
-                <p>Filtrer par catégorie:</p>
+                <p data-i18n="projects.filter.label">Filtrer par catégorie:</p>
                 <div class="filter-buttons">
-                    <button class="filter-btn active" data-filter="all">Tous</button>
-                    <button class="filter-btn" data-filter="web">Web</button>
-                    <button class="filter-btn" data-filter="mobile">Mobile</button>
-                    <button class="filter-btn" data-filter="security">Sécurité</button>
-                    <button class="filter-btn" data-filter="api">API</button>
+                    <button class="filter-btn active" data-filter="all" data-i18n="projects.filter.all">Tous</button>
+                    <button class="filter-btn" data-filter="web" data-i18n="projects.filter.web">Web</button>
+                    <button class="filter-btn" data-filter="mobile" data-i18n="projects.filter.mobile">Mobile</button>
+                    <button class="filter-btn" data-filter="security" data-i18n="projects.filter.security">Sécurité</button>
+                    <button class="filter-btn" data-filter="api" data-i18n="projects.filter.api">API</button>
                     <button class="filter-btn" data-filter="sncf">SNCF</button>
                     <button class="filter-btn" data-filter="dgefp">DGEFP</button>
                     <button class="filter-btn" data-filter="gesta">Gesta Partners</button>
@@ -172,21 +185,21 @@
             <div class="footer-content">
                 <div class="footer-logo">
                     <span class="logo-text">HB</span>
-                    <p>Développeur Full Stack & Cybersécurité</p>
+                    <p data-i18n="footer.description">Développeur Full Stack & Cybersécurité</p>
                 </div>
                 <div class="footer-links">
                     <div class="footer-nav">
-                        <h4>Navigation</h4>
+                        <h4 data-i18n="footer.nav.title">Navigation</h4>
                         <ul>
-                            <li><a href="index.html">Accueil</a></li>
-                            <li><a href="projects.html">Projets</a></li>
-                            <li><a href="skills.html">Compétences</a></li>
-                            <li><a href="experience.html">Expérience</a></li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+                            <li><a href="projects.html" data-i18n="nav.projects">Projets</a></li>
+                            <li><a href="skills.html" data-i18n="nav.skills">Compétences</a></li>
+                            <li><a href="experience.html" data-i18n="nav.experience">Expérience</a></li>
+                            <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
                         </ul>
                     </div>
                     <div class="footer-social">
-                        <h4>Réseaux sociaux</h4>
+                        <h4 data-i18n="footer.social.title">Réseaux sociaux</h4>
                         <div class="social-links">
                             <a href="https://github.com/HugoBiegas" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                                 <i class="fab fa-github"></i>
@@ -202,12 +215,16 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Hugo Biegas. Tous droits réservés.</p>
+                <p data-i18n="footer.copyright">&copy; 2025 Hugo Biegas. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
 
     <!-- JavaScript -->
+    <script src="assets/js/i18n/fr.js"></script>
+    <script src="assets/js/i18n/en.js"></script>
+    <script src="assets/js/i18n/translations.js"></script>
+    <script src="assets/js/projects-i18n.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/projects-data.js"></script>
     <script src="assets/js/projects.js"></script>
