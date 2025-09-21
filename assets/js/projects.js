@@ -1,6 +1,6 @@
 /**
- * Script de gestion des projets
- * Intègre la génération dynamique, la recherche de projets ET le système de survol
+ * Script de gestion des projets avec timeline interactive
+ * Intègre la génération dynamique, la recherche, le système de survol et la timeline
  */
 document.addEventListener('DOMContentLoaded', function() {
     // Générer les projets dynamiquement
@@ -12,7 +12,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialiser la recherche
     createSearchFunction();
     
-    // Gérer les ancres d'URL (pour ouvrir directement un projet depuis une autre page)
+    // Initialiser la timeline
+    initTimeline();
+    
+    // Initialiser les effets de ligne au survol
+    initRowHoverEffects();
+    
+    // Gérer les ancres d'URL
     handleUrlHash();
 });
 
@@ -27,10 +33,11 @@ function generateProjects() {
     projectsContainer.innerHTML = '';
     
     // Générer chaque carte de projet
-    projectsData.forEach(project => {
+    projectsData.forEach((project, index) => {
         const projectCard = document.createElement('div');
         projectCard.className = 'project-card';
         projectCard.dataset.category = project.category;
+        projectCard.dataset.index = index;
         projectCard.id = project.id;
         
         projectCard.innerHTML = `
@@ -54,7 +61,7 @@ function generateProjects() {
                 </div>
                 <div class="project-hover-indicator">
                     <i class="fas fa-chevron-down"></i>
-                    <span>Survolez ou cliquez pour en savoir plus</span>
+                    <span>Survolez pour en savoir plus</span>
                 </div>
             </div>
         `;
@@ -67,62 +74,232 @@ function generateProjects() {
 }
 
 /**
- * Initialise les comportements des cartes de projet - VERSION AMÉLIORÉE
+ * NOUVELLE FONCTION - Initialise la timeline interactive
  */
-function initProjectCards() {
-    document.querySelectorAll('.project-card').forEach(card => {
-        // Initialiser la description
-        const description = card.querySelector('.project-description');
-        const hoverIndicator = card.querySelector('.project-hover-indicator');
-        
-        if (description) {
-            description.style.maxHeight = '0';
-            description.style.overflow = 'hidden';
-            description.style.transition = 'max-height 0.4s ease, opacity 0.3s ease, padding-top 0.3s ease';
-            description.style.opacity = '0';
-            description.style.paddingTop = '0';
-        }
-
-        // NOUVEAU - Gestion du survol
-        card.addEventListener('mouseenter', () => {
-            showProjectDescription(card);
-        });
-
-        card.addEventListener('mouseleave', () => {
-            hideProjectDescription(card);
-        });
-        
-        // Ajouter l'événement de clic (conservé pour compatibilité)
-        card.addEventListener('click', (e) => {
-            // Ignorer si on clique sur un lien
-            if (e.target.closest('.project-links a')) {
-                return;
+function initTimeline() {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    
+    timelineItems.forEach(item => {
+        // Effet de clic pour filtrer
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Récupérer le filtre associé
+            const filter = this.dataset.filter;
+            
+            // Activer le filtre correspondant
+            const filterBtn = document.querySelector(`.filter-btn[data-filter="${filter}"]`);
+            if (filterBtn) {
+                filterBtn.click();
             }
             
-            toggleProjectDetails(card);
+            // Ajouter animation de clic
+            this.classList.add('active');
+            setTimeout(() => {
+                this.classList.remove('active');
+            }, 1000);
+            
+            // Scroll jusqu'à la section des projets
+            const projectsSection = document.querySelector('.projects-grid-section');
+            if (projectsSection) {
+                projectsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+        
+        // Effet de survol amélioré
+        item.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-3px)';
+        });
+        
+        item.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
         });
     });
 }
 
 /**
- * NOUVELLE FONCTION - Affiche la description au survol
+ * NOUVELLE FONCTION - Initialise les effets de ligne au survol
+ */
+function initRowHoverEffects() {
+    const projectsGrid = document.querySelector('.projects-grid');
+    if (!projectsGrid) return;
+    
+    let currentHoveredRow = null;
+    let hideTimeout = null;
+    let isTransitioning = false;
+    
+    // Fonction pour obtenir le nombre de colonnes
+    function getColumnsCount() {
+        const gridStyle = window.getComputedStyle(projectsGrid);
+        const columns = gridStyle.getPropertyValue('grid-template-columns').split(' ').length;
+        return columns;
+    }
+    
+    // Fonction pour obtenir toutes les cartes de la même ligne
+    function getRowCards(card) {
+        const allCards = Array.from(document.querySelectorAll('.project-card:not([style*="display: none"])'));
+        const cardIndex = allCards.indexOf(card);
+        const columnsCount = getColumnsCount();
+        const rowIndex = Math.floor(cardIndex / columnsCount);
+        
+        const rowCards = [];
+        for (let i = rowIndex * columnsCount; i < (rowIndex + 1) * columnsCount && i < allCards.length; i++) {
+            rowCards.push(allCards[i]);
+        }
+        
+        return { cards: rowCards, rowIndex: rowIndex };
+    }
+    
+    // Fonction pour afficher les descriptions d'une ligne
+    function showRowDescriptions(rowCards, hoveredCard) {
+        // Annuler le timeout de masquage si il existe
+        if (hideTimeout) {
+            clearTimeout(hideTimeout);
+            hideTimeout = null;
+        }
+        
+        isTransitioning = true;
+        
+        rowCards.forEach((card, index) => {
+            // Appliquer les classes appropriées
+            if (card === hoveredCard) {
+                card.classList.add('row-hover');
+                card.classList.remove('row-hover-secondary');
+            } else {
+                card.classList.add('row-hover-secondary');
+                card.classList.remove('row-hover');
+            }
+            
+            // Afficher la description immédiatement
+            const desc = card.querySelector('.project-description');
+            const indicator = card.querySelector('.project-hover-indicator');
+            
+            if (desc && !card.classList.contains('expanded')) {
+                desc.style.maxHeight = '500px';
+                desc.style.opacity = card === hoveredCard ? '1' : '0.9';
+                desc.style.paddingTop = '15px';
+            }
+            
+            if (indicator) {
+                indicator.style.opacity = '0';
+            }
+            
+            card.classList.add('hovered');
+        });
+        
+        setTimeout(() => {
+            isTransitioning = false;
+        }, 100);
+    }
+    
+    // Fonction pour masquer les descriptions d'une ligne
+    function hideRowDescriptions(rowCards) {
+        if (isTransitioning) return;
+        
+        hideTimeout = setTimeout(() => {
+            rowCards.forEach(card => {
+                card.classList.remove('row-hover', 'row-hover-secondary', 'hovered');
+                
+                if (!card.classList.contains('expanded')) {
+                    const desc = card.querySelector('.project-description');
+                    const indicator = card.querySelector('.project-hover-indicator');
+                    
+                    if (desc) {
+                        desc.style.maxHeight = '0';
+                        desc.style.opacity = '0';
+                        desc.style.paddingTop = '0';
+                    }
+                    
+                    if (indicator) {
+                        indicator.style.opacity = '0.7';
+                    }
+                }
+            });
+            currentHoveredRow = null;
+        }, 2000); // Délai de 2 secondes avant de masquer
+    }
+    
+    // Délégation d'événements pour une meilleure performance
+    projectsGrid.addEventListener('mouseenter', function(e) {
+        const card = e.target.closest('.project-card');
+        if (!card) return;
+        
+        const rowData = getRowCards(card);
+        const rowCards = rowData.cards;
+        const rowIndex = rowData.rowIndex;
+        
+        // Si c'est une nouvelle ligne ou la même ligne
+        if (currentHoveredRow !== rowIndex) {
+            // Masquer immédiatement l'ancienne ligne
+            if (currentHoveredRow !== null) {
+                const oldCards = document.querySelectorAll('.row-hover, .row-hover-secondary');
+                oldCards.forEach(c => {
+                    c.classList.remove('row-hover', 'row-hover-secondary', 'hovered');
+                    if (!c.classList.contains('expanded')) {
+                        const desc = c.querySelector('.project-description');
+                        const indicator = c.querySelector('.project-hover-indicator');
+                        
+                        if (desc) {
+                            desc.style.maxHeight = '0';
+                            desc.style.opacity = '0';
+                            desc.style.paddingTop = '0';
+                        }
+                        
+                        if (indicator) {
+                            indicator.style.opacity = '0.7';
+                        }
+                    }
+                });
+            }
+            
+            currentHoveredRow = rowIndex;
+        }
+        
+        showRowDescriptions(rowCards, card);
+    }, true);
+    
+    // Écouter quand on quitte complètement la grille
+    projectsGrid.addEventListener('mouseleave', function(e) {
+        // Vérifier qu'on quitte vraiment la grille
+        if (!e.relatedTarget || !projectsGrid.contains(e.relatedTarget)) {
+            const hoveredCards = document.querySelectorAll('.row-hover, .row-hover-secondary');
+            if (hoveredCards.length > 0) {
+                hideRowDescriptions(Array.from(hoveredCards));
+            }
+        }
+    });
+}
+
+/**
+ * Initialise les comportements des cartes de projet
+ */
+function initProjectCards() {
+    document.querySelectorAll('.project-card').forEach(card => {
+        // Initialiser la description
+        const description = card.querySelector('.project-description');
+        
+        if (description) {
+            // État initial déjà défini dans le CSS
+            description.dataset.initialized = 'true';
+        }
+        
+        // Événement de clic supprimé - les cartes ne sont plus cliquables
+        // pour éviter l'expansion manuelle
+    });
+}
+
+/**
+ * Affiche la description au survol
  */
 function showProjectDescription(projectCard) {
     const projectDescription = projectCard.querySelector('.project-description');
     const hoverIndicator = projectCard.querySelector('.project-hover-indicator');
     
     if (projectDescription && !projectCard.classList.contains('expanded')) {
-        // Calculer la hauteur nécessaire
-        projectDescription.style.maxHeight = 'none';
-        const height = projectDescription.scrollHeight;
-        projectDescription.style.maxHeight = '0';
-        
-        // Forcer le reflow puis animer
-        setTimeout(() => {
-            projectDescription.style.maxHeight = height + 'px';
-            projectDescription.style.opacity = '1';
-            projectDescription.style.paddingTop = '15px';
-        }, 10);
+        // Utilisation directe sans recalcul
+        projectDescription.style.maxHeight = '500px';
+        projectDescription.style.opacity = '1';
+        projectDescription.style.paddingTop = '15px';
         
         // Masquer l'indicateur
         if (hoverIndicator) {
@@ -135,7 +312,7 @@ function showProjectDescription(projectCard) {
 }
 
 /**
- * NOUVELLE FONCTION - Masque la description quand on quitte le survol
+ * Masque la description quand on quitte le survol
  */
 function hideProjectDescription(projectCard) {
     const projectDescription = projectCard.querySelector('.project-description');
@@ -148,7 +325,7 @@ function hideProjectDescription(projectCard) {
         
         // Réafficher l'indicateur
         if (hoverIndicator) {
-            hoverIndicator.style.opacity = '1';
+            hoverIndicator.style.opacity = '0.7';
         }
         
         // Retirer la classe de styling
@@ -157,7 +334,7 @@ function hideProjectDescription(projectCard) {
 }
 
 /**
- * Affiche ou masque les détails d'un projet - FONCTION MODIFIÉE
+ * Affiche ou masque les détails d'un projet
  */
 function toggleProjectDetails(projectCard) {
     const projectDescription = projectCard.querySelector('.project-description');
@@ -172,7 +349,7 @@ function toggleProjectDetails(projectCard) {
         
         // Réafficher l'indicateur de survol
         if (hoverIndicator) {
-            hoverIndicator.style.opacity = '1';
+            hoverIndicator.style.opacity = '0.7';
         }
     } else {
         // Réduire tous les autres projets
@@ -183,12 +360,12 @@ function toggleProjectDetails(projectCard) {
             desc.style.maxHeight = '0';
             desc.style.opacity = '0';
             desc.style.paddingTop = '0';
-            if (indicator) indicator.style.opacity = '1';
+            if (indicator) indicator.style.opacity = '0.7';
         });
         
         // Développer le projet actuel
         projectCard.classList.add('expanded');
-        projectDescription.style.maxHeight = projectDescription.scrollHeight + 'px';
+        projectDescription.style.maxHeight = '500px';
         projectDescription.style.opacity = '1';
         projectDescription.style.paddingTop = '15px';
         
@@ -200,32 +377,11 @@ function toggleProjectDetails(projectCard) {
 }
 
 /**
- * Initialise les filtres de projets
+ * Initialise les filtres de projets avec animation
  */
 function initFilters() {
     const filterButtons = document.querySelectorAll('.filter-btn');
     if (!filterButtons.length) return;
-    
-    // Extraire les catégories uniques des projets
-    const categories = [...new Set(projectsData.map(project => project.category))];
-    
-    // Ajouter dynamiquement les boutons de filtre manquants
-    const filterContainer = document.querySelector('.filter-buttons');
-    if (filterContainer) {
-        // Vérifier les catégories qui manquent dans les boutons existants
-        const existingCategories = [...filterButtons].map(btn => btn.dataset.filter)
-                                  .filter(filter => filter !== 'all');
-        
-        categories.forEach(category => {
-            if (!existingCategories.includes(category)) {
-                const button = document.createElement('button');
-                button.className = 'filter-btn';
-                button.dataset.filter = category;
-                button.textContent = formatCategoryName(category);
-                filterContainer.appendChild(button);
-            }
-        });
-    }
     
     // Ajouter les événements aux boutons de filtre
     document.querySelectorAll('.filter-btn').forEach(button => {
@@ -238,8 +394,8 @@ function initFilters() {
             });
             button.classList.add('active');
             
-            // Filtrer les projets
-            filterProjects(filter);
+            // Filtrer les projets avec animation
+            filterProjectsWithAnimation(filter);
             
             // Réinitialiser la recherche
             const searchInput = document.querySelector('.search-input');
@@ -251,7 +407,6 @@ function initFilters() {
     
     // Ajouter le conteneur pour message "aucun résultat"
     if (!document.getElementById('no-results-message')) {
-        // Créer un wrapper avec flexbox pour centrer le message
         const messageWrapper = document.createElement('div');
         messageWrapper.className = 'no-results-wrapper';
         
@@ -263,12 +418,10 @@ function initFilters() {
         
         messageWrapper.appendChild(noResultsMessage);
         
-        // Ajouter le wrapper au conteneur de projets
         const projectsSection = document.querySelector('.projects-grid-section .container');
         if (projectsSection) {
             projectsSection.appendChild(messageWrapper);
             
-            // Ajouter l'événement pour réinitialiser les filtres
             document.getElementById('reset-filter').addEventListener('click', function(e) {
                 e.preventDefault();
                 const allFilterBtn = document.querySelector('[data-filter="all"]');
@@ -278,47 +431,31 @@ function initFilters() {
             });
         }
     }
-    
-    // Appel initial pour s'assurer que le message est caché au chargement
-    filterProjects('all');
 }
 
 /**
- * Filtre les projets selon la catégorie
- * @param {string} filter - Catégorie à filtrer
+ * Filtre les projets avec animation fluide
  */
-function filterProjects(filter) {
-    // Récupérer toutes les cartes de projet
+function filterProjectsWithAnimation(filter) {
     const projectCards = document.querySelectorAll('.project-card');
-    
-    // Compteur pour les éléments visibles
     let visibleCount = 0;
     
-    // Filtrer les projets
     projectCards.forEach((card, index) => {
         const category = card.dataset.category;
-        const delay = index * 50; // Délai progressif pour l'animation
+        
+        // Nettoyer toutes les classes d'animation précédentes
+        card.classList.remove('filtering-out', 'filtering-in');
+        card.style.animationDelay = '';
         
         if (filter === 'all' || category === filter) {
-            // Incrémenter le compteur d'éléments visibles
+            // Afficher la carte immédiatement
+            card.style.display = '';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0) scale(1)';
             visibleCount++;
-            
-            // Animation pour afficher avec délai
-            setTimeout(() => {
-                card.style.display = '';
-                setTimeout(() => {
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, 50);
-            }, delay);
         } else {
-            // Animation pour masquer
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            
-            setTimeout(() => {
-                card.style.display = 'none';
-            }, 300);
+            // Masquer la carte immédiatement
+            card.style.display = 'none';
         }
     });
     
@@ -335,11 +472,8 @@ function filterProjects(filter) {
 
 /**
  * Formate le nom d'une catégorie pour l'affichage
- * @param {string} category - Nom de la catégorie
- * @return {string} Nom formaté
  */
 function formatCategoryName(category) {
-    // Mapper les catégories avec leur nom d'affichage
     const categoryMap = {
         'web': 'Web',
         'mobile': 'Mobile',
@@ -358,43 +492,35 @@ function formatCategoryName(category) {
  * Crée et initialise la fonction de recherche de projets
  */
 function createSearchFunction() {
-    // Ne pas créer la recherche si elle existe déjà
     if (document.querySelector('.search-container')) return;
     
-    // Créer le conteneur de recherche
     const searchContainer = document.createElement('div');
     searchContainer.className = 'search-container';
     
-    // Créer le champ de recherche
     const searchInput = document.createElement('input');
     searchInput.type = 'text';
     searchInput.placeholder = 'Rechercher un projet...';
     searchInput.className = 'search-input';
     
-    // Ajouter le champ au conteneur
     searchContainer.appendChild(searchInput);
     
-    // Insérer le champ de recherche avant les boutons de filtre
     const filterContainer = document.querySelector('.filter-container');
     if (filterContainer) {
         filterContainer.appendChild(searchContainer);
     }
     
-    // Ajouter la fonctionnalité de recherche
     searchInput.addEventListener('input', () => {
         const searchTerm = searchInput.value.toLowerCase();
         const projectCards = document.querySelectorAll('.project-card');
         
-        // Compteur pour les éléments visibles
         let visibleCount = 0;
         
-        projectCards.forEach(card => {
+        projectCards.forEach((card, index) => {
             const title = card.querySelector('h3').textContent.toLowerCase();
             const description = card.querySelector('p').textContent.toLowerCase();
             const tags = Array.from(card.querySelectorAll('.project-tags span'))
                 .map(tag => tag.textContent.toLowerCase());
             
-            // Vérifier si le projet correspond à la recherche
             const matchesSearch = title.includes(searchTerm) || 
                                  description.includes(searchTerm) || 
                                  tags.some(tag => tag.includes(searchTerm));
@@ -402,16 +528,17 @@ function createSearchFunction() {
             if (matchesSearch) {
                 visibleCount++;
                 card.style.display = '';
-                setTimeout(() => {
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, 50);
-            } else {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
+                card.classList.add('filtering-in');
+                card.style.animationDelay = `${visibleCount * 0.05}s`;
                 
                 setTimeout(() => {
+                    card.classList.remove('filtering-in');
+                }, 500);
+            } else {
+                card.classList.add('filtering-out');
+                setTimeout(() => {
                     card.style.display = 'none';
+                    card.classList.remove('filtering-out');
                 }, 300);
             }
         });
@@ -447,10 +574,8 @@ function handleUrlHash() {
         const targetProject = document.getElementById(targetId);
         
         if (targetProject) {
-            // Défiler vers le projet
             setTimeout(() => {
                 targetProject.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                // Ouvrir les détails du projet
                 setTimeout(() => {
                     toggleProjectDetails(targetProject);
                 }, 500);
@@ -460,7 +585,7 @@ function handleUrlHash() {
 }
 
 /**
- * Fonction pour réorganiser les projets de manière aléatoire (fonctionnalité bonus)
+ * Fonction pour réorganiser les projets de manière aléatoire
  */
 function shuffleProjects() {
     const projectsContainer = document.getElementById('projects-container');
@@ -468,14 +593,13 @@ function shuffleProjects() {
     
     const projectCards = Array.from(document.querySelectorAll('.project-card'));
     
-    // Mélanger le tableau des projets
     for (let i = projectCards.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [projectCards[i], projectCards[j]] = [projectCards[j], projectCards[i]];
     }
     
-    // Vider et reconstruire le conteneur de projets
-    projectCards.forEach(project => {
+    projectCards.forEach((project, index) => {
+        project.style.animationDelay = `${index * 0.05}s`;
         projectsContainer.appendChild(project);
     });
 }
