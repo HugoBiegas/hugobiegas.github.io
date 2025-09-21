@@ -80,7 +80,7 @@ const projectsData = [
         image: "assets/img/projects/dgefp.jpg",
         shortDescription: "Management d'équipe et structuration complète d'un site web en urgence pour une démarche administrative critique.",
         detailedDescription: `
-            <p>En tant que chef d'équipe à la Délégation Générale à l'Emploi et à la Formation Professionnelle (DGEFP), j'ai supervisé une équipe de développeurs pour la création d'un squelette de site web basé sur WordPress/Elementor dans le cadre d'une situation d'urgence administrative.</p>
+            <p>En tant que chef d'équipe à la Délégation Générale à l'Emploi et à la Formation Professionnelle (DGEFP), j'ai supervisé une équipe de développeurs pour la création d'un squelette (type WordPress) de site web coder pour l'occasion en Java dans le cadre d'une situation d'urgence administrative.</p>
             <p>Mes responsabilités et réalisations :</p>
             <ul>
                 <li>Management et coordination d'une équipe de développeurs</li>
@@ -92,7 +92,7 @@ const projectsData = [
             </ul>
             <p>Ce projet a nécessité une approche collaborative intensive et une gestion rigoureuse des priorités pour livrer une solution opérationnelle dans les délais impartis, répondant efficacement aux besoins urgents de l'administration.</p>
         `,
-        tags: ["Management", "WordPress", "Gestion de projet", "Administration"],
+        tags: ["Management", "Java", "Gestion de projet", "Administration"],
         category: "dgefp",
         github: ""
     },

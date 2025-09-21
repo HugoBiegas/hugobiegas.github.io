@@ -278,6 +278,9 @@ function initFilters() {
             });
         }
     }
+    
+    // Appel initial pour s'assurer que le message est caché au chargement
+    filterProjects('all');
 }
 
 /**

@@ -36,6 +36,12 @@
 }
 
 /* Message "aucun résultat" */
+.no-results-wrapper {
+    display: none; /* Caché par défaut */
+    justify-content: center;
+    width: 100%;
+}
+
 #no-results-message {
     padding: 20px;
     background-color: var(--light);
