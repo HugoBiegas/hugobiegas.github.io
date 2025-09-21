@@ -64,7 +64,7 @@
 }
 
 .dark-mode footer {
-    background-color: #0a0c17;
+    background-color: var(--white);
 }
 
 /* Bouton de basculement du thème */

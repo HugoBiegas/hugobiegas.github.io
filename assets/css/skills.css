@@ -15,11 +15,12 @@
 
 /* Bannière des compétences */
 .skills-banner {
-    padding: 120px 0 60px;
-    background: linear-gradient(135deg, var(--light), #e9ecef);
+    padding: 100px 0 80px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     text-align: center;
     position: relative;
     overflow: hidden;
+    animation: fadeInDown 0.8s ease forwards;
 }
 
 .skills-banner::before {
@@ -29,35 +30,41 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="%23667eea" opacity="0.1"/></svg>') repeat;
-    animation: float 20s linear infinite;
+    background: rgba(255, 255, 255, 0.1);
+    background-image: 
+        radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.2) 2px, transparent 2px),
+        radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+    background-size: 50px 50px, 30px 30px;
+    animation: float 25s linear infinite;
 }
 
 @keyframes float {
-    0% { transform: translateY(0px) rotate(0deg); }
-    100% { transform: translateY(-100px) rotate(360deg); }
+    0% { transform: translateX(0px) translateY(0px); }
+    50% { transform: translateX(-20px) translateY(-10px); }
+    100% { transform: translateX(0px) translateY(0px); }
 }
 
 .skills-banner h1 {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    font-size: 3.2rem;
+    font-weight: 800;
+    margin-bottom: 25px;
+    color: var(--white);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     position: relative;
-    z-index: 1;
+    z-index: 2;
+    letter-spacing: -0.5px;
 }
 
 .skills-banner p {
-    font-size: 1.2rem;
-    max-width: 800px;
+    font-size: 1.3rem;
+    max-width: 900px;
     margin: 0 auto;
-    color: var(--gray-1);
-    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.95);
+    line-height: 1.7;
     position: relative;
-    z-index: 1;
+    z-index: 2;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    font-weight: 400;
 }
 
 /* Section des compétences */
@@ -69,6 +76,7 @@
 /* Groupes de compétences */
 .skill-group {
     margin-bottom: 60px;
+    opacity: 1;
 }
 
 .skill-group-header {
@@ -117,9 +125,11 @@
     padding: 25px;
     box-shadow: var(--shadow-sm);
     border: 2px solid transparent;
-    transition: var(--transition);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     position: relative;
     overflow: hidden;
+    opacity: 1;
+    cursor: pointer;
 }
 
 .skill-item::before {
@@ -135,7 +145,7 @@
 }
 
 .skill-item:hover {
-    transform: translateY(-3px);
+    transform: translateY(-8px);
     box-shadow: var(--shadow-lg);
     border-color: rgba(74, 108, 247, 0.2);
 }
@@ -260,6 +270,29 @@
     color: var(--gray-1);
     line-height: 1.6;
     font-size: 0.95rem;
+    max-height: 2.5em;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+    position: relative;
+}
+
+.skill-details::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: linear-gradient(transparent, var(--white));
+    transition: opacity 0.3s ease;
+}
+
+.skill-item:hover .skill-details {
+    max-height: 10em;
+}
+
+.skill-item:hover .skill-details::after {
+    opacity: 0;
 }
 
 .skill-context {
@@ -271,6 +304,33 @@
     font-size: 0.9rem;
     color: var(--gray-2);
     line-height: 1.5;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.3s ease, margin-top 0.3s ease;
+}
+
+.skill-item:hover .skill-context {
+    max-height: 10em;
+    opacity: 1;
+    margin-top: 20px;
+}
+
+/* Indicateur "voir plus" */
+.skill-item::after {
+    content: '⌄ Survolez pour plus de détails';
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    font-size: 0.7rem;
+    color: var(--primary-color);
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.skill-item:hover::after {
+    opacity: 0;
 }
 
 .skill-context strong {
@@ -278,11 +338,11 @@
     font-weight: 600;
 }
 
-/* Animations d'entrée */
-@keyframes slideInUp {
+/* Animation pour la bannière */
+@keyframes fadeInDown {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(-30px);
     }
     to {
         opacity: 1;
@@ -290,23 +350,16 @@
     }
 }
 
-.skill-item {
-    animation: slideInUp 0.5s ease forwards;
-    animation-delay: calc(var(--animation-order, 0) * 0.1s);
-}
-
 /* ===================================
    MODE SOMBRE - Compatible avec votre système
    =================================== */
 .dark-mode .skills-banner {
-    background: linear-gradient(135deg, var(--light), var(--dark-light));
+    background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
 }
 
 .dark-mode .skills-banner h1 {
-    background: linear-gradient(135deg, var(--primary-light), var(--primary-color));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--white);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .dark-mode .skills-banner p {
@@ -334,8 +387,8 @@
     color: var(--dark);
 }
 
-.dark-mode .skill-details {
-    color: var(--gray-1);
+.dark-mode .skill-details::after {
+    background: linear-gradient(transparent, var(--white));
 }
 
 .dark-mode .skill-context {
@@ -378,16 +431,18 @@
 
 @media (max-width: 768px) {
     .skills-banner {
-        padding: 80px 0 40px;
+        padding: 70px 0 50px;
     }
     
     .skills-banner h1 {
-        font-size: 2.2rem;
+        font-size: 2.5rem;
+        margin-bottom: 20px;
     }
     
     .skills-banner p {
-        font-size: 1rem;
+        font-size: 1.1rem;
         padding: 0 20px;
+        line-height: 1.6;
     }
     
     .skills-section {
@@ -418,6 +473,25 @@
         margin: 0 10px;
     }
     
+    /* Sur mobile, montrer tout le contenu par défaut */
+    .skill-details {
+        max-height: none;
+    }
+    
+    .skill-details::after {
+        display: none;
+    }
+    
+    .skill-context {
+        max-height: none;
+        opacity: 1;
+        margin-top: 15px;
+    }
+    
+    .skill-item::after {
+        display: none;
+    }
+    
     .skill-header {
         flex-direction: column;
         align-items: flex-start;
@@ -446,8 +520,18 @@
 }
 
 @media (max-width: 480px) {
+    .skills-banner {
+        padding: 60px 0 40px;
+    }
+    
     .skills-banner h1 {
-        font-size: 1.8rem;
+        font-size: 2.2rem;
+        letter-spacing: -0.3px;
+    }
+    
+    .skills-banner p {
+        font-size: 1rem;
+        padding: 0 15px;
     }
     
     .skill-group-icon {
@@ -509,3 +593,64 @@ html {
         background: #f0f0f0 !important;
     }
 }
+/* ===================================
+   CORRECTIONS POUR CHARGEMENT INSTANTANÉ
+   =================================== */
+
+/* Désactivation temporaire des transitions pour changement de mode instantané */
+.no-transitions,
+.no-transitions *,
+.no-transitions *:before,
+.no-transitions *:after {
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+    animation-play-state: paused !important;
+}
+
+/* Assurer que les skill-items apparaissent ensemble */
+.skills-list .skill-item {
+    /* Supprimer les délais d'animation individuels */
+    animation-delay: 0s !important;
+    transition-delay: 0s !important;
+}
+
+/* Optimisation pour le changement de thème */
+.skill-item,
+.skill-level-badge,
+.skill-group-icon,
+.indicator {
+    /* Transitions réduites pour un changement plus fluide */
+    transition-property: background-color, color, border-color, box-shadow, transform !important;
+    transition-duration: 0.2s !important;
+    transition-timing-function: ease !important;
+}
+
+/* Mode sombre - transitions instantanées lors du changement */
+.dark-mode .skill-item,
+.dark-mode .skill-level-badge,
+.dark-mode .skill-group-icon,
+.dark-mode .indicator {
+    transition-duration: 0s !important;
+}
+
+/* Réactivation des transitions après le changement de mode */
+body:not(.no-transitions) .skill-item,
+body:not(.no-transitions) .skill-level-badge,
+body:not(.no-transitions) .skill-group-icon,
+body:not(.no-transitions) .indicator {
+    transition-duration: 0.2s !important;
+}
+
+/* Performance - will-change pour les éléments animés */
+.skill-item {
+    will-change: transform, opacity;
+}
+
+.skill-item.animated {
+    will-change: auto;
+}
+/* ===================================
+   FIN DU FICHIER
+   =================================== */

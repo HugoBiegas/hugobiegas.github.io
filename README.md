@@ -128,7 +128,7 @@ Ce portfolio est régulièrement maintenu pour :
 Pour toute question ou suggestion concernant ce portfolio, n'hésitez pas à me contacter :
 
 - Email : Contact.Hugo.Biegas@gmail.com
-- LinkedIn : [linkedin.com/in/hugo-biegas](https://linkedin.com/in/hugo-biegas)
+- LinkedIn : [linkedin.com/in/hugo-biegas](https://www.linkedin.com/in/hugo-biegas-659298386)
 - GitHub : [github.com/HugoBiegas](https://github.com/HugoBiegas)
 
 ---

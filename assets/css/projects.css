@@ -172,3 +172,287 @@
   .dark-mode .project-card[data-category="api"] .project-image {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
+
+  /* AJOUTEZ CES STYLES À LA FIN DE votre fichier projects.css */
+
+/* ===================================
+   SYSTÈME DE SURVOL POUR LES PROJETS
+   =================================== */
+
+/* Indicateur de survol - similaire aux skills */
+.project-hover-indicator {
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.75rem;
+    color: var(--primary-color);
+    opacity: 0.7;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.project-hover-indicator i {
+    font-size: 0.8rem;
+    animation: bounce 2s infinite;
+}
+
+.project-hover-indicator span {
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* Animation de l'indicateur */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-3px);
+    }
+    60% {
+        transform: translateY(-2px);
+    }
+}
+
+/* État de survol de la carte */
+.project-card {
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Carte en état "hovered" (survol actif) */
+.project-card.hovered {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    border: 2px solid rgba(74, 108, 247, 0.2);
+}
+
+/* Masquer l'indicateur quand la carte est survolée ou étendue */
+.project-card.hovered .project-hover-indicator,
+.project-card.expanded .project-hover-indicator {
+    opacity: 0;
+    transform: translateY(5px);
+}
+
+/* Description en état de survol */
+.project-card .project-description {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    margin-top: 0;
+    transition: max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                opacity 0.3s ease, 
+                padding-top 0.3s ease;
+}
+
+/* Amélioration visuelle de la description */
+.project-description {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--gray-1);
+}
+
+.project-description h3 {
+    color: var(--primary-color);
+    font-size: 1rem;
+    margin: 15px 0 10px 0;
+}
+
+.project-description p {
+    margin-bottom: 12px;
+}
+
+.project-description ul {
+    list-style: disc;
+    padding-left: 20px;
+    margin: 10px 0;
+}
+
+.project-description ul li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.project-description strong {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Effet de mise en évidence au survol du contenu */
+.project-card.hovered .project-content h3 {
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+.project-card.hovered .project-tags span {
+    background-color: rgba(74, 108, 247, 0.1);
+    color: var(--primary-dark);
+    transform: translateY(-1px);
+    transition: all 0.3s ease;
+}
+
+/* États différents pour mobile et desktop */
+@media (hover: hover) and (pointer: fine) {
+    /* Sur desktop - activation du survol */
+    .project-hover-indicator {
+        display: flex;
+    }
+}
+
+@media (hover: none) and (pointer: coarse) {
+    /* Sur mobile - masquer l'indicateur de survol */
+    .project-hover-indicator {
+        display: none;
+    }
+    
+    /* Sur mobile, afficher automatiquement un aperçu */
+    .project-card .project-description {
+        max-height: 100px !important;
+        opacity: 0.8 !important;
+        padding-top: 10px !important;
+        overflow: hidden;
+        position: relative;
+    }
+    
+    .project-card .project-description::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 30px;
+        background: linear-gradient(transparent, var(--white));
+        pointer-events: none;
+    }
+    
+    .project-card.expanded .project-description {
+        max-height: none !important;
+        opacity: 1 !important;
+    }
+    
+    .project-card.expanded .project-description::after {
+        display: none;
+    }
+}
+
+/* Mode sombre - adaptations */
+.dark-mode .project-description {
+    border-top-color: rgba(255, 255, 255, 0.1);
+    color: var(--gray-1);
+}
+
+.dark-mode .project-description strong {
+    color: var(--primary-light);
+}
+
+.dark-mode .project-card.hovered {
+    border-color: rgba(90, 121, 255, 0.3);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .project-card.hovered .project-content h3 {
+    color: var(--primary-light);
+}
+
+.dark-mode .project-card.hovered .project-tags span {
+    background-color: rgba(90, 121, 255, 0.15);
+    color: var(--primary-light);
+}
+
+.dark-mode .project-hover-indicator {
+    color: var(--primary-light);
+}
+
+.dark-mode .project-description::after {
+    background: linear-gradient(transparent, var(--white));
+}
+
+/* Animations d'entrée pour les nouvelles cartes */
+.project-card {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Amélioration de la performance */
+.project-card,
+.project-description,
+.project-hover-indicator {
+    will-change: transform, opacity;
+}
+
+.project-card.hovered,
+.project-card.expanded {
+    will-change: auto;
+}
+
+/* Responsive - ajustements pour tablettes */
+@media screen and (max-width: 1024px) {
+    .project-hover-indicator {
+        bottom: 10px;
+        right: 15px;
+        font-size: 0.7rem;
+    }
+    
+    .project-hover-indicator span {
+        display: none; /* Masquer le texte sur tablette */
+    }
+}
+
+/* Responsive - ajustements pour mobiles */
+@media screen and (max-width: 768px) {
+    .project-card.hovered {
+        transform: translateY(-5px) scale(1.01);
+    }
+    
+    .project-description {
+        font-size: 0.85rem;
+    }
+    
+    .project-description h3 {
+        font-size: 0.95rem;
+    }
+}
+
+/* États de focus pour l'accessibilité */
+.project-card:focus-within {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+.project-card:focus-within .project-hover-indicator {
+    opacity: 1;
+    color: var(--primary-dark);
+}
+
+/* Optimisation - réduction du motion pour les utilisateurs sensibles */
+@media (prefers-reduced-motion: reduce) {
+    .project-card,
+    .project-description,
+    .project-hover-indicator,
+    .project-hover-indicator i {
+        animation: none !important;
+        transition-duration: 0.1s !important;
+    }
+    
+    .project-card:hover,
+    .project-card.hovered {
+        transform: none !important;
+    }
+}

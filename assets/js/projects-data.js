@@ -15,14 +15,14 @@ const projectsData = [
             <ul>
                 <li>Migration du code PHP vers la version 8 pour bénéficier des améliorations de performances et de sécurité</li>
                 <li>Refactorisation complète de l'existant en appliquant rigoureusement les principes SOLID</li>
-                <li>Mise en place d'une architecture front-end moderne avec Angular 19</li>
+                <li>Mise en place d'une architecture front-end moderne avec Angular 20</li>
                 <li>Développement d'un back-end robuste avec Spring Boot</li>
                 <li>Optimisation des performances et de la sécurité des applications</li>
                 <li>Mise en place de tests automatisés et d'intégration continue</li>
             </ul>
             <p>Ce projet a permis d'améliorer significativement la maintenabilité, les performances et la sécurité des applications métier essentielles au fonctionnement du Technicentre.</p>
         `,
-        tags: ["Angular 19", "Spring Boot", "PHP 8"],
+        tags: ["Angular 20", "Spring Boot", "PHP 8"],
         category: "sncf",
         github: ""
     },

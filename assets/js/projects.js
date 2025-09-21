@@ -1,6 +1,6 @@
 /**
  * Script de gestion des projets
- * Intègre la génération dynamique et la recherche de projets
+ * Intègre la génération dynamique, la recherche de projets ET le système de survol
  */
 document.addEventListener('DOMContentLoaded', function() {
     // Générer les projets dynamiquement
@@ -52,6 +52,10 @@ function generateProjects() {
                 <div class="project-description">
                     ${project.detailedDescription}
                 </div>
+                <div class="project-hover-indicator">
+                    <i class="fas fa-chevron-down"></i>
+                    <span>Survolez ou cliquez pour en savoir plus</span>
+                </div>
             </div>
         `;
         
@@ -63,19 +67,32 @@ function generateProjects() {
 }
 
 /**
- * Initialise les comportements des cartes de projet
+ * Initialise les comportements des cartes de projet - VERSION AMÉLIORÉE
  */
 function initProjectCards() {
     document.querySelectorAll('.project-card').forEach(card => {
         // Initialiser la description
         const description = card.querySelector('.project-description');
+        const hoverIndicator = card.querySelector('.project-hover-indicator');
+        
         if (description) {
             description.style.maxHeight = '0';
             description.style.overflow = 'hidden';
-            description.style.transition = 'max-height 0.3s ease';
+            description.style.transition = 'max-height 0.4s ease, opacity 0.3s ease, padding-top 0.3s ease';
+            description.style.opacity = '0';
+            description.style.paddingTop = '0';
         }
+
+        // NOUVEAU - Gestion du survol
+        card.addEventListener('mouseenter', () => {
+            showProjectDescription(card);
+        });
+
+        card.addEventListener('mouseleave', () => {
+            hideProjectDescription(card);
+        });
         
-        // Ajouter l'événement de clic
+        // Ajouter l'événement de clic (conservé pour compatibilité)
         card.addEventListener('click', (e) => {
             // Ignorer si on clique sur un lien
             if (e.target.closest('.project-links a')) {
@@ -88,26 +105,97 @@ function initProjectCards() {
 }
 
 /**
- * Affiche ou masque les détails d'un projet
- * @param {HTMLElement} projectCard - Élément de carte de projet
+ * NOUVELLE FONCTION - Affiche la description au survol
+ */
+function showProjectDescription(projectCard) {
+    const projectDescription = projectCard.querySelector('.project-description');
+    const hoverIndicator = projectCard.querySelector('.project-hover-indicator');
+    
+    if (projectDescription && !projectCard.classList.contains('expanded')) {
+        // Calculer la hauteur nécessaire
+        projectDescription.style.maxHeight = 'none';
+        const height = projectDescription.scrollHeight;
+        projectDescription.style.maxHeight = '0';
+        
+        // Forcer le reflow puis animer
+        setTimeout(() => {
+            projectDescription.style.maxHeight = height + 'px';
+            projectDescription.style.opacity = '1';
+            projectDescription.style.paddingTop = '15px';
+        }, 10);
+        
+        // Masquer l'indicateur
+        if (hoverIndicator) {
+            hoverIndicator.style.opacity = '0';
+        }
+        
+        // Ajouter une classe pour le styling
+        projectCard.classList.add('hovered');
+    }
+}
+
+/**
+ * NOUVELLE FONCTION - Masque la description quand on quitte le survol
+ */
+function hideProjectDescription(projectCard) {
+    const projectDescription = projectCard.querySelector('.project-description');
+    const hoverIndicator = projectCard.querySelector('.project-hover-indicator');
+    
+    if (projectDescription && !projectCard.classList.contains('expanded')) {
+        projectDescription.style.maxHeight = '0';
+        projectDescription.style.opacity = '0';
+        projectDescription.style.paddingTop = '0';
+        
+        // Réafficher l'indicateur
+        if (hoverIndicator) {
+            hoverIndicator.style.opacity = '1';
+        }
+        
+        // Retirer la classe de styling
+        projectCard.classList.remove('hovered');
+    }
+}
+
+/**
+ * Affiche ou masque les détails d'un projet - FONCTION MODIFIÉE
  */
 function toggleProjectDetails(projectCard) {
     const projectDescription = projectCard.querySelector('.project-description');
+    const hoverIndicator = projectCard.querySelector('.project-hover-indicator');
     const isExpanded = projectCard.classList.contains('expanded');
     
     if (isExpanded) {
         projectCard.classList.remove('expanded');
         projectDescription.style.maxHeight = '0';
+        projectDescription.style.opacity = '0';
+        projectDescription.style.paddingTop = '0';
+        
+        // Réafficher l'indicateur de survol
+        if (hoverIndicator) {
+            hoverIndicator.style.opacity = '1';
+        }
     } else {
         // Réduire tous les autres projets
         document.querySelectorAll('.project-card.expanded').forEach(card => {
             card.classList.remove('expanded');
-            card.querySelector('.project-description').style.maxHeight = '0';
+            const desc = card.querySelector('.project-description');
+            const indicator = card.querySelector('.project-hover-indicator');
+            desc.style.maxHeight = '0';
+            desc.style.opacity = '0';
+            desc.style.paddingTop = '0';
+            if (indicator) indicator.style.opacity = '1';
         });
         
         // Développer le projet actuel
         projectCard.classList.add('expanded');
         projectDescription.style.maxHeight = projectDescription.scrollHeight + 'px';
+        projectDescription.style.opacity = '1';
+        projectDescription.style.paddingTop = '15px';
+        
+        // Masquer l'indicateur quand c'est développé en permanence
+        if (hoverIndicator) {
+            hoverIndicator.style.opacity = '0';
+        }
     }
 }
 
@@ -388,84 +476,3 @@ function shuffleProjects() {
         projectsContainer.appendChild(project);
     });
 }
-
-// Ajouter les styles CSS pour la recherche et le message de résultats vides
-(function addStyles() {
-    // Vérifier si les styles existent déjà
-    if (document.querySelector('style#project-styles')) return;
-    
-    const style = document.createElement('style');
-    style.id = 'project-styles';
-    style.textContent = `
-        /* Styles pour la barre de recherche */
-        .search-container {
-            margin-top: 15px;
-            width: 100%;
-        }
-        
-        .search-input {
-            width: 100%;
-            padding: 10px 15px;
-            border: 1px solid var(--gray-2);
-            border-radius: var(--border-radius-md);
-            font-size: 1rem;
-            transition: var(--transition);
-        }
-        
-        .search-input:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 2px rgba(74, 108, 247, 0.2);
-        }
-        
-        /* Styles pour le message "aucun résultat" */
-        .no-results-wrapper {
-            display: none;
-            width: 100%;
-            justify-content: center;
-            padding: 30px 0;
-        }
-        
-        #no-results-message {
-            background-color: var(--light);
-            border-radius: var(--border-radius-lg);
-            padding: 25px;
-            text-align: center;
-            max-width: 500px;
-            width: 80%;
-            box-shadow: var(--shadow-sm);
-        }
-        
-        #no-results-message p {
-            margin: 0;
-            color: var(--dark);
-        }
-        
-        #no-results-message a {
-            color: var(--primary-color);
-            text-decoration: underline;
-            font-weight: 500;
-        }
-        
-        #no-results-message a:hover {
-            color: var(--primary-dark);
-        }
-        
-        /* Mode sombre */
-        .dark-mode .search-input {
-            background-color: var(--light);
-            color: var(--dark);
-            border-color: rgba(255, 255, 255, 0.1);
-        }
-        
-        .dark-mode #no-results-message {
-            background-color: var(--dark-light);
-        }
-        
-        .dark-mode #no-results-message p {
-            color: var(--light);
-        }
-    `;
-    
-    document.head.appendChild(style);
-})();

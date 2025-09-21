@@ -597,8 +597,8 @@ nav {
 
 /* Pied de page */
 footer {
-    background-color: var(--dark);
-    color: var(--white);
+    background-color: var(--white);
+    color: var(--dark);
     padding: 60px 0 20px;
 }
 
@@ -618,7 +618,7 @@ footer {
 }
 
 .footer-logo p {
-    color: var(--gray-2);
+    color: var(--gray-1);
     margin-top: 10px;
 }
 
@@ -629,7 +629,7 @@ footer {
 
 .footer-nav h4,
 .footer-social h4 {
-    color: var(--white);
+    color: var(--dark);
     font-size: 1.2rem;
     margin-bottom: 20px;
     position: relative;
@@ -653,7 +653,7 @@ footer {
 }
 
 .footer-nav a {
-    color: var(--gray-2);
+    color: var(--gray-1);
     transition: var(--transition);
 }
 
@@ -667,15 +667,15 @@ footer {
 }
 
 .footer-social .social-links a {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 .footer-bottom {
     text-align: center;
     padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
     font-size: 0.9rem;
-    color: var(--gray-2);
+    color: var(--gray-1);
 }
 
 /* Bouton de mode sombre */
