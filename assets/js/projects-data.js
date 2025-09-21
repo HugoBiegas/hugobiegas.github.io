@@ -75,27 +75,51 @@ const projectsData = [
     
     // Ajout du projet Application Java pour la DGEFP
     {
-        id: "dgefp-app",
-        title: "Application Java pour la DGEFP",
+        id: "dgefp-website",
+        title: "Supervision et structuration d'un site web d'urgence pour la DGEFP",
         image: "assets/img/projects/dgefp.jpg",
-        shortDescription: "Développement d'une application Java pour récupérer et traiter les données d'une démarche administrative urgente.",
+        shortDescription: "Management d'équipe et structuration complète d'un site web en urgence pour une démarche administrative critique.",
         detailedDescription: `
-            <p>Lors de mon alternance à la Délégation Générale à l'Emploi et à la Formation Professionnelle (DGEFP), j'ai développé une application Java pour récupérer et traiter les données d'une démarche créée en urgence sur la plateforme Démarche Simplifiée.</p>
-            <p>Les principales caractéristiques du projet :</p>
+            <p>En tant que chef d'équipe à la Délégation Générale à l'Emploi et à la Formation Professionnelle (DGEFP), j'ai supervisé une équipe de développeurs pour la création d'un squelette de site web basé sur WordPress/Elementor dans le cadre d'une situation d'urgence administrative.</p>
+            <p>Mes responsabilités et réalisations :</p>
             <ul>
-                <li>Intégration avec l'API de Démarche Simplifiée pour la récupération des données</li>
-                <li>Traitement et transformation des données selon les besoins métier</li>
-                <li>Mise en place d'un système de reporting automatisé</li>
-                <li>Développement d'une interface utilisateur intuitive</li>
-                <li>Mise en œuvre des concepts de gestion de projet (WBS, OBS, SWAT, RACI)</li>
+                <li>Management et coordination d'une équipe de développeurs</li>
+                <li>Structuration complète du site web selon les exigences métier</li>
+                <li>Mise en place de l'architecture et de l'organisation du contenu</li>
+                <li>Gestion de projet en mode agile avec contraintes temporelles serrées</li>
+                <li>Interface avec les parties prenantes pour définir les besoins fonctionnels</li>
+                <li>Supervision de l'intégration et des tests avant mise en production</li>
             </ul>
-            <p>Cette application a permis de répondre efficacement à une situation d'urgence en automatisant la récupération et le traitement des données administratives, réduisant ainsi considérablement le temps de traitement manuel.</p>
+            <p>Ce projet a nécessité une approche collaborative intensive et une gestion rigoureuse des priorités pour livrer une solution opérationnelle dans les délais impartis, répondant efficacement aux besoins urgents de l'administration.</p>
         `,
-        tags: ["Java", "API", "Administration"],
+        tags: ["Management", "WordPress", "Gestion de projet", "Administration"],
         category: "dgefp",
         github: ""
     },
-    
+
+    // Formation et automatisation Excel
+    {
+        id: "dgefp-excel-automation",
+        title: "Formation Excel et automatisation par macros pour la DGEFP",
+        image: "assets/img/projects/dgefp.jpg",
+        shortDescription: "Conception et animation d'une formation Excel avec développement de macros pour automatiser le traitement des données entreprises.",
+        detailedDescription: `
+            <p>À la DGEFP, j'ai conçu et dispensé une formation complète sur Excel et les macros VBA pour optimiser le traitement des données administratives de l'équipe.</p>
+            <p>Contexte et réalisations :</p>
+            <ul>
+                <li>Analyse des besoins : traitement manuel chronophage de fichiers Excel reçus des entreprises</li>
+                <li>Conception de templates Excel structurés pour la saisie de données par les entreprises</li>
+                <li>Développement de macros VBA pour l'automatisation du traitement des données</li>
+                <li>Formation de l'équipe (15 personnes) aux fonctionnalités avancées d'Excel</li>
+                <li>Mise en place d'un système d'automatisation pour la récupération et consolidation des informations</li>
+                <li>Documentation technique et guides utilisateur pour la maintenance</li>
+            </ul>
+            <p>Cette initiative a permis de réduire de 80% le temps de traitement des dossiers entreprises, tout en diminuant significativement les risques d'erreurs de saisie manuelle. L'équipe est désormais autonome sur ces outils d'automatisation.</p>
+        `,
+        tags: ["Excel", "VBA", "Formation", "Automatisation", "Administration"],
+        category: "dgefp",
+        github: ""
+    },    
     // Ajout du projet Outil de Facturation
     {
         id: "invoice-tool",
