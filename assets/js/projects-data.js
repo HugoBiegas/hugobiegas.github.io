@@ -504,5 +504,175 @@ const projectsData = [
         tags: ["Android", "Firebase", "Java", "Jeu"],
         category: "mobile",
         github: "https://github.com/HugoBiegas/EchecMultiApp"
+    },
+    {
+        id: "bookstore-ecommerce",
+        title: "BookStore E-Commerce",
+        image: "assets/img/projects/default.jpg",
+        shortDescription: "Application e-commerce sophistiquée de librairie en ligne développée avec ASP.NET Core MVC 8.0 en équipe à l'ESTIAM.",
+        detailedDescription: `
+            <p>BookStore est une application web e-commerce complète développée en équipe dans le cadre du cours "Retail (e-commerce)" à l'ESTIAM sous la supervision du Prof. Marcel Stefan Wagner, PhD.</p>
+            <p>En tant que développeur Full-Stack au sein d'une équipe de 3 personnes, j'ai contribué à la conception et au développement d'une plateforme moderne respectant rigoureusement les principes SOLID.</p>
+            <p>Fonctionnalités principales développées :</p>
+            <ul>
+                <li>Architecture ASP.NET Core MVC 8.0 avec respect strict des principes SOLID</li>
+                <li>Système d'authentification multi-niveaux (User → Librarian → Admin)</li>
+                <li>Développement de 7 Tag Helpers personnalisés pour l'interface utilisateur</li>
+                <li>Système de crédits virtuels avec transactions sécurisées et rollback automatique</li>
+                <li>CRUD complet pour la gestion des livres, auteurs et utilisateurs</li>
+                <li>Dashboard analytics temps réel avec métriques KPI</li>
+                <li>Workflow e-commerce complet du catalogue au checkout</li>
+                <li>Interface responsive avec Bootstrap 5 et JavaScript ES6+</li>
+                <li>Sécurité avancée : hashage des mots de passe, protection CSRF, validation multi-niveaux</li>
+            </ul>
+            <p>Ce projet académique d'envergure m'a permis de mettre en pratique mes compétences en développement web moderne, architecture logicielle et travail en équipe, tout en livrant une application e-commerce fonctionnelle et sécurisée.</p>
+        `,
+        tags: ["ASP.NET Core", "C#", "MVC", "Bootstrap", "JavaScript", "E-commerce"],
+        category: "web",
+        github: "https://github.com/HugoBiegas/ECommerceApp"
+    },
+    {
+        id: "quantum-mastermind",
+        title: "Quantum Mastermind",
+        image: "assets/img/projects/default.jpg",
+        shortDescription: "Implémentation innovante du jeu Mastermind intégrant des algorithmes quantiques avec Qiskit pour la génération de solutions et l'analyse probabiliste.",
+        detailedDescription: `
+            <p>Quantum Mastermind est une implémentation révolutionnaire du jeu Mastermind classique qui utilise l'informatique quantique pour enrichir le gameplay traditionnel avec des algorithmes avancés.</p>
+            <p>Architecture technique complète :</p>
+            <ul>
+                <li><strong>Backend quantique :</strong> API FastAPI avec intégration Qiskit et AerSimulator d'IBM</li>
+                <li><strong>Frontend moderne :</strong> Interface utilisateur responsive avec visualisation en temps réel</li>
+                <li><strong>Algorithmes quantiques :</strong> Génération de solutions via superposition et intrication quantique</li>
+                <li><strong>Analyse probabiliste :</strong> Calcul des indices de position avec probabilités quantiques</li>
+                <li><strong>Système de cache avancé :</strong> Optimisation des circuits quantiques (amélioration de 340% des performances)</li>
+                <li><strong>Architecture robuste :</strong> SQLAlchemy 2.0 async, PostgreSQL, Redis pour le cache</li>
+                <li><strong>Déploiement moderne :</strong> Containerisation Docker avec haute disponibilité (99.96%)</li>
+            </ul>
+            <p>Innovations techniques majeures :</p>
+            <ul>
+                <li>Utilisation de circuits quantiques pour générer des combinaisons via superposition</li>
+                <li>Algorithme d'intrication entre qubits adjacents pour l'analyse des tentatives</li>
+                <li>Système de fallback intelligent simulant le comportement quantique</li>
+                <li>Cache à deux niveaux (circuits de base et transpilés) pour l'optimisation</li>
+                <li>Adaptation automatique du nombre de mesures selon la complexité</li>
+            </ul>
+            <p>Ce projet démontre une expertise avancée en informatique quantique appliquée, développement d'API modernes et architecture logicielle complexe, avec des performances optimisées (temps d'exécution moyen de 47ms).</p>
+        `,
+        tags: ["Qiskit", "Python", "FastAPI", "SQLAlchemy", "PostgreSQL", "Redis", "Docker", "Informatique Quantique"],
+        category: "api",
+        github: "https://github.com/HugoBiegas/Mastermind_backend"
+    },
+    {
+        id: "mosaique-capital",
+        title: "Mosaïque Capital",
+        image: "assets/img/projects/default.jpg",
+        shortDescription: "Plateforme complète de gestion patrimoniale moderne avec intégration bancaire multi-providers et authentification MFA avancée.",
+        detailedDescription: `
+            <p>Mosaïque Capital est une plateforme sophistiquée de gestion patrimoniale développée avec Spring Boot 3.4.5, permettant aux utilisateurs de centraliser, suivre et optimiser l'ensemble de leur patrimoine financier.</p>
+            <p>Architecture technique avancée :</p>
+            <ul>
+                <li><strong>Sécurité renforcée :</strong> Authentification JWT avec MFA TOTP (compatible Google Authenticator), tokens rotatifs et blacklist Redis</li>
+                <li><strong>Intégration bancaire multi-providers :</strong> Budget Insight (Powens), Bridge API, Linxo Connect, et Tink (gratuit - 100 connexions/mois)</li>
+                <li><strong>Résilience avancée :</strong> Circuit Breaker, Retry avec backoff exponentiel, Rate Limiting via Resilience4j</li>
+                <li><strong>Synchronisation automatique :</strong> Sync bancaire toutes les 6h avec gestion des webhooks sécurisés</li>
+                <li><strong>Architecture moderne :</strong> Spring Boot 3.4.5, MySQL 8.0, Redis 7.2, Docker Compose</li>
+            </ul>
+            <p>Fonctionnalités patrimoniales complètes :</p>
+            <ul>
+                <li>Gestion multi-types d'actifs : immobilier, placements financiers, cryptomonnaies, liquidités</li>
+                <li>Valorisations historiques avec calcul automatique des plus-values</li>
+                <li>Système de vente sécurisé empêchant la suppression accidentelle d'actifs</li>
+                <li>Catégorisation automatique des transactions avec machine learning</li>
+                <li>Dashboard analytics avec métriques patrimoniales temps réel</li>
+                <li>API REST documentée avec Swagger/OpenAPI pour intégrations tierces</li>
+            </ul>
+            <p>Patterns et principes implémentés :</p>
+            <ul>
+                <li>Respect rigoureux des principes SOLID avec architecture en couches</li>
+                <li>Repository Pattern, Service Layer, DTO Pattern avec MapStruct</li>
+                <li>Strategy Pattern pour la gestion multi-providers bancaires</li>
+                <li>Observer Pattern pour les notifications et événements</li>
+            </ul>
+            <p>Ce projet démontre une expertise avancée en architecture financière, intégration d'APIs bancaires complexes (conformité PSD2), et développement sécurisé avec des standards industriels rigoureux.</p>
+        `,
+        tags: ["Spring Boot", "Spring Security", "JWT", "MFA", "MySQL", "Redis", "APIs Bancaires", "Docker"],
+        category: "api",
+        github: "https://github.com/HugoBiegas/mosaique_capital_spring_boot"
+    },
+    {
+        id: "piscines-paris-tracker",
+        title: "Piscines Paris Tracker",
+        image: "assets/img/projects/default.jpg",
+        shortDescription: "Application web interactive pour localiser instantanément les piscines municipales les plus proches à Paris avec géolocalisation temps réel.",
+        detailedDescription: `
+            <p>Piscines Paris Tracker est une application web moderne développée en JavaScript vanilla qui permet aux Parisiens de trouver rapidement la piscine municipale la plus proche de leur position.</p>
+            <p>Fonctionnalités cartographiques avancées :</p>
+            <ul>
+                <li><strong>Carte interactive dynamique :</strong> Intégration Leaflet.js avec tiles OpenStreetMap pour une navigation fluide</li>
+                <li><strong>Géolocalisation temps réel :</strong> API HTML5 Geolocation pour localisation automatique de l'utilisateur</li>
+                <li><strong>Calcul intelligent des distances :</strong> Algorithme de calcul de proximité avec estimations temps à pied et vélo</li>
+                <li><strong>Recherche géocodée :</strong> Intégration API Nominatim (OpenStreetMap) avec autocomplétion d'adresses</li>
+                <li><strong>Filtrage par proximité :</strong> Options de recherche configurables (< 1km, 2km, 5km)</li>
+                <li><strong>Itinéraires intégrés :</strong> Redirection Google Maps pour navigation GPS</li>
+            </ul>
+            <p>Architecture technique moderne :</p>
+            <ul>
+                <li>JavaScript vanilla ES6+ pour performances optimales sans framework</li>
+                <li>Design responsive avec Tailwind CSS et animations CSS personnalisées</li>
+                <li>Base de données locale de 43 piscines municipales avec coordonnées GPS vérifiées</li>
+                <li>Interface accessible avec support navigation clavier</li>
+                <li>Marqueurs dynamiques avec indicateurs visuels de proximité</li>
+                <li>Notifications temps réel pour feedback utilisateur immédiat</li>
+            </ul>
+            <p>Aspects pratiques et citoyens :</p>
+            <ul>
+                <li>Données officielles synchronisées depuis paris.fr (horaires, tarifs, équipements)</li>
+                <li>Application gratuite et open source pour la communauté parisienne</li>
+                <li>Déploiement GitHub Pages pour accessibilité maximale</li>
+                <li>Interface optimisée mobile pour utilisation nomade</li>
+            </ul>
+            <p>Ce projet démontre une maîtrise des APIs géographiques, du développement frontend moderne et de l'expérience utilisateur, tout en apportant une valeur pratique réelle aux citoyens parisiens.</p>
+        `,
+        tags: ["JavaScript", "Leaflet.js", "Tailwind CSS", "Géolocalisation", "APIs", "OpenStreetMap"],
+        category: "web",
+        github: "https://github.com/HugoBiegas/PiscinesParisTracker"
+    },
+    {
+        id: "teams-dev-vote",
+        title: "VoteChain - TeamsDevVote",
+        image: "assets/img/projects/default.jpg",
+        shortDescription: "DApp de vote blockchain sécurisée développée en équipe avec Solidity et Hardhat, architecture Docker multi-stage et protection anti-fraude.",
+        detailedDescription: `
+            <p>VoteChain est une application décentralisée (DApp) de vote développée en équipe de 7 développeurs spécialisés, combinant la sécurité de la blockchain avec une architecture DevOps moderne.</p>
+            <p>Rôle de DevOps Lead - Contributions techniques :</p>
+            <ul>
+                <li><strong>Architecture Docker multi-stage :</strong> Orchestration de 5 services conteneurisés avec docker-compose</li>
+                <li><strong>Infrastructure blockchain :</strong> Configuration réseau EVM local avec isolation inter-conteneurs</li>
+                <li><strong>Pipeline de développement :</strong> Environnement reproductible avec 20 comptes pré-configurés (10,000 ETH chacun)</li>
+                <li><strong>Monitoring et diagnostics :</strong> Outils de vérification en temps réel et logs détaillés</li>
+                <li><strong>Déploiement automatisé :</strong> Scripts de déploiement et configuration réseau privé</li>
+            </ul>
+            <p>Architecture technique blockchain :</p>
+            <ul>
+                <li><strong>Smart Contract Solidity 0.8.19 :</strong> Protection anti-double vote avec modifiers de sécurité</li>
+                <li><strong>Framework Hardhat :</strong> 9 tâches personnalisées pour déploiement, vote et simulation</li>
+                <li><strong>Tests complets :</strong> Suite Mocha + Chai avec couverture de code intégrée</li>
+                <li><strong>Sécurité renforcée :</strong> Mapping hasVoted, validation d'index, événements d'audit</li>
+                <li><strong>Interface CLI avancée :</strong> Commandes interactives avec affichage stylisé et statistiques temps réel</li>
+            </ul>
+            <p>Fonctionnalités démocratiques avancées :</p>
+            <ul>
+                <li>Protection blockchain garantissant "un électeur = un vote"</li>
+                <li>Système de simulation automatique jusqu'à 50 votes avec candidats personnalisables</li>
+                <li>Résultats temps réel avec graphiques ASCII et pourcentages détaillés</li>
+                <li>Interface de diagnostic pour vérification des statuts électeurs</li>
+                <li>Audit trail complet avec événements blockchain traçables</li>
+            </ul>
+            <p>Travail collaboratif avec 7 spécialistes : Lead Smart Contract (Naier), Architecte Hardhat (Yanis), QA Lead (Yann), Documentation (Frank & Alexandre), UX Console (Antoine).</p>
+            <p>Ce projet démontre une maîtrise approfondie de la blockchain, du DevOps moderne et de la collaboration en équipe sur des technologies émergentes avec des enjeux de sécurité critiques.</p>
+        `,
+        tags: ["Solidity", "Hardhat", "Docker", "Blockchain", "DApp", "DevOps", "Smart Contracts"],
+        category: "web",
+        github: "https://github.com/HugoBiegas/TeamsDevVote"
     }
 ];
