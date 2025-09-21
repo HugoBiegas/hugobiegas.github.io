@@ -1,6 +1,7 @@
 /**
  * SKILLS.JS - Système d'évaluation des compétences
- * Version simplifiée - uniquement les badges et interactions
+ * Version complète avec navigation Hard Skills / Soft Skills
+ * et bouton retour en haut
  */
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -19,6 +20,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeSkillSystem();
     animateSkillItems();
     addInteractions();
+    initializeNavigation();
+    initializeBackToTop();
 
     /**
      * Initialise le système de compétences
@@ -128,6 +131,135 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     /**
+     * NOUVELLE FONCTION - Initialise la navigation Hard Skills / Soft Skills
+     */
+    function initializeNavigation() {
+        console.log('🧭 Initialisation de la navigation des compétences...');
+        
+        const hardSkillsBtn = document.getElementById('hard-skills-btn');
+        const softSkillsBtn = document.getElementById('soft-skills-btn');
+        
+        // Vérifier que les boutons existent
+        if (!hardSkillsBtn || !softSkillsBtn) {
+            console.warn('⚠️ Boutons de navigation non trouvés');
+            return;
+        }
+
+        // Fonction pour mettre à jour les boutons actifs
+        function updateActiveButton() {
+            const hardSkillsSection = document.getElementById('hard-skills');
+            const softSkillsSection = document.getElementById('soft-skills');
+            
+            if (!hardSkillsSection || !softSkillsSection) return;
+            
+            const hardSkillsRect = hardSkillsSection.getBoundingClientRect();
+            const softSkillsRect = softSkillsSection.getBoundingClientRect();
+            
+            // Détermine quelle section est la plus visible
+            const viewportHeight = window.innerHeight;
+            const hardSkillsVisible = hardSkillsRect.top < viewportHeight * 0.5 && hardSkillsRect.bottom > viewportHeight * 0.3;
+            const softSkillsVisible = softSkillsRect.top < viewportHeight * 0.5 && softSkillsRect.bottom > viewportHeight * 0.3;
+            
+            if (hardSkillsVisible && !softSkillsVisible) {
+                hardSkillsBtn.classList.add('active');
+                softSkillsBtn.classList.remove('active');
+            } else if (softSkillsVisible && !hardSkillsVisible) {
+                softSkillsBtn.classList.add('active');
+                hardSkillsBtn.classList.remove('active');
+            } else if (hardSkillsRect.top < softSkillsRect.top) {
+                hardSkillsBtn.classList.add('active');
+                softSkillsBtn.classList.remove('active');
+            } else {
+                softSkillsBtn.classList.add('active');
+                hardSkillsBtn.classList.remove('active');
+            }
+        }
+        
+        // Écouter le scroll pour mettre à jour les boutons actifs
+        window.addEventListener('scroll', updateActiveButton);
+        
+        // Écouter les clics sur les boutons de navigation
+        hardSkillsBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetSection = document.getElementById('hard-skills');
+            if (targetSection) {
+                targetSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+        
+        softSkillsBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetSection = document.getElementById('soft-skills');
+            if (targetSection) {
+                targetSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+        
+        // Initialiser l'état actif
+        updateActiveButton();
+        
+        console.log('✅ Navigation des compétences initialisée');
+    }
+
+    /**
+     * NOUVELLE FONCTION - Initialise le bouton retour en haut
+     */
+    function initializeBackToTop() {
+        console.log('⬆️ Initialisation du bouton retour en haut...');
+        
+        const backToTopBtn = document.getElementById('back-to-top-btn');
+        const backToTopContainer = document.querySelector('.back-to-top');
+        
+        // Vérifier que les éléments existent
+        if (!backToTopBtn || !backToTopContainer) {
+            console.warn('⚠️ Bouton back-to-top non trouvé');
+            return;
+        }
+
+        // Fonction pour gérer l'affichage du bouton back-to-top
+        function toggleBackToTop() {
+            const scrollPosition = window.pageYOffset;
+            const windowHeight = window.innerHeight;
+            
+            // Afficher le bouton après avoir scrollé d'au moins 80% d'une hauteur d'écran
+            if (scrollPosition > windowHeight * 0.8) {
+                backToTopContainer.classList.add('visible');
+            } else {
+                backToTopContainer.classList.remove('visible');
+            }
+        }
+        
+        // Écouter le scroll pour le back-to-top
+        window.addEventListener('scroll', toggleBackToTop);
+        
+        // Écouter le clic sur le bouton back-to-top
+        backToTopBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+            
+            // Effet visuel de clic
+            this.style.transform = 'scale(0.9)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 150);
+        });
+        
+        // Initialiser l'état du bouton
+        toggleBackToTop();
+        
+        console.log('✅ Bouton retour en haut initialisé');
+    }
+
+    /**
      * Gestion du mode sombre (intégration avec votre système existant)
      */
     function handleDarkModeChanges() {
@@ -172,9 +304,22 @@ document.addEventListener('DOMContentLoaded', function() {
             outline: 2px solid var(--primary-color);
             outline-offset: 2px;
         }
+        
+        /* Focus pour la navigation */
+        .skills-nav-btn:focus-visible {
+            outline: 2px solid rgba(255, 255, 255, 0.8);
+            outline-offset: 2px;
+        }
+        
+        /* Focus pour back-to-top */
+        #back-to-top-btn:focus-visible {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
     `;
     
     document.head.appendChild(additionalStyles);
     
-    console.log('✅ Système de compétences initialisé avec succès!');
+    console.log('✅ Système de compétences complet initialisé avec succès!');
+    console.log('🎯 Fonctionnalités actives: badges interactifs, navigation, retour en haut');
 });

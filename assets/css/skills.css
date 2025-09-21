@@ -2,6 +2,8 @@
    STYLES POUR LA PAGE COMPÉTENCES
    Nouveau système d'évaluation professionnel
    Intégration avec le système existant
+   Navigation Hard Skills / Soft Skills
+   Bouton retour en haut
    =================================== */
 
 /* Variables CSS spécifiques aux compétences */
@@ -12,6 +14,169 @@
     --beginner-color: linear-gradient(135deg, #e74c3c, #ec7063);
     --learning-color: linear-gradient(135deg, #9b59b6, #bb8fce);
 }
+
+/* ===================================
+   NAVIGATION DES COMPÉTENCES
+   =================================== */
+
+/* Navigation des compétences */
+.skills-navigation {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.skills-nav-buttons {
+    display: flex;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 8px;
+    border-radius: 50px;
+    backdrop-filter: blur(10px);
+}
+
+.skills-nav-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    padding: 15px 30px;
+    border-radius: 40px;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    background: transparent;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.skills-nav-btn i {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.skills-nav-btn span {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.skills-nav-btn small {
+    font-size: 0.85rem;
+    opacity: 0.9;
+}
+
+.skills-nav-btn:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+.skills-nav-btn.active {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.skills-nav-indicator {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.indicator-line {
+    height: 2px;
+    width: 80px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+    border-radius: 1px;
+}
+
+/* ===================================
+   BOUTON RETOUR EN HAUT
+   =================================== */
+
+/* Bouton retour en haut */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    z-index: 98;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: translateY(20px);
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#back-to-top-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: var(--border-radius-full);
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    box-shadow: var(--shadow-lg);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+}
+
+#back-to-top-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+#back-to-top-btn:hover {
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 8px 25px rgba(74, 108, 247, 0.4);
+}
+
+#back-to-top-btn:hover::before {
+    left: 100%;
+}
+
+#back-to-top-btn:active {
+    transform: scale(0.95);
+}
+
+/* Animation de l'icône */
+#back-to-top-btn i {
+    transition: transform 0.3s ease;
+}
+
+#back-to-top-btn:hover i {
+    transform: translateY(-2px);
+    animation: bounce-up 0.6s ease infinite alternate;
+}
+
+@keyframes bounce-up {
+    0% { transform: translateY(-2px); }
+    100% { transform: translateY(-5px); }
+}
+
+/* ===================================
+   BANNIÈRE DES COMPÉTENCES
+   =================================== */
 
 /* Bannière des compétences */
 .skills-banner {
@@ -66,6 +231,10 @@
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     font-weight: 400;
 }
+
+/* ===================================
+   SECTIONS DE COMPÉTENCES
+   =================================== */
 
 /* Section des compétences */
 .skills-section {
@@ -517,6 +686,44 @@
         font-size: 0.7rem;
         padding: 4px 8px;
     }
+    
+    /* Navigation responsive */
+    .skills-nav-buttons {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+        border-radius: 20px;
+    }
+    
+    .skills-nav-btn {
+        padding: 12px 20px;
+        border-radius: 15px;
+        text-align: center;
+    }
+    
+    .skills-nav-btn i {
+        font-size: 1.3rem;
+    }
+    
+    .skills-nav-btn span {
+        font-size: 1rem;
+    }
+    
+    .skills-nav-btn small {
+        font-size: 0.8rem;
+    }
+    
+    /* Back to top responsive */
+    .back-to-top {
+        bottom: 20px;
+        left: 20px;
+    }
+    
+    #back-to-top-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -592,7 +799,13 @@ html {
         color: #000 !important;
         background: #f0f0f0 !important;
     }
+    
+    .skills-navigation,
+    .back-to-top {
+        display: none !important;
+    }
 }
+
 /* ===================================
    CORRECTIONS POUR CHARGEMENT INSTANTANÉ
    =================================== */
@@ -651,6 +864,7 @@ body:not(.no-transitions) .indicator {
 .skill-item.animated {
     will-change: auto;
 }
+
 /* ===================================
    FIN DU FICHIER
    =================================== */
