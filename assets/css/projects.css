@@ -156,6 +156,10 @@
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     position: relative;
     overflow: hidden;
+    /* Optimisation des performances */
+    will-change: transform;
+    backface-visibility: hidden;
+    perspective: 1000px;
 }
 
 /* Amélioration des transitions pour éviter le clignotement */
@@ -168,7 +172,9 @@
     overflow: hidden;
     transition: max-height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
                 opacity 0.4s ease, 
-                padding-top 0.4s ease;
+                padding-top 0.4s ease,
+                transform 0.3s ease;
+    transform-origin: top center;
 }
 
 /* Effet de ligne complète au survol */
@@ -240,6 +246,62 @@
 }
 
 /* ===================================
+   NOUVELLES CLASSES D'ANIMATION
+   =================================== */
+
+/* Classes d'animation pour l'ouverture/fermeture */
+.project-card.expanding .project-description {
+    animation: expandDescription 0.4s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+}
+
+.project-card.collapsing .project-description {
+    animation: collapseDescription 0.3s cubic-bezier(0.4, 0.0, 0.6, 1) forwards;
+}
+
+@keyframes expandDescription {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px) scaleY(0.9);
+    }
+    50% {
+        opacity: 0.5;
+        transform: translateY(-10px) scaleY(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scaleY(1);
+    }
+}
+
+@keyframes collapseDescription {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scaleY(1);
+    }
+    50% {
+        opacity: 0.5;
+        transform: translateY(-10px) scaleY(0.95);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-20px) scaleY(0.9);
+    }
+}
+
+/* Effet de blur sur les cartes non-actives */
+.has-expanded-card .project-card:not(.expanded) {
+    opacity: 0.8;
+    filter: blur(0.5px);
+    transform: scale(0.98);
+    transition: all 0.3s ease-out;
+}
+
+/* Smooth scroll control */
+html.no-smooth-scroll {
+    scroll-behavior: auto !important;
+}
+
+/* ===================================
    STYLES EXISTANTS MODIFIÉS
    =================================== */
 
@@ -261,6 +323,8 @@
 
 .project-card.expanded {
     box-shadow: var(--shadow-lg);
+    position: relative;
+    z-index: 10;
 }
 
 /* Styles pour le bouton GitHub */
@@ -543,6 +607,16 @@
     .timeline-item:hover .timeline-content {
         transform: scale(1.05) !important;
     }
+    
+    /* Désactiver certains effets sur mobile */
+    .has-expanded-card .project-card:not(.expanded) {
+        filter: none;
+        transform: scale(1);
+    }
+    
+    .project-card .project-description {
+        transition-duration: 0.3s, 0.2s, 0.2s, 0.2s;
+    }
 }
 
 /* ===================================
@@ -558,4 +632,228 @@
 .projects-filter {
     padding-top: 100px; /* Augmenter l'espace en haut */
     padding-bottom: 40px; /* Réduire l'espace en bas */
+}
+/* ===================================
+   ANIMATIONS FLUIDES POUR LES TRANSITIONS
+   =================================== */
+
+/* Classe pour préparer l'ouverture */
+.project-card.preparing-to-open {
+    opacity: 0.95;
+    transform: scale(1.01);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Animation améliorée pour l'expansion */
+.project-card.expanding {
+    animation: cardExpand 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes cardExpand {
+    0% {
+        transform: translateY(0) scale(1);
+        box-shadow: var(--shadow-md);
+    }
+    30% {
+        transform: translateY(-5px) scale(1.01);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    }
+    100% {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+}
+
+/* Animation pour la fermeture */
+.project-card.collapsing {
+    animation: cardCollapse 0.4s cubic-bezier(0.4, 0.0, 0.6, 1) forwards;
+}
+
+@keyframes cardCollapse {
+    0% {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+    70% {
+        transform: translateY(-2px) scale(1.005);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+    100% {
+        transform: translateY(0) scale(1);
+        box-shadow: var(--shadow-md);
+    }
+}
+
+/* Transition fluide pour la description */
+.project-card .project-description {
+    transition: max-height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                opacity 0.4s ease,
+                padding-top 0.4s ease,
+                transform 0.3s ease;
+    transform-origin: top center;
+    will-change: max-height, opacity;
+}
+
+/* Animation d'entrée pour le contenu de la description */
+.project-card.expanding .project-description > * {
+    animation: fadeInUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    animation-delay: 0.2s;
+    opacity: 0;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Effet de pulsation subtile pour les ancres actives */
+.line-anchor.active-anchor::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        var(--primary-color) 20%,
+        var(--primary-color) 80%,
+        transparent);
+    opacity: 0.5;
+    animation: anchorPulse 2s ease-in-out infinite;
+    visibility: visible;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+@keyframes anchorPulse {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scaleX(0.8);
+    }
+    50% {
+        opacity: 0.6;
+        transform: scaleX(1);
+    }
+}
+
+/* Transition améliorée pour l'indicateur de survol */
+.project-hover-indicator {
+    transition: opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                transform 0.3s ease;
+}
+
+.project-card.expanded .project-hover-indicator,
+.project-card.hovered .project-hover-indicator {
+    transform: translateY(5px) scale(0.9);
+}
+
+/* Effet de vague lors de l'ouverture */
+.project-card.expanding::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, 
+        rgba(74, 108, 247, 0.1) 0%, 
+        transparent 70%);
+    opacity: 0;
+    animation: waveEffect 0.6s ease-out;
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes waveEffect {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1.2);
+    }
+}
+
+/* Amélioration de la transition des cartes secondaires */
+.project-card.row-hover-secondary {
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation: gentleFloat 0.4s ease-out;
+}
+
+@keyframes gentleFloat {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-4px);
+    }
+    100% {
+        transform: translateY(-8px);
+    }
+}
+
+/* Effet de blur progressif pour les cartes non-actives */
+.has-expanded-card .project-card:not(.expanded) {
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation: fadeToBackground 0.5s ease-out forwards;
+}
+
+@keyframes fadeToBackground {
+    to {
+        opacity: 0.75;
+        filter: blur(0.5px) saturate(0.8);
+        transform: scale(0.98);
+    }
+}
+
+/* Mode sombre - ajustements des animations */
+.dark-mode .project-card.expanding::after {
+    background: radial-gradient(circle at center, 
+        rgba(90, 121, 255, 0.2) 0%, 
+        transparent 70%);
+}
+
+.dark-mode .line-anchor.active-anchor::before {
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(90, 121, 255, 0.6) 20%,
+        rgba(90, 121, 255, 0.6) 80%,
+        transparent);
+}
+
+/* Optimisation des performances */
+.project-card {
+    will-change: transform, box-shadow;
+    transform: translateZ(0); /* Active l'accélération matérielle */
+}
+
+.project-card.expanding,
+.project-card.collapsing {
+    will-change: transform, box-shadow, opacity;
+}
+
+/* Responsive - ajustement des durées pour mobile */
+@media screen and (max-width: 768px) {
+    .project-card.expanding {
+        animation-duration: 0.4s;
+    }
+    
+    .project-card.collapsing {
+        animation-duration: 0.3s;
+    }
+    
+    .project-card .project-description {
+        transition-duration: 0.4s, 0.3s, 0.3s, 0.2s;
+    }
 }

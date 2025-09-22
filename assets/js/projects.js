@@ -6,6 +6,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Générer les projets dynamiquement
     generateProjects();
     
+    // Ajouter les ancres de ligne après génération
+    addLineAnchors();
+    
     // Initialiser les filtres
     initFilters();
     
@@ -38,7 +41,7 @@ function generateProjects() {
         projectCard.className = 'project-card';
         projectCard.dataset.category = project.category;
         projectCard.dataset.index = index;
-        projectCard.dataset.projectId = project.id; // Ajouter l'ID pour la traduction
+        projectCard.dataset.projectId = project.id;
         projectCard.id = project.id;
         
         // Obtenir la langue actuelle
@@ -88,6 +91,109 @@ function generateProjects() {
 }
 
 /**
+ * NOUVELLE FONCTION - Ajoute des ancres invisibles en haut de chaque ligne
+ */
+function addLineAnchors() {
+    const projectsGrid = document.querySelector('.projects-grid');
+    if (!projectsGrid) return;
+    
+    const allCards = Array.from(document.querySelectorAll('.project-card:not([style*="display: none"])'));
+    const columnsCount = getColumnsCount();
+    const rowCount = Math.ceil(allCards.length / columnsCount);
+    
+    // Créer un conteneur wrapper si nécessaire
+    if (!projectsGrid.querySelector('.anchor-wrapper')) {
+        // Pour chaque ligne, créer une ancre
+        for (let row = 0; row < rowCount; row++) {
+            const anchor = document.createElement('div');
+            anchor.className = 'line-anchor';
+            anchor.id = `line-anchor-${row}`;
+            anchor.dataset.row = row;
+            anchor.style.cssText = `
+                position: absolute;
+                top: ${row * 400}px; /* Ajuster selon la hauteur de vos cartes */
+                left: 0;
+                width: 1px;
+                height: 1px;
+                visibility: hidden;
+                pointer-events: none;
+            `;
+            
+            // Insérer l'ancre avant le premier élément de la ligne
+            const firstCardInRow = allCards[row * columnsCount];
+            if (firstCardInRow) {
+                projectsGrid.insertBefore(anchor, firstCardInRow);
+            }
+        }
+    }
+    
+    // Mettre à jour les positions des ancres après chaque filtrage
+    updateAnchorPositions();
+}
+
+/**
+ * Met à jour les positions des ancres après filtrage ou réorganisation
+ */
+function updateAnchorPositions() {
+    const allCards = Array.from(document.querySelectorAll('.project-card:not([style*="display: none"])'));
+    const columnsCount = getColumnsCount();
+    
+    // Retirer les anciennes ancres
+    document.querySelectorAll('.line-anchor').forEach(a => a.remove());
+    
+    // Recréer les ancres pour les cartes visibles
+    const projectsGrid = document.querySelector('.projects-grid');
+    const rowCount = Math.ceil(allCards.length / columnsCount);
+    
+    for (let row = 0; row < rowCount; row++) {
+        const firstCardInRow = allCards[row * columnsCount];
+        if (firstCardInRow) {
+            const anchor = document.createElement('div');
+            anchor.className = 'line-anchor';
+            anchor.id = `line-anchor-${row}`;
+            anchor.dataset.row = row;
+            anchor.style.cssText = `
+                position: absolute;
+                visibility: hidden;
+                pointer-events: none;
+                width: 1px;
+                height: 1px;
+            `;
+            
+            // Positionner l'ancre juste avant la première carte de la ligne
+            firstCardInRow.parentNode.insertBefore(anchor, firstCardInRow);
+            
+            // Ajuster la position de l'ancre
+            const cardRect = firstCardInRow.getBoundingClientRect();
+            const gridRect = projectsGrid.getBoundingClientRect();
+            anchor.style.top = `${firstCardInRow.offsetTop - 20}px`;
+        }
+    }
+}
+
+/**
+ * Fonction pour obtenir le nombre de colonnes
+ */
+function getColumnsCount() {
+    const projectsGrid = document.querySelector('.projects-grid');
+    if (!projectsGrid) return 1;
+    
+    const gridStyle = window.getComputedStyle(projectsGrid);
+    const columns = gridStyle.getPropertyValue('grid-template-columns').split(' ').length;
+    return columns || 1;
+}
+
+/**
+ * Fonction pour obtenir l'index de ligne d'une carte
+ */
+function getCardRowIndex(card) {
+    const allCards = Array.from(document.querySelectorAll('.project-card:not([style*="display: none"])'));
+    const cardIndex = allCards.indexOf(card);
+    const columnsCount = getColumnsCount();
+    return Math.floor(cardIndex / columnsCount);
+}
+
+/**
  * NOUVELLE FONCTION - Initialise la timeline interactive
  */
 function initTimeline() {
@@ -132,7 +238,7 @@ function initTimeline() {
 }
 
 /**
- * NOUVELLE FONCTION - Initialise les effets de ligne au survol
+ * NOUVELLE FONCTION - Initialise les effets de ligne au survol avec ancres
  */
 function initRowHoverEffects() {
     const projectsGrid = document.querySelector('.projects-grid');
@@ -141,13 +247,7 @@ function initRowHoverEffects() {
     let currentHoveredRow = null;
     let hideTimeout = null;
     let isTransitioning = false;
-    
-    // Fonction pour obtenir le nombre de colonnes
-    function getColumnsCount() {
-        const gridStyle = window.getComputedStyle(projectsGrid);
-        const columns = gridStyle.getPropertyValue('grid-template-columns').split(' ').length;
-        return columns;
-    }
+    let activeAnchor = null;
     
     // Fonction pour obtenir toutes les cartes de la même ligne
     function getRowCards(card) {
@@ -164,6 +264,28 @@ function initRowHoverEffects() {
         return { cards: rowCards, rowIndex: rowIndex };
     }
     
+    // Fonction pour activer une ancre de ligne
+    function activateRowAnchor(rowIndex) {
+        const anchor = document.getElementById(`line-anchor-${rowIndex}`);
+        if (anchor && anchor !== activeAnchor) {
+            // Désactiver l'ancienne ancre
+            if (activeAnchor) {
+                activeAnchor.classList.remove('active-anchor');
+            }
+            
+            // Activer la nouvelle ancre
+            activeAnchor = anchor;
+            activeAnchor.classList.add('active-anchor');
+            
+            // Optionnel: Scroll vers l'ancre si nécessaire
+            // Mais uniquement si elle n'est pas déjà visible
+            const anchorRect = anchor.getBoundingClientRect();
+            if (anchorRect.top < 100) { // Si l'ancre est trop haute
+                anchor.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+            }
+        }
+    }
+    
     // Fonction pour afficher les descriptions d'une ligne
     function showRowDescriptions(rowCards, hoveredCard) {
         // Annuler le timeout de masquage si il existe
@@ -172,7 +294,15 @@ function initRowHoverEffects() {
             hideTimeout = null;
         }
         
+        // Ne rien faire si on survole une carte déjà dépliée
+        if (hoveredCard.classList.contains('expanded')) {
+            return;
+        }
+        
         isTransitioning = true;
+        
+        const rowIndex = getCardRowIndex(hoveredCard);
+        activateRowAnchor(rowIndex);
         
         rowCards.forEach((card, index) => {
             // Appliquer les classes appropriées
@@ -230,7 +360,13 @@ function initRowHoverEffects() {
                 }
             });
             currentHoveredRow = null;
-        }, 2000); // Délai de 2 secondes avant de masquer
+            
+            // Désactiver l'ancre après masquage
+            if (activeAnchor) {
+                activeAnchor.classList.remove('active-anchor');
+                activeAnchor = null;
+            }
+        }, 2000);
     }
     
     // Délégation d'événements pour une meilleure performance
@@ -297,10 +433,186 @@ function initProjectCards() {
             description.dataset.initialized = 'true';
         }
         
-        // Événement de clic supprimé - les cartes ne sont plus cliquables
-        // pour éviter l'expansion manuelle
+        // Ajouter l'événement de clic pour toggle
+        card.addEventListener('click', function(e) {
+            // Éviter le déclenchement sur les liens
+            if (e.target.closest('a')) return;
+            
+            // Toggle avec système d'ancres
+            toggleProjectDetailsWithAnchors(this);
+        });
     });
 }
+
+/**
+ * Toggle des détails avec utilisation des ancres
+ * @param {HTMLElement} projectCard - La carte projet à toggle
+ */
+function toggleProjectDetailsWithAnchors(projectCard) {
+    const projectDescription = projectCard.querySelector('.project-description');
+    const hoverIndicator = projectCard.querySelector('.project-hover-indicator');
+    const isExpanded = projectCard.classList.contains('expanded');
+    
+    // Obtenir l'index de ligne de la carte cliquée
+    const clickedRowIndex = getCardRowIndex(projectCard);
+    const rowAnchor = document.getElementById(`line-anchor-${clickedRowIndex}`);
+    
+    // Trouver et fermer la carte actuellement ouverte
+    const currentlyExpandedCard = document.querySelector('.project-card.expanded');
+    
+    if (isExpanded) {
+        // FERMER la carte actuelle avec animation fluide
+        projectCard.classList.remove('expanded');
+        projectCard.classList.add('collapsing');
+        
+        // Animation de fermeture progressive
+        projectDescription.style.transition = 'all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1)';
+        projectDescription.style.maxHeight = '0';
+        projectDescription.style.opacity = '0';
+        projectDescription.style.paddingTop = '0';
+        
+        // Réafficher l'indicateur de survol avec fade-in
+        if (hoverIndicator) {
+            hoverIndicator.style.transition = 'opacity 0.3s ease-in-out 0.1s';
+            hoverIndicator.style.opacity = '0.7';
+        }
+        
+        setTimeout(() => {
+            projectCard.classList.remove('collapsing');
+            document.body.classList.remove('has-expanded-card');
+        }, 400);
+        
+    } else {
+        // OUVRIR la carte avec transitions élégantes
+        
+        // Si une autre carte est ouverte, la fermer d'abord
+        if (currentlyExpandedCard && currentlyExpandedCard !== projectCard) {
+            currentlyExpandedCard.classList.add('collapsing');
+            const oldDesc = currentlyExpandedCard.querySelector('.project-description');
+            const oldInd = currentlyExpandedCard.querySelector('.project-hover-indicator');
+            
+            if (oldDesc) {
+                oldDesc.style.transition = 'all 0.3s cubic-bezier(0.4, 0.0, 0.6, 1)';
+                oldDesc.style.maxHeight = '0';
+                oldDesc.style.opacity = '0';
+                oldDesc.style.paddingTop = '0';
+            }
+            if (oldInd) {
+                oldInd.style.opacity = '0.7';
+            }
+            
+            // Attendre la fermeture avant de continuer
+            setTimeout(() => {
+                currentlyExpandedCard.classList.remove('expanded', 'collapsing');
+                scrollToAnchorAndOpen();
+            }, 300);
+        } else {
+            scrollToAnchorAndOpen();
+        }
+        
+        function scrollToAnchorAndOpen() {
+            if (rowAnchor) {
+                const headerOffset = 100;
+                const anchorPosition = rowAnchor.offsetTop - headerOffset;
+                const currentScroll = window.scrollY;
+                const scrollDistance = Math.abs(anchorPosition - currentScroll);
+                
+                // Calculer la durée du scroll basée sur la distance
+                const scrollDuration = Math.min(600, Math.max(300, scrollDistance * 0.5));
+                
+                // Vérifier si on a besoin de scroller
+                if (scrollDistance > 50) {
+                    // Ajouter une classe pour l'animation de préparation
+                    projectCard.classList.add('preparing-to-open');
+                    
+                    // Scroll fluide avec easing personnalisé
+                    smoothScrollTo(anchorPosition, scrollDuration, () => {
+                        projectCard.classList.remove('preparing-to-open');
+                        openCardWithSmoothAnimation(projectCard, projectDescription, hoverIndicator);
+                    });
+                } else {
+                    // Si on est déjà proche, ouvrir directement
+                    openCardWithSmoothAnimation(projectCard, projectDescription, hoverIndicator);
+                }
+            } else {
+                openCardWithSmoothAnimation(projectCard, projectDescription, hoverIndicator);
+            }
+        }
+    }
+}
+
+/**
+ * Fonction de scroll fluide avec easing personnalisé
+ */
+function smoothScrollTo(targetPosition, duration, callback) {
+    const startPosition = window.scrollY;
+    const distance = targetPosition - startPosition;
+    const startTime = performance.now();
+    
+    function easeInOutCubic(t) {
+        return t < 0.5 
+            ? 4 * t * t * t 
+            : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    }
+    
+    function scrollAnimation(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const easeProgress = easeInOutCubic(progress);
+        
+        window.scrollTo(0, startPosition + distance * easeProgress);
+        
+        if (progress < 1) {
+            requestAnimationFrame(scrollAnimation);
+        } else if (callback) {
+            callback();
+        }
+    }
+    
+    requestAnimationFrame(scrollAnimation);
+}
+
+/**
+ * Fonction pour ouvrir une carte avec animation fluide
+ */
+function openCardWithSmoothAnimation(projectCard, projectDescription, hoverIndicator) {
+    // Préparer l'animation
+    projectCard.classList.add('expanding');
+    projectCard.classList.add('expanded');
+    document.body.classList.add('has-expanded-card');
+    
+    // Calculer la hauteur cible
+    projectDescription.style.maxHeight = 'none';
+    const targetHeight = projectDescription.scrollHeight;
+    projectDescription.style.maxHeight = '0';
+    
+    // Forcer le reflow
+    void projectDescription.offsetHeight;
+    
+    // Configurer la transition fluide
+    projectDescription.style.transition = 'all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+    
+    // Déclencher l'animation d'ouverture avec un léger délai pour la fluidité
+    requestAnimationFrame(() => {
+        projectDescription.style.maxHeight = targetHeight + 'px';
+        projectDescription.style.opacity = '1';
+        projectDescription.style.paddingTop = '15px';
+        
+        // Masquer l'indicateur avec fade-out
+        if (hoverIndicator) {
+            hoverIndicator.style.transition = 'opacity 0.2s ease-out';
+            hoverIndicator.style.opacity = '0';
+        }
+    });
+    
+    // Nettoyer après l'animation
+    setTimeout(() => {
+        projectCard.classList.remove('expanding');
+        projectDescription.style.maxHeight = 'none'; // Permettre le redimensionnement dynamique
+    }, 500);
+}
+
+// Fonction openCardWithAnchor supprimée - remplacée par openCardWithSmoothAnimation
 
 /**
  * Affiche la description au survol
@@ -348,49 +660,6 @@ function hideProjectDescription(projectCard) {
 }
 
 /**
- * Affiche ou masque les détails d'un projet
- */
-function toggleProjectDetails(projectCard) {
-    const projectDescription = projectCard.querySelector('.project-description');
-    const hoverIndicator = projectCard.querySelector('.project-hover-indicator');
-    const isExpanded = projectCard.classList.contains('expanded');
-    
-    if (isExpanded) {
-        projectCard.classList.remove('expanded');
-        projectDescription.style.maxHeight = '0';
-        projectDescription.style.opacity = '0';
-        projectDescription.style.paddingTop = '0';
-        
-        // Réafficher l'indicateur de survol
-        if (hoverIndicator) {
-            hoverIndicator.style.opacity = '0.7';
-        }
-    } else {
-        // Réduire tous les autres projets
-        document.querySelectorAll('.project-card.expanded').forEach(card => {
-            card.classList.remove('expanded');
-            const desc = card.querySelector('.project-description');
-            const indicator = card.querySelector('.project-hover-indicator');
-            desc.style.maxHeight = '0';
-            desc.style.opacity = '0';
-            desc.style.paddingTop = '0';
-            if (indicator) indicator.style.opacity = '0.7';
-        });
-        
-        // Développer le projet actuel
-        projectCard.classList.add('expanded');
-        projectDescription.style.maxHeight = '500px';
-        projectDescription.style.opacity = '1';
-        projectDescription.style.paddingTop = '15px';
-        
-        // Masquer l'indicateur quand c'est développé en permanence
-        if (hoverIndicator) {
-            hoverIndicator.style.opacity = '0';
-        }
-    }
-}
-
-/**
  * Initialise les filtres de projets avec animation
  */
 function initFilters() {
@@ -416,6 +685,9 @@ function initFilters() {
             if (searchInput) {
                 searchInput.value = '';
             }
+            
+            // Mettre à jour les ancres après filtrage
+            setTimeout(updateAnchorPositions, 100);
         });
     });
     
@@ -576,6 +848,9 @@ function createSearchFunction() {
                 noResultsWrapper.style.display = 'none';
             }
         }
+        
+        // Mettre à jour les ancres après recherche
+        setTimeout(updateAnchorPositions, 100);
     });
 }
 
@@ -591,7 +866,7 @@ function handleUrlHash() {
             setTimeout(() => {
                 targetProject.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 setTimeout(() => {
-                    toggleProjectDetails(targetProject);
+                    toggleProjectDetailsWithAnchors(targetProject);
                 }, 500);
             }, 500);
         }
@@ -616,4 +891,7 @@ function shuffleProjects() {
         project.style.animationDelay = `${index * 0.05}s`;
         projectsContainer.appendChild(project);
     });
+    
+    // Recréer les ancres après réorganisation
+    updateAnchorPositions();
 }
