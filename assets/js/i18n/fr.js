@@ -378,6 +378,37 @@ window.translations_fr = {
     'experience.nivo.period': 'Mai - Juin 2021',
     'experience.nivo.description': 'Première expérience professionnelle dans le domaine du développement web. Découverte du monde professionnel et des relations clients.',
 
+    // Nouvelles traductions d'achievements pour toutes les expériences
+    'experience.sncf.achievement1': '• Maintenance et migration du code PHP vers la version 8',
+    'experience.sncf.achievement2': '• Refactorisation complète des codes existants pour améliorer leur maintenabilité',
+    'experience.sncf.achievement3': '• Reconstruction de l\'architecture serveur selon les normes SNCF',
+    'experience.sncf.achievement4': '• Dockerisation des applications',
+    'experience.sncf.achievement5': '• Migration vers un front-end en Angular 20 et un back-end en Spring Boot',
+    'experience.sncf.achievement6': '• Mise en place d\'un reverse proxy pour le filtrage et la redirection des requêtes',
+    'experience.sncf.achievement7': '• Déploiement d\'une instance GitLab dockerisée',
+
+    'experience.dgefp.achievement1': '• Conception de deux projets et prise en charge du suivi d\'un troisième projet',
+    'experience.dgefp.achievement2': '• Pilotage des trois projets avec mise en place de tous les concepts de gestion de projet (WBS, OBS, SWOT, RACI, EVM...)',
+    'experience.dgefp.achievement3': '• Mise en place d\'une démarche en urgence à l\'aide de l\'outil Démarche Simplifiée',
+    'experience.dgefp.achievement4': '• Programmation Python pour récupérer les données de la démarche',
+    'experience.dgefp.achievement5': '• Formation Excel pour aider à la création de macros',
+    'experience.dgefp.achievement6': '• Familiarisation avec les environnements administratifs et les contraintes spécifiques aux projets publics',
+
+    'experience.gesta.achievement1': '• Conception d\'un outil/Hub de facturation pour le service comptabilité',
+    'experience.gesta.achievement2': '• Création d\'une interface CLI et récupération des informations clients en base de données (SQL Server)',
+    'experience.gesta.achievement3': '• Génération de factures en format Excel et création d\'une interface graphique (WinForm) pour gérer les données de facturation',
+    'experience.gesta.achievement4': '• Évaluation théorique de la sécurité des serveurs : SQL injection, Cross Site Scripting (XSS)',
+    'experience.gesta.achievement5': '• Création d\'un outil de recherche récursif d\'images dans des dossiers locaux (System IO) pour redimensionner on-the-fly (C#, Bitmap)',
+    'experience.gesta.achievement6': '• Documentation du code et support N+1 aux utilisateurs',
+
+    'experience.nivo.achievement1': '• Création de logos et thèmes de sites web',
+    'experience.nivo.achievement2': '• Mise en place d\'une boutique e-commerce de pêche avec ajout dynamique de produits en backoffice via API WooCommerce',
+    'experience.nivo.achievement3': '• Intégration des produits en front dans un grid avec lazy loading (appels AJAX pour chargement des pages suivantes)',
+    'experience.nivo.achievement4': '• Travail en collaboration avec l\'UX designer',
+    'experience.nivo.achievement5': '• Intégration des maquettes en front avec Elementor et modifications CSS/HTML/JS',
+    'experience.nivo.achievement6': '• Refonte graphique d\'un site web en collaboration avec l\'équipe design',
+    'experience.nivo.achievement7': 'Support N+1 aux clients, documentation, intégration des outils de Google Analytics',
+
     // Formation
     'education.master.title': 'Master Informatique',
     'education.master.school': 'Le Rebours - ESTIAM',
@@ -399,19 +430,44 @@ window.translations_fr = {
     'education.bac.period': 'Obtenu en 2020',
     'education.bac.description': 'Baccalauréat technologique avec une spécialisation en Systèmes d\'Information et Numérique. Acquisition des bases théoriques et pratiques dans le domaine des technologies de l\'information.',
 
+    // Tags pour les compétences  
+    'experience.tag.project_management': 'Gestion de Projet',
+    'experience.tag.public_sector': 'Secteur Public',
+    'experience.tag.cybersecurity': 'Cybersécurité',
+
+    // Tags pour la formation
+    'experience.education.tag.advanced_development': 'Développement avancé',
+    'experience.education.tag.software_architecture': 'Architecture Logicielle',
+    'experience.education.tag.web_development': 'Développement Web',
+    'experience.education.tag.mobile_apps': 'Applications Mobiles',
+    'experience.education.tag.architecture': 'Architecture',
+    'experience.education.tag.development': 'Développement',
+    'experience.education.tag.databases': 'Bases de données',
+    'experience.education.tag.algorithms': 'Algorithmes',
+    'experience.education.tag.computer_science': 'Informatique',
+    'experience.education.tag.electronics': 'Électronique',
+    'experience.education.tag.networks': 'Réseaux',
+    'experience.education.tag.programming': 'Programmation',
+
     // Contact
-    'contact.title': 'Contactez-moi',
-    'contact.subtitle': 'N\'hésitez pas à me contacter pour discuter de vos projets ou opportunités de collaboration.',
+    'contact.banner.title': 'Contactez-moi',
+    'contact.banner.subtitle': 'Discutons de votre projet ensemble',
+    'contact.info.title': 'Informations de contact',
+    'contact.info.subtitle': 'N\'hésitez pas à me contacter pour discuter de vos besoins',
+    'contact.info.email': 'Email',
+    'contact.info.location': 'Localisation',
+    'contact.info.location.detail': 'France, Saint-Ouen disponible en télétravail et pour des missions sur site',
+    'contact.social.title': 'Retrouvez-moi en ligne',
+    'contact.availability.title': 'Disponibilité actuelle',
+    'contact.availability.description': 'Je suis actuellement disponible pour des missions freelance en développement web, mobile. Si vous cherchez un développeur passionné qui accorde une importance particulière à la qualité et à la sécurité du code, n\'hésitez pas à me contacter.',
+    'contact.availability.cta': 'Discutons de votre projet',
+    'contact.footer.social': 'Réseaux sociaux',
+    'contact.footer.rights': 'Tous droits réservés',
     'contact.form.name': 'Nom complet',
     'contact.form.email': 'Adresse email',
     'contact.form.subject': 'Sujet',
     'contact.form.message': 'Votre message',
     'contact.form.send': 'Envoyer le message',
-    'contact.info.title': 'Mes coordonnées',
-    'contact.info.email': 'Email',
-    'contact.info.phone': 'Téléphone',
-    'contact.info.location': 'Localisation',
-    'contact.social.title': 'Réseaux sociaux',
 
     // Footer
     'footer.description': 'Développeur Full Stack & Cybersécurité',
@@ -566,6 +622,12 @@ window.translations_fr = {
     'skills.indicators.time_management_deadlines': 'Deadlines respectées',
     'skills.indicators.time_management_multiple': 'Projets multiples',
     'skills.indicators.time_management_prioritization': 'Priorisation efficace',
+    'skills.indicators.work_methodology_optimized': 'Processus optimisés',
+    'skills.indicators.work_methodology_quality': 'Qualité constante',
+    'skills.indicators.work_methodology_clean': 'SOLID, Clean Code',
+    'skills.indicators.autonomy_responsibility': 'Responsabilité complète',
+    'skills.indicators.autonomy_solo': 'Projets en solo',
+    'skills.indicators.autonomy_decision': 'Prise de décision',
 
     // Messages système
     'loading': 'Chargement...',

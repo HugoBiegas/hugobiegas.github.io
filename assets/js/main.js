@@ -63,53 +63,101 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Animation de texte d'écriture
     if (typingText) {
-        const roles = ['Full Stack', 'Web', 'Mobile', 'Cybersécurité'];
+        const rolesData = {
+            fr: ['Full Stack', 'Web', 'Mobile', 'Cybersécurité'],
+            en: ['Full Stack', 'Web', 'Mobile', 'Cybersecurity'] // Animation similaire en anglais
+        };
+        
         let roleIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
         let typingSpeed = 150;
+        let animationActive = false;
         
-        function typeText() {
-            const currentRole = roles[roleIndex];
-            
-            if (isDeleting) {
-                // Suppression de caractères
-                typingText.textContent = currentRole.substring(0, charIndex - 1);
-                charIndex--;
-                typingSpeed = 80;
-            } else {
-                // Ajout de caractères
-                typingText.textContent = currentRole.substring(0, charIndex + 1);
-                charIndex++;
-                typingSpeed = 150;
-            }
-            
-            // Gérer la fin de l'ajout ou de la suppression
-            if (!isDeleting && charIndex === currentRole.length) {
-                // Pause à la fin de l'écriture
-                isDeleting = true;
-                typingSpeed = 1500; // Pause avant de commencer à supprimer
-            } else if (isDeleting && charIndex === 0) {
-                // Passer au prochain rôle
-                isDeleting = false;
-                roleIndex = (roleIndex + 1) % roles.length;
-                typingSpeed = 500; // Pause avant de commencer le prochain mot
-            }
-            
-            // Ajouter le curseur clignotant
-            if (typingText.nextElementSibling && typingText.nextElementSibling.classList.contains('typing-cursor')) {
-                // Le curseur existe déjà
-            } else {
-                const cursor = document.createElement('span');
-                cursor.classList.add('typing-cursor');
-                typingText.parentNode.insertBefore(cursor, typingText.nextSibling);
-            }
-            
-            setTimeout(typeText, typingSpeed);
+        function getCurrentLanguage() {
+            return window.getCurrentLanguage ? window.getCurrentLanguage() : 'fr';
         }
         
-        // Démarrer l'animation après un délai
-        setTimeout(typeText, 1000);
+        function startTypingAnimation(roles) {
+            if (roles.length === 0) {
+                // Pas d'animation, masquer le texte
+                typingText.style.display = 'none';
+                return;
+            }
+            
+            typingText.style.display = 'inline';
+            animationActive = true;
+            roleIndex = 0;
+            charIndex = 0;
+            isDeleting = false;
+            
+            function typeText() {
+                if (!animationActive) return;
+                
+                const currentRole = roles[roleIndex];
+                
+                if (isDeleting) {
+                    // Suppression de caractères
+                    typingText.textContent = currentRole.substring(0, charIndex - 1);
+                    charIndex--;
+                    typingSpeed = 80;
+                } else {
+                    // Ajout de caractères
+                    typingText.textContent = currentRole.substring(0, charIndex + 1);
+                    charIndex++;
+                    typingSpeed = 150;
+                }
+                
+                // Gérer la fin de l'ajout ou de la suppression
+                if (!isDeleting && charIndex === currentRole.length) {
+                    // Pause à la fin de l'écriture
+                    isDeleting = true;
+                    typingSpeed = 1500; // Pause avant de commencer à supprimer
+                } else if (isDeleting && charIndex === 0) {
+                    // Passer au prochain rôle
+                    isDeleting = false;
+                    roleIndex = (roleIndex + 1) % roles.length;
+                    typingSpeed = 500; // Pause avant de commencer le prochain mot
+                }
+                
+                // Ajouter le curseur clignotant
+                if (typingText.nextElementSibling?.classList.contains('typing-cursor')) {
+                    // Le curseur existe déjà
+                } else {
+                    const cursor = document.createElement('span');
+                    cursor.classList.add('typing-cursor');
+                    typingText.parentNode.insertBefore(cursor, typingText.nextSibling);
+                }
+                
+                setTimeout(typeText, typingSpeed);
+            }
+            
+            // Démarrer l'animation après un délai
+            setTimeout(typeText, 1000);
+        }
+        
+        function updateTypingBasedOnLanguage() {
+            const currentLang = getCurrentLanguage();
+            const roles = rolesData[currentLang] || rolesData.fr;
+            
+            // Arrêter l'animation actuelle
+            animationActive = false;
+            
+            // Nettoyer le curseur existant
+            const existingCursor = typingText.nextElementSibling;
+            if (existingCursor?.classList.contains('typing-cursor')) {
+                existingCursor.remove();
+            }
+            
+            // Démarrer la nouvelle animation
+            setTimeout(() => startTypingAnimation(roles), 500);
+        }
+        
+        // Initialiser l'animation
+        updateTypingBasedOnLanguage();
+        
+        // Écouter les changements de langue
+        window.addEventListener('languageChanged', updateTypingBasedOnLanguage);
     }
     
     // Animation des éléments au défilement

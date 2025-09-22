@@ -46,13 +46,17 @@
 
 /* Icônes de drapeaux pour header */
 .language-selector-header .language-btn[data-lang="fr"]::after {
-    content: '🇫🇷';
-    font-size: 0.9rem;
+    content: 'FR';
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-color, #333);
 }
 
 .language-selector-header .language-btn[data-lang="en"]::after {
-    content: '🇬🇧';
-    font-size: 0.9rem;
+    content: 'EN';
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-color, #333);
 }
 
 /* Version fixe (existante pour compatibilité) */
@@ -118,19 +122,23 @@
     height: 100%;
 }
 
-/* Icônes de drapeaux avec émojis */
+/* Icônes de drapeaux avec codes pays */
 .language-btn[data-lang="fr"]::after {
-    content: '🇫🇷';
-    font-size: 1rem;
+    content: 'FR';
+    font-size: 0.75rem;
+    font-weight: 600;
     position: relative;
     z-index: 2;
+    color: var(--text-color, #333);
 }
 
 .language-btn[data-lang="en"]::after {
-    content: '🇬🇧';
-    font-size: 1rem;
+    content: 'EN';
+    font-size: 0.75rem;
+    font-weight: 600;
     position: relative;
     z-index: 2;
+    color: var(--text-color, #333);
 }
 
 /* Tooltip pour le sélecteur de langue */
@@ -172,6 +180,11 @@
     background: var(--primary-color);
 }
 
+.dark-mode .language-selector-header .language-btn[data-lang="fr"]::after,
+.dark-mode .language-selector-header .language-btn[data-lang="en"]::after {
+    color: #fff;
+}
+
 /* Mode sombre pour version fixe */
 .dark-mode .language-selector {
     background: rgba(30, 33, 51, 0.95);
@@ -183,6 +196,11 @@
 
 .dark-mode .language-btn.active {
     background: var(--primary-color);
+}
+
+.dark-mode .language-btn[data-lang="fr"]::after,
+.dark-mode .language-btn[data-lang="en"]::after {
+    color: #fff;
 }
 
 /* Responsive pour header */

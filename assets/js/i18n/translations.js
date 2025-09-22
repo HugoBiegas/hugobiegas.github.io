@@ -64,10 +64,22 @@ class I18n {
     t(key, params = {}) {
         let translation = this.translations[this.currentLanguage]?.[key] || key;
         
+        // Debug: afficher la traduction brute et les paramètres
+        console.log(`🔍 Traduction pour "${key}":`, {
+            raw: translation,
+            params: params,
+            currentLang: this.currentLanguage
+        });
+        
         // Remplacer les paramètres dans la traduction
         Object.keys(params).forEach(param => {
-            translation = translation.replace(`{{${param}}}`, params[param]);
+            const placeholder = `{{${param}}}`;
+            const replacement = params[param];
+            console.log(`🔄 Remplacement: "${placeholder}" -> "${replacement}"`);
+            translation = translation.replace(placeholder, replacement);
         });
+        
+        console.log(`✅ Traduction finale: "${translation}"`);
         
         return translation;
     }
@@ -105,8 +117,13 @@ class I18n {
         // Ajouter une classe temporaire pour l'animation
         document.body.classList.add('language-switching');
         
+        console.log('🌐 Application des traductions, langue:', this.currentLanguage);
+        
         // Traductions pour les éléments avec data-i18n
-        document.querySelectorAll('[data-i18n]').forEach(element => {
+        const elementsWithI18n = document.querySelectorAll('[data-i18n]');
+        console.log(`🔍 ${elementsWithI18n.length} éléments avec data-i18n trouvés`);
+        
+        elementsWithI18n.forEach((element, index) => {
             const key = element.getAttribute('data-i18n');
             const varsAttr = element.getAttribute('data-i18n-vars');
             
@@ -114,12 +131,15 @@ class I18n {
             if (varsAttr) {
                 try {
                     vars = JSON.parse(varsAttr);
+                    console.log(`🔧 Variables pour "${key}":`, vars);
                 } catch (e) {
                     console.warn('Erreur de parsing des variables i18n:', varsAttr, e);
+                    return; // Passer à l'élément suivant si parsing échoue
                 }
             }
             
             const translation = this.t(key, vars);
+            console.log(`📝 Traduction "${key}": "${translation}"`);
             
             if (element.tagName === 'INPUT' && (element.type === 'text' || element.type === 'email')) {
                 element.placeholder = translation;
@@ -243,6 +263,7 @@ class I18n {
 
 // Instance globale
 const i18n = new I18n();
+window.i18n = i18n; // Exposer globalement pour le débogage et les autres scripts
 
 // Fonctions globales pour compatibilité
 window.t = (key, params) => i18n.t(key, params);

@@ -378,6 +378,37 @@ window.translations_en = {
     'experience.nivo.period': 'May - June 2021',
     'experience.nivo.description': 'First professional experience in web development. Discovery of the professional world and client relations.',
 
+    // Achievement translations for all experiences
+    'experience.sncf.achievement1': '• Maintenance and migration of PHP code to version 8',
+    'experience.sncf.achievement2': '• Complete refactoring of existing code to improve maintainability',
+    'experience.sncf.achievement3': '• Server architecture reconstruction according to SNCF standards',
+    'experience.sncf.achievement4': '• Application dockerization',
+    'experience.sncf.achievement5': '• Migration to Angular 20 frontend and Spring Boot backend',
+    'experience.sncf.achievement6': '• Implementation of reverse proxy for request filtering and redirection',
+    'experience.sncf.achievement7': '• Deployment of dockerized GitLab instance',
+
+    'experience.dgefp.achievement1': '• Design of two projects and management of a third project follow-up',
+    'experience.dgefp.achievement2': '• Management of three projects with implementation of all project management concepts (WBS, OBS, SWOT, RACI, EVM...)',
+    'experience.dgefp.achievement3': '• Emergency procedure implementation using the Simplified Procedure tool',
+    'experience.dgefp.achievement4': '• Python programming to retrieve procedure data',
+    'experience.dgefp.achievement5': '• Excel training to help with macro creation',
+    'experience.dgefp.achievement6': '• Familiarization with administrative environments and specific constraints of public projects',
+
+    'experience.gesta.achievement1': '• Design of an invoicing tool/Hub for the accounting department',
+    'experience.gesta.achievement2': '• Creation of CLI interface and client information retrieval from database (SQL Server)',
+    'experience.gesta.achievement3': '• Excel invoice generation and creation of graphical interface (WinForm) to manage invoicing data',
+    'experience.gesta.achievement4': '• Theoretical server security assessment: SQL injection, Cross Site Scripting (XSS)',
+    'experience.gesta.achievement5': '• Creation of recursive image search tool in local folders (System IO) for on-the-fly resizing (C#, Bitmap)',
+    'experience.gesta.achievement6': '• Code documentation and N+1 user support',
+
+    'experience.nivo.achievement1': '• Creation of logos and website themes',
+    'experience.nivo.achievement2': '• Implementation of fishing e-commerce store with dynamic product addition in backoffice via WooCommerce API',
+    'experience.nivo.achievement3': '• Frontend product integration in grid with lazy loading (AJAX calls for next page loading)',
+    'experience.nivo.achievement4': '• Collaboration with UX designer',
+    'experience.nivo.achievement5': '• Frontend mockup integration with Elementor and CSS/HTML/JS modifications',
+    'experience.nivo.achievement6': '• Website graphic redesign in collaboration with design team',
+    'experience.nivo.achievement7': 'N+1 client support, documentation, Google Analytics tools integration',
+
     // Education
     'education.master.title': 'Master\'s Degree in Computer Science',
     'education.master.school': 'Le Rebours - ESTIAM',
@@ -399,19 +430,44 @@ window.translations_en = {
     'education.bac.period': 'Obtained in 2020',
     'education.bac.description': 'Technical baccalaureate with a specialization in Information and Digital Systems. Acquisition of theoretical and practical foundations in information technology.',
 
+    // Skill tags
+    'experience.tag.project_management': 'Project Management',
+    'experience.tag.public_sector': 'Public Sector',
+    'experience.tag.cybersecurity': 'Cybersecurity',
+
+    // Education tags
+    'experience.education.tag.advanced_development': 'Advanced Development',
+    'experience.education.tag.software_architecture': 'Software Architecture',
+    'experience.education.tag.web_development': 'Web Development',
+    'experience.education.tag.mobile_apps': 'Mobile Applications',
+    'experience.education.tag.architecture': 'Architecture',
+    'experience.education.tag.development': 'Development',
+    'experience.education.tag.databases': 'Databases',
+    'experience.education.tag.algorithms': 'Algorithms',
+    'experience.education.tag.computer_science': 'Computer Science',
+    'experience.education.tag.electronics': 'Electronics',
+    'experience.education.tag.networks': 'Networks',
+    'experience.education.tag.programming': 'Programming',
+
     // Contact
-    'contact.title': 'Contact me',
-    'contact.subtitle': 'Feel free to contact me to discuss your projects or collaboration opportunities.',
+    'contact.banner.title': 'Contact me',
+    'contact.banner.subtitle': 'Let\'s discuss your project together',
+    'contact.info.title': 'Contact information',
+    'contact.info.subtitle': 'Feel free to contact me to discuss your needs',
+    'contact.info.email': 'Email',
+    'contact.info.location': 'Location',
+    'contact.info.location.detail': 'France, Saint-Ouen available remotely and for on-site missions',
+    'contact.social.title': 'Find me online',
+    'contact.availability.title': 'Current availability',
+    'contact.availability.description': 'I am currently available for freelance missions in web and mobile development. If you are looking for a passionate developer who places particular importance on code quality and security, feel free to contact me.',
+    'contact.availability.cta': 'Let\'s discuss your project',
+    'contact.footer.social': 'Social networks',
+    'contact.footer.rights': 'All rights reserved',
     'contact.form.name': 'Full name',
     'contact.form.email': 'Email address',
     'contact.form.subject': 'Subject',
     'contact.form.message': 'Your message',
     'contact.form.send': 'Send message',
-    'contact.info.title': 'My contact details',
-    'contact.info.email': 'Email',
-    'contact.info.phone': 'Phone',
-    'contact.info.location': 'Location',
-    'contact.social.title': 'Social networks',
 
     // Footer
     'footer.description': 'Full Stack Developer & Cybersecurity',
@@ -566,6 +622,12 @@ window.translations_en = {
     'skills.indicators.time_management_deadlines': 'Respected deadlines',
     'skills.indicators.time_management_multiple': 'Multiple projects',
     'skills.indicators.time_management_prioritization': 'Effective prioritization',
+    'skills.indicators.work_methodology_optimized': 'Optimized processes',
+    'skills.indicators.work_methodology_quality': 'Consistent quality',
+    'skills.indicators.work_methodology_clean': 'SOLID, Clean Code',
+    'skills.indicators.autonomy_responsibility': 'Full responsibility',
+    'skills.indicators.autonomy_solo': 'Solo projects',
+    'skills.indicators.autonomy_decision': 'Decision making',
 
     // System messages
     'loading': 'Loading...',

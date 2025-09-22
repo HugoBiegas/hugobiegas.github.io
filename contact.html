@@ -25,7 +25,11 @@
     <link rel="stylesheet" href="assets/css/animations.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="assets/css/dark-mode.css">
+    <link rel="stylesheet" href="assets/css/language-selector.css">
     <link rel="stylesheet" href="assets/css/contact.css">
+    
+    <!-- Métadonnées i18n -->
+    <meta name="i18n-title" content="page.title.contact">
 
 </head>
 <body>
@@ -46,17 +50,27 @@
                         <span class="logo-text">HB</span>
                     </a>
                 </div>
-                <ul class="nav-links">
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="projects.html">Projets</a></li>
-                    <li><a href="skills.html">Compétences</a></li>
-                    <li><a href="experience.html">Expérience</a></li>
-                    <li><a href="contact.html" class="active">Contact</a></li>
-                </ul>
-                <div class="burger">
-                    <div class="line1"></div>
-                    <div class="line2"></div>
-                    <div class="line3"></div>
+                
+                <div class="nav-right">
+                    <ul class="nav-links">
+                        <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+                        <li><a href="projects.html" data-i18n="nav.projects">Projets</a></li>
+                        <li><a href="skills.html" data-i18n="nav.skills">Compétences</a></li>
+                        <li><a href="experience.html" data-i18n="nav.experience">Expérience</a></li>
+                        <li><a href="contact.html" class="active" data-i18n="nav.contact">Contact</a></li>
+                    </ul>
+                    
+                    <!-- Sélecteur de langue dans le header -->
+                    <div class="language-selector-header">
+                        <button class="language-btn" data-lang="fr" aria-label="Français"></button>
+                        <button class="language-btn" data-lang="en" aria-label="English"></button>
+                    </div>
+                    
+                    <div class="burger">
+                        <div class="line1"></div>
+                        <div class="line2"></div>
+                        <div class="line3"></div>
+                    </div>
                 </div>
             </nav>
         </div>
@@ -65,8 +79,8 @@
     <!-- Bannière de contact -->
     <section class="contact-banner">
         <div class="container">
-            <h1>Restons en Contact</h1>
-            <p>Vous avez un projet en tête ou des questions? N'hésitez pas à me contacter pour discuter de vos besoins en développement web, mobile ou cybersécurité.</p>
+            <h1 data-i18n="contact.banner.title">Restons en Contact</h1>
+            <p data-i18n="contact.banner.subtitle">Vous avez un projet en tête ou des questions? N'hésitez pas à me contacter pour discuter de vos besoins en développement web, mobile ou cybersécurité.</p>
         </div>
     </section>
 
@@ -76,8 +90,8 @@
             <div class="contact-container">
                 <!-- Informations de contact -->
                 <div class="contact-info">
-                    <h2 class="contact-heading">Mes Coordonnées</h2>
-                    <p class="contact-subheading">N'hésitez pas à me contacter par l'un des moyens suivants.</p>
+                    <h2 class="contact-heading" data-i18n="contact.info.title">Mes Coordonnées</h2>
+                    <p class="contact-subheading" data-i18n="contact.info.subtitle">N'hésitez pas à me contacter par l'un des moyens suivants.</p>
                     
                     <!-- Email -->
                     <div class="contact-method">
@@ -85,7 +99,7 @@
                             <i class="fas fa-envelope"></i>
                         </div>
                         <div class="contact-details">
-                            <h3>Email</h3>
+                            <h3 data-i18n="contact.info.email">Email</h3>
                             <p><a href="mailto:Contact.Hugo.Biegas@gmail.com">Contact.Hugo.Biegas@gmail.com</a></p>
                         </div>
                     </div>
@@ -96,14 +110,14 @@
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <div class="contact-details">
-                            <h3>Localisation</h3>
-                            <p>France, Saint-Ouen disponible en télétravail et pour des missions sur site</p>
+                            <h3 data-i18n="contact.info.location">Localisation</h3>
+                            <p data-i18n="contact.info.location.detail">France, Saint-Ouen disponible en télétravail et pour des missions sur site</p>
                         </div>
                     </div>
                     
                     <!-- Réseaux sociaux -->
                     <div class="social-section">
-                        <h3 class="social-heading">Retrouvez-moi en ligne</h3>
+                        <h3 class="social-heading" data-i18n="contact.social.title">Retrouvez-moi en ligne</h3>
                         <div class="social-grid">
                             <a href="https://github.com/HugoBiegas" target="_blank" rel="noopener noreferrer" class="social-item">
                                 <i class="fab fa-github"></i>
@@ -122,10 +136,10 @@
     <section class="availability-section">
         <div class="container">
             <div class="availability-container">
-                <h2 class="availability-heading">Disponibilité actuelle</h2>
-                <p class="availability-text">Je suis actuellement disponible pour des missions freelance en développement web, mobile. Si vous cherchez un développeur passionné qui accorde une importance particulière à la qualité et à la sécurité du code, n'hésitez pas à me contacter.</p>
+                <h2 class="availability-heading" data-i18n="contact.availability.title">Disponibilité actuelle</h2>
+                <p class="availability-text" data-i18n="contact.availability.description">Je suis actuellement disponible pour des missions freelance en développement web, mobile. Si vous cherchez un développeur passionné qui accorde une importance particulière à la qualité et à la sécurité du code, n'hésitez pas à me contacter.</p>
                 <div class="availability-cta">
-                    <a href="mailto:Contact.Hugo.Biegas@gmail.com" class="btn primary-btn">Discutons de votre projet</a>
+                    <a href="mailto:Contact.Hugo.Biegas@gmail.com" class="btn primary-btn" data-i18n="contact.availability.cta">Discutons de votre projet</a>
                 </div>
             </div>
         </div>
@@ -141,17 +155,17 @@
                 </div>
                 <div class="footer-links">
                     <div class="footer-nav">
-                        <h4>Navigation</h4>
+                        <h4 data-i18n="footer.nav.title">Navigation</h4>
                         <ul>
-                            <li><a href="index.html">Accueil</a></li>
-                            <li><a href="projects.html">Projets</a></li>
-                            <li><a href="skills.html">Compétences</a></li>
-                            <li><a href="experience.html">Expérience</a></li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+                            <li><a href="projects.html" data-i18n="nav.projects">Projets</a></li>
+                            <li><a href="skills.html" data-i18n="nav.skills">Compétences</a></li>
+                            <li><a href="experience.html" data-i18n="nav.experience">Expérience</a></li>
+                            <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
                         </ul>
                     </div>
                     <div class="footer-social">
-                        <h4>Réseaux sociaux</h4>
+                        <h4 data-i18n="contact.footer.social">Réseaux sociaux</h4>
                         <div class="social-links">
                             <a href="https://github.com/HugoBiegas" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                                 <i class="fab fa-github"></i>
@@ -167,12 +181,14 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Hugo Biegas. Tous droits réservés.</p>
+                <p>&copy; 2025 Hugo Biegas. <span data-i18n="contact.footer.rights">Tous droits réservés</span>.</p>
             </div>
         </div>
     </footer>
 
     <!-- JavaScript -->
+    <script src="assets/js/i18n/fr.js"></script>
+    <script src="assets/js/i18n/en.js"></script>
     <script src="assets/js/i18n/translations.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/dark-mode.js"></script>

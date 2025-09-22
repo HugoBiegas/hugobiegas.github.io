@@ -25,7 +25,11 @@
     <link rel="stylesheet" href="assets/css/animations.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="assets/css/dark-mode.css">
+    <link rel="stylesheet" href="assets/css/language-selector.css">
     <link rel="stylesheet" href="assets/css/experience.css">
+    
+    <!-- Métadonnées i18n -->
+    <meta name="i18n-title" content="page.title.experience">
 </head>
 <body>
     <!-- Bouton de mode sombre -->
@@ -45,17 +49,27 @@
                         <span class="logo-text">HB</span>
                     </a>
                 </div>
-                <ul class="nav-links">
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="projects.html">Projets</a></li>
-                    <li><a href="skills.html">Compétences</a></li>
-                    <li><a href="experience.html" class="active">Expérience</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-                <div class="burger">
-                    <div class="line1"></div>
-                    <div class="line2"></div>
-                    <div class="line3"></div>
+                
+                <div class="nav-right">
+                    <ul class="nav-links">
+                        <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+                        <li><a href="projects.html" data-i18n="nav.projects">Projets</a></li>
+                        <li><a href="skills.html" data-i18n="nav.skills">Compétences</a></li>
+                        <li><a href="experience.html" class="active" data-i18n="nav.experience">Expérience</a></li>
+                        <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+                    </ul>
+                    
+                    <!-- Sélecteur de langue dans le header -->
+                    <div class="language-selector-header">
+                        <button class="language-btn" data-lang="fr" aria-label="Français"></button>
+                        <button class="language-btn" data-lang="en" aria-label="English"></button>
+                    </div>
+                    
+                    <div class="burger">
+                        <div class="line1"></div>
+                        <div class="line2"></div>
+                        <div class="line3"></div>
+                    </div>
                 </div>
             </nav>
         </div>
@@ -64,8 +78,8 @@
     <!-- Bannière d'expérience -->
     <section class="experience-banner">
         <div class="container">
-            <h1>Mon Parcours Professionnel</h1>
-            <p>Découvrez mon parcours et mon expérience dans le développement web, mobile et la cybersécurité.</p>
+            <h1 data-i18n="experience.title">Mon Parcours Professionnel</h1>
+            <p data-i18n="experience.subtitle">Découvrez mon parcours et mon expérience dans le développement web, mobile et la cybersécurité.</p>
         </div>
     </section>
 
@@ -73,7 +87,7 @@
     <section class="timeline-section">
         <div class="container">
             <div class="section-header">
-                <h2>Expérience Professionnelle</h2>
+                <h2 data-i18n="experience.section.professional">Expérience Professionnelle</h2>
                 <div class="section-divider"></div>
             </div>
             
@@ -81,23 +95,23 @@
                 <!-- Expérience 1 - SNCF -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-date">2023 - 2025</div>
+                    <div class="timeline-date" data-i18n="experience.sncf.period">2023 - 2025</div>
                     <div class="timeline-content">
                         <div class="company-image">
                             <img src="assets/img/companies/sncf.jpg" alt="SNCF - Technicentre Sud-Est Européen">
                         </div>
-                        <h3 class="timeline-title">Alternant Développeur Full Stack</h3>
-                        <h4 class="timeline-subtitle">SNCF - Technicentre Sud-Est Européen (TSEE)</h4>
-                        <p class="timeline-text">Alternance dans le cadre de mon Master Informatique à Le Rebours. Collaboration sur des projets d'envergure pour la maintenance et la modernisation des applications métier de la SNCF.</p>
-                        <p class="timeline-text">Principales réalisations :</p>
+                        <h3 class="timeline-title" data-i18n="experience.sncf.title">Alternant Développeur Full Stack</h3>
+                        <h4 class="timeline-subtitle" data-i18n="experience.sncf.company">SNCF - Technicentre Sud-Est Européen (TSEE)</h4>
+                        <p class="timeline-text" data-i18n="experience.sncf.description">Alternance dans le cadre de mon Master Informatique à Le Rebours. Collaboration sur des projets d'envergure pour la maintenance et la modernisation des applications métier de la SNCF.</p>
+                        <p class="timeline-text" data-i18n="experience.achievements">Principales réalisations :</p>
                         <ul>
-                            <li>• Maintenance et migration du code PHP vers la version 8</li>
-                            <li>• Refactorisation complète des codes existants pour améliorer leur maintenabilité</li>
-                            <li>• Reconstruction de l'architecture serveur selon les normes SNCF</li>
-                            <li>• Dockerisation des applications</li>
-                            <li>• Migration vers un front-end en Angular 20 et un back-end en Spring Boot</li>
-                            <li>• Mise en place d'un reverse proxy pour le filtrage et la redirection des requêtes</li>
-                            <li>• Déploiement d'une instance GitLab dockerisée</li>
+                            <li data-i18n="experience.sncf.achievement1">• Maintenance et migration du code PHP vers la version 8</li>
+                            <li data-i18n="experience.sncf.achievement2">• Refactorisation complète des codes existants pour améliorer leur maintenabilité</li>
+                            <li data-i18n="experience.sncf.achievement3">• Reconstruction de l'architecture serveur selon les normes SNCF</li>
+                            <li data-i18n="experience.sncf.achievement4">• Dockerisation des applications</li>
+                            <li data-i18n="experience.sncf.achievement5">• Migration vers un front-end en Angular 20 et un back-end en Spring Boot</li>
+                            <li data-i18n="experience.sncf.achievement6">• Mise en place d'un reverse proxy pour le filtrage et la redirection des requêtes</li>
+                            <li data-i18n="experience.sncf.achievement7">• Déploiement d'une instance GitLab dockerisée</li>
                         </ul>
                         <div class="timeline-tags">
                             <span class="timeline-tag">PHP 8</span>
@@ -112,28 +126,28 @@
                 <!-- Expérience 2 - DGEFP -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-date">2022 - 2023</div>
+                    <div class="timeline-date" data-i18n="experience.dgefp.period">2022 - 2023</div>
                     <div class="timeline-content">
                         <div class="company-image">
                             <img src="assets/img/companies/dgefp.jpg" alt="DGEFP - Délégation Générale à l'Emploi et à la Formation Professionnelle">
                         </div>
-                        <h3 class="timeline-title">Alternant Chargé de Projet Informatique</h3>
-                        <h4 class="timeline-subtitle">DGEFP - Délégation Générale à l'Emploi et à la Formation Professionnelle</h4>
-                        <p class="timeline-text">Alternance dans le cadre de ma Licence Informatique. Conception et pilotage de projets informatiques pour la DGEFP.</p>
-                        <p class="timeline-text">Principales réalisations :</p>
+                        <h3 class="timeline-title" data-i18n="experience.dgefp.title">Alternant Chargé de Projet Informatique</h3>
+                        <h4 class="timeline-subtitle" data-i18n="experience.dgefp.company">DGEFP - Délégation Générale à l'Emploi et à la Formation Professionnelle</h4>
+                        <p class="timeline-text" data-i18n="experience.dgefp.description">Alternance dans le cadre de ma Licence Informatique. Conception et pilotage de projets informatiques pour la DGEFP.</p>
+                        <p class="timeline-text" data-i18n="experience.achievements">Principales réalisations :</p>
                         <ul>
-                            <li>• Conception de deux projets et prise en charge du suivi d'un troisième projet</li>
-                            <li>• Pilotage des trois projets avec mise en place de tous les concepts de gestion de projet (WBS, OBS, SWOT, RACI, EVM...)</li>
-                            <li>• Mise en place d'une démarche en urgence à l'aide de l'outil Démarche Simplifiée</li>
-                            <li>• Programmation Python pour récupérer les données de la démarche</li>
-                            <li>• Formation Excel pour aider à la création de macros</li>
-                            <li>• Familiarisation avec les environnements administratifs et les contraintes spécifiques aux projets publics</li>
+                            <li data-i18n="experience.dgefp.achievement1">• Conception de deux projets et prise en charge du suivi d'un troisième projet</li>
+                            <li data-i18n="experience.dgefp.achievement2">• Pilotage des trois projets avec mise en place de tous les concepts de gestion de projet (WBS, OBS, SWOT, RACI, EVM...)</li>
+                            <li data-i18n="experience.dgefp.achievement3">• Mise en place d'une démarche en urgence à l'aide de l'outil Démarche Simplifiée</li>
+                            <li data-i18n="experience.dgefp.achievement4">• Programmation Python pour récupérer les données de la démarche</li>
+                            <li data-i18n="experience.dgefp.achievement5">• Formation Excel pour aider à la création de macros</li>
+                            <li data-i18n="experience.dgefp.achievement6">• Familiarisation avec les environnements administratifs et les contraintes spécifiques aux projets publics</li>
                         </ul>
                         <div class="timeline-tags">
                             <span class="timeline-tag">Python</span>
                             <span class="timeline-tag">Excel</span>
-                            <span class="timeline-tag">Gestion de Projet</span>
-                            <span class="timeline-tag">Secteur Public</span>
+                            <span class="timeline-tag" data-i18n="experience.tag.project_management">Gestion de Projet</span>
+                            <span class="timeline-tag" data-i18n="experience.tag.public_sector">Secteur Public</span>
                             <span class="timeline-tag">API</span>
                         </div>
                     </div>
@@ -142,28 +156,28 @@
                 <!-- Expérience 3 - Gesta Partners -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-date">Janv - Fév 2022</div>
+                    <div class="timeline-date" data-i18n="experience.gesta.period">Janv - Fév 2022</div>
                     <div class="timeline-content">
                         <div class="company-image">
                             <img src="assets/img/companies/gesta-partners.jpg" alt="Gesta Partners">
                         </div>
-                        <h3 class="timeline-title">Développeur d'Applications Métier</h3>
-                        <h4 class="timeline-subtitle">Gesta Partners</h4>
-                        <p class="timeline-text">Stage dans le cadre du BTS SIO. Conception d'outils métier pour le service comptabilité et développement de solutions techniques avancées.</p>
-                        <p class="timeline-text">Principales réalisations :</p>
+                        <h3 class="timeline-title" data-i18n="experience.gesta.title">Développeur d'Applications Métier</h3>
+                        <h4 class="timeline-subtitle" data-i18n="experience.gesta.company">Gesta Partners</h4>
+                        <p class="timeline-text" data-i18n="experience.gesta.description">Stage dans le cadre du BTS SIO. Conception d'outils métier pour le service comptabilité et développement de solutions techniques avancées.</p>
+                        <p class="timeline-text" data-i18n="experience.achievements">Principales réalisations :</p>
                         <ul>
-                            <li>• Conception d'un outil/Hub de facturation pour le service comptabilité</li>
-                            <li>• Création d'une interface CLI et récupération des informations clients en base de données (SQL Server)</li>
-                            <li>• Génération de factures en format Excel et création d'une interface graphique (WinForm) pour gérer les données de facturation</li>
-                            <li>• Évaluation théorique de la sécurité des serveurs : SQL injection, Cross Site Scripting (XSS)</li>
-                            <li>• Création d'un outil de recherche récursif d'images dans des dossiers locaux (System IO) pour redimensionner on-the-fly (C#, Bitmap)</li>
-                            <li>• Documentation du code et support N+1 aux utilisateurs</li>
+                            <li data-i18n="experience.gesta.achievement1">• Conception d'un outil/Hub de facturation pour le service comptabilité</li>
+                            <li data-i18n="experience.gesta.achievement2">• Création d'une interface CLI et récupération des informations clients en base de données (SQL Server)</li>
+                            <li data-i18n="experience.gesta.achievement3">• Génération de factures en format Excel et création d'une interface graphique (WinForm) pour gérer les données de facturation</li>
+                            <li data-i18n="experience.gesta.achievement4">• Évaluation théorique de la sécurité des serveurs : SQL injection, Cross Site Scripting (XSS)</li>
+                            <li data-i18n="experience.gesta.achievement5">• Création d'un outil de recherche récursif d'images dans des dossiers locaux (System IO) pour redimensionner on-the-fly (C#, Bitmap)</li>
+                            <li data-i18n="experience.gesta.achievement6">• Documentation du code et support N+1 aux utilisateurs</li>
                         </ul>
                         <div class="timeline-tags">
                             <span class="timeline-tag">C#</span>
                             <span class="timeline-tag">WinForm</span>
                             <span class="timeline-tag">SQL Server</span>
-                            <span class="timeline-tag">Cybersécurité</span>
+                            <span class="timeline-tag" data-i18n="experience.tag.cybersecurity">Cybersécurité</span>
                             <span class="timeline-tag">System IO</span>
                         </div>
                     </div>
@@ -172,23 +186,23 @@
                 <!-- Expérience 4 - nivo-web -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-date">Mai - Juin 2021</div>
+                    <div class="timeline-date" data-i18n="experience.nivo.period">Mai - Juin 2021</div>
                     <div class="timeline-content">
                         <div class="company-image">
                             <img src="assets/img/companies/nivo-web.jpg" alt="nivo-web">
                         </div>
-                        <h3 class="timeline-title">Développeur Web</h3>
-                        <h4 class="timeline-subtitle">nivo-web</h4>
-                        <p class="timeline-text">Première expérience professionnelle dans le domaine du développement web. Découverte du monde professionnel et des relations clients.</p>
-                        <p class="timeline-text">Principales réalisations :</p>
+                        <h3 class="timeline-title" data-i18n="experience.nivo.title">Développeur Web</h3>
+                        <h4 class="timeline-subtitle" data-i18n="experience.nivo.company">nivo-web</h4>
+                        <p class="timeline-text" data-i18n="experience.nivo.description">Première expérience professionnelle dans le domaine du développement web. Découverte du monde professionnel et des relations clients.</p>
+                        <p class="timeline-text" data-i18n="experience.achievements">Principales réalisations :</p>
                         <ul>
-                            <li>• Création de logos et thèmes de sites web</li>
-                            <li>• Mise en place d'une boutique e-commerce de pêche avec ajout dynamique de produits en backoffice via API WooCommerce</li>
-                            <li>• Intégration des produits en front dans un grid avec lazy loading (appels AJAX pour chargement des pages suivantes)</li>
-                            <li>• Travail en collaboration avec l'UX designer</li>
-                            <li>• Intégration des maquettes en front avec Elementor et modifications CSS/HTML/JS</li>
-                            <li>• Refonte graphique d'un site web en collaboration avec l'équipe design</li>
-                            <li>Support N+1 aux clients, documentation, intégration des outils de Google Analytics</li>
+                            <li data-i18n="experience.nivo.achievement1">• Création de logos et thèmes de sites web</li>
+                            <li data-i18n="experience.nivo.achievement2">• Mise en place d'une boutique e-commerce de pêche avec ajout dynamique de produits en backoffice via API WooCommerce</li>
+                            <li data-i18n="experience.nivo.achievement3">• Intégration des produits en front dans un grid avec lazy loading (appels AJAX pour chargement des pages suivantes)</li>
+                            <li data-i18n="experience.nivo.achievement4">• Travail en collaboration avec l'UX designer</li>
+                            <li data-i18n="experience.nivo.achievement5">• Intégration des maquettes en front avec Elementor et modifications CSS/HTML/JS</li>
+                            <li data-i18n="experience.nivo.achievement6">• Refonte graphique d'un site web en collaboration avec l'équipe design</li>
+                            <li data-i18n="experience.nivo.achievement7">Support N+1 aux clients, documentation, intégration des outils de Google Analytics</li>
                         </ul>
                         <div class="timeline-tags">
                             <span class="timeline-tag">WordPress</span>
@@ -207,7 +221,7 @@
     <section class="education-section">
         <div class="container">
             <div class="section-header">
-                <h2>Formation</h2>
+                <h2 data-i18n="experience.section.education">Formation</h2>
                 <div class="section-divider"></div>
             </div>
             
@@ -218,15 +232,15 @@
                         <i class="fas fa-graduation-cap"></i>
                     </div>
                     <div class="education-content">
-                        <h3>Master Informatique</h3>
-                        <h4>Le Rebours - ESTIAM</h4>
-                        <div class="education-date">2023 - 2025</div>
-                        <p>Formation en alternance à la SNCF. Approfondissement des connaissances en développement web, mobile et cybersécurité avec un focus sur les technologies d'entreprise.</p>
+                        <h3 data-i18n="education.master.title">Master Informatique</h3>
+                        <h4 data-i18n="education.master.school">Le Rebours - ESTIAM</h4>
+                        <div class="education-date" data-i18n="education.master.period">2023 - 2025</div>
+                        <p data-i18n="education.master.description">Formation en alternance à la SNCF. Approfondissement des connaissances en développement web, mobile et cybersécurité avec un focus sur les technologies d'entreprise.</p>
                         <div class="timeline-tags">
-                            <span class="timeline-tag">Développement avancé</span>
-                            <span class="timeline-tag">Cybersécurité</span>
+                            <span class="timeline-tag" data-i18n="experience.education.tag.advanced_development">Développement avancé</span>
+                            <span class="timeline-tag" data-i18n="experience.tag.cybersecurity">Cybersécurité</span>
                             <span class="timeline-tag">DevOps</span>
-                            <span class="timeline-tag">Architecture Logicielle</span>
+                            <span class="timeline-tag" data-i18n="experience.education.tag.software_architecture">Architecture Logicielle</span>
                         </div>
                     </div>
                 </div>
@@ -237,15 +251,15 @@
                         <i class="fas fa-university"></i>
                     </div>
                     <div class="education-content">
-                        <h3>Licence Générale Informatique</h3>
-                        <h4>Charles de Foucauld</h4>
-                        <div class="education-date">2022 - 2023</div>
-                        <p>Licence en alternance à la DGEFP avec un parcours spécialisé en Développement d'applications Web, d'applications Mobiles et Cybersécurité.</p>
+                        <h3 data-i18n="education.license.title">Licence Générale Informatique</h3>
+                        <h4 data-i18n="education.license.school">Charles de Foucauld</h4>
+                        <div class="education-date" data-i18n="education.license.period">2022 - 2023</div>
+                        <p data-i18n="education.license.description">Licence en alternance à la DGEFP avec un parcours spécialisé en Développement d'applications Web, d'applications Mobiles et Cybersécurité.</p>
                         <div class="timeline-tags">
-                            <span class="timeline-tag">Développement Web</span>
-                            <span class="timeline-tag">Applications Mobiles</span>
-                            <span class="timeline-tag">Cybersécurité</span>
-                            <span class="timeline-tag">Architecture</span>
+                            <span class="timeline-tag" data-i18n="experience.education.tag.web_development">Développement Web</span>
+                            <span class="timeline-tag" data-i18n="experience.education.tag.mobile_apps">Applications Mobiles</span>
+                            <span class="timeline-tag" data-i18n="experience.tag.cybersecurity">Cybersécurité</span>
+                            <span class="timeline-tag" data-i18n="experience.education.tag.architecture">Architecture</span>
                         </div>
                     </div>
                 </div>
@@ -256,15 +270,15 @@
                         <i class="fas fa-code"></i>
                     </div>
                     <div class="education-content">
-                        <h3>BTS SIO option SLAM</h3>
-                        <h4>Charles de Foucauld - Campus des roses</h4>
-                        <div class="education-date">2020 - 2022</div>
-                        <p>Formation approfondie au développement logiciel, à la conception d'applications et à la gestion de projets informatiques. C'est durant cette période que ma passion pour le développement s'est véritablement affirmée.</p>
+                        <h3 data-i18n="education.bts.title">BTS SIO option SLAM</h3>
+                        <h4 data-i18n="education.bts.school">Charles de Foucauld - Campus des roses</h4>
+                        <div class="education-date" data-i18n="education.bts.period">2020 - 2022</div>
+                        <p data-i18n="education.bts.description">Formation approfondie au développement logiciel, à la conception d'applications et à la gestion de projets informatiques. C'est durant cette période que ma passion pour le développement s'est véritablement affirmée.</p>
                         <div class="timeline-tags">
-                            <span class="timeline-tag">Développement</span>
-                            <span class="timeline-tag">Bases de données</span>
-                            <span class="timeline-tag">Algorithmes</span>
-                            <span class="timeline-tag">Gestion de Projets</span>
+                            <span class="timeline-tag" data-i18n="experience.education.tag.development">Développement</span>
+                            <span class="timeline-tag" data-i18n="experience.education.tag.databases">Bases de données</span>
+                            <span class="timeline-tag" data-i18n="experience.education.tag.algorithms">Algorithmes</span>
+                            <span class="timeline-tag" data-i18n="experience.tag.project_management">Gestion de Projets</span>
                         </div>
                     </div>
                 </div>
@@ -275,15 +289,15 @@
                         <i class="fas fa-laptop-code"></i>
                     </div>
                     <div class="education-content">
-                        <h3>Baccalauréat STI2D spécialité SIN</h3>
-                        <h4>Lycée technologique Jules Richard</h4>
-                        <div class="education-date">Obtenu en 2020</div>
-                        <p>Baccalauréat technologique avec une spécialisation en Systèmes d'Information et Numérique. Acquisition des bases théoriques et pratiques dans le domaine des technologies de l'information.</p>
+                        <h3 data-i18n="education.bac.title">Baccalauréat STI2D spécialité SIN</h3>
+                        <h4 data-i18n="education.bac.school">Lycée technologique Jules Richard</h4>
+                        <div class="education-date" data-i18n="education.bac.period">Obtenu en 2020</div>
+                        <p data-i18n="education.bac.description">Baccalauréat technologique avec une spécialisation en Systèmes d'Information et Numérique. Acquisition des bases théoriques et pratiques dans le domaine des technologies de l'information.</p>
                         <div class="timeline-tags">
-                            <span class="timeline-tag">Informatique</span>
-                            <span class="timeline-tag">Électronique</span>
-                            <span class="timeline-tag">Réseaux</span>
-                            <span class="timeline-tag">Programmation</span>
+                            <span class="timeline-tag" data-i18n="experience.education.tag.computer_science">Informatique</span>
+                            <span class="timeline-tag" data-i18n="experience.education.tag.electronics">Électronique</span>
+                            <span class="timeline-tag" data-i18n="experience.education.tag.networks">Réseaux</span>
+                            <span class="timeline-tag" data-i18n="experience.education.tag.programming">Programmation</span>
                         </div>
                     </div>
                 </div>
@@ -301,17 +315,17 @@
                 </div>
                 <div class="footer-links">
                     <div class="footer-nav">
-                        <h4>Navigation</h4>
+                        <h4 data-i18n="footer.nav.title">Navigation</h4>
                         <ul>
-                            <li><a href="index.html">Accueil</a></li>
-                            <li><a href="projects.html">Projets</a></li>
-                            <li><a href="skills.html">Compétences</a></li>
-                            <li><a href="experience.html">Expérience</a></li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+                            <li><a href="projects.html" data-i18n="nav.projects">Projets</a></li>
+                            <li><a href="skills.html" data-i18n="nav.skills">Compétences</a></li>
+                            <li><a href="experience.html" data-i18n="nav.experience">Expérience</a></li>
+                            <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
                         </ul>
                     </div>
                     <div class="footer-social">
-                        <h4>Réseaux sociaux</h4>
+                        <h4 data-i18n="footer.social.title">Réseaux sociaux</h4>
                         <div class="social-links">
                             <a href="https://github.com/HugoBiegas" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                                 <i class="fab fa-github"></i>
@@ -327,12 +341,14 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Hugo Biegas. Tous droits réservés.</p>
+                <p data-i18n="footer.copyright">&copy; 2025 Hugo Biegas. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
 
     <!-- JavaScript -->
+    <script src="assets/js/i18n/fr.js"></script>
+    <script src="assets/js/i18n/en.js"></script>
     <script src="assets/js/i18n/translations.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/dark-mode.js"></script>

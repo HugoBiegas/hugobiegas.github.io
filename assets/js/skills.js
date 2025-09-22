@@ -22,6 +22,55 @@ document.addEventListener('DOMContentLoaded', function() {
     addInteractions();
     initializeNavigation();
     initializeBackToTop();
+    
+    // Force la re-traduction après un court délai pour s'assurer que le système i18n est prêt
+    setTimeout(() => {
+        console.log('🌐 Tentative de forçage des traductions...');
+        
+        if (window.i18n && typeof window.i18n.applyTranslations === 'function') {
+            window.i18n.applyTranslations();
+            console.log('✅ Traductions forcées via window.i18n');
+        } else if (window.getCurrentLanguage) {
+            // Alternative si i18n n'est pas directement accessible
+            const event = new CustomEvent('forceTranslationUpdate');
+            window.dispatchEvent(event);
+            console.log('📡 Événement de mise à jour des traductions envoyé');
+        }
+        
+        // Essayons une approche plus directe en cas d'échec
+        setTimeout(() => {
+            const elementsWithVars = document.querySelectorAll('[data-i18n-vars]');
+            console.log(`🔍 Vérification de ${elementsWithVars.length} éléments avec variables...`);
+            
+            elementsWithVars.forEach(element => {
+                const textContent = element.textContent;
+                if (textContent.includes('{{count}}')) {
+                    console.warn('⚠️ Élément avec {{count}} non traduit:', element);
+                    console.log('Attributs:', {
+                        'data-i18n': element.getAttribute('data-i18n'),
+                        'data-i18n-vars': element.getAttribute('data-i18n-vars'),
+                        'textContent': textContent
+                    });
+                    
+                    // Force la traduction de cet élément spécifiquement
+                    if (window.i18n) {
+                        const key = element.getAttribute('data-i18n');
+                        const varsAttr = element.getAttribute('data-i18n-vars');
+                        if (key && varsAttr) {
+                            try {
+                                const vars = JSON.parse(varsAttr);
+                                const translation = window.i18n.t(key, vars);
+                                element.textContent = translation;
+                                console.log(`🔧 Correction forcée: "${translation}"`);
+                            } catch (e) {
+                                console.error('Erreur lors de la correction forcée:', e);
+                            }
+                        }
+                    }
+                }
+            });
+        }, 2000);
+    }, 1000);
 
     /**
      * Initialise le système de compétences
