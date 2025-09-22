@@ -186,12 +186,6 @@ hugobiegas.github.io/
 - **Logos d'entreprises** : Identification visuelle des employeurs
 - **Responsive design** : Adaptation mobile optimisée
 
-### 📞 Formulaire de Contact
-- **Validation en temps réel** : Feedback immédiat sur les champs
-- **Stockage Firebase** : Sauvegarde sécurisée des messages
-- **Messages de statut** : Confirmation d'envoi ou erreurs
-- **Protection anti-spam** : Limitations de soumission
-
 ## 🚀 Installation et Utilisation
 
 ### Prérequis
