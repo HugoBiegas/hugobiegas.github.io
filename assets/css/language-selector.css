@@ -2,6 +2,60 @@
    SÉLECTEUR DE LANGUE
    =================================== */
 
+/* Sélecteur de langue dans le header */
+.language-selector-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 6px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    margin-left: 20px; /* Espace depuis les liens de navigation */
+}
+
+.language-selector-header .language-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: transparent;
+    font-size: 1rem;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.language-selector-header .language-btn:hover {
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.language-selector-header .language-btn.active {
+    background: var(--primary-color);
+    color: white;
+    box-shadow: 0 2px 8px rgba(74, 108, 247, 0.3);
+}
+
+/* Icônes de drapeaux pour header */
+.language-selector-header .language-btn[data-lang="fr"]::after {
+    content: '🇫🇷';
+    font-size: 0.9rem;
+}
+
+.language-selector-header .language-btn[data-lang="en"]::after {
+    content: '🇬🇧';
+    font-size: 0.9rem;
+}
+
+/* Version fixe (existante pour compatibilité) */
 .language-selector {
     position: fixed;
     top: 20px;
@@ -104,7 +158,21 @@
     bottom: -30px;
 }
 
-/* Mode sombre */
+/* Mode sombre pour header */
+.dark-mode .language-selector-header {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .language-selector-header .language-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .language-selector-header .language-btn.active {
+    background: var(--primary-color);
+}
+
+/* Mode sombre pour version fixe */
 .dark-mode .language-selector {
     background: rgba(30, 33, 51, 0.95);
 }
@@ -117,7 +185,45 @@
     background: var(--primary-color);
 }
 
-/* Responsive */
+/* Responsive pour header */
+@media screen and (max-width: 768px) {
+    .language-selector-header {
+        padding: 4px;
+        gap: 4px;
+        margin-left: 15px;
+    }
+    
+    .language-selector-header .language-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 0.8rem;
+    }
+    
+    .language-selector-header .language-btn[data-lang="fr"]::after,
+    .language-selector-header .language-btn[data-lang="en"]::after {
+        font-size: 0.7rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .language-selector-header {
+        margin-left: 10px;
+        padding: 3px;
+        gap: 3px;
+    }
+    
+    .language-selector-header .language-btn {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .language-selector-header .language-btn[data-lang="fr"]::after,
+    .language-selector-header .language-btn[data-lang="en"]::after {
+        font-size: 0.6rem;
+    }
+}
+
+/* Responsive pour version fixe */
 @media screen and (max-width: 768px) {
     .language-selector {
         top: 15px;

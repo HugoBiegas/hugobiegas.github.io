@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-i18n-lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Compétences techniques de Hugo Biegas - Développeur Web, Mobile & Cybersécurité">
-    <meta name="keywords" content="compétences, développement, web, mobile, cybersécurité, PHP, HTML, CSS, JavaScript, Java, Angular">
+    <meta name="description" content="Compétences techniques de Hugo Biegas - Développeur Web, Mobile & Cybersécurité" data-i18n="meta.description.skills">
+    <meta name="keywords" content="compétences, développement, web, mobile, cybersécurité, PHP, HTML, CSS, JavaScript, Java, Angular" data-i18n-attr="content:meta.keywords.skills">
     <meta name="author" content="Hugo Biegas">
     
-    <title>Compétences | Hugo Biegas</title>
+    <title data-i18n="page.title.skills">Compétences | Hugo Biegas</title>
     
     <!-- Favicon -->
     <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
@@ -22,6 +22,7 @@
     
     <!-- CSS personnalisé -->
     <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/language-selector.css">
     <link rel="stylesheet" href="assets/css/animations.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="assets/css/dark-mode.css">
@@ -227,6 +228,9 @@
             }
         }
     </style>
+    
+    <!-- Métadonnées i18n -->
+    <meta name="i18n-title" content="page.title.skills">
 </head>
 <body>
     <!-- Bouton de mode sombre -->
@@ -239,7 +243,7 @@
 
     <!-- Bouton retour en haut -->
     <div class="back-to-top">
-        <button id="back-to-top-btn" aria-label="Retour en haut">
+        <button id="back-to-top-btn" data-i18n-attr="aria-label:navigation.back_to_top" aria-label="Retour en haut">
             <i class="fas fa-chevron-up"></i>
         </button>
     </div>
@@ -253,17 +257,27 @@
                         <span class="logo-text">HB</span>
                     </a>
                 </div>
-                <ul class="nav-links">
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="projects.html">Projets</a></li>
-                    <li><a href="skills.html" class="active">Compétences</a></li>
-                    <li><a href="experience.html">Expérience</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-                <div class="burger">
-                    <div class="line1"></div>
-                    <div class="line2"></div>
-                    <div class="line3"></div>
+                
+                <div class="nav-right">
+                    <ul class="nav-links">
+                        <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+                        <li><a href="projects.html" data-i18n="nav.projects">Projets</a></li>
+                        <li><a href="skills.html" class="active" data-i18n="nav.skills">Compétences</a></li>
+                        <li><a href="experience.html" data-i18n="nav.experience">Expérience</a></li>
+                        <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+                    </ul>
+                    
+                    <!-- Sélecteur de langue dans le header -->
+                    <div class="language-selector-header">
+                        <button class="language-btn" data-lang="fr" aria-label="Français"></button>
+                        <button class="language-btn" data-lang="en" aria-label="English"></button>
+                    </div>
+                    
+                    <div class="burger">
+                        <div class="line1"></div>
+                        <div class="line2"></div>
+                        <div class="line3"></div>
+                    </div>
                 </div>
             </nav>
         </div>
@@ -272,21 +286,21 @@
     <!-- Bannière des compétences -->
     <section class="skills-banner">
         <div class="container">
-            <h1>Mes Compétences Professionnelles</h1>
-            <p>Découvrez l'ensemble de mes compétences techniques et humaines, organisées par niveau d'expertise et domaine d'application. De la conception à la réalisation, je maîtrise tous les aspects du développement moderne avec un focus particulier sur la qualité et la sécurité.</p>
+            <h1 data-i18n="skills.banner.title">Mes Compétences Professionnelles</h1>
+            <p data-i18n="skills.banner.description">Découvrez l'ensemble de mes compétences techniques et humaines, organisées par niveau d'expertise et domaine d'application. De la conception à la réalisation, je maîtrise tous les aspects du développement moderne avec un focus particulier sur la qualité et la sécurité.</p>
             
             <!-- Navigation des compétences -->
             <div class="skills-navigation">
                 <div class="skills-nav-buttons">
                     <a href="#hard-skills" class="skills-nav-btn active" id="hard-skills-btn">
                         <i class="fas fa-code"></i>
-                        <span>Hard Skills</span>
-                        <small>Compétences Techniques</small>
+                        <span data-i18n="skills.nav.hard">Hard Skills</span>
+                        <small data-i18n="skills.nav.technical">Compétences Techniques</small>
                     </a>
                     <a href="#soft-skills" class="skills-nav-btn" id="soft-skills-btn">
                         <i class="fas fa-users"></i>
-                        <span>Soft Skills</span>
-                        <small>Compétences Humaines</small>
+                        <span data-i18n="skills.nav.soft">Soft Skills</span>
+                        <small data-i18n="skills.nav.human">Compétences Humaines</small>
                     </a>
                 </div>
                 <div class="skills-nav-indicator">
@@ -302,9 +316,9 @@
     <section class="skills-section" id="hard-skills">
         <div class="container">
             <div class="section-header">
-                <h2><i class="fas fa-code"></i> Hard Skills - Compétences Techniques</h2>
+                <h2><i class="fas fa-code"></i> <span data-i18n="skills.hard.title">Hard Skills - Compétences Techniques</span></h2>
                 <div class="section-divider"></div>
-                <p>Mes compétences techniques organisées par ordre de maîtrise décroissante</p>
+                <p data-i18n="skills.hard.description">Mes compétences techniques organisées par ordre de maîtrise décroissante</p>
             </div>
 
             <!-- 1. DÉVELOPPEMENT BACKEND - Score: 11 points (1 avancé, 3 intermédiaires, 2 débutants) -->
@@ -313,7 +327,7 @@
                     <div class="skill-group-icon">
                         <i class="fas fa-server"></i>
                     </div>
-                    <h2 class="skill-group-title">🥇 Développement Backend</h2>
+                    <h2 class="skill-group-title" data-i18n="skills.groups.backend">🥇 Développement Backend</h2>
                 </div>
                 <div class="skills-list">
                     <!-- PHP -->
@@ -323,18 +337,18 @@
                             <span class="skill-name">PHP 8</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge advanced">Avancé</span>
+                            <span class="skill-level-badge advanced" data-i18n="skills.level.advanced">Avancé</span>
                             <div class="experience-indicators">
-                                <span class="indicator years-experience">3+ ans d'expérience</span>
-                                <span class="indicator project-count">Migration SNCF vers PHP 8</span>
-                                <span class="indicator">OOP, SOLID, sécurité</span>
+                                <span class="indicator years-experience" data-i18n="skills.experience.years" data-i18n-vars="{\"count\": \"3\"}">3+ ans d'expérience</span>
+                                <span class="indicator project-count" data-i18n="skills.indicators.php_sncf_migration">Migration SNCF vers PHP 8</span>
+                                <span class="indicator" data-i18n="skills.indicators.php_technologies">OOP, SOLID, sécurité</span>
                             </div>
                         </div>
                         <div class="skill-details">
-                            PHP 8, programmation orientée objet, namespaces, Composer, sécurité, PDO, applications MVC.
+                            <span data-i18n="skills.details.php">PHP 8, programmation orientée objet, namespaces, Composer, sécurité, PDO, applications MVC.</span>
                         </div>
                         <div class="skill-context">
-                            <strong>Expertise démontrée :</strong> Refactorisation complète des applications SNCF, migration vers PHP 8, développement M2L facturation.
+                            <strong data-i18n="skills.common.expertise_demonstrated">Expertise démontrée :</strong> <span data-i18n="skills.context.php_expertise">Refactorisation complète des applications SNCF, migration vers PHP 8, développement M2L facturation.</span>
                         </div>
                     </div>
 
@@ -345,18 +359,18 @@
                             <span class="skill-name">Java</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge intermediate">Intermédiaire</span>
+                            <span class="skill-level-badge intermediate" data-i18n="skills.level.intermediate">Intermédiaire</span>
                             <div class="experience-indicators">
-                                <span class="indicator years-experience">3+ ans d'expérience</span>
-                                <span class="indicator project-count">DGEFP, Mobile, Gestion ligues</span>
-                                <span class="indicator">Spring Boot, Android, JDBC</span>
+                                <span class="indicator years-experience" data-i18n="skills.experience.years" data-i18n-vars="{\"count\": \"3\"}">3+ ans d'expérience</span>
+                                <span class="indicator project-count" data-i18n="skills.indicators.java_projects">DGEFP, Mobile, Gestion ligues</span>
+                                <span class="indicator" data-i18n="skills.indicators.java_technologies">Spring Boot, Android, JDBC</span>
                             </div>
                         </div>
                         <div class="skill-details">
-                            Programmation orientée objet, Spring Boot, développement Android, JDBC, gestion de ligues sportives, applications métier.
+                            <span data-i18n="skills.details.java">Programmation orientée objet, Spring Boot, développement Android, JDBC, gestion de ligues sportives, applications métier.</span>
                         </div>
                         <div class="skill-context">
-                            <strong>Polyvalence démontrée :</strong> Backend Spring Boot (SNCF), développement Android mobile, gestion de ligues sportives avec MySQL.
+                            <strong data-i18n="skills.common.versatility_demonstrated">Polyvalence démontrée :</strong> <span data-i18n="skills.context.java_polyvalence">Backend Spring Boot (SNCF), développement Android mobile, gestion de ligues sportives avec MySQL.</span>
                         </div>
                     </div>
 
@@ -367,18 +381,18 @@
                             <span class="skill-name">Java Spring Boot</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge intermediate">Intermédiaire</span>
+                            <span class="skill-level-badge intermediate" data-i18n="skills.level.intermediate">Intermédiaire</span>
                             <div class="experience-indicators">
-                                <span class="indicator years-experience">Développement en cours</span>
-                                <span class="indicator project-count">Migration back-end SNCF</span>
-                                <span class="indicator">Microservices, API REST</span>
+                                <span class="indicator years-experience" data-i18n="skills.indicators.development_ongoing">Développement en cours</span>
+                                <span class="indicator project-count" data-i18n="skills.indicators.sncf_backend_migration">Migration back-end SNCF</span>
+                                <span class="indicator" data-i18n="skills.indicators.microservices_api">Microservices, API REST</span>
                             </div>
                         </div>
                         <div class="skill-details">
-                            Spring Boot, microservices, API REST, injection de dépendances, sécurité, architecture hexagonale.
+                            <span data-i18n="skills.details.java_spring">Spring Boot, microservices, API REST, injection de dépendances, sécurité, architecture hexagonale.</span>
                         </div>
                         <div class="skill-context">
-                            <strong>Projet actuel :</strong> Migration du back-end des applications SNCF vers Spring Boot, mise en place d'une architecture microservices.
+                            <strong data-i18n="skills.common.current_project">Projet actuel :</strong> <span data-i18n="skills.context.java_spring_current">Migration du back-end des applications SNCF vers Spring Boot, mise en place d'une architecture microservices.</span>
                         </div>
                     </div>
 
@@ -389,18 +403,18 @@
                             <span class="skill-name">Python</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge intermediate">Intermédiaire</span>
+                            <span class="skill-level-badge intermediate" data-i18n="skills.level.intermediate">Intermédiaire</span>
                             <div class="experience-indicators">
-                                <span class="indicator years-experience">Projets variés</span>
-                                <span class="indicator project-count">DGEFP, Quantum Mastermind, SNCF</span>
-                                <span class="indicator">FastAPI, Scripts, Quantique</span>
+                                <span class="indicator years-experience" data-i18n="skills.indicators.python_varied_projects">Projets variés</span>
+                                <span class="indicator project-count" data-i18n="skills.indicators.python_projects">DGEFP, Quantum Mastermind, SNCF</span>
+                                <span class="indicator" data-i18n="skills.indicators.python_technologies">FastAPI, Scripts, Quantique</span>
                             </div>
                         </div>
                         <div class="skill-details">
-                            FastAPI, scripts d'automatisation, informatique quantique (Qiskit), APIs modernes, programmation asynchrone.
+                            <span data-i18n="skills.details.python">FastAPI, scripts d'automatisation, informatique quantique (Qiskit), APIs modernes, programmation asynchrone.</span>
                         </div>
                         <div class="skill-context">
-                            <strong>Usage polyvalent :</strong> Scripts DGEFP, API complète Quantum Mastermind avec FastAPI, algorithmes quantiques avec Qiskit.
+                            <strong data-i18n="skills.common.versatile_usage">Usage polyvalent :</strong> <span data-i18n="skills.context.python_usage">Scripts DGEFP, API complète Quantum Mastermind avec FastAPI, algorithmes quantiques avec Qiskit.</span>
                         </div>
                     </div>
 
@@ -411,18 +425,18 @@
                             <span class="skill-name">C</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge beginner">Débutant</span>
+                            <span class="skill-level-badge beginner" data-i18n="skills.level.beginner">Débutant</span>
                             <div class="experience-indicators">
-                                <span class="indicator years-experience">Formation académique</span>
-                                <span class="indicator project-count">Programmation système</span>
-                                <span class="indicator">Bas niveau, performance</span>
+                                <span class="indicator years-experience" data-i18n="skills.indicators.c_academic">Formation académique</span>
+                                <span class="indicator project-count" data-i18n="skills.indicators.c_system_programming">Programmation système</span>
+                                <span class="indicator" data-i18n="skills.indicators.c_technologies">Bas niveau, performance</span>
                             </div>
                         </div>
                         <div class="skill-details">
-                            Programmation système, gestion mémoire, pointeurs, performance, programmation bas niveau.
+                            <span data-i18n="skills.details.c">Programmation système, gestion mémoire, pointeurs, performance, programmation bas niveau.</span>
                         </div>
                         <div class="skill-context">
-                            <strong>Formation solide :</strong> Apprentissage des concepts fondamentaux de la programmation, base pour d'autres langages.
+                            <strong data-i18n="skills.common.solid_foundation">Formation solide :</strong> <span data-i18n="skills.context.c_foundation">Apprentissage des concepts fondamentaux de la programmation, base pour d'autres langages.</span>
                         </div>
                     </div>
 
@@ -433,18 +447,18 @@
                             <span class="skill-name">Go</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge beginner">Débutant</span>
+                            <span class="skill-level-badge beginner" data-i18n="skills.level.beginner">Débutant</span>
                             <div class="experience-indicators">
-                                <span class="indicator">Formation personnelle</span>
-                                <span class="indicator project-count">Projets d'apprentissage</span>
-                                <span class="indicator">Performance, concurrence</span>
+                                <span class="indicator" data-i18n="skills.indicators.go_self_learning">Formation personnelle</span>
+                                <span class="indicator project-count" data-i18n="skills.indicators.go_learning_projects">Projets d'apprentissage</span>
+                                <span class="indicator" data-i18n="skills.indicators.go_technologies">Performance, concurrence</span>
                             </div>
                         </div>
                         <div class="skill-details">
-                            Langage compilé performant, gestion de la concurrence, API REST, microservices.
+                            <span data-i18n="skills.details.go">Langage compilé performant, gestion de la concurrence, API REST, microservices.</span>
                         </div>
                         <div class="skill-context">
-                            <strong>En apprentissage :</strong> Exploration de Go pour les performances et la simplicité dans le développement d'APIs.
+                            <strong data-i18n="skills.common.learning">En apprentissage :</strong> <span data-i18n="skills.context.go_learning">Exploration de Go pour les performances et la simplicité dans le développement d'APIs.</span>
                         </div>
                     </div>
                 </div>
@@ -456,7 +470,7 @@
                     <div class="skill-group-icon">
                         <i class="fas fa-database"></i>
                     </div>
-                    <h2 class="skill-group-title">🥈 Bases de Données</h2>
+                    <h2 class="skill-group-title" data-i18n="skills.groups.database">🥈 Bases de Données</h2>
                 </div>
                 <div class="skills-list">
                     <!-- MySQL -->
@@ -466,18 +480,18 @@
                             <span class="skill-name">MySQL</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge advanced">Avancé</span>
+                            <span class="skill-level-badge advanced" data-i18n="skills.level.advanced">Avancé</span>
                             <div class="experience-indicators">
-                                <span class="indicator years-experience">4+ ans d'expérience</span>
-                                <span class="indicator project-count">Multiples projets</span>
-                                <span class="indicator">Optimisation, requêtes complexes</span>
+                                <span class="indicator years-experience" data-i18n="skills.experience.years" data-i18n-vars="{\"count\": \"4\"}">4+ ans d'expérience</span>
+                                <span class="indicator project-count" data-i18n="skills.indicators.mysql_multiple_projects">Multiples projets</span>
+                                <span class="indicator" data-i18n="skills.indicators.mysql_technologies">Optimisation, requêtes complexes</span>
                             </div>
                         </div>
                         <div class="skill-details">
-                            Conception de bases de données, requêtes complexes, optimisation, triggers, procédures stockées, JDBC.
+                            <span data-i18n="skills.details.mysql">Conception de bases de données, requêtes complexes, optimisation, triggers, procédures stockées, JDBC.</span>
                         </div>
                         <div class="skill-context">
-                            <strong>Usage étendu :</strong> Utilisé dans tous mes projets web et applications métier, de la conception à l'optimisation de performances.
+                            <strong data-i18n="skills.common.extended_use">Utilisation étendue :</strong> <span data-i18n="skills.context.mysql_extended">Utilisé dans tous mes projets web et applications métier, de la conception à l'optimisation de performances.</span>
                         </div>
                     </div>
 
@@ -488,18 +502,18 @@
                             <span class="skill-name">PostgreSQL</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge intermediate">Intermédiaire</span>
+                            <span class="skill-level-badge intermediate" data-i18n="skills.level.intermediate">Intermédiaire</span>
                             <div class="experience-indicators">
-                                <span class="indicator years-experience">2+ ans d'expérience</span>
-                                <span class="indicator project-count">Projets professionnels</span>
-                                <span class="indicator">SGBD relationnel</span>
+                                <span class="indicator years-experience" data-i18n="skills.experience.years" data-i18n-vars="{\"count\": \"2\"}">2+ ans d'expérience</span>
+                                <span class="indicator project-count" data-i18n="skills.indicators.postgresql_professional_projects">Projets professionnels</span>
+                                <span class="indicator" data-i18n="skills.indicators.postgresql_relational_db">SGBD relationnel</span>
                             </div>
                         </div>
                         <div class="skill-details">
-                            Base de données relationnelle avancée, requêtes complexes, fonctions avancées, performance.
+                            <span data-i18n="skills.details.postgresql">Base de données relationnelle avancée, requêtes complexes, fonctions avancées, performance.</span>
                         </div>
                         <div class="skill-context">
-                            <strong>Usage professionnel :</strong> Utilisation dans des projets nécessitant des fonctionnalités avancées de base de données.
+                            <strong data-i18n="skills.common.professional_usage">Usage professionnel :</strong> <span data-i18n="skills.context.postgresql_professional">Utilisation dans des projets nécessitant des fonctionnalités avancées de base de données.</span>
                         </div>
                     </div>
 
@@ -510,18 +524,18 @@
                             <span class="skill-name">Firebase</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge intermediate">Intermédiaire</span>
+                            <span class="skill-level-badge intermediate" data-i18n="skills.level.intermediate">Intermédiaire</span>
                             <div class="experience-indicators">
-                                <span class="indicator years-experience">Projets mobiles</span>
-                                <span class="indicator project-count">Jeu d'échecs multijoueur</span>
-                                <span class="indicator">Realtime, Firestore</span>
+                                <span class="indicator years-experience" data-i18n="skills.indicators.firebase_mobile_projects">Projets mobiles</span>
+                                <span class="indicator project-count" data-i18n="skills.indicators.firebase_chess_game">Jeu d'échecs multijoueur</span>
+                                <span class="indicator" data-i18n="skills.indicators.firebase_technologies">Realtime, Firestore</span>
                             </div>
                         </div>
                         <div class="skill-details">
-                            Realtime Database, Firestore, authentification, WebSocket temps réel, applications mobiles.
+                            <span data-i18n="skills.details.firebase">Realtime Database, Firestore, authentification, WebSocket temps réel, applications mobiles.</span>
                         </div>
                         <div class="skill-context">
-                            <strong>Projet réalisé :</strong> Jeu d'échecs multijoueur avec Firebase (Realtime et Firestore), gestion comptes, statistiques, WebSocket.
+                            <strong data-i18n="skills.common.main_project">Projet principal :</strong> <span data-i18n="skills.context.firebase_project">Jeu d'échecs multijoueur avec Firebase (Realtime et Firestore), gestion comptes, statistiques, WebSocket.</span>
                         </div>
                     </div>
 
@@ -532,18 +546,18 @@
                             <span class="skill-name">MongoDB</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge beginner">Débutant</span>
+                            <span class="skill-level-badge beginner" data-i18n="skills.level.beginner">Débutant</span>
                             <div class="experience-indicators">
-                                <span class="indicator years-experience">Formation et projets</span>
-                                <span class="indicator project-count">Base NoSQL</span>
-                                <span class="indicator">Documents, collections</span>
+                                <span class="indicator years-experience" data-i18n="skills.indicators.mongodb_training_projects">Formation et projets</span>
+                                <span class="indicator project-count" data-i18n="skills.indicators.mongodb_nosql">Base NoSQL</span>
+                                <span class="indicator" data-i18n="skills.indicators.mongodb_technologies">Documents, collections</span>
                             </div>
                         </div>
                         <div class="skill-details">
-                            Base de données NoSQL, documents JSON, requêtes, agrégations, indexation.
+                            <span data-i18n="skills.details.mongodb">Base de données NoSQL, documents JSON, requêtes, agrégations, indexation.</span>
                         </div>
                         <div class="skill-context">
-                            <strong>Usage ciblé :</strong> Utilisation pour des projets nécessitant une structure de données flexible et des performances NoSQL.
+                            <strong data-i18n="skills.common.targeted_usage">Usage ciblé :</strong> <span data-i18n="skills.context.mongodb_targeted">Utilisation pour des projets nécessitant une structure de données flexible et des performances NoSQL.</span>
                         </div>
                     </div>
 
@@ -554,18 +568,18 @@
                             <span class="skill-name">SQLite</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge beginner">Débutant</span>
+                            <span class="skill-level-badge beginner" data-i18n="skills.level.beginner">Débutant</span>
                             <div class="experience-indicators">
-                                <span class="indicator years-experience">Applications mobiles</span>
-                                <span class="indicator project-count">Android, desktop</span>
-                                <span class="indicator">Base locale</span>
+                                <span class="indicator years-experience" data-i18n="skills.indicators.sqlite_mobile_apps">Applications mobiles</span>
+                                <span class="indicator project-count" data-i18n="skills.indicators.sqlite_platforms">Android, desktop</span>
+                                <span class="indicator" data-i18n="skills.indicators.sqlite_local_db">Base locale</span>
                             </div>
                         </div>
                         <div class="skill-details">
-                            Base de données locale légère, applications mobiles, applications desktop, stockage local.
+                            <span data-i18n="skills.details.sqlite">Base de données locale légère, applications mobiles, applications desktop, stockage local.</span>
                         </div>
                         <div class="skill-context">
-                            <strong>Usage mobile :</strong> Intégration dans les applications Android pour le stockage local de données.
+                            <strong data-i18n="skills.common.mobile_applications">Applications mobiles :</strong> <span data-i18n="skills.context.sqlite_mobile">Intégration dans les applications Android pour le stockage local de données.</span>
                         </div>
                     </div>
 
@@ -576,18 +590,18 @@
                             <span class="skill-name">Redis</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge beginner">Débutant</span>
+                            <span class="skill-level-badge beginner" data-i18n="skills.level.beginner">Débutant</span>
                             <div class="experience-indicators">
-                                <span class="indicator years-experience">Projet quantique</span>
-                                <span class="indicator project-count">Cache et sessions</span>
-                                <span class="indicator">Base en mémoire</span>
+                                <span class="indicator years-experience" data-i18n="skills.indicators.redis_quantum_project">Projet quantique</span>
+                                <span class="indicator project-count" data-i18n="skills.indicators.redis_cache_sessions">Cache et sessions</span>
+                                <span class="indicator" data-i18n="skills.indicators.redis_in_memory">Base en mémoire</span>
                             </div>
                         </div>
                         <div class="skill-details">
-                            Base de données en mémoire, cache haute performance, gestion de sessions, structures de données avancées.
+                            <span data-i18n="skills.details.redis">Base de données en mémoire, cache haute performance, gestion de sessions, structures de données avancées.</span>
                         </div>
                         <div class="skill-context">
-                            <strong>Usage dans projet :</strong> Implémentation Redis pour cache et sessions dans Quantum Mastermind, optimisation des performances.
+                            <strong data-i18n="skills.common.optimization">Optimisation :</strong> <span data-i18n="skills.context.redis_optimization">Implémentation Redis pour cache et sessions dans Quantum Mastermind, optimisation des performances.</span>
                         </div>
                     </div>
 
@@ -598,18 +612,18 @@
                             <span class="skill-name">PL/SQL</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge beginner">Débutant</span>
+                            <span class="skill-level-badge beginner" data-i18n="skills.level.beginner">Débutant</span>
                             <div class="experience-indicators">
-                                <span class="indicator years-experience">Formation approfondie</span>
-                                <span class="indicator project-count">Base de données sucrerie</span>
-                                <span class="indicator">Procédures, triggers</span>
+                                <span class="indicator years-experience" data-i18n="skills.indicators.plsql_advanced_training">Formation approfondie</span>
+                                <span class="indicator project-count" data-i18n="skills.indicators.plsql_sugar_db">Base de données sucrerie</span>
+                                <span class="indicator" data-i18n="skills.indicators.plsql_technologies">Procédures, triggers</span>
                             </div>
                         </div>
                         <div class="skill-details">
-                            Procédures stockées, fonctions, triggers, curseurs, gestion avancée des bases de données Oracle.
+                            <span data-i18n="skills.details.plsql">Procédures stockées, fonctions, triggers, curseurs, gestion avancée des bases de données Oracle.</span>
                         </div>
                         <div class="skill-context">
-                            <strong>Projet réalisé :</strong> Base de données de sucrerie avec serveur de gestion, fonctions stockées, triggers, migration de données.
+                            <strong data-i18n="skills.common.complex_database">Base de données complexe :</strong> <span data-i18n="skills.context.plsql_database">Base de données de sucrerie avec serveur de gestion, fonctions stockées, triggers, migration de données.</span>
                         </div>
                     </div>
                 </div>
@@ -621,7 +635,7 @@
                     <div class="skill-group-icon">
                         <i class="fas fa-palette"></i>
                     </div>
-                    <h2 class="skill-group-title">🥉 Développement Frontend</h2>
+                    <h2 class="skill-group-title" data-i18n="skills.groups.frontend">🥉 Développement Frontend</h2>
                 </div>
                 <div class="skills-list">
                     <!-- HTML5 -->
@@ -631,18 +645,18 @@
                             <span class="skill-name">HTML5</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge intermediate">Intermédiaire</span>
+                            <span class="skill-level-badge intermediate" data-i18n="skills.level.intermediate">Intermédiaire</span>
                             <div class="experience-indicators">
-                                <span class="indicator years-experience">4+ ans d'expérience</span>
-                                <span class="indicator project-count">15+ projets réalisés</span>
-                                <span class="indicator">Structure sémantique</span>
+                                <span class="indicator years-experience" data-i18n="skills.experience.years" data-i18n-vars="{\"count\": \"4\"}">4+ ans d'expérience</span>
+                                <span class="indicator project-count" data-i18n="skills.experience.projects" data-i18n-vars="{\"count\": \"15\"}">15+ projets réalisés</span>
+                                <span class="indicator" data-i18n="skills.indicators.html5_structure">Structure sémantique</span>
                             </div>
                         </div>
                         <div class="skill-details">
                             Structure sémantique, accessibilité, SEO, intégration multimédia, formulaires avancés.
                         </div>
                         <div class="skill-context">
-                            <strong>Contexte d'usage :</strong> Utilisé dans tous mes projets web professionnels et personnels, du simple site vitrine aux applications complexes.
+                            <strong data-i18n="skills.common.daily_usage">Usage quotidien :</strong> <span data-i18n="skills.context.html5_usage">Utilisé dans tous mes projets web professionnels et personnels, du simple site vitrine aux applications complexes.</span>
                         </div>
                     </div>
                     
@@ -653,18 +667,18 @@
                             <span class="skill-name">CSS3</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge intermediate">Intermédiaire</span>
+                            <span class="skill-level-badge intermediate" data-i18n="skills.level.intermediate">Intermédiaire</span>
                             <div class="experience-indicators">
-                                <span class="indicator years-experience">4+ ans d'expérience</span>
-                                <span class="indicator project-count">Design responsive</span>
-                                <span class="indicator">Grid, Flexbox, Animations</span>
+                                <span class="indicator years-experience" data-i18n="skills.experience.years" data-i18n-vars="{\"count\": \"4\"}">4+ ans d'expérience</span>
+                                <span class="indicator project-count" data-i18n="skills.indicators.css3_responsive_design">Design responsive</span>
+                                <span class="indicator" data-i18n="skills.indicators.css3_technologies">Grid, Flexbox, Animations</span>
                             </div>
                         </div>
                         <div class="skill-details">
                             Layouts flexibles, Grid, animations, variables CSS, media queries, responsive design, Bootstrap.
                         </div>
                         <div class="skill-context">
-                            <strong>Expertise démontrée :</strong> Création d'interfaces modernes et responsive, maîtrise des frameworks CSS et des animations avancées.
+                            <strong data-i18n="skills.common.expertise_demonstrated">Expertise démontrée :</strong> <span data-i18n="skills.context.css3_expertise">Création d'interfaces modernes et responsive, maîtrise des frameworks CSS et des animations avancées.</span>
                         </div>
                     </div>
                     
@@ -675,18 +689,18 @@
                             <span class="skill-name">JavaScript</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge intermediate">Intermédiaire</span>
+                            <span class="skill-level-badge intermediate" data-i18n="skills.level.intermediate">Intermédiaire</span>
                             <div class="experience-indicators">
-                                <span class="indicator years-experience">3+ ans d'expérience</span>
-                                <span class="indicator project-count">Applications interactives</span>
-                                <span class="indicator">ES6+, APIs, WebSocket</span>
+                                <span class="indicator years-experience" data-i18n="skills.experience.years" data-i18n-vars="{\"count\": \"3\"}">3+ ans d'expérience</span>
+                                <span class="indicator project-count" data-i18n="skills.indicators.js_interactive_apps">Applications interactives</span>
+                                <span class="indicator" data-i18n="skills.indicators.js_technologies">ES6+, APIs, WebSocket</span>
                             </div>
                         </div>
                         <div class="skill-details">
-                            ES6+, DOM manipulation, Fetch API, Promises, Async/Await, WebSocket temps réel, Node.js.
+                            <span data-i18n="skills.details.javascript">ES6+, DOM manipulation, Fetch API, Promises, Async/Await, WebSocket temps réel, Node.js.</span>
                         </div>
                         <div class="skill-context">
-                            <strong>Projets réalisés :</strong> CapChat (Node.js), jeu d'échecs multijoueur avec WebSocket, applications interactives pour portfolio.
+                            <strong data-i18n="skills.common.projects_achieved">Projets réalisés :</strong> <span data-i18n="skills.context.javascript_projects">CapChat (Node.js), jeu d'échecs multijoueur avec WebSocket, applications interactives pour portfolio.</span>
                         </div>
                     </div>
 
@@ -697,18 +711,18 @@
                             <span class="skill-name">Bootstrap</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge intermediate">Intermédiaire</span>
+                            <span class="skill-level-badge intermediate" data-i18n="skills.level.intermediate">Intermédiaire</span>
                             <div class="experience-indicators">
-                                <span class="indicator years-experience">2+ ans d'expérience</span>
-                                <span class="indicator project-count">Projets responsive</span>
-                                <span class="indicator">Framework CSS</span>
+                                <span class="indicator years-experience" data-i18n="skills.experience.years" data-i18n-vars="{\"count\": \"2\"}">2+ ans d'expérience</span>
+                                <span class="indicator project-count" data-i18n="skills.indicators.bootstrap_responsive_projects">Projets responsive</span>
+                                <span class="indicator" data-i18n="skills.indicators.bootstrap_framework">Framework CSS</span>
                             </div>
                         </div>
                         <div class="skill-details">
-                            Framework CSS responsive, composants, grille, personnalisation, intégration avec projets web.
+                            <span data-i18n="skills.details.bootstrap">Framework CSS responsive, composants, grille, personnalisation, intégration avec projets web.</span>
                         </div>
                         <div class="skill-context">
-                            <strong>Usage professionnel :</strong> Développement rapide d'interfaces responsive et modernes dans plusieurs projets web.
+                            <strong data-i18n="skills.common.professional_use">Utilisation professionnelle :</strong> <span data-i18n="skills.context.bootstrap_professional">Développement rapide d'interfaces responsive et modernes dans plusieurs projets web.</span>
                         </div>
                     </div>
                 </div>
@@ -720,7 +734,7 @@
                     <div class="skill-group-icon">
                         <i class="fas fa-cogs"></i>
                     </div>
-                    <h2 class="skill-group-title">DevOps & Infrastructure</h2>
+                    <h2 class="skill-group-title" data-i18n="skills.groups.devops">DevOps & Infrastructure</h2>
                 </div>
                 <div class="skills-list">
                     <!-- Docker -->
@@ -730,18 +744,18 @@
                             <span class="skill-name">Docker</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge intermediate">Intermédiaire</span>
+                            <span class="skill-level-badge intermediate" data-i18n="skills.level.intermediate">Intermédiaire</span>
                             <div class="experience-indicators">
-                                <span class="indicator years-experience">1+ an d'expérience</span>
-                                <span class="indicator project-count">SNCF, Quantum Mastermind</span>
-                                <span class="indicator">Compose, orchestration</span>
+                                <span class="indicator years-experience" data-i18n="skills.indicators.docker_experience">1+ an d'expérience</span>
+                                <span class="indicator project-count" data-i18n="skills.indicators.docker_projects">SNCF, Quantum Mastermind</span>
+                                <span class="indicator" data-i18n="skills.indicators.docker_technologies">Compose, orchestration</span>
                             </div>
                         </div>
                         <div class="skill-details">
-                            Containerisation d'applications, Docker Compose, orchestration, optimisation des images, déploiement.
+                            <span data-i18n="skills.details.docker">Containerisation d'applications, Docker Compose, orchestration, optimisation des images, déploiement.</span>
                         </div>
                         <div class="skill-context">
-                            <strong>Réalisations :</strong> Dockerisation des applications SNCF, déploiement Quantum Mastermind, instance GitLab dockerisée.
+                            <strong data-i18n="skills.common.achievements">Réalisations :</strong> <span data-i18n="skills.context.docker_achievements">Dockerisation des applications SNCF, déploiement Quantum Mastermind, instance GitLab dockerisée.</span>
                         </div>
                     </div>
 
@@ -752,18 +766,18 @@
                             <span class="skill-name">Linux</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge intermediate">Intermédiaire</span>
+                            <span class="skill-level-badge intermediate" data-i18n="skills.level.intermediate">Intermédiaire</span>
                             <div class="experience-indicators">
-                                <span class="indicator years-experience">Administration système</span>
-                                <span class="indicator project-count">Serveurs, déploiement, SNCF</span>
-                                <span class="indicator">Bash, Cron, Rsync</span>
+                                <span class="indicator years-experience" data-i18n="skills.indicators.linux_system_admin">Administration système</span>
+                                <span class="indicator project-count" data-i18n="skills.indicators.linux_projects">Serveurs, déploiement, SNCF</span>
+                                <span class="indicator" data-i18n="skills.indicators.linux_technologies">Bash, Cron, Rsync</span>
                             </div>
                         </div>
                         <div class="skill-details">
-                            Administration système, ligne de commande, scripts Bash, Cron, Rsync, déploiement serveurs.
+                            <span data-i18n="skills.details.linux">Administration système, ligne de commande, scripts Bash, Cron, Rsync, déploiement serveurs.</span>
                         </div>
                         <div class="skill-context">
-                            <strong>Usage professionnel :</strong> Déploiement WordPress avec architecture serveurs, déploiement application quantique, sauvegarde automatique.
+                            <strong data-i18n="skills.common.professional_usage">Usage professionnel :</strong> <span data-i18n="skills.context.linux_deployment">Déploiement WordPress avec architecture serveurs, déploiement application quantique, sauvegarde automatique.</span>
                         </div>
                     </div>
 
@@ -774,18 +788,18 @@
                             <span class="skill-name">WordPress</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge intermediate">Intermédiaire</span>
+                            <span class="skill-level-badge intermediate" data-i18n="skills.level.intermediate">Intermédiaire</span>
                             <div class="experience-indicators">
-                                <span class="indicator years-experience">Projets professionnels</span>
-                                <span class="indicator project-count">E-commerce, déploiement, NivoWeb</span>
-                                <span class="indicator">WooCommerce, Elementor</span>
+                                <span class="indicator years-experience" data-i18n="skills.indicators.wordpress_professional_projects">Projets professionnels</span>
+                                <span class="indicator project-count" data-i18n="skills.indicators.wordpress_projects">E-commerce, déploiement, NivoWeb</span>
+                                <span class="indicator" data-i18n="skills.indicators.wordpress_technologies">WooCommerce, Elementor</span>
                             </div>
                         </div>
                         <div class="skill-details">
-                            CMS, WooCommerce, Elementor, déploiement, MySQLDump, personnalisation thèmes, plugins.
+                            <span data-i18n="skills.details.wordpress">CMS, WooCommerce, Elementor, déploiement, MySQLDump, personnalisation thèmes, plugins.</span>
                         </div>
                         <div class="skill-context">
-                            <strong>Projets réalisés :</strong> Boutique e-commerce de pêche avec WooCommerce, déploiement complet avec architecture serveurs.
+                            <strong data-i18n="skills.common.projects_achieved">Projets réalisés :</strong> <span data-i18n="skills.context.wordpress_ecommerce">Boutique e-commerce de pêche avec WooCommerce, déploiement complet avec architecture serveurs.</span>
                         </div>
                     </div>
 
@@ -796,7 +810,7 @@
                             <span class="skill-name">SQLAlchemy</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge beginner">Débutant</span>
+                            <span class="skill-level-badge beginner" data-i18n="skills.level.beginner">Débutant</span>
                             <div class="experience-indicators">
                                 <span class="indicator years-experience">Projet quantique</span>
                                 <span class="indicator project-count">ORM moderne async</span>
@@ -807,7 +821,7 @@
                             ORM Python moderne, support asynchrone, migration de base de données, modélisation relationnelle avancée.
                         </div>
                         <div class="skill-context">
-                            <strong>Implémentation :</strong> SQLAlchemy 2.0 avec support async pour Quantum Mastermind, gestion complète des données et sessions.
+                            <strong data-i18n="skills.common.implementation">Implémentation :</strong> <span data-i18n="skills.context.sqlalchemy_implementation">SQLAlchemy 2.0 avec support async pour Quantum Mastermind, gestion complète des données et sessions.</span>
                         </div>
                     </div>
                 </div>
@@ -819,7 +833,7 @@
                     <div class="skill-group-icon">
                         <i class="fas fa-project-diagram"></i>
                     </div>
-                    <h2 class="skill-group-title">Méthodologies & Gestion</h2>
+                    <h2 class="skill-group-title" data-i18n="skills.groups.methodologies">Méthodologies & Gestion</h2>
                 </div>
                 <div class="skills-list">
                     <!-- Gestion de Projet -->
@@ -829,7 +843,7 @@
                             <span class="skill-name">Gestion de Projet</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge advanced">Avancé</span>
+                            <span class="skill-level-badge advanced" data-i18n="skills.level.advanced">Avancé</span>
                             <div class="experience-indicators">
                                 <span class="indicator years-experience">Formation DGEFP</span>
                                 <span class="indicator project-count">Conception de 2 projets</span>
@@ -840,7 +854,7 @@
                             WBS, OBS, SWOT, RACI, EVM, planification, suivi d'avancement, gestion des risques, pilotage de projets.
                         </div>
                         <div class="skill-context">
-                            <strong>Expérience professionnelle :</strong> Pilotage de 3 projets à la DGEFP avec mise en place de tous les concepts de gestion de projet.
+                            <strong data-i18n="skills.common.professional_experience">Expérience professionnelle :</strong> <span data-i18n="skills.context.project_management_dgefp">Pilotage de 3 projets à la DGEFP avec mise en place de tous les concepts de gestion de projet.</span>
                         </div>
                     </div>
 
@@ -851,7 +865,7 @@
                             <span class="skill-name">Principes SOLID</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge intermediate">Intermédiaire</span>
+                            <span class="skill-level-badge intermediate" data-i18n="skills.level.intermediate">Intermédiaire</span>
                             <div class="experience-indicators">
                                 <span class="indicator years-experience">Application rigoureuse</span>
                                 <span class="indicator project-count">Tous mes projets</span>
@@ -862,7 +876,7 @@
                             Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, Dependency Inversion.
                         </div>
                         <div class="skill-context">
-                            <strong>Impact mesuré :</strong> Application rigoureuse dans tous mes projets pour garantir la qualité et la maintenabilité du code.
+                            <strong data-i18n="skills.common.measured_impact">Impact mesuré :</strong> <span data-i18n="skills.context.solid_principles_impact">Application rigoureuse dans tous mes projets pour garantir la qualité et la maintenabilité du code.</span>
                         </div>
                     </div>
 
@@ -873,7 +887,7 @@
                             <span class="skill-name">SysML</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge beginner">Débutant</span>
+                            <span class="skill-level-badge beginner" data-i18n="skills.level.beginner">Débutant</span>
                             <div class="experience-indicators">
                                 <span class="indicator years-experience">Formation technique</span>
                                 <span class="indicator project-count">Composteur connecté, DGEFP, SNCF </span>
@@ -884,7 +898,7 @@
                             Modélisation système, diagrammes techniques, cahier des charges, spécifications fonctionnelles.
                         </div>
                         <div class="skill-context">
-                            <strong>Application pratique :</strong> Création d'un cahier des charges complet avec SysML pour le projet de composteur connecté.
+                            <strong data-i18n="skills.common.practical_application">Application pratique :</strong> <span data-i18n="skills.context.sysml_specification">Création d'un cahier des charges complet avec SysML pour le projet de composteur connecté.</span>
                         </div>
                     </div>
                 </div>
@@ -896,7 +910,7 @@
                     <div class="skill-group-icon">
                         <i class="fas fa-desktop"></i>
                     </div>
-                    <h2 class="skill-group-title">Applications Desktop & Métier</h2>
+                    <h2 class="skill-group-title" data-i18n="skills.groups.desktop">Applications Desktop & Métier</h2>
                 </div>
                 <div class="skills-list">
                     <!-- Pack Office -->
@@ -906,7 +920,7 @@
                             <span class="skill-name">Pack Office</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge advanced">Avancé</span>
+                            <span class="skill-level-badge advanced" data-i18n="skills.level.advanced">Avancé</span>
                             <div class="experience-indicators">
                                 <span class="indicator years-experience">Usage quotidien</span>
                                 <span class="indicator project-count">Documentation projets</span>
@@ -917,7 +931,7 @@
                             Word (documentation), Excel (calculs complexes), PowerPoint (présentations), gestion de projets.
                         </div>
                         <div class="skill-context">
-                            <strong>Usage professionnel :</strong> Documentation de code, rapports de projets, présentation de solutions techniques.
+                            <strong data-i18n="skills.common.professional_usage">Usage professionnel :</strong> <span data-i18n="skills.context.professional_documentation">Documentation de code, rapports de projets, présentation de solutions techniques.</span>
                         </div>
                     </div>
 
@@ -928,7 +942,7 @@
                             <span class="skill-name">C# WinForm</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge intermediate">Intermédiaire</span>
+                            <span class="skill-level-badge intermediate" data-i18n="skills.level.intermediate">Intermédiaire</span>
                             <div class="experience-indicators">
                                 <span class="indicator years-experience">Expérience professionnelle</span>
                                 <span class="indicator project-count">Outil facturation Gesta</span>
@@ -939,7 +953,7 @@
                             Applications desktop Windows, interfaces graphiques, CLI, connexion bases de données, System.IO.
                         </div>
                         <div class="skill-context">
-                            <strong>Projet professionnel :</strong> Outil de facturation pour Gesta Partners avec interface WinForm, CLI, génération Excel.
+                            <strong data-i18n="skills.common.professional_project">Projet professionnel :</strong> <span data-i18n="skills.context.csharp_application">Outil de facturation pour Gesta Partners avec interface WinForm, CLI, génération Excel.</span>
                         </div>
                     </div>
 
@@ -950,7 +964,7 @@
                             <span class="skill-name">Excel VBA</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge beginner">Débutant</span>
+                            <span class="skill-level-badge beginner" data-i18n="skills.level.beginner">Débutant</span>
                             <div class="experience-indicators">
                                 <span class="indicator years-experience">Automatisation</span>
                                 <span class="indicator project-count">Outils métier, DGEFP</span>
@@ -958,10 +972,10 @@
                             </div>
                         </div>
                         <div class="skill-details">
-                            Automatisation Excel, macros, traitement de données, génération de rapports, interfaces utilisateur.
+                            <span data-i18n="skills.details.vba">Automatisation Excel, macros, traitement de données, génération de rapports, interfaces utilisateur.</span>
                         </div>
                         <div class="skill-context">
-                            <strong>Usage professionnel :</strong> Automatisation de tâches répétitives, génération de factures en format Excel.
+                            <strong data-i18n="skills.common.professional_usage">Usage professionnel :</strong> <span data-i18n="skills.context.automation_excel">Automatisation de tâches répétitives, génération de factures en format Excel.</span>
                         </div>
                     </div>
                 </div>
@@ -975,7 +989,7 @@
                     <div class="skill-group-icon">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
-                    <h2 class="skill-group-title">Développement Mobile</h2>
+                    <h2 class="skill-group-title" data-i18n="skills.groups.mobile">Développement Mobile</h2>
                 </div>
                 <div class="skills-list">
                     <!-- Java Android -->
@@ -985,18 +999,18 @@
                             <span class="skill-name">Java Android</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge intermediate">Intermédiaire</span>
+                            <span class="skill-level-badge intermediate" data-i18n="skills.level.intermediate">Intermédiaire</span>
                             <div class="experience-indicators">
-                                <span class="indicator years-experience">Projets réalisés</span>
+                                <span class="indicator years-experience" data-i18n="skills.experience.projects_achieved">Projets réalisés</span>
                                 <span class="indicator project-count">Jeu d'échecs, composteur</span>
                                 <span class="indicator">Activities, Services, Firebase</span>
                             </div>
                         </div>
                         <div class="skill-details">
-                            Activities, Fragments, Services, SQLite, Firebase, WebSocket, multijoueur, Bluetooth.
+                            <span data-i18n="skills.details.android">Activities, Fragments, Services, SQLite, Firebase, WebSocket, multijoueur, Bluetooth.</span>
                         </div>
                         <div class="skill-context">
-                            <strong>Projets développés :</strong> Jeu d'échecs multijoueur avec Firebase, application mobile pour composteur connecté Arduino.
+                            <strong data-i18n="skills.common.developed_projects">Projets développés :</strong> <span data-i18n="skills.context.mobile_development_projects">Jeu d'échecs multijoueur avec Firebase, application mobile pour composteur connecté Arduino.</span>
                         </div>
                     </div>
 
@@ -1007,7 +1021,7 @@
                             <span class="skill-name">C# MAUI</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge beginner">Débutant</span>
+                            <span class="skill-level-badge beginner" data-i18n="skills.level.beginner">Débutant</span>
                             <div class="experience-indicators">
                                 <span class="indicator years-experience">Développement récent</span>
                                 <span class="indicator project-count">Application liste de cours</span>
@@ -1015,10 +1029,10 @@
                             </div>
                         </div>
                         <div class="skill-details">
-                            .NET Multi-platform App UI, développement cross-platform (Android, iOS, Windows), XAML, MVVM.
+                            <span data-i18n="skills.details.maui">.NET Multi-platform App UI, développement cross-platform (Android, iOS, Windows), XAML, MVVM.</span>
                         </div>
                         <div class="skill-context">
-                            <strong>Projet réalisé :</strong> Application mobile de gestion de liste de cours avec C# MAUI, interface cross-platform moderne.
+                            <strong data-i18n="skills.common.completed_project">Projet réalisé :</strong> <span data-i18n="skills.context.maui_crossplatform">Application mobile de gestion de liste de cours avec C# MAUI, interface cross-platform moderne.</span>
                         </div>
                     </div>
                 </div>
@@ -1030,7 +1044,7 @@
                     <div class="skill-group-icon">
                         <i class="fas fa-layer-group"></i>
                     </div>
-                    <h2 class="skill-group-title">Frameworks & Librairies</h2>
+                    <h2 class="skill-group-title" data-i18n="skills.groups.frameworks">Frameworks & Librairies</h2>
                 </div>
                 <div class="skills-list">
                     <!-- Angular -->
@@ -1040,7 +1054,7 @@
                             <span class="skill-name">Angular 20</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge beginner">Débutant</span>
+                            <span class="skill-level-badge beginner" data-i18n="skills.level.beginner">Débutant</span>
                             <div class="experience-indicators">
                                 <span class="indicator years-experience">Développement en cours</span>
                                 <span class="indicator project-count">Migration front-end SNCF</span>
@@ -1048,10 +1062,10 @@
                             </div>
                         </div>
                         <div class="skill-details">
-                            Components, Services, Routing, RxJS, TypeScript, architecture modulaire, migration d'applications legacy.
+                            <span data-i18n="skills.details.angular">Components, Services, Routing, RxJS, TypeScript, architecture modulaire, migration d'applications legacy.</span>
                         </div>
                         <div class="skill-context">
-                            <strong>Projet actuel :</strong> Migration du front-end des applications SNCF vers Angular 20, travail avec les dernières pratiques du framework.
+                            <strong data-i18n="skills.common.current_project">Projet actuel :</strong> <span data-i18n="skills.context.angular_migration">Migration du front-end des applications SNCF vers Angular 20, travail avec les dernières pratiques du framework.</span>
                         </div>
                     </div>
                     
@@ -1062,18 +1076,18 @@
                             <span class="skill-name">Laravel</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge beginner">Débutant</span>
+                            <span class="skill-level-badge beginner" data-i18n="skills.level.beginner">Débutant</span>
                             <div class="experience-indicators">
-                                <span class="indicator years-experience">2+ ans d'expérience</span>
+                                <span class="indicator years-experience" data-i18n="skills.experience.years" data-i18n-vars="{\"count\": \"2\"}">2+ ans d'expérience</span>
                                 <span class="indicator project-count">Gestion places parking</span>
                                 <span class="indicator">MVC, Eloquent, Blade</span>
                             </div>
                         </div>
                         <div class="skill-details">
-                            MVC, Eloquent ORM, Blade, Middleware, API REST, Breeze, Scheduling, gestion des queues.
+                            <span data-i18n="skills.details.laravel">MVC, Eloquent ORM, Blade, Middleware, API REST, Breeze, Scheduling, gestion des queues.</span>
                         </div>
                         <div class="skill-context">
-                            <strong>Projet réalisé :</strong> Site de réservation de places de parking avec Laravel (MVC, Breeze, Eloquent), gestion du queueing avec Cron.
+                            <strong data-i18n="skills.common.completed_project">Projet réalisé :</strong> <span data-i18n="skills.context.laravel_parking">Site de réservation de places de parking avec Laravel (MVC, Breeze, Eloquent), gestion du queueing avec Cron.</span>
                         </div>
                     </div>
 
@@ -1084,7 +1098,7 @@
                             <span class="skill-name">Node.js</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge beginner">Débutant</span>
+                            <span class="skill-level-badge beginner" data-i18n="skills.level.beginner">Débutant</span>
                             <div class="experience-indicators">
                                 <span class="indicator years-experience">Projets personnels</span>
                                 <span class="indicator project-count">CapChat</span>
@@ -1092,10 +1106,10 @@
                             </div>
                         </div>
                         <div class="skill-details">
-                            Serveur web, API REST, gestion des modules npm, applications temps réel.
+                            <span data-i18n="skills.details.nodejs">Serveur web, API REST, gestion des modules npm, applications temps réel.</span>
                         </div>
                         <div class="skill-context">
-                            <strong>Projet réalisé :</strong> CapChat - création d'un site de captchas personnalisés avec Node.js, gestion API et administration.
+                            <strong data-i18n="skills.common.completed_project">Projet réalisé :</strong> <span data-i18n="skills.context.symfony_architecture">CapChat - création d'un site de captchas personnalisés avec Node.js, gestion API et administration.</span>
                         </div>
                     </div>
                 </div>
@@ -1107,7 +1121,7 @@
                     <div class="skill-group-icon">
                         <i class="fas fa-shield-alt"></i>
                     </div>
-                    <h2 class="skill-group-title">Cybersécurité</h2>
+                    <h2 class="skill-group-title" data-i18n="skills.groups.cybersecurity">Cybersécurité</h2>
                 </div>
                 <div class="skills-list">
                     <!-- Sécurité Web OWASP -->
@@ -1117,7 +1131,7 @@
                             <span class="skill-name">Sécurité Web (OWASP)</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge intermediate">Intermédiaire</span>
+                            <span class="skill-level-badge intermediate" data-i18n="skills.level.intermediate">Intermédiaire</span>
                             <div class="experience-indicators">
                                 <span class="indicator years-experience">Formation et pratique</span>
                                 <span class="indicator project-count">Gesta Partners, SNCF</span>
@@ -1125,10 +1139,10 @@
                             </div>
                         </div>
                         <div class="skill-details">
-                            OWASP Top 10, XSS, CSRF, injections SQL, authentification sécurisée, évaluation théorique serveurs.
+                            <span data-i18n="skills.details.security">OWASP Top 10, XSS, CSRF, injections SQL, authentification sécurisée, évaluation théorique serveurs.</span>
                         </div>
                         <div class="skill-context">
-                            <strong>Expérience pratique :</strong> Sensibilisation aux enjeux cybersécurité chez Gesta Partners, évaluation théorique des serveurs.
+                            <strong data-i18n="skills.common.practical_experience">Expérience pratique :</strong> <span data-i18n="skills.context.security_experience">Sensibilisation aux enjeux cybersécurité chez Gesta Partners, évaluation théorique des serveurs.</span>
                         </div>
                     </div>
                 </div>
@@ -1140,7 +1154,7 @@
                     <div class="skill-group-icon">
                         <i class="fas fa-microchip"></i>
                     </div>
-                    <h2 class="skill-group-title">IoT & Domotique</h2>
+                    <h2 class="skill-group-title" data-i18n="skills.groups.iot">IoT & Domotique</h2>
                 </div>
                 <div class="skills-list">
                     <!-- Arduino -->
@@ -1150,7 +1164,7 @@
                             <span class="skill-name">Arduino</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge intermediate">Intermédiaire</span>
+                            <span class="skill-level-badge intermediate" data-i18n="skills.level.intermediate">Intermédiaire</span>
                             <div class="experience-indicators">
                                 <span class="indicator years-experience">Projet IoT complet</span>
                                 <span class="indicator project-count">Composteur connecté</span>
@@ -1158,10 +1172,10 @@
                             </div>
                         </div>
                         <div class="skill-details">
-                            Programmation Arduino Uno, intégration capteurs multiples (humidité, température, pH), transmission Bluetooth temps réel, domotique.
+                            <span data-i18n="skills.details.arduino">Programmation Arduino Uno, intégration capteurs multiples (humidité, température, pH), transmission Bluetooth temps réel, domotique.</span>
                         </div>
                         <div class="skill-context">
-                            <strong>Projet domotique réalisé :</strong> Composteur connecté avec Arduino Uno, capteurs environnementaux, algorithme d'optimisation du compostage, application mobile associée.
+                            <strong data-i18n="skills.common.home_automation_project">Projet domotique réalisé :</strong> <span data-i18n="skills.context.express_backend">Composteur connecté avec Arduino Uno, capteurs environnementaux, algorithme d'optimisation du compostage, application mobile associée.</span>
                         </div>
                     </div>
                 </div>
@@ -1173,7 +1187,7 @@
                     <div class="skill-group-icon">
                         <i class="fas fa-atom"></i>
                     </div>
-                    <h2 class="skill-group-title">Informatique Quantique</h2>
+                    <h2 class="skill-group-title" data-i18n="skills.groups.quantum">Informatique Quantique</h2>
                 </div>
                 <div class="skills-list">
                     <!-- Qiskit -->
@@ -1183,7 +1197,7 @@
                             <span class="skill-name">Qiskit</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge beginner">Débutant</span>
+                            <span class="skill-level-badge beginner" data-i18n="skills.level.beginner">Débutant</span>
                             <div class="experience-indicators">
                                 <span class="indicator years-experience">Projet abouti</span>
                                 <span class="indicator project-count">Quantum Mastermind</span>
@@ -1191,10 +1205,10 @@
                             </div>
                         </div>
                         <div class="skill-details">
-                            Framework quantique IBM, circuits quantiques, superposition, intrication, AerSimulator, optimisation quantique.
+                            <span data-i18n="skills.details.qiskit">Framework quantique IBM, circuits quantiques, superposition, intrication, AerSimulator, optimisation quantique.</span>
                         </div>
                         <div class="skill-context">
-                            <strong>Projet réalisé :</strong> Quantum Mastermind - jeu utilisant des algorithmes quantiques pour génération de solutions et analyse probabiliste avec cache optimisé.
+                            <strong data-i18n="skills.common.completed_project">Projet réalisé :</strong> <span data-i18n="skills.context.fastapi_quantum">Quantum Mastermind - jeu utilisant des algorithmes quantiques pour génération de solutions et analyse probabiliste avec cache optimisé.</span>
                         </div>
                     </div>
                 </div>
@@ -1206,7 +1220,7 @@
                     <div class="skill-group-icon">
                         <i class="fas fa-graduation-cap"></i>
                     </div>
-                    <h2 class="skill-group-title">Technologies en Apprentissage</h2>
+                    <h2 class="skill-group-title" data-i18n="skills.groups.learning">Technologies en Apprentissage</h2>
                 </div>
                 <div class="skills-list">
                     <!-- COBOL -->
@@ -1216,7 +1230,7 @@
                             <span class="skill-name">COBOL</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge learning">En apprentissage</span>
+                            <span class="skill-level-badge learning" data-i18n="skills.level.learning">En apprentissage</span>
                             <div class="experience-indicators">
                                 <span class="indicator">Objectif de spécialisation</span>
                                 <span class="indicator">Secteur bancaire visé</span>
@@ -1224,10 +1238,10 @@
                             </div>
                         </div>
                         <div class="skill-details">
-                            Maintenance de systèmes legacy, modernisation progressive, intégration avec les architectures modernes.
+                            <span data-i18n="skills.details.cobol">Maintenance de systèmes legacy, modernisation progressive, intégration avec les architectures modernes.</span>
                         </div>
                         <div class="skill-context">
-                            <strong>Stratégie d'évolution :</strong> Compétence ciblée pour répondre à la forte demande du marché financier et des systèmes critiques.
+                            <strong data-i18n="skills.common.evolution_strategy">Stratégie d'évolution :</strong> <span data-i18n="skills.context.android_mobile">Compétence ciblée pour répondre à la forte demande du marché financier et des systèmes critiques.</span>
                         </div>
                     </div>
                     
@@ -1238,7 +1252,7 @@
                             <span class="skill-name">Intelligence Artificielle</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge learning">En apprentissage</span>
+                            <span class="skill-level-badge learning" data-i18n="skills.level.learning">En apprentissage</span>
                             <div class="experience-indicators">
                                 <span class="indicator">Informatique quantique appliquée</span>
                                 <span class="indicator">Algorithmes d'optimisation</span>
@@ -1246,10 +1260,10 @@
                             </div>
                         </div>
                         <div class="skill-details">
-                            Informatique quantique, algorithmes d'optimisation, intégration d'IA dans les applications métier, architectures hybrides.
+                            <span data-i18n="skills.details.ai">Informatique quantique, algorithmes d'optimisation, intégration d'IA dans les applications métier, architectures hybrides.</span>
                         </div>
                         <div class="skill-context">
-                            <strong>Vision future :</strong> Extension de l'expertise quantique vers l'IA classique, algorithmes d'optimisation avancés, prompt engineering.
+                            <strong data-i18n="skills.common.future_vision">Vision future :</strong> <span data-i18n="skills.context.react_native_crossplatform">Extension de l'expertise quantique vers l'IA classique, algorithmes d'optimisation avancés, prompt engineering.</span>
                         </div>
                     </div>
                 </div>
@@ -1263,9 +1277,9 @@
     <section class="skills-section" style="background-color: var(--light);" id="soft-skills">
         <div class="container">
             <div class="section-header">
-                <h2><i class="fas fa-users"></i> Soft Skills - Compétences Humaines</h2>
+                <h2><i class="fas fa-users"></i> <span data-i18n="skills.soft.title">Soft Skills - Compétences Humaines</span></h2>
                 <div class="section-divider"></div>
-                <p>Mes compétences relationnelles et organisationnelles développées au fil de mes expériences professionnelles</p>
+                <p data-i18n="skills.soft.description">Mes compétences relationnelles et organisationnelles développées au fil de mes expériences professionnelles</p>
             </div>
 
             <!-- LEADERSHIP & MANAGEMENT -->
@@ -1274,28 +1288,28 @@
                     <div class="skill-group-icon">
                         <i class="fas fa-users-cog"></i>
                     </div>
-                    <h2 class="skill-group-title">🎯 Leadership & Management</h2>
+                    <h2 class="skill-group-title" data-i18n="skills.groups.leadership">🎯 Leadership & Management</h2>
                 </div>
                 <div class="skills-list">
                     <!-- Gestion d'équipe -->
                     <div class="skill-item">
                         <div class="skill-header">
                             <i class="fas fa-users skill-icon"></i>
-                            <span class="skill-name">Gestion d'Équipe</span>
+                            <span class="skill-name" data-i18n="skills.soft.team_management">Gestion d'Équipe</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge intermediate">Intermédiaire</span>
+                            <span class="skill-level-badge intermediate" data-i18n="skills.level.intermediate">Intermédiaire</span>
                             <div class="experience-indicators">
-                                <span class="indicator years-experience">Expérience DGEFP</span>
-                                <span class="indicator project-count">Management de développeurs</span>
-                                <span class="indicator">Coordination, délégation</span>
+                                <span class="indicator years-experience" data-i18n="skills.indicators.team_management_dgefp">Expérience DGEFP</span>
+                                <span class="indicator project-count" data-i18n="skills.indicators.team_management_developers">Management de développeurs</span>
+                                <span class="indicator" data-i18n="skills.indicators.team_management_skills">Coordination, délégation</span>
                             </div>
                         </div>
                         <div class="skill-details">
-                            Coordination d'équipes de développeurs, délégation de tâches, motivation d'équipe, gestion des conflits.
+                            <span data-i18n="skills.details.team_management">Coordination d'équipes de développeurs, délégation de tâches, motivation d'équipe, gestion des conflits.</span>
                         </div>
                         <div class="skill-context">
-                            <strong>Expérience concrète :</strong> Management d'une équipe de développeurs pour la création d'un site web d'urgence à la DGEFP avec contraintes temporelles serrées.
+                            <strong data-i18n="skills.common.experience_context">Expérience concrète :</strong> <span data-i18n="skills.context.team_management_experience">Management d'une équipe de développeurs pour la création d'un site web d'urgence à la DGEFP avec contraintes temporelles serrées.</span>
                         </div>
                     </div>
 
@@ -1303,21 +1317,21 @@
                     <div class="skill-item">
                         <div class="skill-header">
                             <i class="fas fa-project-diagram skill-icon"></i>
-                            <span class="skill-name">Pilotage de Projets</span>
+                            <span class="skill-name" data-i18n="skills.soft.project_management">Pilotage de Projets</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge advanced">Avancé</span>
+                            <span class="skill-level-badge advanced" data-i18n="skills.level.advanced">Avancé</span>
                             <div class="experience-indicators">
-                                <span class="indicator years-experience">3 projets pilotés</span>
-                                <span class="indicator project-count">DGEFP, SNCF</span>
-                                <span class="indicator">WBS, RACI, EVM</span>
+                                <span class="indicator years-experience" data-i18n="skills.indicators.project_management_count">3 projets pilotés</span>
+                                <span class="indicator project-count" data-i18n="skills.indicators.project_management_organizations">DGEFP, SNCF</span>
+                                <span class="indicator" data-i18n="skills.indicators.project_management_methods">WBS, RACI, EVM</span>
                             </div>
                         </div>
                         <div class="skill-details">
-                            Conception de projets, planification stratégique, suivi d'avancement, gestion des risques, livraison dans les délais.
+                            <span data-i18n="skills.details.project_management">Conception de projets, planification stratégique, suivi d'avancement, gestion des risques, livraison dans les délais.</span>
                         </div>
                         <div class="skill-context">
-                            <strong>Réalisations :</strong> Pilotage de 3 projets à la DGEFP avec application complète des méthodologies de gestion de projet (WBS, OBS, SWOT, RACI, EVM).
+                            <strong data-i18n="skills.common.achievements">Réalisations :</strong> <span data-i18n="skills.context.project_management_achievements">Pilotage de 3 projets à la DGEFP avec application complète des méthodologies de gestion de projet (WBS, OBS, SWOT, RACI, EVM).</span>
                         </div>
                     </div>
 
@@ -1325,21 +1339,21 @@
                     <div class="skill-item">
                         <div class="skill-header">
                             <i class="fas fa-lightbulb skill-icon"></i>
-                            <span class="skill-name">Prise d'Initiative</span>
+                            <span class="skill-name" data-i18n="skills.soft.initiative">Prise d'Initiative</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge intermediate">Intermédiaire</span>
+                            <span class="skill-level-badge intermediate" data-i18n="skills.level.intermediate">Intermédiaire</span>
                             <div class="experience-indicators">
-                                <span class="indicator years-experience">Proactivité constante</span>
-                                <span class="indicator project-count">Innovations techniques</span>
-                                <span class="indicator">Propositions d'amélioration</span>
+                                <span class="indicator years-experience" data-i18n="skills.indicators.initiative_proactive">Proactivité constante</span>
+                                <span class="indicator project-count" data-i18n="skills.indicators.initiative_innovations">Innovations techniques</span>
+                                <span class="indicator" data-i18n="skills.indicators.initiative_improvements">Propositions d'amélioration</span>
                             </div>
                         </div>
                         <div class="skill-details">
-                            Identification proactive d'opportunités d'amélioration, proposition de solutions innovantes, autonomie dans la prise de décision.
+                            <span data-i18n="skills.details.initiative">Identification proactive d'opportunités d'amélioration, proposition de solutions innovantes, autonomie dans la prise de décision.</span>
                         </div>
                         <div class="skill-context">
-                            <strong>Exemples concrets :</strong> Proposition et mise en œuvre de l'architecture dockerisée à la SNCF, initiative de formation Excel à la DGEFP.
+                            <strong data-i18n="skills.common.concrete_examples">Exemples concrets :</strong> <span data-i18n="skills.context.flutter_mobile">Proposition et mise en œuvre de l'architecture dockerisée à la SNCF, initiative de formation Excel à la DGEFP.</span>
                         </div>
                     </div>
                 </div>
@@ -1351,28 +1365,28 @@
                     <div class="skill-group-icon">
                         <i class="fas fa-comments"></i>
                     </div>
-                    <h2 class="skill-group-title">💬 Communication & Collaboration</h2>
+                    <h2 class="skill-group-title" data-i18n="skills.groups.communication">💬 Communication & Collaboration</h2>
                 </div>
                 <div class="skills-list">
                     <!-- Communication technique -->
                     <div class="skill-item">
                         <div class="skill-header">
                             <i class="fas fa-chalkboard-teacher skill-icon"></i>
-                            <span class="skill-name">Communication Technique</span>
+                            <span class="skill-name" data-i18n="skills.soft.technical_communication">Communication Technique</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge advanced">Avancé</span>
+                            <span class="skill-level-badge advanced" data-i18n="skills.level.advanced">Avancé</span>
                             <div class="experience-indicators">
-                                <span class="indicator years-experience">Formation équipes</span>
-                                <span class="indicator project-count">Documentation projets</span>
-                                <span class="indicator">Vulgarisation technique</span>
+                                <span class="indicator years-experience" data-i18n="skills.indicators.technical_communication_training">Formation équipes</span>
+                                <span class="indicator project-count" data-i18n="skills.indicators.technical_communication_documentation">Documentation projets</span>
+                                <span class="indicator" data-i18n="skills.indicators.technical_communication_vulgarization">Vulgarisation technique</span>
                             </div>
                         </div>
                         <div class="skill-details">
-                            Transmission de connaissances techniques, formation d'équipes, documentation claire, vulgarisation pour non-techniques.
+                            <span data-i18n="skills.details.technical_communication">Transmission de connaissances techniques, formation d'équipes, documentation claire, vulgarisation pour non-techniques.</span>
                         </div>
                         <div class="skill-context">
-                            <strong>Compétence démontrée :</strong> Formation Excel pour 15 personnes à la DGEFP, documentation technique complète pour tous mes projets, support N+1 aux utilisateurs.
+                            <strong data-i18n="skills.common.demonstrated_skill">Compétence démontrée :</strong> <span data-i18n="skills.context.docker_achievements">Formation Excel pour 15 personnes à la DGEFP, documentation technique complète pour tous mes projets, support N+1 aux utilisateurs.</span>
                         </div>
                     </div>
 
@@ -1380,21 +1394,21 @@
                     <div class="skill-item">
                         <div class="skill-header">
                             <i class="fas fa-handshake skill-icon"></i>
-                            <span class="skill-name">Travail en Équipe</span>
+                            <span class="skill-name" data-i18n="skills.soft.teamwork">Travail en Équipe</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge intermediate">Intermédiaire</span>
+                            <span class="skill-level-badge intermediate" data-i18n="skills.level.intermediate">Intermédiaire</span>
                             <div class="experience-indicators">
-                                <span class="indicator years-experience">Collaboration quotidienne</span>
-                                <span class="indicator project-count">Équipes multidisciplinaires</span>
-                                <span class="indicator">Adaptabilité relationnelle</span>
+                                <span class="indicator years-experience" data-i18n="skills.indicators.teamwork_collaboration">Collaboration quotidienne</span>
+                                <span class="indicator project-count" data-i18n="skills.indicators.teamwork_multidisciplinary">Équipes multidisciplinaires</span>
+                                <span class="indicator" data-i18n="skills.indicators.teamwork_adaptability">Adaptabilité relationnelle</span>
                             </div>
                         </div>
                         <div class="skill-details">
-                            Collaboration efficace avec développeurs, designers, clients, partage de connaissances, support mutuel.
+                            <span data-i18n="skills.details.teamwork">Collaboration efficace avec développeurs, designers, clients, partage de connaissances, support mutuel.</span>
                         </div>
                         <div class="skill-context">
-                            <strong>Environnements variés :</strong> Collaboration avec équipes UX chez nivo-web, travail avec services métier à la SNCF, coordination inter-services à la DGEFP.
+                            <strong data-i18n="skills.common.varied_environments">Environnements variés :</strong> <span data-i18n="skills.context.gitlab_cicd">Collaboration avec équipes UX chez nivo-web, travail avec services métier à la SNCF, coordination inter-services à la DGEFP.</span>
                         </div>
                     </div>
 
@@ -1402,21 +1416,21 @@
                     <div class="skill-item">
                         <div class="skill-header">
                             <i class="fas fa-user-tie skill-icon"></i>
-                            <span class="skill-name">Relations Clients</span>
+                            <span class="skill-name" data-i18n="skills.soft.client_relations">Relations Clients</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge beginner">Débutant</span>
+                            <span class="skill-level-badge beginner" data-i18n="skills.level.beginner">Débutant</span>
                             <div class="experience-indicators">
-                                <span class="indicator years-experience">Support utilisateurs</span>
-                                <span class="indicator project-count">Interface parties prenantes</span>
-                                <span class="indicator">Écoute active</span>
+                                <span class="indicator years-experience" data-i18n="skills.indicators.client_relations_support">Support utilisateurs</span>
+                                <span class="indicator project-count" data-i18n="skills.indicators.client_relations_interface">Interface parties prenantes</span>
+                                <span class="indicator" data-i18n="skills.indicators.client_relations_listening">Écoute active</span>
                             </div>
                         </div>
                         <div class="skill-details">
-                            Écoute des besoins clients, traduction des exigences métier en spécifications techniques, support utilisateur de qualité.
+                            <span data-i18n="skills.details.client_relations">Écoute des besoins clients, traduction des exigences métier en spécifications techniques, support utilisateur de qualité.</span>
                         </div>
                         <div class="skill-context">
-                            <strong>Expérience client :</strong> Support N+1 aux clients chez nivo-web, interface avec parties prenantes DGEFP, formation utilisateurs sur outils développés.
+                            <strong data-i18n="skills.common.client_experience">Expérience client :</strong> <span data-i18n="skills.context.wordpress_ecommerce">Support N+1 aux clients chez nivo-web, interface avec parties prenantes DGEFP, formation utilisateurs sur outils développés.</span>
                         </div>
                     </div>
                 </div>
@@ -1428,28 +1442,28 @@
                     <div class="skill-group-icon">
                         <i class="fas fa-puzzle-piece"></i>
                     </div>
-                    <h2 class="skill-group-title">🔧 Résolution de Problèmes & Innovation</h2>
+                    <h2 class="skill-group-title" data-i18n="skills.groups.problem_solving">🔧 Résolution de Problèmes & Innovation</h2>
                 </div>
                 <div class="skills-list">
                     <!-- Pensée analytique -->
                     <div class="skill-item">
                         <div class="skill-header">
                             <i class="fas fa-brain skill-icon"></i>
-                            <span class="skill-name">Pensée Analytique</span>
+                            <span class="skill-name" data-i18n="skills.soft.analytical_thinking">Pensée Analytique</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge advanced">Avancé</span>
+                            <span class="skill-level-badge advanced" data-i18n="skills.level.advanced">Avancé</span>
                             <div class="experience-indicators">
-                                <span class="indicator years-experience">Diagnostic technique</span>
-                                <span class="indicator project-count">Refactorisation complexe</span>
-                                <span class="indicator">Architecture système</span>
+                                <span class="indicator years-experience" data-i18n="skills.indicators.analytical_thinking_diagnostic">Diagnostic technique</span>
+                                <span class="indicator project-count" data-i18n="skills.indicators.analytical_thinking_refactoring">Refactorisation complexe</span>
+                                <span class="indicator" data-i18n="skills.indicators.analytical_thinking_architecture">Architecture système</span>
                             </div>
                         </div>
                         <div class="skill-details">
-                            Analyse systémique des problèmes, diagnostic technique approfondi, conception d'architectures optimales.
+                            <span data-i18n="skills.details.analytical_thinking">Analyse systémique des problèmes, diagnostic technique approfondi, conception d'architectures optimales.</span>
                         </div>
                         <div class="skill-context">
-                            <strong>Applications concrètes :</strong> Analyse et refactorisation d'applications legacy SNCF, diagnostic sécurité chez Gesta Partners, optimisation architectures serveur.
+                            <strong data-i18n="skills.common.concrete_applications">Applications concrètes :</strong> <span data-i18n="skills.context.oauth_security">Analyse et refactorisation d'applications legacy SNCF, diagnostic sécurité chez Gesta Partners, optimisation architectures serveur.</span>
                         </div>
                     </div>
 
@@ -1457,21 +1471,21 @@
                     <div class="skill-item">
                         <div class="skill-header">
                             <i class="fas fa-magic skill-icon"></i>
-                            <span class="skill-name">Créativité Technique</span>
+                            <span class="skill-name" data-i18n="skills.soft.technical_creativity">Créativité Technique</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge intermediate">Intermédiaire</span>
+                            <span class="skill-level-badge intermediate" data-i18n="skills.level.intermediate">Intermédiaire</span>
                             <div class="experience-indicators">
-                                <span class="indicator years-experience">Solutions innovantes</span>
-                                <span class="indicator project-count">Quantum Mastermind</span>
-                                <span class="indicator">Technologies émergentes</span>
+                                <span class="indicator years-experience" data-i18n="skills.indicators.technical_creativity_solutions">Solutions innovantes</span>
+                                <span class="indicator project-count" data-i18n="skills.indicators.technical_creativity_quantum">Quantum Mastermind</span>
+                                <span class="indicator" data-i18n="skills.indicators.technical_creativity_emerging">Technologies émergentes</span>
                             </div>
                         </div>
                         <div class="skill-details">
-                            Recherche de solutions innovantes, expérimentation avec nouvelles technologies, approche créative des défis techniques.
+                            <span data-i18n="skills.details.technical_creativity">Recherche de solutions innovantes, expérimentation avec nouvelles technologies, approche créative des défis techniques.</span>
                         </div>
                         <div class="skill-context">
-                            <strong>Innovation démontrée :</strong> Développement Quantum Mastermind avec algorithmes quantiques, intégration Docker/GitLab à la SNCF, automatisation VBA créative à la DGEFP.
+                            <strong data-i18n="skills.common.demonstrated_innovation">Innovation démontrée :</strong> <span data-i18n="skills.context.typescript_development">Développement Quantum Mastermind avec algorithmes quantiques, intégration Docker/GitLab à la SNCF, automatisation VBA créative à la DGEFP.</span>
                         </div>
                     </div>
 
@@ -1479,21 +1493,21 @@
                     <div class="skill-item">
                         <div class="skill-header">
                             <i class="fas fa-bug skill-icon"></i>
-                            <span class="skill-name">Débogage Avancé</span>
+                            <span class="skill-name" data-i18n="skills.soft.advanced_debugging">Débogage Avancé</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge intermediate">Intermédiaire</span>
+                            <span class="skill-level-badge intermediate" data-i18n="skills.level.intermediate">Intermédiaire</span>
                             <div class="experience-indicators">
-                                <span class="indicator years-experience">Résolution complexe</span>
-                                <span class="indicator project-count">Legacy et moderne</span>
-                                <span class="indicator">Méthodologie rigoureuse</span>
+                                <span class="indicator years-experience" data-i18n="skills.indicators.advanced_debugging_complex">Résolution complexe</span>
+                                <span class="indicator project-count" data-i18n="skills.indicators.advanced_debugging_legacy">Legacy et moderne</span>
+                                <span class="indicator" data-i18n="skills.indicators.advanced_debugging_methodology">Méthodologie rigoureuse</span>
                             </div>
                         </div>
                         <div class="skill-details">
-                            Méthodologie de débogage systématique, résolution de problèmes complexes, optimisation de performances.
+                            <span data-i18n="skills.details.advanced_debugging">Méthodologie de débogage systématique, résolution de problèmes complexes, optimisation de performances.</span>
                         </div>
                         <div class="skill-context">
-                            <strong>Expertise prouvée :</strong> Résolution bugs critiques applications legacy SNCF, optimisation performances Quantum Mastermind, debugging multi-plateforme.
+                            <strong data-i18n="skills.common.proven_expertise">Expertise prouvée :</strong> <span data-i18n="skills.context.nodejs_backend">Résolution bugs critiques applications legacy SNCF, optimisation performances Quantum Mastermind, debugging multi-plateforme.</span>
                         </div>
                     </div>
                 </div>
@@ -1505,28 +1519,28 @@
                     <div class="skill-group-icon">
                         <i class="fas fa-seedling"></i>
                     </div>
-                    <h2 class="skill-group-title">🌱 Adaptabilité & Apprentissage</h2>
+                    <h2 class="skill-group-title" data-i18n="skills.groups.adaptability">🌱 Adaptabilité & Apprentissage</h2>
                 </div>
                 <div class="skills-list">
                     <!-- Apprentissage rapide -->
                     <div class="skill-item">
                         <div class="skill-header">
                             <i class="fas fa-rocket skill-icon"></i>
-                            <span class="skill-name">Apprentissage Rapide</span>
+                            <span class="skill-name" data-i18n="skills.soft.fast_learning">Apprentissage Rapide</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge advanced">Avancé</span>
+                            <span class="skill-level-badge advanced" data-i18n="skills.level.advanced">Avancé</span>
                             <div class="experience-indicators">
-                                <span class="indicator years-experience">Veille technologique</span>
-                                <span class="indicator project-count">Nouvelles technologies</span>
-                                <span class="indicator">Autonomie d'apprentissage</span>
+                                <span class="indicator years-experience" data-i18n="skills.indicators.fast_learning_watching">Veille technologique</span>
+                                <span class="indicator project-count" data-i18n="skills.indicators.fast_learning_new_tech">Nouvelles technologies</span>
+                                <span class="indicator" data-i18n="skills.indicators.fast_learning_autonomy">Autonomie d'apprentissage</span>
                             </div>
                         </div>
                         <div class="skill-details">
-                            Capacité d'auto-formation rapide, veille technologique active, adaptation aux nouvelles méthodologies.
+                            <span data-i18n="skills.details.fast_learning">Capacité d'auto-formation rapide, veille technologique active, adaptation aux nouvelles méthodologies.</span>
                         </div>
                         <div class="skill-context">
-                            <strong>Démonstration :</strong> Maîtrise rapide Angular 20 pour SNCF, apprentissage autonome Qiskit pour projet quantique, adaptation Docker en cours de mission.
+                            <strong data-i18n="skills.common.demonstration">Démonstration :</strong> <span data-i18n="skills.context.react_learning">Maîtrise rapide Angular 20 pour SNCF, apprentissage autonome Qiskit pour projet quantique, adaptation Docker en cours de mission.</span>
                         </div>
                     </div>
 
@@ -1534,21 +1548,21 @@
                     <div class="skill-item">
                         <div class="skill-header">
                             <i class="fas fa-exchange-alt skill-icon"></i>
-                            <span class="skill-name">Flexibilité Environnementale</span>
+                            <span class="skill-name" data-i18n="skills.soft.environmental_flexibility">Flexibilité Environnementale</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge intermediate">Intermédiaire</span>
+                            <span class="skill-level-badge intermediate" data-i18n="skills.level.intermediate">Intermédiaire</span>
                             <div class="experience-indicators">
-                                <span class="indicator years-experience">Secteurs variés</span>
-                                <span class="indicator project-count">Public/Privé</span>
-                                <span class="indicator">Adaptation culturelle</span>
+                                <span class="indicator years-experience" data-i18n="skills.indicators.environmental_flexibility_sectors">Secteurs variés</span>
+                                <span class="indicator project-count" data-i18n="skills.indicators.environmental_flexibility_public_private">Public/Privé</span>
+                                <span class="indicator" data-i18n="skills.indicators.environmental_flexibility_cultural">Adaptation culturelle</span>
                             </div>
                         </div>
                         <div class="skill-details">
-                            Adaptation rapide à différents environnements de travail, flexibilité méthodologique, ouverture au changement.
+                            <span data-i18n="skills.details.environmental_flexibility">Adaptation rapide à différents environnements de travail, flexibilité méthodologique, ouverture au changement.</span>
                         </div>
                         <div class="skill-context">
-                            <strong>Polyvalence démontrée :</strong> Transition secteur privé (nivo-web, Gesta) vers public (DGEFP) puis semi-public (SNCF), adaptation aux cultures d'entreprise variées.
+                            <strong data-i18n="skills.common.versatility_demonstrated">Polyvalence démontrée :</strong> <span data-i18n="skills.context.vue_exploration">Transition secteur privé (nivo-web, Gesta) vers public (DGEFP) puis semi-public (SNCF), adaptation aux cultures d'entreprise variées.</span>
                         </div>
                     </div>
 
@@ -1556,21 +1570,21 @@
                     <div class="skill-item">
                         <div class="skill-header">
                             <i class="fas fa-microscope skill-icon"></i>
-                            <span class="skill-name">Curiosité Technique</span>
+                            <span class="skill-name" data-i18n="skills.soft.technical_curiosity">Curiosité Technique</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge advanced">Avancé</span>
+                            <span class="skill-level-badge advanced" data-i18n="skills.level.advanced">Avancé</span>
                             <div class="experience-indicators">
-                                <span class="indicator years-experience">Exploration continue</span>
-                                <span class="indicator project-count">Technologies émergentes</span>
-                                <span class="indicator">Expérimentation personnelle</span>
+                                <span class="indicator years-experience" data-i18n="skills.indicators.technical_curiosity_exploration">Exploration continue</span>
+                                <span class="indicator project-count" data-i18n="skills.indicators.technical_curiosity_emerging">Technologies émergentes</span>
+                                <span class="indicator" data-i18n="skills.indicators.technical_curiosity_experimentation">Expérimentation personnelle</span>
                             </div>
                         </div>
                         <div class="skill-details">
-                            Exploration proactive de nouvelles technologies, expérimentation personnelle, participation à la veille technologique.
+                            <span data-i18n="skills.details.technical_curiosity">Exploration proactive de nouvelles technologies, expérimentation personnelle, participation à la veille technologique.</span>
                         </div>
                         <div class="skill-context">
-                            <strong>Passion démontrée :</strong> Exploration informatique quantique (Qiskit), apprentissage Go, expérimentation IoT avec Arduino, découverte COBOL pour secteur financier.
+                            <strong data-i18n="skills.common.demonstrated_passion">Passion démontrée :</strong> <span data-i18n="skills.context.collaboration_experience">Exploration informatique quantique (Qiskit), apprentissage Go, expérimentation IoT avec Arduino, découverte COBOL pour secteur financier.</span>
                         </div>
                     </div>
                 </div>
@@ -1582,28 +1596,28 @@
                     <div class="skill-group-icon">
                         <i class="fas fa-clock"></i>
                     </div>
-                    <h2 class="skill-group-title">⏰ Organisation & Productivité</h2>
+                    <h2 class="skill-group-title" data-i18n="skills.groups.organization">⏰ Organisation & Productivité</h2>
                 </div>
                 <div class="skills-list">
                     <!-- Gestion du temps -->
                     <div class="skill-item">
                         <div class="skill-header">
                             <i class="fas fa-calendar-alt skill-icon"></i>
-                            <span class="skill-name">Gestion du Temps</span>
+                            <span class="skill-name" data-i18n="skills.soft.time_management">Gestion du Temps</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge intermediate">Intermédiaire</span>
+                            <span class="skill-level-badge intermediate" data-i18n="skills.level.intermediate">Intermédiaire</span>
                             <div class="experience-indicators">
-                                <span class="indicator years-experience">Deadlines respectées</span>
-                                <span class="indicator project-count">Projets multiples</span>
-                                <span class="indicator">Priorisation efficace</span>
+                                <span class="indicator years-experience" data-i18n="skills.indicators.time_management_deadlines">Deadlines respectées</span>
+                                <span class="indicator project-count" data-i18n="skills.indicators.time_management_multiple">Projets multiples</span>
+                                <span class="indicator" data-i18n="skills.indicators.time_management_prioritization">Priorisation efficace</span>
                             </div>
                         </div>
                         <div class="skill-details">
-                            Planification efficace, respect des deadlines, priorisation des tâches, gestion du multitâche.
+                            <span data-i18n="skills.details.time_management">Planification efficace, respect des deadlines, priorisation des tâches, gestion du multitâche.</span>
                         </div>
                         <div class="skill-context">
-                            <strong>Performance prouvée :</strong> Livraison dans les délais de tous mes projets professionnels, gestion simultanée de 3 projets à la DGEFP, respect des contraintes temporelles SNCF.
+                            <strong data-i18n="skills.common.proven_performance">Performance prouvée :</strong> <span data-i18n="skills.context.leadership_projects">Livraison dans les délais de tous mes projets professionnels, gestion simultanée de 3 projets à la DGEFP, respect des contraintes temporelles SNCF.</span>
                         </div>
                     </div>
 
@@ -1611,10 +1625,10 @@
                     <div class="skill-item">
                         <div class="skill-header">
                             <i class="fas fa-cogs skill-icon"></i>
-                            <span class="skill-name">Méthodologie de Travail</span>
+                            <span class="skill-name" data-i18n="skills.soft.work_methodology">Méthodologie de Travail</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge advanced">Avancé</span>
+                            <span class="skill-level-badge advanced" data-i18n="skills.level.advanced">Avancé</span>
                             <div class="experience-indicators">
                                 <span class="indicator years-experience">Processus optimisés</span>
                                 <span class="indicator project-count">Qualité constante</span>
@@ -1625,7 +1639,7 @@
                             Application rigoureuse des méthodologies, processus de développement optimisés, contrôle qualité systématique.
                         </div>
                         <div class="skill-context">
-                            <strong>Standards élevés :</strong> Application systématique des principes SOLID, documentation complète de tous mes projets, processus de test et validation rigoureux.
+                            <strong data-i18n="skills.common.high_standards">Standards élevés :</strong> <span data-i18n="skills.context.communication_professional">Application systématique des principes SOLID, documentation complète de tous mes projets, processus de test et validation rigoureux.</span>
                         </div>
                     </div>
 
@@ -1633,10 +1647,10 @@
                     <div class="skill-item">
                         <div class="skill-header">
                             <i class="fas fa-user-check skill-icon"></i>
-                            <span class="skill-name">Autonomie Professionnelle</span>
+                            <span class="skill-name" data-i18n="skills.soft.professional_autonomy">Autonomie Professionnelle</span>
                         </div>
                         <div class="skill-evaluation">
-                            <span class="skill-level-badge advanced">Avancé</span>
+                            <span class="skill-level-badge advanced" data-i18n="skills.level.advanced">Avancé</span>
                             <div class="experience-indicators">
                                 <span class="indicator years-experience">Responsabilité complète</span>
                                 <span class="indicator project-count">Projets en solo</span>
@@ -1647,7 +1661,7 @@
                             Capacité de travail en autonomie complète, prise de décisions techniques justifiées, responsabilisation sur résultats.
                         </div>
                         <div class="skill-context">
-                            <strong>Autonomie démontrée :</strong> Pilotage complet de projets DGEFP, responsabilité technique sur migrations SNCF, développement en autonomie de projets personnels innovants.
+                            <strong data-i18n="skills.common.demonstrated_autonomy">Autonomie démontrée :</strong> <span data-i18n="skills.context.adaptability_technologies">Pilotage complet de projets DGEFP, responsabilité technique sur migrations SNCF, développement en autonomie de projets personnels innovants.</span>
                         </div>
                     </div>
                 </div>
@@ -1665,17 +1679,17 @@
                 </div>
                 <div class="footer-links">
                     <div class="footer-nav">
-                        <h4>Navigation</h4>
+                        <h4 data-i18n="footer.nav.title">Navigation</h4>
                         <ul>
-                            <li><a href="index.html">Accueil</a></li>
-                            <li><a href="projects.html">Projets</a></li>
-                            <li><a href="skills.html">Compétences</a></li>
-                            <li><a href="experience.html">Expérience</a></li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+                            <li><a href="projects.html" data-i18n="nav.projects">Projets</a></li>
+                            <li><a href="skills.html" data-i18n="nav.skills">Compétences</a></li>
+                            <li><a href="experience.html" data-i18n="nav.experience">Expérience</a></li>
+                            <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
                         </ul>
                     </div>
                     <div class="footer-social">
-                        <h4>Réseaux sociaux</h4>
+                        <h4 data-i18n="footer.social.title">Réseaux sociaux</h4>
                         <div class="social-links">
                             <a href="https://github.com/HugoBiegas" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                                 <i class="fab fa-github"></i>
@@ -1691,12 +1705,14 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Hugo Biegas. Tous droits réservés.</p>
+                <p data-i18n="footer.copyright">&copy; 2025 Hugo Biegas. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
 
     <!-- JavaScript -->
+    <script src="assets/js/i18n/fr.js"></script>
+    <script src="assets/js/i18n/en.js"></script>
     <script src="assets/js/i18n/translations.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/dark-mode.js"></script>

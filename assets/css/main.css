@@ -171,6 +171,13 @@ nav {
     width: 100%;
 }
 
+/* Conteneur pour les éléments de droite du nav */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
 .logo {
     font-size: 1.8rem;
     font-weight: 700;

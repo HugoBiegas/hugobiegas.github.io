@@ -108,7 +108,18 @@ class I18n {
         // Traductions pour les éléments avec data-i18n
         document.querySelectorAll('[data-i18n]').forEach(element => {
             const key = element.getAttribute('data-i18n');
-            const translation = this.t(key);
+            const varsAttr = element.getAttribute('data-i18n-vars');
+            
+            let vars = {};
+            if (varsAttr) {
+                try {
+                    vars = JSON.parse(varsAttr);
+                } catch (e) {
+                    console.warn('Erreur de parsing des variables i18n:', varsAttr, e);
+                }
+            }
+            
+            const translation = this.t(key, vars);
             
             if (element.tagName === 'INPUT' && (element.type === 'text' || element.type === 'email')) {
                 element.placeholder = translation;
@@ -173,14 +184,27 @@ class I18n {
      * Initialise le sélecteur de langue
      */
     initLanguageSelector() {
+        // Gérer le sélecteur fixe (version ancienne)
         const languageSelector = document.getElementById('language-selector');
-        if (!languageSelector) return;
+        if (languageSelector) {
+            this.initSelectorEvents(languageSelector);
+        }
+
+        // Gérer le sélecteur dans le header (nouvelle version)
+        const headerSelector = document.querySelector('.language-selector-header');
+        if (headerSelector) {
+            this.initSelectorEvents(headerSelector);
+        }
 
         // Mettre à jour l'état initial
         this.updateLanguageSelector();
+    }
 
-        // Ajouter les événements
-        languageSelector.addEventListener('click', (e) => {
+    /**
+     * Initialise les événements pour un sélecteur donné
+     */
+    initSelectorEvents(selector) {
+        selector.addEventListener('click', (e) => {
             const langBtn = e.target.closest('[data-lang]');
             if (langBtn) {
                 const selectedLang = langBtn.getAttribute('data-lang');
@@ -193,11 +217,24 @@ class I18n {
      * Met à jour l'apparence du sélecteur de langue
      */
     updateLanguageSelector() {
+        // Mettre à jour le sélecteur fixe
         const languageSelector = document.getElementById('language-selector');
-        if (!languageSelector) return;
+        if (languageSelector) {
+            this.updateSelectorButtons(languageSelector);
+        }
 
-        // Mettre à jour les classes actives
-        languageSelector.querySelectorAll('[data-lang]').forEach(btn => {
+        // Mettre à jour le sélecteur dans le header
+        const headerSelector = document.querySelector('.language-selector-header');
+        if (headerSelector) {
+            this.updateSelectorButtons(headerSelector);
+        }
+    }
+
+    /**
+     * Met à jour les boutons d'un sélecteur donné
+     */
+    updateSelectorButtons(selector) {
+        selector.querySelectorAll('[data-lang]').forEach(btn => {
             const lang = btn.getAttribute('data-lang');
             btn.classList.toggle('active', lang === this.currentLanguage);
         });

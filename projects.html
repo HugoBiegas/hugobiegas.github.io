@@ -32,16 +32,6 @@
     <meta name="i18n-title" content="page.title.projects">
 </head>
 <body>
-    <!-- Sélecteur de langue -->
-    <div class="language-selector" id="language-selector">
-        <button class="language-btn" data-lang="fr" aria-label="Français">
-            <span class="language-tooltip">Français</span>
-        </button>
-        <button class="language-btn" data-lang="en" aria-label="English">
-            <span class="language-tooltip">English</span>
-        </button>
-    </div>
-
     <!-- Bouton de mode sombre -->
     <div class="theme-toggle">
         <button id="theme-toggle-btn" aria-label="Changer de thème">
@@ -59,17 +49,27 @@
                         <span class="logo-text">HB</span>
                     </a>
                 </div>
-                <ul class="nav-links">
-                    <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
-                    <li><a href="projects.html" class="active" data-i18n="nav.projects">Projets</a></li>
-                    <li><a href="skills.html" data-i18n="nav.skills">Compétences</a></li>
-                    <li><a href="experience.html" data-i18n="nav.experience">Expérience</a></li>
-                    <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
-                </ul>
-                <div class="burger">
-                    <div class="line1"></div>
-                    <div class="line2"></div>
-                    <div class="line3"></div>
+                
+                <div class="nav-right">
+                    <ul class="nav-links">
+                        <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+                        <li><a href="projects.html" class="active" data-i18n="nav.projects">Projets</a></li>
+                        <li><a href="skills.html" data-i18n="nav.skills">Compétences</a></li>
+                        <li><a href="experience.html" data-i18n="nav.experience">Expérience</a></li>
+                        <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+                    </ul>
+                    
+                    <!-- Sélecteur de langue dans le header -->
+                    <div class="language-selector-header">
+                        <button class="language-btn" data-lang="fr" aria-label="Français"></button>
+                        <button class="language-btn" data-lang="en" aria-label="English"></button>
+                    </div>
+                    
+                    <div class="burger">
+                        <div class="line1"></div>
+                        <div class="line2"></div>
+                        <div class="line3"></div>
+                    </div>
                 </div>
             </nav>
         </div>
