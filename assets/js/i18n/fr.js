@@ -70,7 +70,7 @@ window.translations_fr = {
     'projects.search.placeholder': 'Rechercher un projet...',
     'projects.no_results': 'Aucun projet ne correspond à ce critère.',
     'projects.reset_filters': 'Réinitialiser les filtres',
-    'projects.hover_indicator': 'Survolez pour en savoir plus',
+    'projects.click_indicator': 'Cliquez pour en savoir plus',
     'projects.github_link': 'GitHub',
 
     // Compétences
@@ -456,7 +456,8 @@ window.translations_fr = {
     'contact.info.subtitle': 'N\'hésitez pas à me contacter pour discuter de vos besoins',
     'contact.info.email': 'Email',
     'contact.info.location': 'Localisation',
-    'contact.info.location.detail': 'France, Saint-Ouen disponible en télétravail et pour des missions sur site',
+    'contact.info.location.detail': 'France, Saint-Ouen',
+    'contact.info.location.availability': 'Disponible en télétravail et missions sur site',
     'contact.social.title': 'Retrouvez-moi en ligne',
     'contact.availability.title': 'Disponibilité actuelle',
     'contact.availability.description': 'Je suis actuellement disponible pour des missions freelance en développement web, mobile. Si vous cherchez un développeur passionné qui accorde une importance particulière à la qualité et à la sécurité du code, n\'hésitez pas à me contacter.',

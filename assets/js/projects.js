@@ -21,6 +21,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialiser les effets de ligne au survol
     initRowHoverEffects();
     
+    // Initialiser le bouton retour en haut
+    initializeBackToTop();
+    
     // Gérer les ancres d'URL
     handleUrlHash();
 });
@@ -72,8 +75,8 @@ function generateProjects() {
                     ${detailedDescription}
                 </div>
                 <div class="project-hover-indicator">
-                    <i class="fas fa-chevron-down"></i>
-                    <span data-i18n="projects.hover_indicator">Survolez pour en savoir plus</span>
+                    <i class="fas fa-mouse-pointer"></i>
+                    <span data-i18n="projects.click_indicator">Cliquez pour en savoir plus</span>
                 </div>
             </div>
         `;
@@ -142,7 +145,6 @@ function updateAnchorPositions() {
     document.querySelectorAll('.line-anchor').forEach(a => a.remove());
     
     // Recréer les ancres pour les cartes visibles
-    const projectsGrid = document.querySelector('.projects-grid');
     const rowCount = Math.ceil(allCards.length / columnsCount);
     
     for (let row = 0; row < rowCount; row++) {
@@ -164,8 +166,6 @@ function updateAnchorPositions() {
             firstCardInRow.parentNode.insertBefore(anchor, firstCardInRow);
             
             // Ajuster la position de l'ancre
-            const cardRect = firstCardInRow.getBoundingClientRect();
-            const gridRect = projectsGrid.getBoundingClientRect();
             anchor.style.top = `${firstCardInRow.offsetTop - 20}px`;
         }
     }
@@ -238,15 +238,13 @@ function initTimeline() {
 }
 
 /**
- * NOUVELLE FONCTION - Initialise les effets de ligne au survol avec ancres
+ * NOUVELLE FONCTION - Initialise les effets de ligne au clic avec ancres
  */
 function initRowHoverEffects() {
     const projectsGrid = document.querySelector('.projects-grid');
     if (!projectsGrid) return;
     
-    let currentHoveredRow = null;
-    let hideTimeout = null;
-    let isTransitioning = false;
+    let currentExpandedRow = null;
     let activeAnchor = null;
     
     // Fonction pour obtenir toutes les cartes de la même ligne
@@ -276,42 +274,22 @@ function initRowHoverEffects() {
             // Activer la nouvelle ancre
             activeAnchor = anchor;
             activeAnchor.classList.add('active-anchor');
-            
-            // Optionnel: Scroll vers l'ancre si nécessaire
-            // Mais uniquement si elle n'est pas déjà visible
-            const anchorRect = anchor.getBoundingClientRect();
-            if (anchorRect.top < 100) { // Si l'ancre est trop haute
-                anchor.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
-            }
         }
     }
     
-    // Fonction pour afficher les descriptions d'une ligne
-    function showRowDescriptions(rowCards, hoveredCard) {
-        // Annuler le timeout de masquage si il existe
-        if (hideTimeout) {
-            clearTimeout(hideTimeout);
-            hideTimeout = null;
-        }
-        
-        // Ne rien faire si on survole une carte déjà dépliée
-        if (hoveredCard.classList.contains('expanded')) {
-            return;
-        }
-        
-        isTransitioning = true;
-        
-        const rowIndex = getCardRowIndex(hoveredCard);
+    // Fonction pour afficher les descriptions d'une ligne au clic
+    function showRowDescriptions(rowCards, clickedCard) {
+        const rowIndex = getCardRowIndex(clickedCard);
         activateRowAnchor(rowIndex);
         
         rowCards.forEach((card, index) => {
             // Appliquer les classes appropriées
-            if (card === hoveredCard) {
-                card.classList.add('row-hover');
-                card.classList.remove('row-hover-secondary');
+            if (card === clickedCard) {
+                card.classList.add('row-click');
+                card.classList.remove('row-click-secondary');
             } else {
-                card.classList.add('row-hover-secondary');
-                card.classList.remove('row-hover');
+                card.classList.add('row-click-secondary');
+                card.classList.remove('row-click');
             }
             
             // Afficher la description immédiatement
@@ -320,7 +298,7 @@ function initRowHoverEffects() {
             
             if (desc && !card.classList.contains('expanded')) {
                 desc.style.maxHeight = '500px';
-                desc.style.opacity = card === hoveredCard ? '1' : '0.9';
+                desc.style.opacity = card === clickedCard ? '1' : '0.9';
                 desc.style.paddingTop = '15px';
             }
             
@@ -328,96 +306,75 @@ function initRowHoverEffects() {
                 indicator.style.opacity = '0';
             }
             
-            card.classList.add('hovered');
+            card.classList.add('clicked');
         });
         
-        setTimeout(() => {
-            isTransitioning = false;
-        }, 100);
+        currentExpandedRow = rowIndex;
     }
     
     // Fonction pour masquer les descriptions d'une ligne
     function hideRowDescriptions(rowCards) {
-        if (isTransitioning) return;
-        
-        hideTimeout = setTimeout(() => {
-            rowCards.forEach(card => {
-                card.classList.remove('row-hover', 'row-hover-secondary', 'hovered');
-                
-                if (!card.classList.contains('expanded')) {
-                    const desc = card.querySelector('.project-description');
-                    const indicator = card.querySelector('.project-hover-indicator');
-                    
-                    if (desc) {
-                        desc.style.maxHeight = '0';
-                        desc.style.opacity = '0';
-                        desc.style.paddingTop = '0';
-                    }
-                    
-                    if (indicator) {
-                        indicator.style.opacity = '0.7';
-                    }
-                }
-            });
-            currentHoveredRow = null;
+        rowCards.forEach(card => {
+            card.classList.remove('row-click', 'row-click-secondary', 'clicked');
             
-            // Désactiver l'ancre après masquage
-            if (activeAnchor) {
-                activeAnchor.classList.remove('active-anchor');
-                activeAnchor = null;
+            if (!card.classList.contains('expanded')) {
+                const desc = card.querySelector('.project-description');
+                const indicator = card.querySelector('.project-hover-indicator');
+                
+                if (desc) {
+                    desc.style.maxHeight = '0';
+                    desc.style.opacity = '0';
+                    desc.style.paddingTop = '0';
+                }
+                
+                if (indicator) {
+                    indicator.style.opacity = '0.9';
+                }
             }
-        }, 2000);
+        });
+        
+        currentExpandedRow = null;
+        
+        // Désactiver l'ancre
+        if (activeAnchor) {
+            activeAnchor.classList.remove('active-anchor');
+            activeAnchor = null;
+        }
     }
     
-    // Délégation d'événements pour une meilleure performance
-    projectsGrid.addEventListener('mouseenter', function(e) {
-        const card = e.target.closest('.project-card');
-        if (!card) return;
-        
-        const rowData = getRowCards(card);
+    // Gestionnaire de clic global pour les cartes
+    window.handleCardClick = function(clickedCard) {
+        const rowData = getRowCards(clickedCard);
         const rowCards = rowData.cards;
         const rowIndex = rowData.rowIndex;
         
-        // Si c'est une nouvelle ligne ou la même ligne
-        if (currentHoveredRow !== rowIndex) {
-            // Masquer immédiatement l'ancienne ligne
-            if (currentHoveredRow !== null) {
-                const oldCards = document.querySelectorAll('.row-hover, .row-hover-secondary');
-                oldCards.forEach(c => {
-                    c.classList.remove('row-hover', 'row-hover-secondary', 'hovered');
-                    if (!c.classList.contains('expanded')) {
-                        const desc = c.querySelector('.project-description');
-                        const indicator = c.querySelector('.project-hover-indicator');
-                        
-                        if (desc) {
-                            desc.style.maxHeight = '0';
-                            desc.style.opacity = '0';
-                            desc.style.paddingTop = '0';
-                        }
-                        
-                        if (indicator) {
-                            indicator.style.opacity = '0.7';
-                        }
-                    }
-                });
-            }
-            
-            currentHoveredRow = rowIndex;
+        // Vérifier si la carte cliquée est déjà expanded
+        const isCardExpanded = clickedCard.classList.contains('expanded');
+        
+        // Si on clique sur une carte déjà expanded, on la ferme
+        if (isCardExpanded) {
+            hideRowDescriptions(rowCards);
+            return;
         }
         
-        showRowDescriptions(rowCards, card);
-    }, true);
-    
-    // Écouter quand on quitte complètement la grille
-    projectsGrid.addEventListener('mouseleave', function(e) {
-        // Vérifier qu'on quitte vraiment la grille
-        if (!e.relatedTarget || !projectsGrid.contains(e.relatedTarget)) {
-            const hoveredCards = document.querySelectorAll('.row-hover, .row-hover-secondary');
-            if (hoveredCards.length > 0) {
-                hideRowDescriptions(Array.from(hoveredCards));
+        // Si on clique sur une carte d'une ligne déjà ouverte
+        if (currentExpandedRow === rowIndex) {
+            // Si c'est une autre carte de la même ligne, on change juste le focus
+            showRowDescriptions(rowCards, clickedCard);
+            return;
+        }
+        
+        // Si une autre ligne était ouverte, la fermer d'abord
+        if (currentExpandedRow !== null && currentExpandedRow !== rowIndex) {
+            const oldCards = document.querySelectorAll('.row-click, .row-click-secondary');
+            if (oldCards.length > 0) {
+                hideRowDescriptions(Array.from(oldCards));
             }
         }
-    });
+        
+        // Ouvrir la nouvelle ligne
+        showRowDescriptions(rowCards, clickedCard);
+    };
 }
 
 /**
@@ -433,12 +390,17 @@ function initProjectCards() {
             description.dataset.initialized = 'true';
         }
         
-        // Ajouter l'événement de clic pour toggle
+        // Ajouter l'événement de clic pour toggle avec gestion des lignes
         card.addEventListener('click', function(e) {
             // Éviter le déclenchement sur les liens
             if (e.target.closest('a')) return;
             
-            // Toggle avec système d'ancres
+            // D'abord, gérer l'effet de ligne (si la fonction existe)
+            if (typeof window.handleCardClick === 'function') {
+                window.handleCardClick(this);
+            }
+            
+            // Ensuite, toggle le projet individuel
             toggleProjectDetailsWithAnchors(this);
         });
     });
@@ -586,8 +548,9 @@ function openCardWithSmoothAnimation(projectCard, projectDescription, hoverIndic
     const targetHeight = projectDescription.scrollHeight;
     projectDescription.style.maxHeight = '0';
     
-    // Forcer le reflow
-    void projectDescription.offsetHeight;
+    // Forcer le reflow pour s'assurer que les styles sont appliqués
+    // eslint-disable-next-line no-unused-expressions
+    projectDescription.offsetHeight;
     
     // Configurer la transition fluide
     projectDescription.style.transition = 'all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
@@ -614,50 +577,7 @@ function openCardWithSmoothAnimation(projectCard, projectDescription, hoverIndic
 
 // Fonction openCardWithAnchor supprimée - remplacée par openCardWithSmoothAnimation
 
-/**
- * Affiche la description au survol
- */
-function showProjectDescription(projectCard) {
-    const projectDescription = projectCard.querySelector('.project-description');
-    const hoverIndicator = projectCard.querySelector('.project-hover-indicator');
-    
-    if (projectDescription && !projectCard.classList.contains('expanded')) {
-        // Utilisation directe sans recalcul
-        projectDescription.style.maxHeight = '500px';
-        projectDescription.style.opacity = '1';
-        projectDescription.style.paddingTop = '15px';
-        
-        // Masquer l'indicateur
-        if (hoverIndicator) {
-            hoverIndicator.style.opacity = '0';
-        }
-        
-        // Ajouter une classe pour le styling
-        projectCard.classList.add('hovered');
-    }
-}
 
-/**
- * Masque la description quand on quitte le survol
- */
-function hideProjectDescription(projectCard) {
-    const projectDescription = projectCard.querySelector('.project-description');
-    const hoverIndicator = projectCard.querySelector('.project-hover-indicator');
-    
-    if (projectDescription && !projectCard.classList.contains('expanded')) {
-        projectDescription.style.maxHeight = '0';
-        projectDescription.style.opacity = '0';
-        projectDescription.style.paddingTop = '0';
-        
-        // Réafficher l'indicateur
-        if (hoverIndicator) {
-            hoverIndicator.style.opacity = '0.7';
-        }
-        
-        // Retirer la classe de styling
-        projectCard.classList.remove('hovered');
-    }
-}
 
 /**
  * Initialise les filtres de projets avec animation
@@ -894,4 +814,52 @@ function shuffleProjects() {
     
     // Recréer les ancres après réorganisation
     updateAnchorPositions();
+}
+
+/**
+ * Initialise le bouton retour en haut
+ */
+function initializeBackToTop() {
+    const backToTopBtn = document.getElementById('back-to-top-btn');
+    const backToTopContainer = document.querySelector('.back-to-top');
+    
+    // Vérifier que les éléments existent
+    if (!backToTopBtn || !backToTopContainer) {
+        console.warn('⚠️ Bouton back-to-top non trouvé');
+        return;
+    }
+
+    // Fonction pour gérer l'affichage du bouton back-to-top
+    function toggleBackToTop() {
+        const scrollPosition = window.pageYOffset;
+        const windowHeight = window.innerHeight;
+        
+        // Afficher le bouton après avoir scrollé d'au moins 60% d'une hauteur d'écran
+        if (scrollPosition > windowHeight * 0.6) {
+            backToTopContainer.classList.add('visible');
+        } else {
+            backToTopContainer.classList.remove('visible');
+        }
+    }
+    
+    // Écouter le scroll pour le back-to-top
+    window.addEventListener('scroll', toggleBackToTop);
+    
+    // Écouter le clic sur le bouton back-to-top
+    backToTopBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+        
+        // Effet visuel de clic
+        this.style.transform = 'scale(0.9)';
+        setTimeout(() => {
+            this.style.transform = '';
+        }, 150);
+    });
+    
+    // Initialiser l'état du bouton
+    toggleBackToTop();
 }

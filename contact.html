@@ -87,44 +87,68 @@
     <!-- Section de contact principale -->
     <section class="contact-section">
         <div class="container">
-            <div class="contact-container">
-                <!-- Informations de contact -->
-                <div class="contact-info">
-                    <h2 class="contact-heading" data-i18n="contact.info.title">Mes Coordonnées</h2>
-                    <p class="contact-subheading" data-i18n="contact.info.subtitle">N'hésitez pas à me contacter par l'un des moyens suivants.</p>
-                    
-                    <!-- Email -->
-                    <div class="contact-method">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
+            <div class="contact-wrapper">
+                <h2 class="contact-main-title" data-i18n="contact.info.title">Mes Coordonnées</h2>
+                <p class="contact-main-subtitle" data-i18n="contact.info.subtitle">N'hésitez pas à me contacter par l'un des moyens suivants.</p>
+                
+                <div class="contact-horizontal-grid">
+                    <!-- Email Section -->
+                    <div class="contact-section-item">
+                        <div class="contact-card-header">
+                            <div class="contact-icon-large">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h3 class="contact-item-title" data-i18n="contact.info.email">Email</h3>
                         </div>
-                        <div class="contact-details">
-                            <h3 data-i18n="contact.info.email">Email</h3>
-                            <p><a href="mailto:Contact.Hugo.Biegas@gmail.com">Contact.Hugo.Biegas@gmail.com</a></p>
+                        <div class="contact-card-body">
+                            <a href="mailto:Contact.Hugo.Biegas@gmail.com" class="contact-button email-button">
+                                <i class="fas fa-paper-plane"></i>
+                                <span>Contact.Hugo.Biegas@gmail.com</span>
+                            </a>
+                        </div>
+                        <div class="contact-card-footer">
                         </div>
                     </div>
                     
-                    <!-- Localisation -->
-                    <div class="contact-method">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
+                    <!-- Location Section -->
+                    <div class="contact-section-item">
+                        <div class="contact-card-header">
+                            <div class="contact-icon-large">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <h3 class="contact-item-title" data-i18n="contact.info.location">Localisation</h3>
                         </div>
-                        <div class="contact-details">
-                            <h3 data-i18n="contact.info.location">Localisation</h3>
-                            <p data-i18n="contact.info.location.detail">France, Saint-Ouen disponible en télétravail et pour des missions sur site</p>
+                        <div class="contact-card-body">
+                            <div class="location-info">
+                                <p data-i18n="contact.info.location.detail">France, Saint-Ouen</p>
+                                <p data-i18n="contact.info.location.availability">Disponible en télétravail et missions sur site</p>
+                            </div>
+                        </div>
+                        <div class="contact-card-footer">
                         </div>
                     </div>
                     
-                    <!-- Réseaux sociaux -->
-                    <div class="social-section">
-                        <h3 class="social-heading" data-i18n="contact.social.title">Retrouvez-moi en ligne</h3>
-                        <div class="social-grid">
-                            <a href="https://github.com/HugoBiegas" target="_blank" rel="noopener noreferrer" class="social-item">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="https://www.linkedin.com/in/hugo-biegas-659298386" target="_blank" rel="noopener noreferrer" class="social-item">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
+                    <!-- Social Networks Section -->
+                    <div class="contact-section-item">
+                        <div class="contact-card-header">
+                            <div class="contact-icon-large">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <h3 class="contact-item-title" data-i18n="contact.social.title">Retrouvez-moi en ligne</h3>
+                        </div>
+                        <div class="contact-card-body">
+                            <div class="social-buttons">
+                                <a href="https://github.com/HugoBiegas" target="_blank" rel="noopener noreferrer" class="contact-button github-button">
+                                    <i class="fab fa-github"></i>
+                                    <span>GitHub</span>
+                                </a>
+                                <a href="https://www.linkedin.com/in/hugo-biegas-659298386" target="_blank" rel="noopener noreferrer" class="contact-button linkedin-button">
+                                    <i class="fab fa-linkedin-in"></i>
+                                    <span>LinkedIn</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="contact-card-footer">
                         </div>
                     </div>
                 </div>

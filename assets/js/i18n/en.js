@@ -70,7 +70,7 @@ window.translations_en = {
     'projects.search.placeholder': 'Search for a project...',
     'projects.no_results': 'No projects match this criteria.',
     'projects.reset_filters': 'Reset filters',
-    'projects.hover_indicator': 'Hover to learn more',
+    'projects.click_indicator': 'Click to learn more',
     'projects.github_link': 'GitHub',
 
     // Skills
@@ -456,7 +456,8 @@ window.translations_en = {
     'contact.info.subtitle': 'Feel free to contact me to discuss your needs',
     'contact.info.email': 'Email',
     'contact.info.location': 'Location',
-    'contact.info.location.detail': 'France, Saint-Ouen available remotely and for on-site missions',
+    'contact.info.location.detail': 'France, Saint-Ouen',
+    'contact.info.location.availability': 'Available remotely and for on-site missions',
     'contact.social.title': 'Find me online',
     'contact.availability.title': 'Current availability',
     'contact.availability.description': 'I am currently available for freelance missions in web and mobile development. If you are looking for a passionate developer who places particular importance on code quality and security, feel free to contact me.',
