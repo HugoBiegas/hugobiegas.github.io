@@ -4,20 +4,82 @@
    BANNIÈRE D'EXPÉRIENCE
    =============================================== */
 .experience-banner {
-    padding: 120px 0 60px;
-    background-color: var(--light);
+    padding: 100px 0 80px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     text-align: center;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInDown 0.8s ease forwards;
+}
+
+.experience-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.1);
+    background-image: 
+        radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.2) 2px, transparent 2px),
+        radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+    background-size: 50px 50px, 30px 30px;
+    animation: float 25s linear infinite;
+}
+
+@keyframes float {
+    0% { transform: translateX(0px) translateY(0px); }
+    50% { transform: translateX(-20px) translateY(-10px); }
+    100% { transform: translateX(0px) translateY(0px); }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .experience-banner h1 {
-    font-size: 2.8rem;
-    margin-bottom: 20px;
+    font-size: 3.2rem;
+    font-weight: 800;
+    margin-bottom: 25px;
+    color: var(--white);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 2;
+    letter-spacing: -0.5px;
 }
 
 .experience-banner p {
-    max-width: 700px;
+    font-size: 1.3rem;
+    max-width: 900px;
     margin: 0 auto;
-    color: var(--gray-1);
+    color: rgba(255, 255, 255, 0.95);
+    line-height: 1.7;
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    font-weight: 400;
+}
+
+/* Mode sombre */
+.dark-mode .experience-banner {
+    background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+}
+
+.dark-mode .experience-banner h1 {
+    color: var(--white);
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.dark-mode .experience-banner p {
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 /* ===============================================
