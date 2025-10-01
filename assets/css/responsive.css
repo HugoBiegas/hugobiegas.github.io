@@ -127,6 +127,37 @@
         right: 0;
     }
     
+    /* Bouton CV en mode mobile */
+    .cv-btn-header {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 95;
+        padding: 12px 24px;
+        font-size: 0.95rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .hero-buttons .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .availability-cta {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .availability-cta .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
     .burger {
         display: block;
         z-index: 100;

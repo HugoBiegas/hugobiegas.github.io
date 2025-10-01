@@ -327,6 +327,10 @@
 
 .availability-cta {
     margin-top: 50px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .availability-cta .btn {

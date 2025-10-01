@@ -8,6 +8,7 @@ window.translations_en = {
     'nav.skills': 'Skills',
     'nav.experience': 'Experience',
     'nav.contact': 'Contact',
+    'nav.cv': 'Resume',
     'navigation.back_to_top': 'Back to top',
 
     // Home page
@@ -17,6 +18,7 @@ window.translations_en = {
     'home.availability': 'Available for new professional challenges.',
     'home.cta.projects': 'View my projects',
     'home.cta.contact': 'Contact me',
+    'home.cta.cv': 'Download my Resume',
 
     // About
     'about.title': 'About',

@@ -80,12 +80,29 @@
     background-color: var(--white);
 }
 
+/* Boutons CV en mode sombre */
+.dark-mode .cv-btn-header {
+    box-shadow: 0 4px 15px rgba(90, 121, 255, 0.4);
+}
+
+.dark-mode .cv-btn-header:hover {
+    box-shadow: 0 6px 20px rgba(90, 121, 255, 0.5);
+}
+
+.dark-mode .cv-btn {
+    box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+}
+
+.dark-mode .cv-btn:hover {
+    box-shadow: 0 25px 50px rgba(102, 126, 234, 0.5);
+}
+
 /* Transitions douces lors du changement de thème */
 body, header, .project-card, .skill-category, .tech-item, 
 .social-links a, footer, .hero::before, .burger div,
 .nav-links, .project-tags span, .btn, a, .logo-text, 
 .section-divider, .stat-count, #theme-toggle-btn,
-.category-icon, .about, .skills-preview {
+.category-icon, .about, .skills-preview, .cv-btn-header, .cv-btn {
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
